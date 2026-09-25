@@ -46,6 +46,53 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 - Some endpoints may 403 on the hackathon Startup tier → degrade gracefully and
   show it in the "can't tell you" panel, never crash
 
+## Probe findings (25 Sep 2026, Startup key; don't re-probe, read `fixtures/`)
+`npm run probe` (scripts/probe.ts) saves raw responses to `fixtures/`, plus a per-call log
+in `fixtures/_probe-summary.json`. One run costs about 16 credits. The plan allows 15k
+credits/month and 50 requests/min. API friction is logged in `FRICTION.md`.
+
+Works (credits): key/info (0), rwa map (0), rwa info (1), rwa quotes/latest (1),
+rwa assets/list (1), rwa issuers/list (1), rwa issuers (1), /v2/cryptocurrency/info (1),
+/v1/dex/token/pools (1), /v3/fear-and-greed/latest (1), all 3 /v5/derivatives/liquidations/* (1).
+**Blocked:** `/v5/real-world-assets/market-pairs/list` returns 403 (error_code 1006).
+
+Fields that exist:
+- **map** `data.rwa_assets[]`: rwa_id, name, symbol, slug, asset_type, rwa_rank, has_tokens.
+  GOLD=1, NVDA=2.
+- **quotes/latest** `data.rwa_assets[]`: rwa_id, symbol, asset_type, average_tokenized_price,
+  tokenized_market_cap, tokenized_volume_24h, last_updated, quotes[] (USD).
+  - `tokens[]`: crypto_id, symbol, name, issuer_id, issuer_name, price, market_cap, volume_24h.
+    No chain and no contract address.
+  - `tradfi_markets[]`: exchange{exchange_id,name,slug}, ticker, market_url. Empty for GOLD.
+- **assets/list**: same totals as quotes but without tokens/tradfi_markets. Not needed.
+- **info** `data.rwa_assets[]`: name, website, employees, founded, industry, cik, about{description (markdown), logo, website, date_added}, primary_exchange (undocumented).
+  Equity fields are null for commodities; logo is null for both assets.
+- **issuers/list** `data.issuers[]`: name, website, logo, issuer_id, num_tokens (25 issuers).
+  **issuers**: same fields plus tokens[]{name,symbol,crypto_id,rwa_id}.
+- **/v2/cryptocurrency/info** `data[<crypto_id>]`: `contract_address[]{contract_address, platform{name, coin{slug}}}`
+  plus a primary `platform{slug, token_address}`. This is how a wrapper gets its contracts.
+- **dex/token/pools** (`platform`, `address`, `size`): returns `{data:[...], status}`, not the
+  bare array the docs show. Row fields: addr, exn, exid, liqUsd, v24, t0/t1{addr,sym,n,lg}, bidx, top, pubAt.
+- **fear-and-greed/latest** `data`: value, value_classification, update_time.
+- **liquidations** `data.quotes[]` / `data.exchanges[].quotes[]` / `data.cryptocurrencies[].quotes[]`:
+  total/long/short liquidations over 1h/4h/24h. Market-wide crypto only, nothing RWA-specific.
+
+The 5 surprises (the engine and UI must handle them):
+1. **Units differ.** CGO and VNXAU are priced per gram (about 137.9) while other gold wrappers
+   are per troy ounce (about 4,285); 1 oz = 31.1035 g. Normalise units before any premium math.
+2. **Token symbols collide.** Two different wrappers are both `NVDA` (Robinhood 40685 and
+   "NA (Derivatives)" 38153). Key everything by `crypto_id`, never by symbol.
+3. **Some wrappers aren't real tokens.** Issuer "NA (Derivatives)" rows have market_cap 0.
+   Dinari NVDA.D has null price, market_cap and volume. Filter them out or flag them; don't
+   score them.
+4. **Chain names differ between endpoints.** The contract lookup says `bnb` but DEX pools
+   needs `bsc`. The wrong name returns a misleading 500 "system is busy". The mapping is in
+   `DEX_PLATFORM_ALIASES` in scripts/probe.ts. TON (`gram`), Sui and others are untested.
+5. **The exit check is patchy.** Market pairs are blocked. DEX `liqUsd`/`v24` are long decimal
+   strings (parse them), and `liqUsd` is absent on about half of NVDA pool rows. Build exits
+   from token volume_24h + pool depth where present + tradfi_markets, and put the gaps in the
+   "can't tell you" panel.
+
 ## Design principles
 - One screen, one answer. The verdict is the hero; everything else supports it.
 - Calm, confident, typographic. Generous spacing, one accent colour per verdict state.
