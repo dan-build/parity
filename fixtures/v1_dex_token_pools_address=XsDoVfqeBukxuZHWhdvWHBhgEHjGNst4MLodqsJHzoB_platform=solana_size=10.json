@@ -1,0 +1,251 @@
+{
+  "data": [
+    {
+      "addr": "9df9e0f11a1ac9ff6cd78bf0adb2c72eb38d3a8e12f9",
+      "v24": "0",
+      "t0": {
+        "addr": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36507.png",
+        "n": "Pump",
+        "sym": "PUMP"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "c87dd875bb8ea42a3427e789dcbca662f43bcc7e686a",
+      "v24": "0",
+      "t0": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "47c68df1abd713389e0c6e86bd6d2e36799d4f6351fe",
+      "v24": "0",
+      "t0": {
+        "addr": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "USDT",
+        "sym": "USDT",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "1271e17213855f7efbe31173e0fe8a76d162a3c4b153",
+      "v24": "0",
+      "t0": {
+        "addr": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22533.png",
+        "n": "Jito Staked SOL",
+        "sym": "JitoSOL"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "4af6da1df517571f4e668de27b8b8058a0559e721305",
+      "v24": "0",
+      "t0": {
+        "addr": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37055.png",
+        "n": "Meta xStock",
+        "sym": "METAx"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "8aDaBQkTrS6HVMjyc6EZebgdiaXhLYGriDWKWWp1NpFF",
+      "v24": "2415237.513396174190289137",
+      "pubAt": "1770810191000",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "924085.726205",
+        "liqUsd": "923971.599530374072700952"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liq": "3644.45389726",
+        "liqUsd": "1355378.762871488246000947"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "2279350.362401862318701898",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "HHQUnUbmWLrYzkscDY1C3deEFbGtiGBGoHjpANogmvum",
+      "v24": "149774.757214403978074648",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "74933.555396",
+        "liqUsd": "74925.743648739614616009"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liq": "1007.10154288",
+        "liqUsd": "373777.599307148003557868"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "448703.342955887618173877",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "6FQQyf7UcyU86TZC1cmAcfC4a18SJyDggEKtQfTJWmfs",
+      "v24": "114792.489303267332784081",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "90014.177544",
+        "liqUsd": "90004.637193543367159307"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liq": "488.93793591",
+        "liqUsd": "181517.558552566984305178"
+      },
+      "bidx": 1,
+      "exid": 33200,
+      "exn": "Byreal",
+      "liqUsd": "271522.195746110351464484",
+      "fa": "REALQqNEomY6cQGZJUGwywTBD2UmDT32rZcNnfxQ5N2",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "9p7abUFv31ycgu9kckvnoqMMvBy67dqTDM2m6HP9xokN",
+      "v24": "163333.557863702447406614",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "18812.13415",
+        "liqUsd": "18809.844475717539353594"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liq": "238.15219605",
+        "liqUsd": "88689.646394830323432225"
+      },
+      "bidx": 1,
+      "exid": 1426,
+      "exn": "Orca",
+      "liqUsd": "107499.490870547862785818",
+      "fa": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "CKmjDiqBCRqR8xk5FjnFiQXuCFsGchiLv9YwYVnE5RJ8",
+      "v24": "141961.453081675695777925",
+      "t0": {
+        "addr": "So11111111111111111111111111111111111111112",
+        "lg": "https://dex-static.sintral.io/token-logo/16/So11111111111111111111111111111111111111112/1766048405124.jpeg",
+        "n": "Wrapped SOL",
+        "sym": "wSOL",
+        "liq": "157.170074887",
+        "liqUsd": "19046.424196715861083455"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liq": "208.83257514",
+        "liqUsd": "77895.290583049674048903"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "96941.714779765535132358",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:47.494Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 199,
+    "credit_count": 1
+  }
+}

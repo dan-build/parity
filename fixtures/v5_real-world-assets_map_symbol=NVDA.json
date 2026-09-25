@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Nvidia Corp",
+        "symbol": "NVDA",
+        "slug": "nvidia",
+        "rwa_id": 2,
+        "asset_type": "stock",
+        "rwa_rank": 2,
+        "has_tokens": true,
+        "first_historical_data": "2003-09-07T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:47:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:26.100Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 2,
+    "credit_count": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "SPDR S&P 500 ETF Trust",
+        "symbol": "SPY",
+        "slug": "spy",
+        "rwa_id": 86,
+        "asset_type": "etf",
+        "rwa_rank": 7811,
+        "has_tokens": true,
+        "first_historical_data": "2003-09-07T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:40:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:34.699Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 3,
+    "credit_count": 0
+  }
+}

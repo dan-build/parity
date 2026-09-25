@@ -1,0 +1,263 @@
+{
+  "data": [
+    {
+      "addr": "0x77abf4d65c72177a314f45dd988989f28611cada",
+      "v24": "151739.86005249079881271",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB"
+      },
+      "t1": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "bidx": 0,
+      "exid": 33933,
+      "exn": "Neptune",
+      "fa": "0xe2588c219697f520757b82f5b0119d72bddc0e13",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xf23f255dae804e1963438bae28a0725da6d67308",
+      "v24": "44315.537762436109414658",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB"
+      },
+      "t1": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x89b265dd08d7fda0b81f570131644a9d3025c4cf",
+      "v24": "9.975796556895311401",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB"
+      },
+      "t1": {
+        "addr": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "lg": "https://dex-static.sintral.io/token-logo/14/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/1766048587507.png",
+        "n": "Wrapped BNB",
+        "sym": "WBNB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5843b8b9c7b3f09d6c8f2fd83ad2eaf486534282",
+      "v24": "0",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB"
+      },
+      "t1": {
+        "addr": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x8f8dd38b4dbbc7a1707034bc3cf29559309615ed",
+      "v24": "0",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB"
+      },
+      "t1": {
+        "addr": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40217.png",
+        "n": "SpaceX",
+        "sym": "SPCXB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xe9b9998b2ec5430d2246c7f1f8d9f298c97d7365",
+      "v24": "845672.227190353820456382",
+      "pubAt": "1785387961000",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB",
+        "liq": "471.238077972013740938",
+        "liqUsd": "160146.935048501422805977"
+      },
+      "t1": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "366127.985982893827548712",
+        "liqUsd": "366060.279890213914622764"
+      },
+      "bidx": 0,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "526207.214938715337428741",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xd4ae7dd719ec71594f13d0e3b17e65e9085f1ca1",
+      "v24": "474729.996524971071852009",
+      "pubAt": "1787398950000",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB",
+        "liq": "717.814888236837848449",
+        "liqUsd": "244852.708683766486647856"
+      },
+      "t1": {
+        "addr": "0x87ae267002cd1ea0ec86bf3601d4a8ad76a47777",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42269.png",
+        "n": "蝴蝶人生",
+        "sym": "蝴蝶人生",
+        "liq": "14524467.047745655801837816",
+        "liqUsd": "245463.377716112027737709"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "490316.086399878514385564",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "0.99706973233005303912031910501932",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x8ba5a4410fdf519139849233b0bf1e5b84fb1995",
+      "v24": "484672.702851001800342508",
+      "pubAt": "1789267993000",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB",
+        "liq": "164.628378047523221124",
+        "liqUsd": "56115.605045450698157576"
+      },
+      "t1": {
+        "addr": "0x923cbbe402ab9adb85fbe04edad056dc35447777",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/9384C6AD03192E1F1EEA76A64CF52677.webp",
+        "n": "CZ",
+        "sym": "CZ",
+        "liq": "68984277.394801907959380235",
+        "liqUsd": "56355.803467303248536077"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "112471.408512753946693653",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "0.99191394126532441103482898120652",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x36c0fc3159eb8662a2e1b84a4df518d916bce0e1",
+      "v24": "465958.193624018431988071",
+      "pubAt": "1785481858000",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB",
+        "liq": "92.938726623662660014",
+        "liqUsd": "31715.318601185879244135"
+      },
+      "t1": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "78285.219184938453119863",
+        "liqUsd": "78270.387106011525194294"
+      },
+      "bidx": 0,
+      "exid": 6444,
+      "exn": "Uniswap v3 (BSC)",
+      "liqUsd": "109985.705707197404438428",
+      "fa": "0xdb1d10011ad0ff90774d0c6bb92e5c5c8b4461f7",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5aca9563f8d14a6d79f12421d549a5606644a270",
+      "v24": "182583.782872526216759059",
+      "pubAt": "1788241032000",
+      "t0": {
+        "addr": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+        "n": "Apple",
+        "sym": "AAPLB",
+        "liq": "91.232941865596322429",
+        "liqUsd": "31012.52228185678155146"
+      },
+      "t1": {
+        "addr": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "lg": "https://dex-static.sintral.io/token-logo/14/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/1766048587507.png",
+        "n": "Wrapped BNB",
+        "sym": "WBNB",
+        "liq": "62.424590720781799312",
+        "liqUsd": "48263.262736024280590203"
+      },
+      "bidx": 0,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "79275.785017881062141662",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:58.530Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 216,
+    "credit_count": 1
+  }
+}

@@ -2,7 +2,7 @@
   "data": [
     {
       "addr": "0xc41ca8bfa93505fdeefe40c8239f985ad43c6fa0",
-      "v24": "117950.402340686694476457",
+      "v24": "117926.227156378637970438",
       "t0": {
         "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
@@ -24,7 +24,7 @@
     },
     {
       "addr": "0xdedb4fc0d625905e557c05429e3846a101deace8",
-      "v24": "12259.114456667212056172",
+      "v24": "12927.998660518702719416",
       "t0": {
         "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
@@ -112,35 +112,35 @@
     },
     {
       "addr": "0x8fb4243b553ac29ba088acf00b9b7da24bd6690c",
-      "v24": "1975213.750280272125434054",
+      "v24": "1974305.164366856336758702",
       "pubAt": "1785310965000",
       "t0": {
         "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
         "n": "NVIDIA Corp",
         "sym": "NVDAB",
-        "liq": "9187.282550753563418384",
-        "liqUsd": "2060112.602738114229039918"
+        "liq": "9185.201251819898991818",
+        "liqUsd": "2059625.676872651182721245"
       },
       "t1": {
         "addr": "0x55d398326f99059ff775485246999027b3197955",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
         "n": "Tether USD",
         "sym": "USDT",
-        "liq": "1506761.034627747532824503",
-        "liqUsd": "1506428.384611642819752701"
+        "liq": "1506828.353645326816094665",
+        "liqUsd": "1506478.441053881096737524"
       },
       "bidx": 0,
       "exid": 6706,
       "exn": "PancakeSwap v3 (BSC)",
-      "liqUsd": "3566540.987349757048792618",
+      "liqUsd": "3566104.117926532279458768",
       "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
       "top": true,
       "mi": false
     },
     {
       "addr": "0x18d52270d09ab842c87acd45977dcf64a82fa4ad",
-      "v24": "58109.69780055069436481",
+      "v24": "58109.607824042766758413",
       "pubAt": "1785306683000",
       "t0": {
         "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
@@ -168,28 +168,28 @@
     },
     {
       "addr": "0xdd9d5164ccbc57be377a964fc064135b03d06177",
-      "v24": "569718.317346139643508139",
+      "v24": "573197.553934762501349464",
       "pubAt": "1785481153000",
       "t0": {
         "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
         "n": "NVIDIA Corp",
         "sym": "NVDAB",
-        "liq": "301.901378990399829343",
-        "liqUsd": "67873.23767251798178769"
+        "liq": "299.659004134846064866",
+        "liqUsd": "67466.84666749579163621"
       },
       "t1": {
         "addr": "0x55d398326f99059ff775485246999027b3197955",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
         "n": "Tether USD",
         "sym": "USDT",
-        "liq": "89248.590601167815850462",
-        "liqUsd": "89228.019505479994529349"
+        "liq": "90073.192615574469787925",
+        "liqUsd": "90057.083841921431756985"
       },
       "bidx": 0,
       "exid": 6444,
       "exn": "Uniswap v3 (BSC)",
-      "liqUsd": "157101.257177997976317039",
+      "liqUsd": "157523.930509417223393195",
       "fa": "0xdb1d10011ad0ff90774d0c6bb92e5c5c8b4461f7",
       "top": true,
       "mi": false
@@ -252,10 +252,10 @@
     }
   ],
   "status": {
-    "timestamp": "2026-09-25T21:08:20.014Z",
+    "timestamp": "2026-09-25T21:49:33.361Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 286,
+    "elapsed": 227,
     "credit_count": 1
   }
 }

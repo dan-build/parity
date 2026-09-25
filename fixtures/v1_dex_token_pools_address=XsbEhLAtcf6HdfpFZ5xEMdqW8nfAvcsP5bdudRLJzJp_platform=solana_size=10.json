@@ -1,0 +1,250 @@
+{
+  "data": [
+    {
+      "addr": "39c74f3a9b685e2cf3c9f6b644998805ed6d4e79aefa",
+      "v24": "4729.493591746885306155",
+      "t0": {
+        "addr": "So11111111111111111111111111111111111111112",
+        "lg": "https://dex-static.sintral.io/token-logo/16/So11111111111111111111111111111111111111112/1766048405124.jpeg",
+        "n": "Wrapped SOL",
+        "sym": "wSOL",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "4585600979ac38a67139ac692a6e8ad83a77e70e073c",
+      "v24": "0",
+      "t0": {
+        "addr": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36507.png",
+        "n": "Pump",
+        "sym": "PUMP"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "b92b0e90073e2443cea5d778462ff0c0618794ad8f07",
+      "v24": "0",
+      "t0": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx"
+      },
+      "t1": {
+        "addr": "XshPgPdXFRWB8tP1j82rebb2Q9rPgGX37RuqzohmArM",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37028.png",
+        "n": "Intel xStock",
+        "sym": "INTCx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "f97fafbb08d6e273956e611a38863c75019a7c1f0ef6",
+      "v24": "0",
+      "t0": {
+        "addr": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22533.png",
+        "n": "Jito Staked SOL",
+        "sym": "JitoSOL",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "c88c4bc6d3f683319e955b77272a804ebc36e35c1687",
+      "v24": "0",
+      "t0": {
+        "addr": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40218.png",
+        "n": "SpaceX xStock",
+        "sym": "SPCXx"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "CKwJZwm7oj3nu4653N1EpDrqXbXAYXoPFiPeEnLouF8y",
+      "v24": "447678.093510300275197301",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "212703.038626",
+        "liqUsd": "212678.150476109039287461"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liq": "210.35696302",
+        "liqUsd": "71702.78451662288397726"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "284380.934992731923264721",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "ApniVWuZbZoruTAJdyJcLBA4AVw4DKGdV5fHxo6qrAZT",
+      "v24": "222664.325020131902498837",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "140334.168076",
+        "liqUsd": "140313.705797872819548498"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liq": "327.09080542",
+        "liqUsd": "111715.417367534654239163"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "252029.12316540747378766",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "EHdow7Yhmr1ac8Qff9Co1LhSosr38puA6zLd4cbJLdpV",
+      "v24": "30922.777064502613825333",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "96928.492771",
+        "liqUsd": "96916.469899381954494023"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liq": "53.51355772",
+        "liqUsd": "18332.142075164781085388"
+      },
+      "bidx": 1,
+      "exid": 33200,
+      "exn": "Byreal",
+      "liqUsd": "115248.611974546735579411",
+      "fa": "REALQqNEomY6cQGZJUGwywTBD2UmDT32rZcNnfxQ5N2",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "5VgwxAPD37EHPqtW6v6gWq2bznPDqvpaGDuJoyGm6aJG",
+      "v24": "9120.938720283747777947",
+      "t0": {
+        "addr": "So11111111111111111111111111111111111111112",
+        "lg": "https://dex-static.sintral.io/token-logo/16/So11111111111111111111111111111111111111112/1766048405124.jpeg",
+        "n": "Wrapped SOL",
+        "sym": "wSOL",
+        "liq": "22.930192315",
+        "liqUsd": "2781.846366143810768208"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liq": "130.26853038",
+        "liqUsd": "44669.229573069591877915"
+      },
+      "bidx": 1,
+      "exid": 1426,
+      "exn": "Orca",
+      "liqUsd": "47451.075939213402646122",
+      "fa": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "DUv5LL9s1WPQQMeUqwdukuwScmM1i6PMx7t1GgMgyscG",
+      "v24": "5535.18277939454282262",
+      "t0": {
+        "addr": "8xH8ikqGXNTSYmmUVakCE2tVwU7aYJwz2JZkqAjW88sG",
+        "lg": "https://ipfs.sintral.me/cdn-cgi/image/width=480,quality=100,format=webp/url/https%3A%2F%2Fgateway.irys.xyz%2FBe6AQkoM1y9GgrTY6FYwG6izKbeZnp2ks2DtMYDMsXWD",
+        "n": "Tree",
+        "sym": "TREE",
+        "liq": "214187046.446429149",
+        "liqUsd": "23633.882779443746988454"
+      },
+      "t1": {
+        "addr": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+        "n": "Apple xStock",
+        "sym": "AAPLx",
+        "liq": "56.266249",
+        "liqUsd": "19221.502535163998718482"
+      },
+      "bidx": 0,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "42855.385314607745706935",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:55.889Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 196,
+    "credit_count": 1
+  }
+}

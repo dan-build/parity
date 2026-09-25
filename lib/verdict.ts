@@ -11,7 +11,7 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
 // --- tunables (exported so tests and UI copy share them) ------------------------
 
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
-/** A price within ±5% of median/31.1035 is treated as quoted per gram. */
+/** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
 export const PER_GRAM_TOLERANCE = 0.05;
 /** Premium above this (in %) → RICH. */
 export const RICH_PREMIUM_PCT = 1;
@@ -161,13 +161,31 @@ export function verdict(input: VerdictInput): VerdictResult {
   }
   const live = tokens.filter((t) => !ghostReason.has(t.crypto_id));
 
-  // 2. Unit normalisation (commodities only): detect per-gram quotes by ratio to the median.
-  const rawMedian = median(live.map((t) => t.price as number));
+  // 2. Unit normalisation (commodities only). A per-gram quote is ~1/31.1 of the price the
+  //    other wrappers agree on. "Agree on" is the consensus: the price level (as quoted, or
+  //    ×31.1035 for commodities) that the most live wrappers sit within ±5% of. A plain median
+  //    breaks with few wrappers: SILVER has KAG $33.11 vs XAGX $64.42 and GRAMS $2.07/g
+  //    (= $64.46/oz); the median picks KAG, the consensus picks $64.4.
+  const isCommodity = asset.asset_type === "commodity";
+  const near = (a: number, b: number) => Math.abs(a / b - 1) <= PER_GRAM_TOLERANCE;
+  const levels = (p: number) => (isCommodity ? [p, p * GRAMS_PER_TROY_OUNCE] : [p]);
+  let anchor: number | null = null;
+  let bestScore: [number, number] = [-1, -1]; // [wrappers agreeing in any unit, agreeing as quoted]
+  for (const t of live) {
+    for (const level of levels(t.price as number)) {
+      const any = live.filter((u) => levels(u.price as number).some((x) => near(x, level))).length;
+      const asQuoted = live.filter((u) => near(u.price as number, level)).length;
+      if (any > bestScore[0] || (any === bestScore[0] && asQuoted > bestScore[1])) {
+        bestScore = [any, asQuoted];
+        anchor = level;
+      }
+    }
+  }
   const perGram = new Set<number>();
-  if (asset.asset_type === "commodity" && rawMedian) {
+  if (isCommodity && anchor !== null) {
     for (const t of live) {
-      const ratio = ((t.price as number) / rawMedian) * GRAMS_PER_TROY_OUNCE;
-      if (Math.abs(ratio - 1) <= PER_GRAM_TOLERANCE) perGram.add(t.crypto_id);
+      const p = t.price as number;
+      if (!near(p, anchor) && near(p * GRAMS_PER_TROY_OUNCE, anchor)) perGram.add(t.crypto_id);
     }
   }
   const normalised = (t: RwaToken): number | null =>
@@ -177,11 +195,13 @@ export function verdict(input: VerdictInput): VerdictResult {
   const refPrices = live.map((t) => normalised(t) as number);
   const ref = median(refPrices);
 
-  // Symbols collide ("NVDA" × 2), so copy names a wrapper by symbol + issuer when needed.
+  // Symbols collide ("NVDA" × 2) and can be missing, so copy names a wrapper by symbol
+  // (or name, or id), plus the issuer when another wrapper shares the symbol.
+  const baseName = (t: RwaToken) => t.symbol ?? t.name ?? `#${t.crypto_id}`;
   const symbolCount = new Map<string, number>();
-  for (const t of tokens) symbolCount.set(t.symbol, (symbolCount.get(t.symbol) ?? 0) + 1);
+  for (const t of tokens) symbolCount.set(baseName(t), (symbolCount.get(baseName(t)) ?? 0) + 1);
   const display = (t: RwaToken) =>
-    (symbolCount.get(t.symbol) ?? 0) > 1 && t.issuer_name ? `${t.symbol} (${t.issuer_name})` : t.symbol;
+    (symbolCount.get(baseName(t)) ?? 0) > 1 && t.issuer_name ? `${baseName(t)} (${t.issuer_name})` : baseName(t);
 
   // 4–6. Per-wrapper scoring.
   const wrappers: WrapperResult[] = tokens.map((t) => {
@@ -210,9 +230,9 @@ export function verdict(input: VerdictInput): VerdictResult {
 
     const base = {
       crypto_id: t.crypto_id,
-      symbol: t.symbol,
+      symbol: baseName(t),
       display: display(t),
-      name: t.name,
+      name: t.name ?? baseName(t),
       issuer_name: t.issuer_name,
       chain: c?.platform_name ?? null,
       contract: c?.address ?? null,

@@ -1,0 +1,843 @@
+{
+  "data": {
+    "28624": {
+      "id": 28624,
+      "name": "AAPL tokenized stock (Dinari)",
+      "symbol": "AAPL.D",
+      "category": "token",
+      "description": "Dinari dShares are RWA tokens issued by Dinari, an SEC registered Transfer Agent. These assets have 1:1 backing of Google stock shares in a transparent treasury vault. The vault is audited on a regular basis by a Big 4 Accounting firm. Qualifying dShare holders are eligible to recieve dividends paid out by the underlying asset where applicable.\r\n\r\nDinari was founded by Gabirel Otte, Chas Rampenthal, and Jake Timothy to foster financial inclusion, create more efficient markets, and level the playing field for retail and business investors globally.\r\n\r\nDinari assets are unique to both blockchain and traditional finance for a number of reasons. All Dinari dShares maintain a 1-to-1 backing with underlying assets, eliminating borrowing risk in traditional finance. dShares directly represent real shares, ensuring utmost transparency. Dinari assets also mitigate hypothecation risk, enhancing safety. The tokenizatized nature of dShares offers technical advantages over centralized equities, including rapid transferability, instant settlement, 24/7 trading, and fractional ownership, increasing accessibility and liquidity.\r\n\r\nThe number of any Dinari dShare asset depends on how many shares have been minted or burned. The circulation of the underlying asset the dShare is based on is determined by the underlying company and how they issue their shares, which is equivalent to the theoretical maximum possible circulating supply of corresponding dShares.\r\n\r\nDinari assets are secured through a number of mechanisms. All dShares are backed 1:1 by the underlying asset, with regular external audits by a Big 4 Accounting firm to verify their contents. Additionally, Dinari employs a legal wrapper to shield the assets from potential claims in case of bankruptcy, ensuring allocation to token holders. Dinari also conducts regular smart contract audits to mitigate technical risks.\r\n\r\nFor a detailed breakdown of asset holdings, users can visit Dinari's transparency page at [https://www.dinari.com/transparency](https://www.dinari.com/transparency).\r\n\r\nDinari dShare assets can be minted and burned in the Dinari dApp at sbt.dinari.com. As ERC-20 tokens, dShares are theoretically in DeFi protocols such as DEXs, AMMs, etc.",
+      "slug": "dinari-aapl",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28624.png",
+      "subreddit": "dinari",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.dinari.com/",
+          "https://sbt.dinari.com/"
+        ],
+        "twitter": [
+          "https://twitter.com/DinariGlobal"
+        ],
+        "message_board": [
+          "https://www.dinari.com/blog"
+        ],
+        "chat": [
+          "https://discord.gg/dinari",
+          "https://t.me/dinariglobal"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0xCe38e140fC3982a6bCEbc37b040913EF2Cd6C5a7"
+        ],
+        "reddit": [
+          "https://reddit.com/r/dinari"
+        ],
+        "technical_doc": [
+          "https://www.dinari.com/_files/ugd/b5c091_d83125a8c6c645a6bdfd2b76ae2b8f88.pdf"
+        ],
+        "source_code": [
+          "https://github.com/dinaricrypto/sbt-contracts"
+        ],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0xCe38e140fC3982a6bCEbc37b040913EF2Cd6C5a7"
+      },
+      "date_added": "2023-12-07T11:08:34.000Z",
+      "twitter_username": "DinariGlobal",
+      "is_hidden": 0,
+      "date_launched": "2021-10-31T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0xCe38e140fC3982a6bCEbc37b040913EF2Cd6C5a7",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 284,
+      "infinite_supply": false
+    },
+    "36994": {
+      "id": 36994,
+      "name": "Apple tokenized stock (xStock)",
+      "symbol": "AAPLX",
+      "category": "token",
+      "description": "Apple tokenized stock (xStock) (AAPLX) is a cryptocurrency and operates on the Solana platform. Apple tokenized stock (xStock) has a current supply of 637,629.86108187 with 38,800.6556986 in circulation. The last known price of Apple tokenized stock (xStock) is 341.69345796 USD and is up 1.52 over the last 24 hours. It is currently trading on 86 active market(s) with $8,386,780.44 traded over the last 24 hours. More information can be found at https://xstocks.fi/.",
+      "slug": "apple-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/36994.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "arbitrum-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "x-layer-ecosystem",
+        "internet-capital-markets",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "Arbitrum Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "X Layer Ecosystem",
+        "Internet Capital Markets",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://xstocks.fi/"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://solscan.io/token/XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+          "https://web3.okx.com/explorer/x-layer/evm/token/0x9d275685dC284C8eB1C79f6ABA7a63Dc75ec890a",
+          "https://www.arbiscan.io/token/0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "https://etherscan.io/token/0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp"
+      },
+      "date_added": "2025-07-01T07:38:36.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x9d275685dC284C8eB1C79f6ABA7a63Dc75ec890a",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        },
+        {
+          "contract_address": "EQDsjAwfKo-6FVZv2EYt-1CaZTY_ZL-pfkSId6jeQchNwmdo",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        },
+        {
+          "contract_address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": true
+    },
+    "37269": {
+      "id": 37269,
+      "name": "Wrapped Apple Tokenized stock (xStock)",
+      "symbol": "WAAPLX",
+      "category": "token",
+      "description": "Wrapped Apple Tokenized stock (xStock) (WAAPLX) is a cryptocurrency and operates on the X Layer platform. Wrapped Apple Tokenized stock (xStock) has a current supply of 825.5535691. The last known price of Wrapped Apple Tokenized stock (xStock) is 341.75400489 USD and is up 1.24 over the last 24 hours. It is currently trading on 1 active market(s) with $8,723,255.56 traded over the last 24 hours. More information can be found at https://assets.backed.fi/.",
+      "slug": "wrapped-apple-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37269.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "x-layer-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "X Layer Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0x5aa7649fdbda47de64a07ac81d64b682af9c0724",
+          "https://www.arbiscan.io/token/0x5aa7649fdbda47de64a07ac81d64b682af9c0724"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0x943BF64D566c32A2Bcd41AC92FB63C111cC9De8f"
+      },
+      "date_added": "2025-07-08T05:30:21.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x943BF64D566c32A2Bcd41AC92FB63C111cC9De8f",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5aa7649fdbda47de64a07ac81d64b682af9c0724",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "38037": {
+      "id": 38037,
+      "name": "Apple Tokenized Stock (Ondo)",
+      "symbol": "AAPLon",
+      "category": "token",
+      "description": "Apple Tokenized Stock (Ondo) (AAPLon) is a cryptocurrency and operates on the Ethereum platform. Apple Tokenized Stock (Ondo) has a current supply of 26,605.45572229. The last known price of Apple Tokenized Stock (Ondo) is 342.33721544 USD and is up 1.60 over the last 24 hours. It is currently trading on 49 active market(s) with $3,455,541.45 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/aaplon.",
+      "slug": "apple-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "binance-alpha",
+        "binance-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Binance Alpha",
+        "Binance Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/aaplon"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "https://bscscan.com/address/0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4",
+          "https://solscan.io/token/123mYEnRLM2LLYsJW3K6oyYh8uP1fngj732iG638ondo",
+          "https://bscscan.com/token/0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c"
+      },
+      "date_added": "2025-09-03T10:55:37.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "123mYEnRLM2LLYsJW3K6oyYh8uP1fngj732iG638ondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x81db0DF77669b3BE563e7a0591685a2C8C3EE1c5",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "39491": {
+      "id": 39491,
+      "name": "Apple Inc (Derivatives)",
+      "symbol": "AAPL",
+      "category": "token",
+      "description": "Apple Inc (Derivatives) (AAPL) is a cryptocurrency . Apple Inc (Derivatives) has a current supply of 0. The last known price of Apple Inc (Derivatives) is 341.21132971 USD and is up 1.49 over the last 24 hours. It is currently trading on 87 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "apple-inc-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39491.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-01-30T05:30:56.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    },
+    "39624": {
+      "id": 39624,
+      "name": "Apple Tokenized Stock (Hyperliquid)",
+      "symbol": "AAPL",
+      "category": "token",
+      "description": "Apple Tokenized Stock (Hyperliquid) (AAPL) is a cryptocurrency and operates on the HyperEVM platform. Apple Tokenized Stock (Hyperliquid) has a current supply of 0. The last known price of Apple Tokenized Stock (Hyperliquid) is 289.40519884 USD and is down -5.41 over the last 24 hours. It is currently trading on 5 active market(s) with $361.07 traded over the last 24 hours. More information can be found at https://app.hyperliquid.xyz/trade/.",
+      "slug": "apple-tokenized-stock-hyperliquid",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39624.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "hyperliquid-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Hyperliquid Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM"
+      ],
+      "urls": {
+        "website": [
+          "https://app.hyperliquid.xyz/trade/"
+        ],
+        "twitter": [
+          "https://twitter.com/HyperliquidX"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://app.hyperliquid.xyz/explorer/token/0xec340db435d4d90899e97655cb8e71f5",
+          "https://hyperevmscan.io/token/0x7374dc1894fbd1bc6c42f6ebbc50b78c211a8606"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid",
+        "token_address": "0x499e347174f237ad28687b947b94c0d49570d1b7"
+      },
+      "date_added": "2026-02-25T10:52:59.000Z",
+      "twitter_username": "HyperliquidX",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x499e347174f237ad28687b947b94c0d49570d1b7",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        },
+        {
+          "contract_address": "0xec340db435d4d90899e97655cb8e71f5",
+          "platform": {
+            "name": "Hyperliquid",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40598": {
+      "id": 40598,
+      "name": "Apple Tokenized Stock (Reality)",
+      "symbol": "rAAPL",
+      "category": "token",
+      "description": "Apple Tokenized Stock (Reality) (rAAPL) is a cryptocurrency and operates on the Arbitrum platform. Apple Tokenized Stock (Reality) has a current supply of 2,100.6217088. The last known price of Apple Tokenized Stock (Reality) is 341.24733518 USD and is up 1.63 over the last 24 hours. It is currently trading on 4 active market(s) with $35,728.74 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
+      "slug": "apple-tokenized-stock-reality",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40598.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "arbitrum-ecosystem",
+        "bitget-ecosystem",
+        "rtokens"
+      ],
+      "tag-names": [
+        "Arbitrum Ecosystem",
+        "Bitget Ecosystem",
+        "rTokens"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://realityfinance.xyz/"
+        ],
+        "twitter": [
+          "https://twitter.com/RealityFi_xyz"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/address/0xaba5e0c80e9f58e391214689fb342049c0d31892"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0xaba5e0c80e9f58e391214689fb342049c0d31892"
+      },
+      "date_added": "2026-07-02T03:36:49.000Z",
+      "twitter_username": "RealityFi_xyz",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xaba5e0c80e9f58e391214689fb342049c0d31892",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40703": {
+      "id": 40703,
+      "name": "Apple Tokenized Stock (Robinhood)",
+      "symbol": "AAPL",
+      "category": "token",
+      "description": "Apple Tokenized Stock (Robinhood) (AAPL) is a cryptocurrency and operates on the Robinhood Chain platform. Apple Tokenized Stock (Robinhood) has a current supply of 15,731.54469624. The last known price of Apple Tokenized Stock (Robinhood) is 341.34430561 USD and is up 1.56 over the last 24 hours. It is currently trading on 53 active market(s) with $4,200,126.16 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/.",
+      "slug": "apple-tokenized-stock-robinhood",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40703.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "tokenized-assets",
+        "robinhood-ecosystem",
+        "robinhood-stock"
+      ],
+      "tag-names": [
+        "Tokenized Assets",
+        "Robinhood Ecosystem",
+        "Robinhood Stock"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://robinhood.com/us/en/"
+        ],
+        "twitter": [
+          "https://twitter.com/RobinhoodCrypto"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://robinhoodchain.blockscout.com/token/0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder",
+        "token_address": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9"
+      },
+      "date_added": "2026-08-04T07:31:32.000Z",
+      "twitter_username": "RobinhoodCrypto",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+          "platform": {
+            "name": "Robinhood Chain",
+            "coin": {
+              "id": "40670",
+              "name": "Robinhood",
+              "symbol": "-",
+              "slug": "robinhood-placeholder"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40927": {
+      "id": 40927,
+      "name": "Apple Tokenized bStocks",
+      "symbol": "AAPLB",
+      "category": "token",
+      "description": "Apple Tokenized bStocks (AAPLB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. Apple Tokenized bStocks has a current supply of 17,222.93078009. The last known price of Apple Tokenized bStocks is 341.30866245 USD and is up 1.53 over the last 24 hours. It is currently trading on 32 active market(s) with $6,995,136.24 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
+      "slug": "apple-tokenized-bstocks",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40927.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "bnb-chain-ecosystem",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "bstocks"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "BNB Chain Ecosystem",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "bStocks"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.bstocks.finance/"
+        ],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://bscscan.com/address/0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb",
+        "token_address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a"
+      },
+      "date_added": "2026-07-28T07:08:33.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:54.123Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 12,
+    "credit_count": 1,
+    "notice": null
+  }
+}

@@ -1,0 +1,754 @@
+{
+  "data": {
+    "28616": {
+      "id": 28616,
+      "name": "NVIDIA tokenized stock (Dinari)",
+      "symbol": "NVDA.D",
+      "category": "token",
+      "description": "Dinari dShares are RWA tokens issued by Dinari, an SEC registered Transfer Agent. These assets have 1:1 backing of Google stock shares in a transparent treasury vault with regular audits. Qualifying dShare holders are eligible to recieve dividends paid out by the underlying asset where applicable.\r\n\r\nDinari was founded by Gabirel Otte, Chas Rampenthal, and Jake Timothy to foster financial inclusion, create more efficient markets, and level the playing field for retail and business investors globally.\r\n\r\nDinari assets are unique to both blockchain and traditional finance for a number of reasons. All Dinari dShares maintain a 1-to-1 backing with underlying assets, eliminating borrowing risk in traditional finance. dShares directly represent real shares, ensuring utmost transparency. Dinari assets also mitigate hypothecation risk, enhancing safety. The tokenizatized nature of dShares offers technical advantages over centralized equities, including rapid transferability, instant settlement, 24/7 trading, and fractional ownership, increasing accessibility and liquidity.\r\n\r\nThe number of any Dinari dShare asset depends on how many shares have been minted or burned. The circulation of the underlying asset the dShare is based on is determined by the underlying company and how they issue their shares, which is equivalent to the theoretical maximum possible circulating supply of corresponding dShares.\r\n\r\nDinari assets are secured through a number of mechanisms. All dShares are backed 1:1 by the underlying asset, with regular external audits by a Big 4 Accounting firm to verify their contents. Additionally, Dinari employs a legal wrapper to shield the assets from potential claims in case of bankruptcy, ensuring allocation to token holders. Dinari also conducts regular smart contract audits to mitigate technical risks.\r\n\r\nFor a detailed breakdown of asset holdings, users can visit Dinari's transparency page at [https://www.dinari.com/transparency](https://www.dinari.com/transparency).\r\n\r\nDinari dShare assets can be minted and burned in the Dinari dApp at sbt.dinari.com. As ERC-20 tokens, dShares are theoretically in DeFi protocols such as DEXs, AMMs, etc.",
+      "slug": "dinari-nvda",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28616.png",
+      "subreddit": "dinari",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.dinari.com/",
+          "https://sbt.dinari.com/"
+        ],
+        "twitter": [
+          "https://twitter.com/DinariGlobal"
+        ],
+        "message_board": [
+          "https://www.dinari.com/blog"
+        ],
+        "chat": [
+          "https://discord.gg/dinari",
+          "https://t.me/dinariglobal"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c"
+        ],
+        "reddit": [
+          "https://reddit.com/r/dinari"
+        ],
+        "technical_doc": [
+          "https://www.dinari.com/_files/ugd/b5c091_d83125a8c6c645a6bdfd2b76ae2b8f88.pdf"
+        ],
+        "source_code": [
+          "https://github.com/dinaricrypto/sbt-contracts"
+        ],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c"
+      },
+      "date_added": "2023-12-07T10:41:41.000Z",
+      "twitter_username": "DinariGlobal",
+      "is_hidden": 0,
+      "date_launched": "2021-10-31T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 39,
+      "infinite_supply": false
+    },
+    "36992": {
+      "id": 36992,
+      "name": "NVIDIA tokenized stock (xStock)",
+      "symbol": "NVDAX",
+      "category": "token",
+      "description": "NVIDIA tokenized stock (xStock) (NVDAX) is a cryptocurrency and operates on the Solana platform. NVIDIA tokenized stock (xStock) has a current supply of 1,023,541.68147429 with 186,321.62865215 in circulation. The last known price of NVIDIA tokenized stock (xStock) is 225.43612487 USD and is up 0.56 over the last 24 hours. It is currently trading on 105 active market(s) with $23,117,817.66 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/nvidia-xstock.",
+      "slug": "nvidia-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "arbitrum-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "x-layer-ecosystem",
+        "internet-capital-markets",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "Arbitrum Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "X Layer Ecosystem",
+        "Internet Capital Markets",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/products/nvidia-xstock"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/xstocksfi"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://solscan.io/token/Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+          "https://www.arbiscan.io/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "https://etherscan.io/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "https://explorer.inkonchain.com/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh"
+      },
+      "date_added": "2025-07-01T07:20:20.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "EQCva-Of7acQdU_piADdlcbzsFtA-xJwZoctz8ZOXBdBoaB8",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        },
+        {
+          "contract_address": "0xc845b2894dBddd03858fd2D643B4eF725fE0849d",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": true
+    },
+    "37270": {
+      "id": 37270,
+      "name": "Wrapped NVIDIA Tokenized stock (xStock)",
+      "symbol": "WNVDAX",
+      "category": "token",
+      "description": "Wrapped NVIDIA Tokenized stock (xStock) (WNVDAX) is a cryptocurrency and operates on the X Layer platform. Wrapped NVIDIA Tokenized stock (xStock) has a current supply of 3,605.5654666. The last known price of Wrapped NVIDIA Tokenized stock (xStock) is 225.02733898 USD and is up 0.21 over the last 24 hours. It is currently trading on 3 active market(s) with $3,750,508.67 traded over the last 24 hours. More information can be found at https://assets.backed.fi/.",
+      "slug": "wrapped-nvidia-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37270.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "x-layer-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "X Layer Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0x93e62845c1dd5822ebc807ab71a5fb750decd15a",
+          "https://www.arbiscan.io/token/0x93e62845c1dd5822ebc807ab71a5fb750decd15a"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5"
+      },
+      "date_added": "2025-07-08T05:35:15.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x93e62845c1dd5822ebc807ab71a5fb750decd15a",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "38093": {
+      "id": 38093,
+      "name": "NVIDIA Tokenized Stock (Ondo)",
+      "symbol": "NVDAon",
+      "category": "token",
+      "description": "NVIDIA Tokenized Stock (Ondo) (NVDAon) is a cryptocurrency and operates on the Ethereum platform. NVIDIA Tokenized Stock (Ondo) has a current supply of 169,627.08290761. The last known price of NVIDIA Tokenized Stock (Ondo) is 225.47542124 USD and is up 0.65 over the last 24 hours. It is currently trading on 109 active market(s) with $2,650,912.57 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/nvdaon.",
+      "slug": "nvidia-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "binance-alpha",
+        "binance-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Binance Alpha",
+        "Binance Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/nvdaon"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "https://bscscan.com/token/0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "https://solscan.io/token/gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
+          "https://hyperevmscan.io/token/0xB989ad9b91886b1Aaed8DaADb26F028b29b40945"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE"
+      },
+      "date_added": "2025-09-03T10:55:27.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0xB989ad9b91886b1Aaed8DaADb26F028b29b40945",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "38153": {
+      "id": 38153,
+      "name": "NVIDIA (Derivatives)",
+      "symbol": "NVDA",
+      "category": "token",
+      "description": "NVIDIA (Derivatives) (NVDA) is a cryptocurrency . NVIDIA (Derivatives) has a current supply of 0. The last known price of NVIDIA (Derivatives) is 225.31302173 USD and is up 0.53 over the last 24 hours. It is currently trading on 107 active market(s) with $499,926.34 traded over the last 24 hours.",
+      "slug": "nvidia-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38153.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2025-08-21T03:47:50.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    },
+    "40215": {
+      "id": 40215,
+      "name": "NVIDIA Tokenized bStocks",
+      "symbol": "NVDAB",
+      "category": "token",
+      "description": "NVIDIA Tokenized bStocks (NVDAB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. NVIDIA Tokenized bStocks has a current supply of 151,801.81867426. The last known price of NVIDIA Tokenized bStocks is 225.24414536 USD and is up 0.51 over the last 24 hours. It is currently trading on 90 active market(s) with $18,710,344.82 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
+      "slug": "nvidia-tokenized-bstocks",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "bnb-chain-ecosystem",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "bstocks"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "BNB Chain Ecosystem",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "bStocks"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.bstocks.finance/"
+        ],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://bscscan.com/address/0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb",
+        "token_address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+      },
+      "date_added": "2026-06-11T03:04:13.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40605": {
+      "id": 40605,
+      "name": "NVIDIA Tokenized Stock (Reality)",
+      "symbol": "rNVDA",
+      "category": "token",
+      "description": "NVIDIA Tokenized Stock (Reality) (rNVDA) is a cryptocurrency and operates on the Arbitrum platform. NVIDIA Tokenized Stock (Reality) has a current supply of 12,517.33523155. The last known price of NVIDIA Tokenized Stock (Reality) is 225.20915266 USD and is up 0.58 over the last 24 hours. It is currently trading on 4 active market(s) with $460,089.05 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
+      "slug": "nvidia-tokenized-stock-reality",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40605.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets",
+        "bitget-ecosystem",
+        "rtokens"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets",
+        "Bitget Ecosystem",
+        "rTokens"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://realityfinance.xyz/"
+        ],
+        "twitter": [
+          "https://twitter.com/RealityFi_xyz"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/address/0x0a85b6ebe3c150a1979a65656e304033d62b1e12"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12"
+      },
+      "date_added": "2026-07-02T07:39:03.000Z",
+      "twitter_username": "RealityFi_xyz",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40685": {
+      "id": 40685,
+      "name": "NVIDIA Tokenized Stock (Robinhood)",
+      "symbol": "NVDA",
+      "category": "token",
+      "description": "NVIDIA Tokenized Stock (Robinhood) (NVDA) is a cryptocurrency and operates on the Robinhood Chain platform. NVIDIA Tokenized Stock (Robinhood) has a current supply of 90,527.70455026. The last known price of NVIDIA Tokenized Stock (Robinhood) is 225.1950202 USD and is up 0.53 over the last 24 hours. It is currently trading on 244 active market(s) with $32,516,695.16 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/about/crypto/.",
+      "slug": "nvidia-tokenized-stock-robinhood",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40685.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "tokenized-assets",
+        "robinhood-ecosystem",
+        "robinhood-stock"
+      ],
+      "tag-names": [
+        "Tokenized Assets",
+        "Robinhood Ecosystem",
+        "Robinhood Stock"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://robinhood.com/us/en/about/crypto/"
+        ],
+        "twitter": [
+          "https://twitter.com/RobinhoodCrypto"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://robinhoodchain.blockscout.com/token/0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder",
+        "token_address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"
+      },
+      "date_added": "2026-08-04T07:31:24.000Z",
+      "twitter_username": "RobinhoodCrypto",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+          "platform": {
+            "name": "Robinhood Chain",
+            "coin": {
+              "id": "40670",
+              "name": "Robinhood",
+              "symbol": "-",
+              "slug": "robinhood-placeholder"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:29.085Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 10,
+    "credit_count": 1,
+    "notice": null
+  }
+}

@@ -14,11 +14,11 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { check } from "@/lib/check";
-import { clearCmcCache, createCmcClient, isSupportedDexChain, liveTransport } from "@/lib/cmc";
+import { clearCmcCache, createCmcClient, isSupportedDexChain, liveTransport, type Transport } from "@/lib/cmc";
 import { recordingTransport } from "@/lib/cmc-fixtures";
 
 const FIXTURES = join(process.cwd(), "fixtures");
-const ASSETS = ["GOLD", "NVDA"];
+const ASSETS = ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER"];
 
 const KEY = process.env.CMC_API_KEY;
 if (!KEY) {
@@ -26,7 +26,24 @@ if (!KEY) {
   process.exit(1);
 }
 
-const client = createCmcClient({ transport: recordingTransport(liveTransport(KEY), FIXTURES), source: "live" });
+// The plan allows 50 requests/min and the probe makes ~85, so space calls out.
+const MIN_GAP_MS = 1_400;
+function throttled(inner: Transport): Transport {
+  let last = 0;
+  let chain: Promise<unknown> = Promise.resolve();
+  return (req) => {
+    const run = chain.then(async () => {
+      const wait = last + MIN_GAP_MS - Date.now();
+      if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+      last = Date.now();
+      return inner(req);
+    });
+    chain = run.catch(() => undefined);
+    return run;
+  };
+}
+
+const client = createCmcClient({ transport: recordingTransport(throttled(liveTransport(KEY)), FIXTURES), source: "live" });
 const usedToday = (r: Awaited<ReturnType<typeof client.get>>) => {
   const d = r.ok ? (r.data as { data?: { usage?: { current_day?: { credits_used?: number } } } }) : null;
   return d?.data?.usage?.current_day?.credits_used ?? null;
@@ -49,7 +66,7 @@ async function main() {
 
     // Superset: pools for GHOST wrappers on supported chains too.
     const ghostIds = r.wrappers.filter((w) => !w.dex.checked).map((w) => w.crypto_id);
-    const info = await client.cryptoInfo(r.wrappers.map((w) => w.crypto_id)); // cached
+    const info = await client.cryptoInfo(r.wrappers.map((w) => w.crypto_id)); // cached (same key as check())
     if (info.ok) {
       for (const id of ghostIds) {
         const c = info.data.get(id);
@@ -64,7 +81,9 @@ async function main() {
     ? (issuers.data as { data?: { issuers?: { issuer_id?: string }[] } }).data?.issuers?.[0]?.issuer_id
     : undefined;
   if (firstIssuer) await client.get("/v5/real-world-assets/issuers", { issuer_id: firstIssuer });
-  for (const sym of ASSETS) {
+  // Full map (free, ~20 pages) so name queries like "nvidia" resolve in fixture mode.
+  await client.rwaMap();
+  for (const sym of ASSETS.slice(0, 2)) {
     if (rwaIds[sym]) await client.get("/v5/real-world-assets/market-pairs/list", { rwa_id: rwaIds[sym], limit: 50 });
   }
   await client.get("/v3/fear-and-greed/latest");

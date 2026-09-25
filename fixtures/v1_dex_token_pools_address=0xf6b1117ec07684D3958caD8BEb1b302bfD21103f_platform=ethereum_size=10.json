@@ -1,0 +1,240 @@
+{
+  "data": [
+    {
+      "addr": "0x65ce4e771e4ec79f4c921f174b045cf54598e97d",
+      "v24": "56052.621462425891618599",
+      "t0": {
+        "addr": "0xace8e719899f6e91831b18ae746c9a965c2119f1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38273.png",
+        "n": "Ondo U.S. Dollar Token",
+        "sym": "USDon"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 0,
+      "exid": 33109,
+      "exn": "Ondo Global Markets (Ethereum)",
+      "fa": "0x2c158bc456e027b2affccadf1bdbd9f5fc4c5c8c",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xc3dd48198580f03e2ece145fa4fcd8161a9190d2",
+      "v24": "706.362605493968339905",
+      "t0": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xa978b728b9a7b05ef48a51a2e358d2a586fbe0ed",
+      "v24": "522.385856709183720401",
+      "t0": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5366f5429c15c3367cce080234ef68717e3567b3",
+      "v24": "289.398725384809264796",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x15a522dd1dc2920e4ecde522327f4d4fc638fcb8",
+      "v24": "142.4791851897630641",
+      "t0": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xcd49b75120c62e1b36c345865b20ed29a0f06cef",
+      "v24": "0",
+      "t0": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x3aa0470d1e813d3370194852d0238a7972066b38",
+      "v24": "0",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xa0a997315fd31eb0072222ad3db6eab74b60adc2",
+      "v24": "39201.842179972918177649",
+      "pubAt": "1765511159000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "550002.844674",
+        "liqUsd": "549945.490405301279808783"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon",
+        "liq": "1475.971352356882224178",
+        "liqUsd": "548373.664734728588982593"
+      },
+      "bidx": 1,
+      "exid": 32396,
+      "exn": "Ring Exchange (Ethereum)",
+      "liqUsd": "1098319.155140029868791376",
+      "fa": "0xeb2a625b704d73e82946d8d026e1f588eed06416",
+      "mi": false
+    },
+    {
+      "addr": "0xf6c5960d1e31fa10fa50e04db4c4227d1b7da0cd260c36e9c8682257b996c79b",
+      "v24": "0",
+      "pubAt": "1758681695000",
+      "t0": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "346988.411303",
+        "liqUsd": "346903.486092455679491336"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon",
+        "liq": "7.884824505612705726",
+        "liqUsd": "2367.505167810021051263"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "349270.991260265700542599",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x1c962a3ca7417212b1b70d6026103a8afaa2c9eb6f2822ad46c9e09fd2af629a",
+      "v24": "0",
+      "pubAt": "1758090047000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "258221.902935",
+        "liqUsd": "258171.348395050609345648"
+      },
+      "t1": {
+        "addr": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
+        "n": "Tesla (Ondo Tokenized)",
+        "sym": "TSLAon",
+        "liq": "0.826452302319192686",
+        "liqUsd": "209.452266626177974012"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "258380.800661676787319659",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:48.930Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 240,
+    "credit_count": 1
+  }
+}

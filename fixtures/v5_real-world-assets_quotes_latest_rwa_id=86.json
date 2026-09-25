@@ -1,0 +1,139 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "SPDR S&P 500 ETF Trust",
+        "symbol": "SPY",
+        "slug": "spy",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 773.6416402829389,
+            "tokenized_market_cap": 149783664.87073338,
+            "tokenized_volume_24h": 47475860.44698782,
+            "last_updated": "2026-09-25T21:48:03.000Z"
+          }
+        ],
+        "rwa_id": 86,
+        "asset_type": "etf",
+        "rwa_rank": 7811,
+        "has_tokens": true,
+        "average_tokenized_price": 773.6416402829389,
+        "tokenized_market_cap": 149783664.87073338,
+        "tokenized_volume_24h": 47475860.44698782,
+        "last_updated": "2026-09-25T21:49:03.366Z",
+        "tokens": [
+          {
+            "symbol": "SPYX",
+            "name": "SP500 tokenized ETF (xStock)",
+            "price": 774.960141824156,
+            "crypto_id": 37006,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 65314142.88,
+            "volume_24h": 18430871.49885285
+          },
+          {
+            "symbol": "SPY.D",
+            "name": "SPY tokenized ETF (Dinari)",
+            "price": null,
+            "crypto_id": 28628,
+            "issuer_id": "688c6172abae9b5b9fb30359",
+            "issuer_name": "Dinari Assets",
+            "market_cap": null,
+            "volume_24h": null
+          },
+          {
+            "symbol": "SPYon",
+            "name": "SPDR S&P 500 Tokenized ETF (Ondo)",
+            "price": 779.3840839385025,
+            "crypto_id": 38067,
+            "issuer_id": "688ca4ccabae9b5b9fb3167a",
+            "issuer_name": "Ondo Assets",
+            "market_cap": 46177671.49,
+            "volume_24h": 3640249.97986417
+          },
+          {
+            "symbol": "SPY",
+            "name": "SPDR S&P 500 ETF Trust Tokenized ETF (Hyperliquid)",
+            "price": 763.1768871167186,
+            "crypto_id": 39621,
+            "issuer_id": "699ed38db54c9320b15928e3",
+            "issuer_name": "Hyperliquid Assets",
+            "market_cap": 0,
+            "volume_24h": 324.9164022
+          },
+          {
+            "symbol": "SPY",
+            "name": "State Street SPDR S&P 500 ETF Trust (Derivatives)",
+            "price": 772.4835163106194,
+            "crypto_id": 39732,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          },
+          {
+            "symbol": "rSPY",
+            "name": "SPDR S&P 500 Tokenized Stock (Reality)",
+            "price": 772.2384320053632,
+            "crypto_id": 40625,
+            "issuer_id": "6a43600c282e7240b76c8bbb",
+            "issuer_name": "Reality",
+            "market_cap": 1079231.55,
+            "volume_24h": 194044.54818616
+          },
+          {
+            "symbol": "SPY",
+            "name": "SPDR S&P 500 Trust Tokenized ETF (Robinhood)",
+            "price": 771.8789204024112,
+            "crypto_id": 40694,
+            "issuer_id": "6a465832fbe3004b1a0ea2dd",
+            "issuer_name": "Robinhood",
+            "market_cap": 22793443.13,
+            "volume_24h": 20545168.24311333
+          },
+          {
+            "symbol": "SPYB",
+            "name": "State Street SPDR S&P 500 ETF Tokenized bStocks",
+            "price": 770.9696454677093,
+            "crypto_id": 40790,
+            "issuer_id": "6a2aed5097c45356b1a5f710",
+            "issuer_name": "bStocks",
+            "market_cap": 14414225.81,
+            "volume_24h": 4430753.38330903
+          },
+          {
+            "symbol": "wSPYx",
+            "name": "Wrapped SP500 Tokenized ETF (xStock)",
+            "price": 775.6034360627492,
+            "crypto_id": 41525,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 0,
+            "volume_24h": 249781.36074894
+          }
+        ],
+        "tradfi_markets": [
+          {
+            "exchange": {
+              "slug": "binance",
+              "name": "Binance",
+              "exchange_id": 270
+            },
+            "ticker": "SPY",
+            "market_url": "https://www.binance.com/en/stocks/EQ_SPY"
+          }
+        ]
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:36.090Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

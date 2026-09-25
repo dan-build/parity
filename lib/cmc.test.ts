@@ -84,12 +84,29 @@ describe("cache", () => {
     let t = 1_000;
     const { t: transport, calls } = spy({ status: 200, body: { data: { rwa_assets: [] } } });
     const client = createCmcClient({ transport, now: () => t });
-    await client.rwaMap();
+    await client.rwaQuotesLatest(1);
     t += 30_000;
-    await client.rwaMap();
+    await client.rwaQuotesLatest(1);
     expect(calls).toHaveLength(1);
     expect(client.evidence.map((e) => e.cached)).toEqual([false, true]);
     t += 31_000;
+    await client.rwaQuotesLatest(1);
+    expect(calls).toHaveLength(2);
+  });
+
+  it("keeps the RWA map for an hour and pages until a short page", async () => {
+    let t = 1_000;
+    const calls: CmcRequest[] = [];
+    const transport: Transport = async (req) => {
+      calls.push(req);
+      const n = req.params.start === 1 ? 200 : 5; // second page is short → stop
+      return { status: 200, body: { data: { rwa_assets: Array.from({ length: n }, (_, i) => ({ rwa_id: i })) } } };
+    };
+    const client = createCmcClient({ transport, now: () => t });
+    const first = await client.rwaMap();
+    expect(first.ok && first.data.length).toBe(205);
+    expect(calls).toHaveLength(2);
+    t += 30 * 60_000;
     await client.rwaMap();
     expect(calls).toHaveLength(2);
   });

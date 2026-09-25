@@ -4,21 +4,21 @@
       {
         "symbol": "USD",
         "crypto_id": 2781,
-        "total_liquidations_1h": 6228989.053756027,
-        "long_liquidations_1h": 2278167.6219829423,
-        "short_liquidations_1h": 3950821.4317730847,
-        "total_liquidations_4h": 19270998.884688202,
-        "long_liquidations_4h": 7765575.869232495,
-        "short_liquidations_4h": 11505423.015455708,
-        "total_liquidations_24h": 264787755.33382994,
-        "long_liquidations_24h": 134141402.79308872,
-        "short_liquidations_24h": 130646352.54074122,
-        "last_updated": "2026-09-25T21:06:00.000Z"
+        "total_liquidations_1h": 4571397.899539725,
+        "long_liquidations_1h": 4031282.269930974,
+        "short_liquidations_1h": 540115.6296087509,
+        "total_liquidations_4h": 17246514.260427654,
+        "long_liquidations_4h": 6370606.642719512,
+        "short_liquidations_4h": 10875907.617708143,
+        "total_liquidations_24h": 264833334.20633832,
+        "long_liquidations_24h": 135149025.6516612,
+        "short_liquidations_24h": 129684308.55467714,
+        "last_updated": "2026-09-25T21:48:00.000Z"
       }
     ]
   },
   "status": {
-    "timestamp": "2026-09-25T21:08:22.053Z",
+    "timestamp": "2026-09-25T21:51:08.562Z",
     "error_code": "0",
     "error_message": "",
     "elapsed": 4,

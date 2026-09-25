@@ -1,0 +1,89 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Silver",
+        "symbol": "SILVER",
+        "slug": "silver",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 33.114536662769446,
+            "tokenized_market_cap": 0,
+            "tokenized_volume_24h": 119351.47525504,
+            "last_updated": "2026-09-25T21:49:03.000Z"
+          }
+        ],
+        "rwa_id": 5,
+        "asset_type": "commodity",
+        "rwa_rank": 6,
+        "has_tokens": true,
+        "average_tokenized_price": 33.114536662769446,
+        "tokenized_market_cap": 0,
+        "tokenized_volume_24h": 119351.47525504,
+        "last_updated": "2026-09-25T21:49:02.273Z",
+        "tokens": [
+          {
+            "symbol": "KAG",
+            "name": "Kinesis Silver",
+            "price": 33.114536662769446,
+            "crypto_id": 24439,
+            "issuer_id": "68e25e8dd4cd001228754c7c",
+            "issuer_name": "Kinesis Assets",
+            "market_cap": 0,
+            "volume_24h": 119351.47525504
+          },
+          {
+            "symbol": "XAGX",
+            "name": "Silver Token",
+            "price": 64.41937189559891,
+            "crypto_id": 32149,
+            "issuer_id": "68e27862d4cd001228754d31",
+            "issuer_name": "XAGx",
+            "market_cap": 0,
+            "volume_24h": 0
+          },
+          {
+            "symbol": "GRAMS",
+            "name": "Silver (Grams)",
+            "price": 2.0724135752011494,
+            "crypto_id": 37080,
+            "issuer_id": "68e27c8ad4cd001228754d67",
+            "issuer_name": "Token",
+            "market_cap": 0,
+            "volume_24h": 0
+          },
+          {
+            "symbol": null,
+            "name": null,
+            "price": null,
+            "crypto_id": 39318,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": null,
+            "volume_24h": null
+          },
+          {
+            "symbol": "XAG",
+            "name": "Silver (Derivatives)",
+            "price": 64.41159321504746,
+            "crypto_id": 39343,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          }
+        ],
+        "tradfi_markets": []
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:50:01.307Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

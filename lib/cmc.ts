@@ -15,6 +15,10 @@ export const CACHE_TTL_MS = 60_000;
 export const DEX_PLATFORM_ALIASES: Record<string, string> = { bnb: "bsc" };
 /** Chains whose DEX pool lookups we've verified. Others are skipped and reported as a gap. */
 export const SUPPORTED_DEX_CHAINS = ["ethereum", "solana", "bsc"] as const;
+const MAP_PAGE_SIZE = 200;
+const MAP_MAX_PAGES = 40;
+/** The RWA map (~4,000 assets, 20+ pages) barely changes; cache it for an hour. */
+const MAP_TTL_MS = 60 * 60_000;
 
 // --- transport ---------------------------------------------------------------
 
@@ -66,8 +70,9 @@ export type RwaMapEntry = {
 
 export type RwaToken = {
   crypto_id: number;
-  symbol: string;
-  name: string;
+  /** Can be null (seen on a SILVER derivatives row). */
+  symbol: string | null;
+  name: string | null;
   issuer_id: string | null;
   issuer_name: string | null;
   price: number | null;
@@ -133,11 +138,11 @@ export type CmcResult<T> =
   | { ok: true; data: T }
   | { ok: false; status: number | null; errorCode: string | null; message: string };
 
-/** Trim a response for display: depth ≤ 4, arrays ≤ 3 items, strings ≤ 200 chars. */
+/** Trim a response for display: depth ≤ 7, arrays ≤ 3 items, strings ≤ 200 chars. */
 export function trimForEvidence(v: unknown, depth = 0): unknown {
   if (typeof v === "string") return v.length > 200 ? `${v.slice(0, 200)}…` : v;
   if (v === null || typeof v !== "object") return v;
-  if (depth >= 4) return Array.isArray(v) ? `[${v.length} items]` : "{…}";
+  if (depth >= 7) return Array.isArray(v) ? `[${v.length} items]` : "{…}";
   if (Array.isArray(v)) {
     const out = v.slice(0, 3).map((x) => trimForEvidence(x, depth + 1));
     if (v.length > 3) out.push(`… ${v.length - 3} more`);
@@ -182,7 +187,7 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
   const { transport, source = "live", now = Date.now } = opts;
   const evidence: EvidenceEntry[] = [];
 
-  async function request(path: string, params: Params = {}): Promise<CmcResult<unknown>> {
+  async function request(path: string, params: Params = {}, ttlMs = CACHE_TTL_MS): Promise<CmcResult<unknown>> {
     const req = { path, params };
     const key = requestKey(req);
     const started = now();
@@ -191,7 +196,7 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
     let cached = false;
     let message = "";
 
-    if (hit && started - hit.at < CACHE_TTL_MS) {
+    if (hit && started - hit.at < ttlMs) {
       res = hit.res;
       cached = true;
     } else {
@@ -203,7 +208,9 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
       }
     }
 
-    const errorCode = res ? (get(res.body, "status", "error_code") as string | undefined) ?? null : null;
+    const rawCode = res ? get(res.body, "status", "error_code") : undefined;
+    // CMC sends error_code as a string ("1006") or a number (400) depending on the endpoint.
+    const errorCode = rawCode === undefined || rawCode === null ? null : String(rawCode);
     evidence.push({
       endpoint: path,
       params,
@@ -242,9 +249,41 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
     /** Generic call for endpoints without a typed wrapper (key info, F&G, liquidations…). */
     get: request,
 
-    /** GET /v5/real-world-assets/map (0 credits). Full list, used to resolve queries. */
+    /**
+     * GET /v5/real-world-assets/map (0 credits). Pages through the full list (default page
+     * is 100; limit > ~200 returns 4001 "Invalid parameter"), used to resolve queries.
+     */
     async rwaMap(): Promise<CmcResult<RwaMapEntry[]>> {
-      return map(await request("/v5/real-world-assets/map"), (b) => arr(get(b, "data", "rwa_assets")) as RwaMapEntry[]);
+      const all: RwaMapEntry[] = [];
+      for (let page = 0; page < MAP_MAX_PAGES; page++) {
+        const r = await request("/v5/real-world-assets/map", { start: page * MAP_PAGE_SIZE + 1, limit: MAP_PAGE_SIZE }, MAP_TTL_MS);
+        if (!r.ok) {
+          if (all.length) break; // keep what we have
+          return r;
+        }
+        const rows = arr(get(r.data, "data", "rwa_assets")) as RwaMapEntry[];
+        all.push(...rows);
+        if (rows.length < MAP_PAGE_SIZE) break;
+      }
+      return { ok: true, data: all };
+    },
+
+    /** GET /v5/real-world-assets/map?symbol= (0 credits, 1 request). Fast path for ticker queries. */
+    async rwaMapBySymbol(symbol: string): Promise<CmcResult<RwaMapEntry[]>> {
+      return map(
+        await request("/v5/real-world-assets/map", { symbol: symbol.trim().toUpperCase() }, MAP_TTL_MS),
+        (b) => arr(get(b, "data", "rwa_assets")) as RwaMapEntry[],
+      );
+    },
+
+    /** GET /v3/fear-and-greed/latest (1 credit). */
+    async fearAndGreed(): Promise<CmcResult<{ value: number; classification: string; updated: string | null } | null>> {
+      return map(await request("/v3/fear-and-greed/latest"), (b) => {
+        const value = num(get(b, "data", "value"));
+        const classification = get(b, "data", "value_classification");
+        if (value === null || typeof classification !== "string") return null;
+        return { value, classification, updated: (get(b, "data", "update_time") as string | undefined) ?? null };
+      });
     },
 
     /** GET /v5/real-world-assets/quotes/latest for one asset. */
@@ -260,7 +299,9 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
     /** GET /v2/cryptocurrency/info → primary contract per wrapper, keyed by crypto_id. */
     async cryptoInfo(cryptoIds: number[]): Promise<CmcResult<Map<number, WrapperContract>>> {
       const ids = [...new Set(cryptoIds)].sort((a, b) => a - b);
-      return map(await request("/v2/cryptocurrency/info", { id: ids.join(",") }), (b) => {
+      // skip_invalid: one delisted id otherwise fails the whole call with a 400 (seen for SILVER).
+      const res = await request("/v2/cryptocurrency/info", { id: ids.join(","), skip_invalid: "true" });
+      return map(res, (b) => {
         const out = new Map<number, WrapperContract>();
         for (const id of ids) {
           const p = get(b, "data", String(id), "platform");

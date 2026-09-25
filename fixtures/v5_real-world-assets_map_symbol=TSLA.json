@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Tesla, Inc.",
+        "symbol": "TSLA",
+        "slug": "tesla",
+        "rwa_id": 14,
+        "asset_type": "stock",
+        "rwa_rank": 12,
+        "has_tokens": true,
+        "first_historical_data": "2010-06-27T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:47:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:43.095Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 1,
+    "credit_count": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Gold",
+        "symbol": "GOLD",
+        "slug": "gold",
+        "rwa_id": 1,
+        "asset_type": "commodity",
+        "rwa_rank": 1,
+        "has_tokens": true,
+        "first_historical_data": "2009-09-27T00:00:00.000Z",
+        "last_historical_data": "2026-09-25T20:59:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:16.421Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 1,
+    "credit_count": 0
+  }
+}

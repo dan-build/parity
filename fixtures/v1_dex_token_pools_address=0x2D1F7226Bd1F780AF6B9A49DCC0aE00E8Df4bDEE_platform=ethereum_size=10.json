@@ -24,7 +24,7 @@
     },
     {
       "addr": "0x8b12b7f513ce67cf7ca79f40912d59eba75d3f25",
-      "v24": "7853.315219122545604677",
+      "v24": "7358.896257970374628318",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
@@ -44,7 +44,7 @@
     },
     {
       "addr": "0x4d75263652a0b13eec1bf6d81ba460a54cc85a5a",
-      "v24": "2199.452660432806096203",
+      "v24": "2174.675665945378815643",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
@@ -86,7 +86,7 @@
     },
     {
       "addr": "0xe7419dc0446fc6275d25e8f776c119c82111275f",
-      "v24": "1112.733217072110786959",
+      "v24": "1105.640299901867598617",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
@@ -108,63 +108,63 @@
     },
     {
       "addr": "0x9da0dee228d9ceab44b4359ddc30ed97cb147ff6",
-      "v24": "59220.054872474937274035",
+      "v24": "59120.747364972546787491",
       "pubAt": "1778999075000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
         "n": "NVIDIA (Ondo Tokenized)",
         "sym": "NVDAon",
-        "liq": "3595.431026657260474389",
-        "liqUsd": "811485.495271860787094796"
+        "liq": "3593.263815291508062748",
+        "liqUsd": "811948.691045818126635709"
       },
       "t1": {
         "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
         "n": "Wrapped Ether",
         "sym": "WETH",
-        "liq": "301.40219618560774023",
-        "liqUsd": "809555.306464962929589584"
+        "liq": "301.584528514102531338",
+        "liqUsd": "809760.849715289733847085"
       },
       "bidx": 0,
       "exid": 32396,
       "exn": "Ring Exchange (Ethereum)",
-      "liqUsd": "1621040.801736823716684379",
+      "liqUsd": "1621709.540761107860482794",
       "fa": "0xeb2a625b704d73e82946d8d026e1f588eed06416",
       "top": true,
       "mi": false
     },
     {
       "addr": "0xa9a6651fba74df1aab94065ffaabe750d6ed835b94a9e28925ec79beec2d5f73",
-      "v24": "155117.479158315750837757",
+      "v24": "154000.135030295552396959",
       "pubAt": "1788753467000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
         "n": "NVIDIA (Ondo Tokenized)",
         "sym": "NVDAon",
-        "liq": "395.960097255741398456",
-        "liqUsd": "89447.972169184692925454"
+        "liq": "397.071599313041767495",
+        "liqUsd": "88600.71745922066784024"
       },
       "t1": {
         "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
         "n": "USD Coin",
         "sym": "USDC",
-        "liq": "84818.107641",
-        "liqUsd": "84814.822248167834303456"
+        "liq": "84577.087705",
+        "liqUsd": "84565.059339582634008492"
       },
       "bidx": 0,
       "exid": 11955,
       "exn": "Uniswap v4 (Ethereum)",
-      "liqUsd": "174262.794417352527228909",
+      "liqUsd": "173165.776798803301848732",
       "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "top": true,
       "mi": false
     },
     {
       "addr": "0xf5294094bce435bfbd0ec488be5c462aaf32bc7a",
-      "v24": "4960.235797704484808113",
+      "v24": "4824.356533086112241436",
       "pubAt": "1758028223000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
@@ -248,10 +248,10 @@
     }
   ],
   "status": {
-    "timestamp": "2026-09-25T21:08:19.978Z",
+    "timestamp": "2026-09-25T21:49:32.101Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 249,
+    "elapsed": 222,
     "credit_count": 1
   }
 }

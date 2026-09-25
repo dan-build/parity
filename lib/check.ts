@@ -16,6 +16,8 @@ export type CheckResult = VerdictResult & {
   query: string;
   asset: { rwa_id: number; name: string; symbol: string; slug: string; asset_type: AssetType };
   evidence: EvidenceEntry[];
+  /** When CMC last updated these quotes (ISO), from quotes/latest `last_updated`. */
+  data_as_of: string | null;
   generated_at: string;
 };
 
@@ -50,13 +52,21 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   const query = q.trim();
   const extraGaps: Gap[] = [];
 
-  // 1. Resolve query → rwa_id.
-  const mapRes = await client.rwaMap();
-  if (!mapRes.ok) {
-    return { kind: "error", query, message: `Couldn't load the asset list: ${mapRes.message}`, evidence: client.evidence };
+  // 1. Resolve query → rwa_id. Tickers resolve with one free call; names/slugs need the full map.
+  let resolved: ReturnType<typeof resolveQuery> = { match: null, others: [] };
+  if (/^[A-Za-z0-9.]{1,12}$/.test(query)) {
+    const bySymbol = await client.rwaMapBySymbol(query);
+    if (bySymbol.ok) resolved = resolveQuery(query, bySymbol.data.filter((e) => e.symbol.toLowerCase() === query.toLowerCase()));
   }
-  const { match, others } = resolveQuery(query, mapRes.data);
-  if (!match) return { kind: "not_found", query, suggestions: suggest(query, mapRes.data), evidence: client.evidence };
+  if (!resolved.match) {
+    const mapRes = await client.rwaMap();
+    if (!mapRes.ok) {
+      return { kind: "error", query, message: `Couldn't load the asset list: ${mapRes.message}`, evidence: client.evidence };
+    }
+    resolved = resolveQuery(query, mapRes.data);
+    if (!resolved.match) return { kind: "not_found", query, suggestions: suggest(query, mapRes.data), evidence: client.evidence };
+  }
+  const { match, others } = resolved as { match: RwaMapEntry; others: RwaMapEntry[] };
   if (others.length) {
     extraGaps.push({
       code: "ambiguous_query",
@@ -69,7 +79,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   if (!gathered.ok) {
     return { kind: "error", query, message: `Couldn't load prices for ${match.name}: ${gathered.message}`, evidence: client.evidence };
   }
-  const { input, slug, gaps } = gathered;
+  const { input, slug, gaps, dataAsOf } = gathered;
 
   // 5. Pure verdict.
   const v = verdict(input);
@@ -82,6 +92,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
       query,
       asset: { rwa_id: input.asset.rwa_id, name: input.asset.name, symbol: input.asset.symbol, slug, asset_type: input.asset.asset_type },
       evidence: client.evidence,
+      data_as_of: dataAsOf,
       generated_at: new Date().toISOString(),
     },
   };
@@ -94,7 +105,9 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
 export async function gatherInputs(
   rwaId: number,
   client: CmcClient,
-): Promise<{ ok: true; input: VerdictInput; slug: string; gaps: Gap[] } | { ok: false; message: string }> {
+): Promise<
+  { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[] } | { ok: false; message: string }
+> {
   const gaps: Gap[] = [];
   const quoteRes = await client.rwaQuotesLatest(rwaId);
   if (!quoteRes.ok) return { ok: false, message: quoteRes.message };
@@ -128,6 +141,7 @@ export async function gatherInputs(
   return {
     ok: true,
     slug: quote.slug,
+    dataAsOf: quote.last_updated,
     gaps,
     input: {
       asset: {

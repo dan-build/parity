@@ -1,0 +1,347 @@
+{
+  "data": {
+    "24439": {
+      "id": 24439,
+      "name": "Kinesis Silver",
+      "symbol": "KAG",
+      "category": "coin",
+      "description": "Kinesis Silver (KAG) is a cryptocurrency launched in 2019. Kinesis Silver has a current supply of 100,000,035,001 with 0 in circulation. The last known price of Kinesis Silver is 33.18574799 USD and is up 12.45 over the last 24 hours. It is currently trading on 29 active market(s) with $119,164.18 traded over the last 24 hours. More information can be found at https://kinesis.money/silver/.",
+      "slug": "silver",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/24439.png",
+      "subreddit": "Kinesis_money",
+      "notice": "",
+      "tags": [
+        "ethereum-ecosystem",
+        "stellar-ecosystem",
+        "real-world-assets-protocols",
+        "tokenized-assets",
+        "tokenized-commodities",
+        "tokenized-silver"
+      ],
+      "tag-names": [
+        "Ethereum Ecosystem",
+        "Stellar Ecosystem",
+        "Real World Assets Protocols",
+        "Tokenized Assets",
+        "Tokenized commodities",
+        "Tokenized Silver"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://kinesis.money/silver/"
+        ],
+        "twitter": [
+          "https://twitter.com/KinesisMonetary"
+        ],
+        "message_board": [
+          "https://forum.kinesis.money/"
+        ],
+        "chat": [
+          "https://t.me/kinesismoney"
+        ],
+        "facebook": [
+          "https://www.facebook.com/kinesismoney/"
+        ],
+        "explorer": [
+          "https://explorer.kinesis.money/"
+        ],
+        "reddit": [
+          "https://reddit.com/r/Kinesis_money"
+        ],
+        "technical_doc": [
+          "https://kinesis.money/resources/kinesis-whitepaper-en.pdf"
+        ],
+        "source_code": [
+          "https://github.com/bullioncapital/nodes"
+        ],
+        "announcement": [
+          "https://kinesis.money/company-news/"
+        ]
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0xe560C473Dee7B1d1d5Ae316F4c1cBA7157DE498e"
+      },
+      "date_added": "2023-04-18T14:22:39.000Z",
+      "twitter_username": "KinesisMonetary",
+      "is_hidden": 0,
+      "date_launched": "2019-09-08T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0xe560C473Dee7B1d1d5Ae316F4c1cBA7157DE498e",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "GDN6ASJNUX5IHSXQYBTRAKJLZJM54EOUBYCX7YVWWMXKJGH7UOH3HXH5",
+          "platform": {
+            "name": "Stellar",
+            "coin": {
+              "id": "512",
+              "name": "Stellar",
+              "symbol": "XLM",
+              "slug": "stellar"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 3664237.13,
+      "self_reported_tags": [
+        "Store Of Value",
+        "Stablecoin",
+        "Asset-Backed Stablecoin",
+        "Real World Assets Protocols"
+      ],
+      "self_reported_market_cap": 121518410.01296073,
+      "infinite_supply": true
+    },
+    "32149": {
+      "id": 32149,
+      "name": "Silver Token",
+      "symbol": "XAGX",
+      "category": "token",
+      "description": "Silver Token (XAGX) is a cryptocurrency launched in 2024and operates on the Avalanche C-Chain platform. Silver Token has a current supply of 250,000 with 0 in circulation. The last known price of Silver Token is 64.4217458 USD and is up 1.34 over the last 24 hours. It is currently trading on 11 active market(s) with $0.00 traded over the last 24 hours. More information can be found at https://xagx.org/.",
+      "slug": "silver-token-xagx",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/32149.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "avalanche-ecosystem",
+        "real-world-assets-protocols",
+        "tokenized-assets",
+        "tokenized-commodities",
+        "tokenized-silver"
+      ],
+      "tag-names": [
+        "Avalanche Ecosystem",
+        "Real World Assets Protocols",
+        "Tokenized Assets",
+        "Tokenized commodities",
+        "Tokenized Silver"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://xagx.org/"
+        ],
+        "twitter": [
+          "https://twitter.com/xagxtoken"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/XAGXToken"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://snowscan.xyz/token/0x2C472e913635c85143369aDc9962bbB56Efc446A",
+          "https://snowtrace.io/token/0x2C472e913635c85143369aDc9962bbB56Efc446A?chainId=43114"
+        ],
+        "reddit": [],
+        "technical_doc": [
+          "https://xagx.org/wp-content/uploads/2024/05/XAGx-Silver-Token-WP-ENG.pdf"
+        ],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5805",
+        "name": "Avalanche",
+        "symbol": "AVAX",
+        "slug": "avalanche",
+        "token_address": "0x2C472e913635c85143369aDc9962bbB56Efc446A"
+      },
+      "date_added": "2024-07-10T17:33:33.000Z",
+      "twitter_username": "xagxtoken",
+      "is_hidden": 0,
+      "date_launched": "2024-03-21T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0x2C472e913635c85143369aDc9962bbB56Efc446A",
+          "platform": {
+            "name": "Avalanche C-Chain",
+            "coin": {
+              "id": "5805",
+              "name": "Avalanche",
+              "symbol": "AVAX",
+              "slug": "avalanche"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 250000,
+      "self_reported_market_cap": 16104252.265044753,
+      "infinite_supply": false
+    },
+    "37080": {
+      "id": 37080,
+      "name": "Silver (Grams)",
+      "symbol": "GRAMS",
+      "category": "token",
+      "description": "Silver (Grams) (GRAMS) is a cryptocurrency and operates on the Polygon platform. Silver (Grams) has a current supply of 3,650,000 with 0 in circulation. The last known price of Silver (Grams) is 2.07235436 USD and is up 0.75 over the last 24 hours. It is currently trading on 2 active market(s) with $0.00 traded over the last 24 hours. More information can be found at https://www.token.com.tr/en/reserve-tokens/gram-silver-grams/.",
+      "slug": "silver-grams",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37080.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "polygon-ecosystem",
+        "real-world-assets-protocols",
+        "tokenized-assets",
+        "tokenized-commodities",
+        "tokenized-silver"
+      ],
+      "tag-names": [
+        "Polygon Ecosystem",
+        "Real World Assets Protocols",
+        "Tokenized Assets",
+        "Tokenized commodities",
+        "Tokenized Silver"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.token.com.tr/en/reserve-tokens/gram-silver-grams/"
+        ],
+        "twitter": [],
+        "message_board": [
+          "https://www.instagram.com/tokencomtr",
+          "https://linkedin.com/company/tokencomtr"
+        ],
+        "chat": [
+          "https://youtube.com/@tokencomtr"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://polygonscan.com/token/0x97Cf07B5401B76D69bf48A4F6FDf63684E0748E0",
+          "https://snowtrace.io/token/0x97Cf07B5401B76D69bf48A4F6FDf63684E0748E0"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "28321",
+        "name": "Polygon (prev. MATIC)",
+        "symbol": "POL",
+        "slug": "polygon-ecosystem-token",
+        "token_address": "0x97cf07b5401b76d69bf48a4f6fdf63684e0748e0"
+      },
+      "date_added": "2025-07-02T05:40:07.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x97cf07b5401b76d69bf48a4f6fdf63684e0748e0",
+          "platform": {
+            "name": "Polygon",
+            "coin": {
+              "id": "28321",
+              "name": "Polygon (prev. MATIC)",
+              "symbol": "POL",
+              "slug": "polygon-ecosystem-token"
+            }
+          }
+        }
+      ],
+      "infinite_supply": true
+    },
+    "39343": {
+      "id": 39343,
+      "name": "Silver (Derivatives)",
+      "symbol": "XAG",
+      "category": "token",
+      "description": "Silver (Derivatives) (XAG) is a cryptocurrency . Silver (Derivatives) has a current supply of 56,000,000,000 with 0 in circulation. The last known price of Silver (Derivatives) is 64.36682623 USD and is up 0.83 over the last 24 hours. It is currently trading on 106 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "silver-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39343.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tokenized-commodities",
+        "tokenized-silver",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "Tokenized commodities",
+        "Tokenized Silver",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-01-12T04:12:42.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "self_reported_circulating_supply": 4000000000,
+      "self_reported_market_cap": 257609961596.1748,
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:50:02.526Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 8,
+    "credit_count": 1,
+    "notice": null
+  }
+}

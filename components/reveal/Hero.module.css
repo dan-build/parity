@@ -1,0 +1,299 @@
+/* Hero card: verdict + reasons + instrument, one card. Mobile first. */
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card), 0 0 0 1px var(--line);
+}
+
+.hero {
+  position: relative;
+  margin-top: 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Aurora: one glow per verdict, blooming from the top-left. */
+.aurora {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 360px at 8% -8%, var(--aurora-a), transparent 70%),
+    radial-gradient(520px 300px at 30% -20%, rgba(244, 212, 124, 0.2), rgba(244, 212, 124, 0) 70%);
+}
+
+.FAIR {
+  --aurora-a: rgba(62, 227, 162, 0.22);
+}
+.RICH {
+  --aurora-a: rgba(229, 35, 75, 0.14);
+}
+.THIN {
+  --aurora-a: rgba(244, 170, 40, 0.2);
+}
+.GHOST {
+  --aurora-a: rgba(142, 142, 149, 0.14);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  padding: 26px 22px 0;
+}
+
+.asset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--mute);
+}
+
+.asset strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* The slot holds "Weighing…" and the verdict in the same place. */
+.slot {
+  position: relative;
+  height: 162px;
+  margin-top: 6px;
+}
+
+.checking,
+.verdict {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  will-change: transform, opacity;
+}
+
+.checking {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.checking span {
+  background: linear-gradient(90deg, var(--faint) 0%, var(--ink-2) 50%, var(--faint) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.word {
+  font-size: 112px;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.8;
+  padding-bottom: 0.06em;
+}
+
+.sub {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--mute);
+  margin-top: 10px;
+}
+
+/* Glossy medal, one finish per verdict. */
+.medal {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  flex: none;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+  color: #fff;
+  will-change: transform;
+}
+
+.medal svg {
+  width: 26px;
+  height: 26px;
+}
+
+.medal.FAIR {
+  background: radial-gradient(circle at 32% 25%, #e9fff4 0, #7df0c0 18%, #16c27f 48%, #07905c 74%, #045238 100%);
+  box-shadow: inset 0 -6px 10px rgba(2, 60, 38, 0.45), inset 0 4px 8px rgba(255, 255, 255, 0.55), 0 16px 30px -12px rgba(7, 166, 107, 0.7);
+}
+
+.medal.RICH {
+  background: radial-gradient(circle at 32% 25%, #fff0f3 0, #ff9fb2 18%, #f0415f 48%, #c2183b 74%, #6e0a20 100%);
+  box-shadow: inset 0 -6px 10px rgba(90, 6, 26, 0.45), inset 0 4px 8px rgba(255, 255, 255, 0.55), 0 16px 30px -12px rgba(229, 35, 75, 0.65);
+}
+
+.medal.THIN {
+  background: radial-gradient(circle at 32% 25%, #fff8e6 0, #ffd98a 18%, #eaa320 48%, #b87200 74%, #5e3a00 100%);
+  box-shadow: inset 0 -6px 10px rgba(80, 48, 0, 0.45), inset 0 4px 8px rgba(255, 255, 255, 0.55), 0 16px 30px -12px rgba(199, 122, 0, 0.6);
+}
+
+.medal.GHOST {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px dashed #c4c4ca;
+  color: var(--ghost);
+}
+
+.reasons {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 6px;
+  align-self: end;
+}
+
+.reasons li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  will-change: transform, opacity;
+}
+
+.reasons strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.ic {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+}
+
+.ic.fair {
+  background: var(--fair-bg);
+}
+.ic.unit {
+  background: var(--unit-bg);
+}
+.ic.rich,
+.ic.off {
+  background: var(--rich-bg);
+}
+.ic.thin {
+  background: var(--thin-bg);
+}
+.ic.ghost,
+.ic.exit {
+  background: var(--ghost-bg);
+}
+
+@media (min-width: 760px) {
+  .hero {
+    margin-top: 40px;
+  }
+  .top {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 40px;
+    padding: 40px 44px 8px;
+  }
+  .slot {
+    height: 232px;
+  }
+  .checking {
+    font-size: 40px;
+  }
+  .vrow {
+    gap: 22px;
+  }
+  .word {
+    font-size: 172px;
+  }
+  .sub {
+    font-size: 34px;
+    margin-top: 14px;
+  }
+  .medal {
+    width: 78px;
+    height: 78px;
+  }
+  .medal svg {
+    width: 36px;
+    height: 36px;
+  }
+  .reasons li {
+    font-size: 16px;
+  }
+}
+
+/* ---------- loading + message states ---------- */
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 1.2s linear infinite;
+}
+
+.loading {
+  min-height: 300px;
+}
+
+.loadingTrack {
+  height: 2px;
+  margin: 40px 22px 78px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(217, 167, 60, 0) 0%, var(--gold-3) 12%, var(--gold-3) 88%, rgba(217, 167, 60, 0) 100%);
+  opacity: 0.5;
+}
+
+.message {
+  padding: 26px 22px;
+}
+
+.message h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.message p {
+  margin: 6px 0 0;
+  color: var(--mute);
+}
+
+@media (min-width: 760px) {
+  .loadingTrack {
+    margin: 60px 44px 110px;
+  }
+  .message {
+    padding: 40px 44px;
+  }
+  .message h2 {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+  }
+}

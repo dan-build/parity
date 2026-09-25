@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { gatherInputs } from "./check";
 import { clearCmcCache, createCmcClient } from "./cmc";
 import { fixtureTransport } from "./cmc-fixtures";
-import { GRAMS_PER_TROY_OUNCE, THIN_BELOW, verdict, type VerdictInput, type VerdictResult } from "./verdict";
+import { GRAMS_PER_TROY_OUNCE, OFF_TRACK_PCT, THIN_BELOW, verdict, type VerdictInput, type VerdictResult } from "./verdict";
 
 const GOLD = 1;
 const NVDA = 2;
@@ -43,7 +43,7 @@ describe("per-gram gold", () => {
       expect(w.unit).toBe("per_gram_to_oz");
       expect(w.price_raw).toBeLessThan(200);
       expect(w.price_usd).toBeCloseTo((w.price_raw as number) * GRAMS_PER_TROY_OUNCE, 6);
-      expect(Math.abs(w.premium_pct as number)).toBeLessThan(0.5);
+      expect(Math.abs(w.premium_pct as number)).toBeLessThan(OFF_TRACK_PCT); // tracks gold once converted (raw: about −97%)
       expect(w.verdict).not.toBe("GHOST");
       expect(w.verdict).not.toBe("RICH");
       expect(w.reasons[0]).toMatch(/per gram/);
@@ -66,6 +66,24 @@ describe("per-gram gold", () => {
   it("mentions the conversion in the headline reasons", async () => {
     const r = verdict(await load(GOLD));
     expect(r.reasons.some((s) => /per gram/.test(s))).toBe(true);
+  });
+});
+
+describe("per-gram silver (few wrappers, consensus not median)", () => {
+  it("anchors on the price most wrappers agree on and converts GRAMS", async () => {
+    const r = verdict(await load(5));
+    const grams = r.wrappers.find((w) => w.symbol === "GRAMS")!;
+    const xagx = r.wrappers.find((w) => w.symbol === "XAGX")!;
+    const kag = r.wrappers.find((w) => w.symbol === "KAG")!;
+    expect(grams.unit).toBe("per_gram_to_oz");
+    expect(Math.abs(grams.premium_pct as number)).toBeLessThan(1);
+    expect(Math.abs(xagx.premium_pct as number)).toBeLessThan(1);
+    expect(kag.verdict).toBe("GHOST"); // ~48% below the other two
+  });
+
+  it("never prints a null symbol", async () => {
+    const r = verdict(await load(5));
+    for (const w of r.wrappers) expect(w.display).not.toMatch(/^null|undefined/);
   });
 });
 

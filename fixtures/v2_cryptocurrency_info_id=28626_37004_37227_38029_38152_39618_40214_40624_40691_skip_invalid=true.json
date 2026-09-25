@@ -1,31 +1,28 @@
 {
   "data": {
-    "28616": {
-      "id": 28616,
-      "name": "NVIDIA tokenized stock (Dinari)",
-      "symbol": "NVDA.D",
+    "28626": {
+      "id": 28626,
+      "name": "TSLA tokenized stock (Dinari)",
+      "symbol": "TSLA.D",
       "category": "token",
       "description": "Dinari dShares are RWA tokens issued by Dinari, an SEC registered Transfer Agent. These assets have 1:1 backing of Google stock shares in a transparent treasury vault with regular audits. Qualifying dShare holders are eligible to recieve dividends paid out by the underlying asset where applicable.\r\n\r\nDinari was founded by Gabirel Otte, Chas Rampenthal, and Jake Timothy to foster financial inclusion, create more efficient markets, and level the playing field for retail and business investors globally.\r\n\r\nDinari assets are unique to both blockchain and traditional finance for a number of reasons. All Dinari dShares maintain a 1-to-1 backing with underlying assets, eliminating borrowing risk in traditional finance. dShares directly represent real shares, ensuring utmost transparency. Dinari assets also mitigate hypothecation risk, enhancing safety. The tokenizatized nature of dShares offers technical advantages over centralized equities, including rapid transferability, instant settlement, 24/7 trading, and fractional ownership, increasing accessibility and liquidity.\r\n\r\nThe number of any Dinari dShare asset depends on how many shares have been minted or burned. The circulation of the underlying asset the dShare is based on is determined by the underlying company and how they issue their shares, which is equivalent to the theoretical maximum possible circulating supply of corresponding dShares.\r\n\r\nDinari assets are secured through a number of mechanisms. All dShares are backed 1:1 by the underlying asset, with regular external audits by a Big 4 Accounting firm to verify their contents. Additionally, Dinari employs a legal wrapper to shield the assets from potential claims in case of bankruptcy, ensuring allocation to token holders. Dinari also conducts regular smart contract audits to mitigate technical risks.\r\n\r\nFor a detailed breakdown of asset holdings, users can visit Dinari's transparency page at [https://www.dinari.com/transparency](https://www.dinari.com/transparency).\r\n\r\nDinari dShare assets can be minted and burned in the Dinari dApp at sbt.dinari.com. As ERC-20 tokens, dShares are theoretically in DeFi protocols such as DEXs, AMMs, etc.",
-      "slug": "dinari-nvda",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28616.png",
+      "slug": "dinari-tsla",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28626.png",
       "subreddit": "dinari",
       "notice": "",
       "tags": [
         "defi",
         "tokenized-stock",
-        "arbitrum-ecosystem",
         "tokenized-assets"
       ],
       "tag-names": [
         "DeFi",
         "Tokenized Stock",
-        "Arbitrum Ecosystem",
         "Tokenized Assets"
       ],
       "tag-groups": [
         "CATEGORY",
         "CATEGORY",
-        "PLATFORM",
         "CATEGORY"
       ],
       "urls": {
@@ -45,7 +42,7 @@
         ],
         "facebook": [],
         "explorer": [
-          "https://arbiscan.io/token/0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c"
+          "https://arbiscan.io/token/0x36d37B6cbCA364Cf1D843efF8C2f6824491bcF81"
         ],
         "reddit": [
           "https://reddit.com/r/dinari"
@@ -63,15 +60,15 @@
         "name": "Arbitrum",
         "symbol": "ARB",
         "slug": "arbitrum",
-        "token_address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c"
+        "token_address": "0x36d37B6cbCA364Cf1D843efF8C2f6824491bcF81"
       },
-      "date_added": "2023-12-07T10:41:41.000Z",
+      "date_added": "2023-12-07T11:11:18.000Z",
       "twitter_username": "DinariGlobal",
       "is_hidden": 0,
       "date_launched": "2021-10-31T00:00:00.000Z",
       "contract_address": [
         {
-          "contract_address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c",
+          "contract_address": "0x36d37B6cbCA364Cf1D843efF8C2f6824491bcF81",
           "platform": {
             "name": "Arbitrum",
             "coin": {
@@ -83,17 +80,17 @@
           }
         }
       ],
-      "self_reported_circulating_supply": 39,
+      "self_reported_circulating_supply": 1,
       "infinite_supply": false
     },
-    "36992": {
-      "id": 36992,
-      "name": "NVIDIA tokenized stock (xStock)",
-      "symbol": "NVDAX",
+    "37004": {
+      "id": 37004,
+      "name": "Tesla tokenized stock (xStock)",
+      "symbol": "TSLAX",
       "category": "token",
-      "description": "NVIDIA tokenized stock (xStock) (NVDAX) is a cryptocurrency and operates on the Solana platform. NVIDIA tokenized stock (xStock) has a current supply of 1,023,541.73008611 with 186,413.31226775 in circulation. The last known price of NVIDIA tokenized stock (xStock) is 225.40222506 USD and is up 0.57 over the last 24 hours. It is currently trading on 105 active market(s) with $22,496,572.70 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/nvidia-xstock.",
-      "slug": "nvidia-tokenized-stock-xstock",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+      "description": "Tesla tokenized stock (xStock) (TSLAX) is a cryptocurrency and operates on the Solana platform. Tesla tokenized stock (xStock) has a current supply of 548,253.97253986 with 189,476.82167096 in circulation. The last known price of Tesla tokenized stock (xStock) is 372.46455614 USD and is down -1.39 over the last 24 hours. It is currently trading on 102 active market(s) with $17,416,936.17 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/tesla-xstock.",
+      "slug": "tesla-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -137,7 +134,7 @@
       ],
       "urls": {
         "website": [
-          "https://assets.backed.fi/products/nvidia-xstock"
+          "https://assets.backed.fi/products/tesla-xstock"
         ],
         "twitter": [
           "https://twitter.com/xStocksFi"
@@ -148,10 +145,10 @@
         ],
         "facebook": [],
         "explorer": [
-          "https://solscan.io/token/Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
-          "https://www.arbiscan.io/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
-          "https://etherscan.io/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
-          "https://explorer.inkonchain.com/token/0xc845b2894dbddd03858fd2d643b4ef725fe0849d"
+          "https://solscan.io/token/XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+          "https://www.arbiscan.io/token/0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
+          "https://etherscan.io/token/0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
+          "https://explorer.inkonchain.com/token/0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -163,14 +160,14 @@
         "name": "Solana",
         "symbol": "SOL",
         "slug": "solana",
-        "token_address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh"
+        "token_address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB"
       },
-      "date_added": "2025-07-01T07:20:20.000Z",
+      "date_added": "2025-07-01T12:44:26.000Z",
       "twitter_username": "xStocksFi",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+          "contract_address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
           "platform": {
             "name": "Solana",
             "coin": {
@@ -182,7 +179,19 @@
           }
         },
         {
-          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "contract_address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
           "platform": {
             "name": "BNB Smart Chain (BEP20)",
             "coin": {
@@ -194,7 +203,7 @@
           }
         },
         {
-          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "contract_address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
           "platform": {
             "name": "Ethereum",
             "coin": {
@@ -206,7 +215,7 @@
           }
         },
         {
-          "contract_address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+          "contract_address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
           "platform": {
             "name": "Ink",
             "coin": {
@@ -218,7 +227,7 @@
           }
         },
         {
-          "contract_address": "EQCva-Of7acQdU_piADdlcbzsFtA-xJwZoctz8ZOXBdBoaB8",
+          "contract_address": "EQB4IwqWZPUczntdry8vSN2tsJKt-9F7iIb7gEFREYYOB563",
           "platform": {
             "name": "TON",
             "coin": {
@@ -230,7 +239,7 @@
           }
         },
         {
-          "contract_address": "0xc845b2894dBddd03858fd2D643B4eF725fE0849d",
+          "contract_address": "0x8aD3c73F833d3F9A523aB01476625F269aEB7Cf0",
           "platform": {
             "name": "X Layer",
             "coin": {
@@ -244,14 +253,14 @@
       ],
       "infinite_supply": true
     },
-    "37270": {
-      "id": 37270,
-      "name": "Wrapped NVIDIA Tokenized stock (xStock)",
-      "symbol": "WNVDAX",
+    "37227": {
+      "id": 37227,
+      "name": "Wrapped Tesla Tokenized stock (xStock)",
+      "symbol": "WTSLAX",
       "category": "token",
-      "description": "Wrapped NVIDIA Tokenized stock (xStock) (WNVDAX) is a cryptocurrency and operates on the X Layer platform. Wrapped NVIDIA Tokenized stock (xStock) has a current supply of 3,666.91663772. The last known price of Wrapped NVIDIA Tokenized stock (xStock) is 225.43860738 USD and is up 0.42 over the last 24 hours. It is currently trading on 3 active market(s) with $3,776,853.21 traded over the last 24 hours. More information can be found at https://assets.backed.fi/.",
-      "slug": "wrapped-nvidia-tokenized-stock-xstock",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37270.png",
+      "description": "Wrapped Tesla Tokenized stock (xStock) (WTSLAX) is a cryptocurrency and operates on the X Layer platform. Wrapped Tesla Tokenized stock (xStock) has a current supply of 1,124.75876629. The last known price of Wrapped Tesla Tokenized stock (xStock) is 372.08801406 USD and is down -1.63 over the last 24 hours. It is currently trading on 2 active market(s) with $3,565,269.99 traded over the last 24 hours. More information can be found at https://assets.backed.fi/.",
+      "slug": "wrapped-tesla-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37227.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -286,8 +295,8 @@
         "chat": [],
         "facebook": [],
         "explorer": [
-          "https://arbiscan.io/token/0x93e62845c1dd5822ebc807ab71a5fb750decd15a",
-          "https://www.arbiscan.io/token/0x93e62845c1dd5822ebc807ab71a5fb750decd15a"
+          "https://arbiscan.io/token/0x43680abf18cf54898be84c6ef78237cfbd441883",
+          "https://www.arbiscan.io/token/0x43680abf18cf54898be84c6ef78237cfbd441883"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -299,14 +308,14 @@
         "name": "OKB",
         "symbol": "OKB",
         "slug": "okb",
-        "token_address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5"
+        "token_address": "0xc3FdBe3A68EE5dE461D30415a8165cf9Aefe1171"
       },
-      "date_added": "2025-07-08T05:35:15.000Z",
+      "date_added": "2025-07-07T04:46:46.000Z",
       "twitter_username": "xStocksFi",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5",
+          "contract_address": "0xc3FdBe3A68EE5dE461D30415a8165cf9Aefe1171",
           "platform": {
             "name": "X Layer",
             "coin": {
@@ -318,7 +327,7 @@
           }
         },
         {
-          "contract_address": "0x93e62845c1dd5822ebc807ab71a5fb750decd15a",
+          "contract_address": "0x43680abf18cf54898be84c6ef78237cfbd441883",
           "platform": {
             "name": "Arbitrum",
             "coin": {
@@ -332,14 +341,14 @@
       ],
       "infinite_supply": false
     },
-    "38093": {
-      "id": 38093,
-      "name": "NVIDIA Tokenized Stock (Ondo)",
-      "symbol": "NVDAon",
+    "38029": {
+      "id": 38029,
+      "name": "Tesla Tokenized Stock (Ondo)",
+      "symbol": "TSLAon",
       "category": "token",
-      "description": "NVIDIA Tokenized Stock (Ondo) (NVDAon) is a cryptocurrency and operates on the Ethereum platform. NVIDIA Tokenized Stock (Ondo) has a current supply of 169,345.10987686. The last known price of NVIDIA Tokenized Stock (Ondo) is 225.29805919 USD and is up 0.59 over the last 24 hours. It is currently trading on 109 active market(s) with $2,667,298.28 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/nvdaon.",
-      "slug": "nvidia-tokenized-stock-ondo",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
+      "description": "Tesla Tokenized Stock (Ondo) (TSLAon) is a cryptocurrency and operates on the Ethereum platform. Tesla Tokenized Stock (Ondo) has a current supply of 46,325.32200194. The last known price of Tesla Tokenized Stock (Ondo) is 372.50452414 USD and is down -1.39 over the last 24 hours. It is currently trading on 49 active market(s) with $5,960,049.73 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/tslaon.",
+      "slug": "tesla-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38029.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -380,7 +389,7 @@
       ],
       "urls": {
         "website": [
-          "https://app.ondo.finance/assets/nvdaon"
+          "https://app.ondo.finance/assets/tslaon"
         ],
         "twitter": [
           "https://twitter.com/ondofinance"
@@ -389,10 +398,10 @@
         "chat": [],
         "facebook": [],
         "explorer": [
-          "https://etherscan.io/token/0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
-          "https://bscscan.com/token/0xa9ee28c80f960b889dfbd1902055218cba016f75",
-          "https://solscan.io/token/gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
-          "https://hyperevmscan.io/token/0xB989ad9b91886b1Aaed8DaADb26F028b29b40945"
+          "https://etherscan.io/token/0xf6b1117ec07684D3958caD8BEb1b302bfD21103f",
+          "https://bscscan.com/token/0x2494b603319d4d9f9715c9f4496d9e0364b59d93",
+          "https://solscan.io/token/KeGv7bsfR4MheC1CkmnAVceoApjrkvBhHYjWb67ondo",
+          "https://hyperevmscan.io/token/0x417883b1709545f1211A25b00ad13455fC7F1bc5"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -404,14 +413,14 @@
         "name": "Ethereum",
         "symbol": "ETH",
         "slug": "ethereum",
-        "token_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE"
+        "token_address": "0xf6b1117ec07684D3958caD8BEb1b302bfD21103f"
       },
-      "date_added": "2025-09-03T10:55:27.000Z",
+      "date_added": "2025-09-03T10:55:15.000Z",
       "twitter_username": "ondofinance",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "contract_address": "0xf6b1117ec07684D3958caD8BEb1b302bfD21103f",
           "platform": {
             "name": "Ethereum",
             "coin": {
@@ -423,7 +432,7 @@
           }
         },
         {
-          "contract_address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "contract_address": "0x2494b603319d4d9f9715c9f4496d9e0364b59d93",
           "platform": {
             "name": "BNB Smart Chain (BEP20)",
             "coin": {
@@ -435,7 +444,7 @@
           }
         },
         {
-          "contract_address": "gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
+          "contract_address": "KeGv7bsfR4MheC1CkmnAVceoApjrkvBhHYjWb67ondo",
           "platform": {
             "name": "Solana",
             "coin": {
@@ -447,7 +456,7 @@
           }
         },
         {
-          "contract_address": "0xB989ad9b91886b1Aaed8DaADb26F028b29b40945",
+          "contract_address": "0x417883b1709545f1211A25b00ad13455fC7F1bc5",
           "platform": {
             "name": "HyperEVM",
             "coin": {
@@ -461,14 +470,14 @@
       ],
       "infinite_supply": false
     },
-    "38153": {
-      "id": 38153,
-      "name": "NVIDIA (Derivatives)",
-      "symbol": "NVDA",
+    "38152": {
+      "id": 38152,
+      "name": "Tesla (Derivatives)",
+      "symbol": "TSLA",
       "category": "token",
-      "description": "NVIDIA (Derivatives) (NVDA) is a cryptocurrency . NVIDIA (Derivatives) has a current supply of 0. The last known price of NVIDIA (Derivatives) is 225.15853928 USD and is up 0.49 over the last 24 hours. It is currently trading on 107 active market(s) with $498,401.28 traded over the last 24 hours.",
-      "slug": "nvidia-derivatives",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38153.png",
+      "description": "Tesla (Derivatives) (TSLA) is a cryptocurrency . Tesla (Derivatives) has a current supply of 0. The last known price of Tesla (Derivatives) is 372.77729199 USD and is down -1.37 over the last 24 hours. It is currently trading on 108 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "tesla-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38152.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -511,19 +520,107 @@
         "announcement": []
       },
       "platform": null,
-      "date_added": "2025-08-21T03:47:50.000Z",
+      "date_added": "2025-08-21T03:43:35.000Z",
       "twitter_username": "",
       "is_hidden": 0,
       "infinite_supply": false
     },
-    "40215": {
-      "id": 40215,
-      "name": "NVIDIA Tokenized bStocks",
-      "symbol": "NVDAB",
+    "39618": {
+      "id": 39618,
+      "name": "Tesla Tokenized Stock (Hyperliquid)",
+      "symbol": "TSLA",
       "category": "token",
-      "description": "NVIDIA Tokenized bStocks (NVDAB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. NVIDIA Tokenized bStocks has a current supply of 151,799.05139576. The last known price of NVIDIA Tokenized bStocks is 224.99770107 USD and is up 0.46 over the last 24 hours. It is currently trading on 90 active market(s) with $18,476,609.83 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
-      "slug": "nvidia-tokenized-bstocks",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
+      "description": "Tesla Tokenized Stock (Hyperliquid) (TSLA) is a cryptocurrency and operates on the HyperEVM platform. Tesla Tokenized Stock (Hyperliquid) has a current supply of 20.21051. The last known price of Tesla Tokenized Stock (Hyperliquid) is 300.00479192 USD and is up 0.00 over the last 24 hours. It is currently trading on 1 active market(s) with $0.00 traded over the last 24 hours. More information can be found at https://app.hyperliquid.xyz/trade/.",
+      "slug": "tesla-tokenized-stock-hyperliquid",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39618.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "hyperliquid-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Hyperliquid Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM"
+      ],
+      "urls": {
+        "website": [
+          "https://app.hyperliquid.xyz/trade/"
+        ],
+        "twitter": [
+          "https://twitter.com/HyperliquidX"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://app.hyperliquid.xyz/explorer/token/0xc8a24412041cdc4a167e7d3568fb6ebd",
+          "https://hyperevmscan.io/token/0x3727c797073840936e3c18b4088f3574cd1a72a3"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid",
+        "token_address": "0x7374dc1894fbd1bc6c42f6ebbc50b78c211a8606"
+      },
+      "date_added": "2026-02-25T10:53:01.000Z",
+      "twitter_username": "HyperliquidX",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x7374dc1894fbd1bc6c42f6ebbc50b78c211a8606",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        },
+        {
+          "contract_address": "0xc8a24412041cdc4a167e7d3568fb6ebd",
+          "platform": {
+            "name": "Hyperliquid",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40214": {
+      "id": 40214,
+      "name": "Tesla Tokenized bStocks",
+      "symbol": "TSLAB",
+      "category": "token",
+      "description": "Tesla Tokenized bStocks (TSLAB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. Tesla Tokenized bStocks has a current supply of 53,920.10984313. The last known price of Tesla Tokenized bStocks is 372.41070473 USD and is down -1.40 over the last 24 hours. It is currently trading on 55 active market(s) with $18,943,918.84 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
+      "slug": "tesla-tokenized-bstocks",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40214.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -562,7 +659,7 @@
         "chat": [],
         "facebook": [],
         "explorer": [
-          "https://bscscan.com/address/0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+          "https://bscscan.com/address/0x5b1910eaad6450e50f816082aa078c41f10c292f"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -574,14 +671,14 @@
         "name": "BNB",
         "symbol": "BNB",
         "slug": "bnb",
-        "token_address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+        "token_address": "0x5b1910eaad6450e50f816082aa078c41f10c292f"
       },
-      "date_added": "2026-06-11T03:04:13.000Z",
+      "date_added": "2026-06-11T03:04:06.000Z",
       "twitter_username": "",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+          "contract_address": "0x5b1910eaad6450e50f816082aa078c41f10c292f",
           "platform": {
             "name": "BNB Smart Chain (BEP20)",
             "coin": {
@@ -595,14 +692,14 @@
       ],
       "infinite_supply": false
     },
-    "40605": {
-      "id": 40605,
-      "name": "NVIDIA Tokenized Stock (Reality)",
-      "symbol": "rNVDA",
+    "40624": {
+      "id": 40624,
+      "name": "Tesla Tokenized Stock (Reality)",
+      "symbol": "rTSLA",
       "category": "token",
-      "description": "NVIDIA Tokenized Stock (Reality) (rNVDA) is a cryptocurrency and operates on the Arbitrum platform. NVIDIA Tokenized Stock (Reality) has a current supply of 12,517.33523155. The last known price of NVIDIA Tokenized Stock (Reality) is 224.99427197 USD and is up 0.53 over the last 24 hours. It is currently trading on 4 active market(s) with $461,356.13 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
-      "slug": "nvidia-tokenized-stock-reality",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40605.png",
+      "description": "Tesla Tokenized Stock (Reality) (rTSLA) is a cryptocurrency and operates on the Arbitrum platform. Tesla Tokenized Stock (Reality) has a current supply of 10,820.99118338. The last known price of Tesla Tokenized Stock (Reality) is 372.48244095 USD and is down -1.33 over the last 24 hours. It is currently trading on 3 active market(s) with $382,562.02 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
+      "slug": "tesla-tokenized-stock-reality",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40624.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -640,7 +737,7 @@
         "chat": [],
         "facebook": [],
         "explorer": [
-          "https://arbiscan.io/address/0x0a85b6ebe3c150a1979a65656e304033d62b1e12"
+          "https://arbiscan.io/address/0xf912911c9c8d5131929c758e66e6dc54e65cf3ba"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -652,14 +749,14 @@
         "name": "Arbitrum",
         "symbol": "ARB",
         "slug": "arbitrum",
-        "token_address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12"
+        "token_address": "0xf912911c9c8d5131929c758e66e6dc54e65cf3ba"
       },
-      "date_added": "2026-07-02T07:39:03.000Z",
+      "date_added": "2026-07-02T07:39:12.000Z",
       "twitter_username": "RealityFi_xyz",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12",
+          "contract_address": "0xf912911c9c8d5131929c758e66e6dc54e65cf3ba",
           "platform": {
             "name": "Arbitrum",
             "coin": {
@@ -673,14 +770,14 @@
       ],
       "infinite_supply": false
     },
-    "40685": {
-      "id": 40685,
-      "name": "NVIDIA Tokenized Stock (Robinhood)",
-      "symbol": "NVDA",
+    "40691": {
+      "id": 40691,
+      "name": "Tesla Tokenized Stock (Robinhood)",
+      "symbol": "TSLA",
       "category": "token",
-      "description": "NVIDIA Tokenized Stock (Robinhood) (NVDA) is a cryptocurrency and operates on the Robinhood Chain platform. NVIDIA Tokenized Stock (Robinhood) has a current supply of 91,010.95753228. The last known price of NVIDIA Tokenized Stock (Robinhood) is 225.25355187 USD and is up 0.52 over the last 24 hours. It is currently trading on 244 active market(s) with $31,532,202.59 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/about/crypto/.",
-      "slug": "nvidia-tokenized-stock-robinhood",
-      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40685.png",
+      "description": "Tesla Tokenized Stock (Robinhood) (TSLA) is a cryptocurrency and operates on the Robinhood Chain platform. Tesla Tokenized Stock (Robinhood) has a current supply of 13,391.23916. The last known price of Tesla Tokenized Stock (Robinhood) is 372.03342844 USD and is down -1.51 over the last 24 hours. It is currently trading on 41 active market(s) with $4,615,346.03 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/.",
+      "slug": "tesla-tokenized-stock-robinhood",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40691.png",
       "subreddit": "",
       "notice": "",
       "tags": [
@@ -700,7 +797,7 @@
       ],
       "urls": {
         "website": [
-          "https://robinhood.com/us/en/about/crypto/"
+          "https://robinhood.com/us/en/"
         ],
         "twitter": [
           "https://twitter.com/RobinhoodCrypto"
@@ -709,7 +806,7 @@
         "chat": [],
         "facebook": [],
         "explorer": [
-          "https://robinhoodchain.blockscout.com/token/0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"
+          "https://robinhoodchain.blockscout.com/token/0x322F0929c4625eD5bAd873c95208D54E1c003b2d"
         ],
         "reddit": [],
         "technical_doc": [],
@@ -721,14 +818,14 @@
         "name": "Robinhood",
         "symbol": "-",
         "slug": "robinhood-placeholder",
-        "token_address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"
+        "token_address": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d"
       },
-      "date_added": "2026-08-04T07:31:24.000Z",
+      "date_added": "2026-08-04T07:31:27.000Z",
       "twitter_username": "RobinhoodCrypto",
       "is_hidden": 0,
       "contract_address": [
         {
-          "contract_address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+          "contract_address": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
           "platform": {
             "name": "Robinhood Chain",
             "coin": {
@@ -744,10 +841,10 @@
     }
   },
   "status": {
-    "timestamp": "2026-09-25T21:08:19.536Z",
+    "timestamp": "2026-09-25T21:49:45.897Z",
     "error_code": 0,
     "error_message": null,
-    "elapsed": 12,
+    "elapsed": 11,
     "credit_count": 1,
     "notice": null
   }

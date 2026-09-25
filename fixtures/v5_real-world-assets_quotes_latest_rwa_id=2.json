@@ -9,30 +9,30 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "average_tokenized_price": 225.14891494640506,
-            "tokenized_market_cap": 138511698.49233457,
-            "tokenized_volume_24h": 79970284.00978793,
-            "last_updated": "2026-09-25T21:07:04.000Z"
+            "average_tokenized_price": 225.23580305356631,
+            "tokenized_market_cap": 138472517.4796183,
+            "tokenized_volume_24h": 81706073.03413402,
+            "last_updated": "2026-09-25T21:48:03.000Z"
           }
         ],
         "rwa_id": 2,
         "asset_type": "stock",
         "rwa_rank": 2,
         "has_tokens": true,
-        "average_tokenized_price": 225.14891494640506,
-        "tokenized_market_cap": 138511698.49233457,
-        "tokenized_volume_24h": 79970284.00978793,
-        "last_updated": "2026-09-25T21:06:42.169Z",
+        "average_tokenized_price": 225.23580305356631,
+        "tokenized_market_cap": 138472517.4796183,
+        "tokenized_volume_24h": 81706073.03413402,
+        "last_updated": "2026-09-25T21:47:41.694Z",
         "tokens": [
           {
             "symbol": "NVDAX",
             "name": "NVIDIA tokenized stock (xStock)",
-            "price": 225.40501306176506,
+            "price": 225.44293384417304,
             "crypto_id": 36992,
             "issuer_id": "6878977dcbbf471de3366e85",
             "issuer_name": "Backed Assets",
-            "market_cap": 42018495.09,
-            "volume_24h": 22476731.64635534
+            "market_cap": 42004894.6,
+            "volume_24h": 23150213.91848455
           },
           {
             "symbol": "NVDA.D",
@@ -47,62 +47,62 @@
           {
             "symbol": "NVDAon",
             "name": "NVIDIA Tokenized Stock (Ondo)",
-            "price": 225.3015130314447,
+            "price": 225.5171811219344,
             "crypto_id": 38093,
             "issuer_id": "688ca4ccabae9b5b9fb3167a",
             "issuer_name": "Ondo Assets",
-            "market_cap": 38153709.48,
-            "volume_24h": 2667304.24349569
+            "market_cap": 38253821.58,
+            "volume_24h": 2652589.56345916
           },
           {
             "symbol": "NVDA",
             "name": "NVIDIA (Derivatives)",
-            "price": 225.15844484459572,
+            "price": 225.33192695646034,
             "crypto_id": 38153,
             "issuer_id": "695e11f774b54210f3b95dc3",
             "issuer_name": "NA (Derivatives)",
             "market_cap": 0,
-            "volume_24h": 498401.27857242
+            "volume_24h": 499997.85542408
           },
           {
             "symbol": "NVDAB",
             "name": "NVIDIA Tokenized bStocks",
-            "price": 224.93176881220901,
+            "price": 225.09782248481847,
             "crypto_id": 40215,
             "issuer_id": "6a2aed5097c45356b1a5f710",
             "issuer_name": "bStocks",
-            "market_cap": 34171001.14,
-            "volume_24h": 18469339.34413183
+            "market_cap": 34196850.94,
+            "volume_24h": 18716666.44419474
           },
           {
             "symbol": "rNVDA",
             "name": "NVIDIA Tokenized Stock (Reality)",
-            "price": 224.99427197397438,
+            "price": 225.17580452394245,
             "crypto_id": 40605,
             "issuer_id": "6a43600c282e7240b76c8bbb",
             "issuer_name": "Reality",
-            "market_cap": 2816328.73,
-            "volume_24h": 461356.12742947
+            "market_cap": 2818601.03,
+            "volume_24h": 460082.186018
           },
           {
             "symbol": "NVDA",
             "name": "NVIDIA Tokenized Stock (Robinhood)",
-            "price": 224.97197396993576,
+            "price": 225.21382017124824,
             "crypto_id": 40685,
             "issuer_id": "6a465832fbe3004b1a0ea2dd",
             "issuer_name": "Robinhood",
-            "market_cap": 20490786.09,
-            "volume_24h": 31566688.19196744
+            "market_cap": 20403894.19,
+            "volume_24h": 32539657.17872063
           },
           {
             "symbol": "WNVDAX",
             "name": "Wrapped NVIDIA Tokenized stock (xStock)",
-            "price": 225.3798550628313,
+            "price": 225.3877971734355,
             "crypto_id": 37270,
             "issuer_id": "6878977dcbbf471de3366e85",
             "issuer_name": "Backed Assets",
-            "market_cap": 826449.14,
-            "volume_24h": 3777639.64901966
+            "market_cap": 812650.46,
+            "volume_24h": 3750279.01695866
           }
         ],
         "tradfi_markets": [
@@ -120,10 +120,10 @@
     ]
   },
   "status": {
-    "timestamp": "2026-09-25T21:08:18.925Z",
+    "timestamp": "2026-09-25T21:49:27.500Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 4,
+    "elapsed": 5,
     "credit_count": 1
   }
 }

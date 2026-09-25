@@ -1,0 +1,136 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Innovtor Equity Defined Protection ETF - 1 Yr July",
+        "symbol": "ZJUL",
+        "slug": "innovtor-equity-defined-protection-etf-1-yr-july",
+        "rwa_id": 8059,
+        "asset_type": "etf",
+        "rwa_rank": 4678,
+        "has_tokens": false,
+        "first_historical_data": "2024-06-30T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T20:15:00.000Z"
+      },
+      {
+        "name": "Innovator Equity Defined Protection ETF - 1 Yr November",
+        "symbol": "ZNOV",
+        "slug": "innovator-equity-defined-protection-etf-1-yr-november",
+        "rwa_id": 8060,
+        "asset_type": "etf",
+        "rwa_rank": 4676,
+        "has_tokens": false,
+        "first_historical_data": "2024-10-27T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T20:10:00.000Z"
+      },
+      {
+        "name": "PIMCO 25+ Year Zero Coupon U.S. Treasury Index Exchange-Traded Fund",
+        "symbol": "ZROZ",
+        "slug": "pimco-25-year-zero-coupon-u-s-treasury-index-exchange-traded-fund",
+        "rwa_id": 8061,
+        "asset_type": "etf",
+        "rwa_rank": 4674,
+        "has_tokens": false,
+        "first_historical_data": "2009-11-01T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:10:00.000Z"
+      },
+      {
+        "name": "Volatility Premium Plus ETF",
+        "symbol": "ZVOL",
+        "slug": "volatility-premium-plus-etf",
+        "rwa_id": 8062,
+        "asset_type": "etf",
+        "rwa_rank": 4672,
+        "has_tokens": false,
+        "first_historical_data": "2024-11-17T05:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:30:00.000Z"
+      },
+      {
+        "name": "Abundia Global Impact Group Inc.",
+        "symbol": "AGIG",
+        "slug": "abundia-global-impact-group-inc",
+        "rwa_id": 8063,
+        "asset_type": "stock",
+        "rwa_rank": 4115,
+        "has_tokens": false,
+        "first_historical_data": "2025-12-07T05:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:20:00.000Z"
+      },
+      {
+        "name": "Liberty Media Corporation (Series A)",
+        "symbol": "FWONA",
+        "slug": "liberty-media-corporation-series-A",
+        "rwa_id": 8064,
+        "asset_type": "stock",
+        "rwa_rank": 562,
+        "has_tokens": false,
+        "first_historical_data": "2017-01-22T05:00:00.000Z",
+        "last_historical_data": "2026-09-25T20:10:00.000Z"
+      },
+      {
+        "name": "SK Hynix",
+        "symbol": "SKHY",
+        "slug": "sk-hynix",
+        "rwa_id": 8065,
+        "asset_type": "stock",
+        "rwa_rank": 13,
+        "has_tokens": true,
+        "first_historical_data": null,
+        "last_historical_data": "2026-09-25T21:45:00.000Z"
+      },
+      {
+        "name": "ChangXin Memory Technologies",
+        "symbol": "CXMT",
+        "slug": "changxin-memory-technologies",
+        "rwa_id": 16385,
+        "asset_type": "stock",
+        "rwa_rank": 4669,
+        "has_tokens": true,
+        "first_historical_data": "2026-07-16T09:00:17.000Z",
+        "last_historical_data": null
+      },
+      {
+        "name": "Quantinuum Inc",
+        "symbol": "QNT",
+        "slug": "quantinuum-inc",
+        "rwa_id": 16386,
+        "asset_type": "stock",
+        "rwa_rank": 2043,
+        "has_tokens": true,
+        "first_historical_data": "2026-05-31T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:45:00.000Z"
+      },
+      {
+        "name": "Colgate-Palmolive Company",
+        "symbol": "CL",
+        "slug": "colgate-palmolive-company",
+        "rwa_id": 16387,
+        "asset_type": "stock",
+        "rwa_rank": 247,
+        "has_tokens": false,
+        "first_historical_data": "2003-09-07T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T21:34:00.000Z"
+      },
+      {
+        "name": "Palladium",
+        "symbol": "XPD",
+        "slug": "palladium",
+        "rwa_id": 16388,
+        "asset_type": "commodity",
+        "rwa_rank": 4667,
+        "has_tokens": true,
+        "first_historical_data": "2026-09-08T02:20:19.000Z",
+        "last_historical_data": null
+      }
+    ],
+    "total_size": 7811,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:51:02.771Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 2,
+    "credit_count": 0
+  }
+}

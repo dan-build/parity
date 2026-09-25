@@ -1,0 +1,849 @@
+{
+  "data": {
+    "28628": {
+      "id": 28628,
+      "name": "SPY tokenized ETF (Dinari)",
+      "symbol": "SPY.D",
+      "category": "token",
+      "description": "Dinari dShares are RWA tokens issued by Dinari, an SEC registered Transfer Agent. These assets have 1:1 backing of Google stock shares in a transparent treasury vault with regular audits. Qualifying dShare holders are eligible to recieve dividends paid out by the underlying asset where applicable.\r\n\r\nDinari was founded by Gabirel Otte, Chas Rampenthal, and Jake Timothy to foster financial inclusion, create more efficient markets, and level the playing field for retail and business investors globally.\r\n\r\nDinari assets are unique to both blockchain and traditional finance for a number of reasons. All Dinari dShares maintain a 1-to-1 backing with underlying assets, eliminating borrowing risk in traditional finance. dShares directly represent real shares, ensuring utmost transparency. Dinari assets also mitigate hypothecation risk, enhancing safety. The tokenizatized nature of dShares offers technical advantages over centralized equities, including rapid transferability, instant settlement, 24/7 trading, and fractional ownership, increasing accessibility and liquidity.\r\n\r\nThe number of any Dinari dShare asset depends on how many shares have been minted or burned. The circulation of the underlying asset the dShare is based on is determined by the underlying company and how they issue their shares, which is equivalent to the theoretical maximum possible circulating supply of corresponding dShares.\r\n\r\nDinari assets are secured through a number of mechanisms. All dShares are backed 1:1 by the underlying asset, with regular external audits by a Big 4 Accounting firm to verify their contents. Additionally, Dinari employs a legal wrapper to shield the assets from potential claims in case of bankruptcy, ensuring allocation to token holders. Dinari also conducts regular smart contract audits to mitigate technical risks.\r\n\r\nFor a detailed breakdown of asset holdings, users can visit Dinari's transparency page at [https://www.dinari.com/transparency](https://www.dinari.com/transparency).\r\n\r\nDinari dShare assets can be minted and burned in the Dinari dApp at sbt.dinari.com. As ERC-20 tokens, dShares are theoretically in DeFi protocols such as DEXs, AMMs, etc.",
+      "slug": "dinari-spy",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28628.png",
+      "subreddit": "dinari",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets",
+        "tokenized-etfs"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.dinari.com/",
+          "https://sbt.dinari.com/"
+        ],
+        "twitter": [
+          "https://twitter.com/DinariGlobal"
+        ],
+        "message_board": [
+          "https://www.dinari.com/blog"
+        ],
+        "chat": [
+          "https://discord.gg/dinari",
+          "https://t.me/dinariglobal"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0xF4BD09B048248876E39Fcf2e0CDF1aee1240a9D2"
+        ],
+        "reddit": [
+          "https://reddit.com/r/dinari"
+        ],
+        "technical_doc": [
+          "https://www.dinari.com/_files/ugd/b5c091_d83125a8c6c645a6bdfd2b76ae2b8f88.pdf"
+        ],
+        "source_code": [
+          "https://github.com/dinaricrypto/sbt-contracts"
+        ],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0xF4BD09B048248876E39Fcf2e0CDF1aee1240a9D2"
+      },
+      "date_added": "2023-12-07T11:12:39.000Z",
+      "twitter_username": "DinariGlobal",
+      "is_hidden": 0,
+      "date_launched": "2021-10-31T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0xF4BD09B048248876E39Fcf2e0CDF1aee1240a9D2",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 11,
+      "infinite_supply": false
+    },
+    "37006": {
+      "id": 37006,
+      "name": "SP500 tokenized ETF (xStock)",
+      "symbol": "SPYX",
+      "category": "token",
+      "description": "SP500 tokenized ETF (xStock) (SPYX) is a cryptocurrency and operates on the Solana platform. SP500 tokenized ETF (xStock) has a current supply of 269,051.27869428 with 84,280.64793499 in circulation. The last known price of SP500 tokenized ETF (xStock) is 774.69875971 USD and is up 0.69 over the last 24 hours. It is currently trading on 87 active market(s) with $18,413,438.28 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/sp500-xstock.",
+      "slug": "sp500-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37006.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "arbitrum-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "x-layer-ecosystem",
+        "internet-capital-markets",
+        "tokenized-assets",
+        "tokenized-etfs",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "Arbitrum Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "X Layer Ecosystem",
+        "Internet Capital Markets",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/products/sp500-xstock"
+        ],
+        "twitter": [
+          "https://twitter.com/xstocksfi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/xstocksfi"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://solscan.io/token/XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+          "https://www.arbiscan.io/token/0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "https://tonviewer.com/EQB1fyBAA9qQDP6LEGaF3cbU-Xbr-p6ESBZGnqlHkHIHAJZv",
+          "https://etherscan.io/token/0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W"
+      },
+      "date_added": "2025-07-01T13:10:01.000Z",
+      "twitter_username": "xstocksfi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "EQB1fyBAA9qQDP6LEGaF3cbU-Xbr-p6ESBZGnqlHkHIHAJZv",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        },
+        {
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x90a2a4c76b5d8c0bc892a69ea28aa775a8f2dd48",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "0x90A2a4c76b5D8c0bc892A69EA28Aa775a8f2dD48",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": true
+    },
+    "38067": {
+      "id": 38067,
+      "name": "SPDR S&P 500 Tokenized ETF (Ondo)",
+      "symbol": "SPYon",
+      "category": "token",
+      "description": "SPDR S&P 500 Tokenized ETF (Ondo) (SPYon) is a cryptocurrency and operates on the Ethereum platform. SPDR S&P 500 Tokenized ETF (Ondo) has a current supply of 59,248.92802643. The last known price of SPDR S&P 500 Tokenized ETF (Ondo) is 779.32259318 USD and is up 0.75 over the last 24 hours. It is currently trading on 63 active market(s) with $3,623,346.76 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/spyon.",
+      "slug": "spdr-sp-500-tokenized-etf-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "ethereum-ecosystem",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "binance-alpha",
+        "binance-ecosystem",
+        "tokenized-assets",
+        "tokenized-etfs",
+        "hyperevm-ecosystem",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "Ethereum Ecosystem",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Binance Alpha",
+        "Binance Ecosystem",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)",
+        "HyperEVM Ecosystem",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/spyon"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "https://bscscan.com/token/0x6a708ead771238919d85930b5a0f10454e1c331a",
+          "https://solscan.io/token/k18WJUULWheRkSpSquYGdNNmtuE2Vbw1hpuUi92ondo",
+          "https://hyperevmscan.io/token/0x32eC2792aeC02122eDD9f28866B720db1e1c1B54"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08"
+      },
+      "date_added": "2025-09-03T10:55:40.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x6a708ead771238919d85930b5a0f10454e1c331a",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "k18WJUULWheRkSpSquYGdNNmtuE2Vbw1hpuUi92ondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x32eC2792aeC02122eDD9f28866B720db1e1c1B54",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "39621": {
+      "id": 39621,
+      "name": "SPDR S&P 500 ETF Trust Tokenized ETF (Hyperliquid)",
+      "symbol": "SPY",
+      "category": "token",
+      "description": "SPDR S&P 500 ETF Trust Tokenized ETF (Hyperliquid) (SPY) is a cryptocurrency and operates on the HyperEVM platform. SPDR S&P 500 ETF Trust Tokenized ETF (Hyperliquid) has a current supply of 0. The last known price of SPDR S&P 500 ETF Trust Tokenized ETF (Hyperliquid) is 760.66738071 USD and is down -1.34 over the last 24 hours. It is currently trading on 13 active market(s) with $324.94 traded over the last 24 hours. More information can be found at https://app.hyperliquid.xyz/trade/.",
+      "slug": "spdr-sp-500-etf-trust-tokenized-etf-hyperliquid",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39621.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "hyperliquid-ecosystem",
+        "tokenized-assets",
+        "tokenized-etfs",
+        "hyperevm-ecosystem"
+      ],
+      "tag-names": [
+        "Hyperliquid Ecosystem",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)",
+        "HyperEVM Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM"
+      ],
+      "urls": {
+        "website": [
+          "https://app.hyperliquid.xyz/trade/"
+        ],
+        "twitter": [
+          "https://twitter.com/HyperliquidX"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://app.hyperliquid.xyz/explorer/token/0x7ad071597884285ad3be27ef21a024f1",
+          "https://hyperevmscan.io/token/0xb7bf37783db41a2851b77c6917280c56312c833a"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid",
+        "token_address": "0xb7bf37783db41a2851b77c6917280c56312c833a"
+      },
+      "date_added": "2026-02-25T10:52:57.000Z",
+      "twitter_username": "HyperliquidX",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xb7bf37783db41a2851b77c6917280c56312c833a",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        },
+        {
+          "contract_address": "0x7ad071597884285ad3be27ef21a024f1",
+          "platform": {
+            "name": "Hyperliquid",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "39732": {
+      "id": 39732,
+      "name": "State Street SPDR S&P 500 ETF Trust (Derivatives)",
+      "symbol": "SPY",
+      "category": "token",
+      "description": "State Street SPDR S&P 500 ETF Trust (Derivatives) (SPY) is a cryptocurrency . State Street SPDR S&P 500 ETF Trust (Derivatives) has a current supply of 0. The last known price of State Street SPDR S&P 500 ETF Trust (Derivatives) is 772.37820628 USD and is up 0.74 over the last 24 hours. It is currently trading on 74 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "state-street-spdr-sp-500-etf-trust-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39732.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tokenized-etfs",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-03-22T08:20:50.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    },
+    "40625": {
+      "id": 40625,
+      "name": "SPDR S&P 500 Tokenized Stock (Reality)",
+      "symbol": "rSPY",
+      "category": "token",
+      "description": "SPDR S&P 500 Tokenized Stock (Reality) (rSPY) is a cryptocurrency and operates on the Arbitrum platform. SPDR S&P 500 Tokenized Stock (Reality) has a current supply of 1,397.53670077. The last known price of SPDR S&P 500 Tokenized Stock (Reality) is 772.17994575 USD and is up 0.77 over the last 24 hours. It is currently trading on 3 active market(s) with $194,047.44 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
+      "slug": "spdr-sp-500-tokenized-stock-reality",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40625.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets",
+        "tokenized-etfs",
+        "bitget-ecosystem",
+        "rtokens"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets",
+        "Tokenized ETFs (exchange traded funds)",
+        "Bitget Ecosystem",
+        "rTokens"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://realityfinance.xyz/"
+        ],
+        "twitter": [
+          "https://twitter.com/RealityFi_xyz"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/address/0x9a0fda21276f245b89d2b7f1120f42e4466b1cb5"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0x9a0fda21276f245b89d2b7f1120f42e4466b1cb5"
+      },
+      "date_added": "2026-07-02T07:39:12.000Z",
+      "twitter_username": "RealityFi_xyz",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x9a0fda21276f245b89d2b7f1120f42e4466b1cb5",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40694": {
+      "id": 40694,
+      "name": "SPDR S&P 500 Trust Tokenized ETF (Robinhood)",
+      "symbol": "SPY",
+      "category": "token",
+      "description": "SPDR S&P 500 Trust Tokenized ETF (Robinhood) (SPY) is a cryptocurrency and operates on the Robinhood Chain platform. SPDR S&P 500 Trust Tokenized ETF (Robinhood) has a current supply of 29,479.17187257. The last known price of SPDR S&P 500 Trust Tokenized ETF (Robinhood) is 773.12852488 USD and is up 0.70 over the last 24 hours. It is currently trading on 103 active market(s) with $20,511,606.88 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/.",
+      "slug": "spdr-sp-500-trust-tokenized-etf-robinhood",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40694.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "tokenized-assets",
+        "robinhood-ecosystem",
+        "robinhood-stock"
+      ],
+      "tag-names": [
+        "Tokenized Assets",
+        "Robinhood Ecosystem",
+        "Robinhood Stock"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://robinhood.com/us/en/"
+        ],
+        "twitter": [
+          "https://twitter.com/RobinhoodCrypto"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://robinhoodchain.blockscout.com/token/0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder",
+        "token_address": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"
+      },
+      "date_added": "2026-08-04T07:31:28.000Z",
+      "twitter_username": "RobinhoodCrypto",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+          "platform": {
+            "name": "Robinhood Chain",
+            "coin": {
+              "id": "40670",
+              "name": "Robinhood",
+              "symbol": "-",
+              "slug": "robinhood-placeholder"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40790": {
+      "id": 40790,
+      "name": "State Street SPDR S&P 500 ETF Tokenized bStocks",
+      "symbol": "SPYB",
+      "category": "token",
+      "description": "State Street SPDR S&P 500 ETF Tokenized bStocks (SPYB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. State Street SPDR S&P 500 ETF Tokenized bStocks has a current supply of 18,663.94524699. The last known price of State Street SPDR S&P 500 ETF Tokenized bStocks is 772.20219263 USD and is up 0.67 over the last 24 hours. It is currently trading on 92 active market(s) with $4,410,609.48 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
+      "slug": "state-street-spdr-sp-500-etf-tokenized-bstocks",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "bnb-chain-ecosystem",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "bstocks"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "BNB Chain Ecosystem",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "bStocks"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.bstocks.finance/"
+        ],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://bscscan.com/address/0x7138b48df7d98d7e3cc221bfe7192d0a178182d8"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb",
+        "token_address": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8"
+      },
+      "date_added": "2026-07-06T06:10:03.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "41525": {
+      "id": 41525,
+      "name": "Wrapped SP500 Tokenized ETF (xStock)",
+      "symbol": "wSPYx",
+      "category": "token",
+      "description": "Wrapped SP500 Tokenized ETF (xStock) (wSPYx) is a cryptocurrency and operates on the X Layer platform. Wrapped SP500 Tokenized ETF (xStock) has a current supply of 0. The last known price of Wrapped SP500 Tokenized ETF (xStock) is 775.60343606 USD and is up 0.45 over the last 24 hours. It is currently trading on 1 active market(s) with $249,781.36 traded over the last 24 hours. More information can be found at https://xstocks.fi.",
+      "slug": "wrapped-sp500-tokenized-etf-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/41525.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "x-layer-ecosystem",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "X Layer Ecosystem",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://xstocks.fi"
+        ],
+        "twitter": [
+          "https://twitter.com/xstocksfi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://defi.xstocks.fi/wrap",
+          " https://docs.xstocks.fi/developers/wrapped-xstocks",
+          " https://t.me/xstocksfi",
+          " https://www.linkedin.com/company/backed-finance/"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://www.oklink.com/x-layer/address/0xE7E553Cd128F0011777323A0b44a7b96EA1CB540"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0xE7E553Cd128F0011777323A0b44a7b96EA1CB540"
+      },
+      "date_added": "2026-08-11T16:24:43.000Z",
+      "twitter_username": "xstocksfi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xE7E553Cd128F0011777323A0b44a7b96EA1CB540",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:37.490Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 10,
+    "credit_count": 1,
+    "notice": null
+  }
+}

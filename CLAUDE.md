@@ -37,6 +37,11 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
   logs every call into an evidence array returned with the response
 - `lib/verdict.ts`: pure scoring logic, no fetching, covered by tests
 - `fixtures/`: real captured responses used by fixture mode and tests
+- Data mode: `PARITY_DATA_MODE=fixture` (default, zero credits, replays `fixtures/`) or `live`
+  (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER.
+- UI: `lib/present.ts` turns a result into copy and numbers; `components/reveal/Reveal.tsx` is the
+  single clock; all motion timings live in `lib/reveal/timings.ts`; instrument geometry in
+  `lib/reveal/layout.ts`. `?t=1560` freezes the reveal, `?drawer` opens Evidence.
 
 ## CMC API notes (verify each with the probe script before relying on it)
 - Base URL: https://pro-api.coinmarketcap.com, header `X-CMC_PRO_API_KEY`

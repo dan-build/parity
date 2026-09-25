@@ -9,16 +9,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 1710132.34168,
-            "long_liquidations_1h": 766281.17568,
-            "short_liquidations_1h": 943851.166,
-            "total_liquidations_4h": 2305194.80659,
-            "long_liquidations_4h": 1129166.90123,
-            "short_liquidations_4h": 1176027.90536,
-            "total_liquidations_24h": 62802082.27755394,
-            "long_liquidations_24h": 43356139.11408432,
-            "short_liquidations_24h": 19445943.16346962,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 963676.58439,
+            "long_liquidations_1h": 865133.82809,
+            "short_liquidations_1h": 98542.7563,
+            "total_liquidations_4h": 2156417.30363,
+            "long_liquidations_4h": 910716.04159,
+            "short_liquidations_4h": 1245701.26204,
+            "total_liquidations_24h": 63021085.38528394,
+            "long_liquidations_24h": 43492582.46611432,
+            "short_liquidations_24h": 19528502.91916962,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 1,
@@ -32,16 +32,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 625137.99999,
-            "long_liquidations_1h": 489245.66741,
-            "short_liquidations_1h": 135892.33258,
-            "total_liquidations_4h": 2096557.5459,
-            "long_liquidations_4h": 1047134.78633,
-            "short_liquidations_4h": 1049422.75957,
-            "total_liquidations_24h": 54007607.893867,
-            "long_liquidations_24h": 27121019.236419,
-            "short_liquidations_24h": 26886588.657448,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 515952.03299,
+            "long_liquidations_1h": 509864.58681,
+            "short_liquidations_1h": 6087.44618,
+            "total_liquidations_4h": 1562318.92662,
+            "long_liquidations_4h": 532181.08756,
+            "short_liquidations_4h": 1030137.83906,
+            "total_liquidations_24h": 54030633.675777,
+            "long_liquidations_24h": 27145797.716399,
+            "short_liquidations_24h": 26884835.959378,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 1027,
@@ -55,16 +55,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 727454.383126,
-            "long_liquidations_1h": 348519.237323,
-            "short_liquidations_1h": 378935.14580299996,
-            "total_liquidations_4h": 2908039.147783,
-            "long_liquidations_4h": 585547.449323,
-            "short_liquidations_4h": 2322491.69846,
-            "total_liquidations_24h": 23898334.687528,
-            "long_liquidations_24h": 4700022.709419,
-            "short_liquidations_24h": 19198311.978109002,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 347752.852823,
+            "long_liquidations_1h": 346823.593823,
+            "short_liquidations_1h": 929.259,
+            "total_liquidations_4h": 2756397.702883,
+            "long_liquidations_4h": 422650.342423,
+            "short_liquidations_4h": 2333747.36046,
+            "total_liquidations_24h": 23917735.787628002,
+            "long_liquidations_24h": 4707099.887019,
+            "short_liquidations_24h": 19210635.900609,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 5426,
@@ -78,16 +78,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 555793.38532,
-            "long_liquidations_1h": 523119.85377,
-            "short_liquidations_1h": 32673.53155,
-            "total_liquidations_4h": 1246013.84286,
-            "long_liquidations_4h": 992762.74613,
-            "short_liquidations_4h": 253251.09673,
-            "total_liquidations_24h": 16737638.385630015,
-            "long_liquidations_24h": 7397138.448780004,
-            "short_liquidations_24h": 9340499.936850011,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 593666.97192,
+            "long_liquidations_1h": 593666.97192,
+            "short_liquidations_1h": 0,
+            "total_liquidations_4h": 862154.96013,
+            "long_liquidations_4h": 613351.94125,
+            "short_liquidations_4h": 248803.01888,
+            "total_liquidations_24h": 16793776.867020015,
+            "long_liquidations_24h": 7467156.088650004,
+            "short_liquidations_24h": 9326620.778370012,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 52,
@@ -101,43 +101,20 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 60494.81617,
-            "long_liquidations_1h": 42806.74069,
-            "short_liquidations_1h": 17688.07548,
-            "total_liquidations_4h": 2082007.3059915,
-            "long_liquidations_4h": 1574833.3987315,
-            "short_liquidations_4h": 507173.90726,
-            "total_liquidations_24h": 11655723.9298026,
-            "long_liquidations_24h": 4720057.9873626,
-            "short_liquidations_24h": 6935665.94244,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 113800.41057,
+            "long_liquidations_1h": 101186.97257,
+            "short_liquidations_1h": 12613.438,
+            "total_liquidations_4h": 560047.97408,
+            "long_liquidations_4h": 150274.66135,
+            "short_liquidations_4h": 409773.31273,
+            "total_liquidations_24h": 11643081.4303426,
+            "long_liquidations_24h": 4721564.4505126,
+            "short_liquidations_24h": 6921516.97983,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 1437,
         "cmc_rank": 9
-      },
-      {
-        "name": "Sui",
-        "symbol": "SUI",
-        "slug": "sui",
-        "quotes": [
-          {
-            "symbol": "USD",
-            "crypto_id": 2781,
-            "total_liquidations_1h": 585531.9530541983,
-            "long_liquidations_1h": 129845.7807544998,
-            "short_liquidations_1h": 455686.1722996985,
-            "total_liquidations_4h": 1198102.2638861984,
-            "long_liquidations_4h": 159762.6866266998,
-            "short_liquidations_4h": 1038339.5772594985,
-            "total_liquidations_24h": 6821971.46155429,
-            "long_liquidations_24h": 2170237.6584027004,
-            "short_liquidations_24h": 4651733.80315159,
-            "last_updated": "2026-09-25T21:07:00.000Z"
-          }
-        ],
-        "crypto_id": 20947,
-        "cmc_rank": 23
       },
       {
         "name": "NEAR Protocol",
@@ -147,20 +124,43 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 112670.285,
-            "long_liquidations_1h": 9260.0109,
-            "short_liquidations_1h": 103410.2741,
-            "total_liquidations_4h": 821727.5263999988,
-            "long_liquidations_4h": 530916.584,
-            "short_liquidations_4h": 290810.94239999884,
-            "total_liquidations_24h": 6619687.492686904,
-            "long_liquidations_24h": 2366020.5861700005,
-            "short_liquidations_24h": 4253666.906516904,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 459286.67091400066,
+            "long_liquidations_1h": 458663.7877140006,
+            "short_liquidations_1h": 622.8832,
+            "total_liquidations_4h": 923654.8574139994,
+            "long_liquidations_4h": 642204.2968140006,
+            "short_liquidations_4h": 281450.5605999988,
+            "total_liquidations_24h": 7063627.427600905,
+            "long_liquidations_24h": 2814875.251384001,
+            "short_liquidations_24h": 4248752.176216904,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 6535,
         "cmc_rank": 18
+      },
+      {
+        "name": "Sui",
+        "symbol": "SUI",
+        "slug": "sui",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 178517.1265904998,
+            "long_liquidations_1h": 175561.5630177998,
+            "short_liquidations_1h": 2955.5635727,
+            "total_liquidations_4h": 1185192.8493932984,
+            "long_liquidations_4h": 185942.7922677998,
+            "short_liquidations_4h": 999250.0571254985,
+            "total_liquidations_24h": 6854593.76881819,
+            "long_liquidations_24h": 2217197.2233760003,
+            "short_liquidations_24h": 4637396.54544219,
+            "last_updated": "2026-09-25T21:50:00.000Z"
+          }
+        ],
+        "crypto_id": 20947,
+        "cmc_rank": 23
       },
       {
         "name": "Ethena",
@@ -170,16 +170,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 374336.6776786002,
-            "long_liquidations_1h": 47270.0457227,
-            "short_liquidations_1h": 327066.63195590023,
-            "total_liquidations_4h": 999091.6671089012,
-            "long_liquidations_4h": 164924.39228210095,
-            "short_liquidations_4h": 834167.2748268002,
-            "total_liquidations_24h": 4857029.763959703,
-            "long_liquidations_24h": 805742.7561629061,
-            "short_liquidations_24h": 4051287.0077967965,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 44399.1468572,
+            "long_liquidations_1h": 29753.6641292,
+            "short_liquidations_1h": 14645.482728,
+            "total_liquidations_4h": 907355.8912249011,
+            "long_liquidations_4h": 103997.22165250086,
+            "short_liquidations_4h": 803358.6695724002,
+            "total_liquidations_24h": 4883633.473811903,
+            "long_liquidations_24h": 820319.2630301061,
+            "short_liquidations_24h": 4063314.210781797,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 30171,
@@ -193,16 +193,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 80979.77444191964,
-            "long_liquidations_1h": 3098.06768,
-            "short_liquidations_1h": 77881.70676191965,
-            "total_liquidations_4h": 120790.86216100965,
-            "long_liquidations_4h": 19544.94499909,
-            "short_liquidations_4h": 101245.91716191964,
-            "total_liquidations_24h": 4548850.639003732,
-            "long_liquidations_24h": 1849127.9632411632,
-            "short_liquidations_24h": 2699722.6757625686,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 76189.09378192,
+            "long_liquidations_1h": 65035.69391016,
+            "short_liquidations_1h": 11153.39987176,
+            "total_liquidations_4h": 191487.12254116964,
+            "long_liquidations_4h": 80294.11384925,
+            "short_liquidations_4h": 111193.00869191963,
+            "total_liquidations_24h": 4576303.115758632,
+            "long_liquidations_24h": 1908090.6148613233,
+            "short_liquidations_24h": 2668212.500897309,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 21159,
@@ -216,16 +216,16 @@
           {
             "symbol": "USD",
             "crypto_id": 2781,
-            "total_liquidations_1h": 9193.86670989952,
-            "long_liquidations_1h": 2905.9202283,
-            "short_liquidations_1h": 6287.94648159952,
-            "total_liquidations_4h": 86228.17924909951,
-            "long_liquidations_4h": 29587.9194713,
-            "short_liquidations_4h": 56640.25977779952,
-            "total_liquidations_24h": 4285385.332247744,
-            "long_liquidations_24h": 1982953.45258391,
-            "short_liquidations_24h": 2302431.8796638343,
-            "last_updated": "2026-09-25T21:07:00.000Z"
+            "total_liquidations_1h": 23076.4904406,
+            "long_liquidations_1h": 13608.2536506,
+            "short_liquidations_1h": 9468.23679,
+            "total_liquidations_4h": 95233.40314629952,
+            "long_liquidations_4h": 35303.2440053,
+            "short_liquidations_4h": 59930.15914099952,
+            "total_liquidations_24h": 3977761.589486244,
+            "long_liquidations_24h": 1965104.34306351,
+            "short_liquidations_24h": 2012657.246422734,
+            "last_updated": "2026-09-25T21:50:00.000Z"
           }
         ],
         "crypto_id": 36645,
@@ -236,10 +236,10 @@
     "has_more": true
   },
   "status": {
-    "timestamp": "2026-09-25T21:08:22.599Z",
+    "timestamp": "2026-09-25T21:51:11.380Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 8,
+    "elapsed": 6,
     "credit_count": 1
   }
 }

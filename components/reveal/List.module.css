@@ -1,0 +1,222 @@
+/* "Every token that claims to be…" list. Mobile: 3-line cards. Desktop: one row each. */
+
+.list {
+  margin-top: 14px;
+  padding: 6px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 14px 10px;
+}
+
+.head h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.head span {
+  font-size: 13.5px;
+  color: var(--mute);
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.r {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "who badge"
+    "px prem"
+    "meter meter";
+  align-items: center;
+  row-gap: 10px;
+  column-gap: 16px;
+  padding: 16px 14px;
+  border-radius: 20px;
+  transition: background 0.18s;
+  will-change: transform, opacity;
+}
+
+.r:hover {
+  background: #f7f7f9;
+}
+
+.r + .r {
+  box-shadow: 0 -1px 0 var(--line);
+}
+
+.r:hover,
+.r:hover + .r {
+  box-shadow: none;
+}
+
+.who {
+  grid-area: who;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.who strong {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.015em;
+}
+
+.who small {
+  display: block;
+  font-size: 13px;
+  color: var(--mute);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.whoText {
+  min-width: 0;
+}
+
+.px {
+  grid-area: px;
+  min-width: 0;
+}
+
+.px strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.px small {
+  display: block;
+  font-size: 12.5px;
+  color: var(--mute);
+}
+
+.px small.unit {
+  color: var(--gold-4);
+  font-weight: 500;
+}
+
+.prem {
+  grid-area: prem;
+  justify-self: end;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.meter {
+  grid-area: meter;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.bars i {
+  width: 5px;
+  border-radius: 2px;
+  background: #e4e4e8;
+}
+
+.bars i.on {
+  background: var(--ink);
+}
+
+.badge {
+  grid-area: badge;
+  justify-self: end;
+  height: 30px;
+  padding: 0 12px 0 9px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.badge i {
+  width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+}
+
+.FAIR,
+.fair {
+  color: var(--fair);
+  background: var(--fair-bg);
+}
+.RICH,
+.rich {
+  color: var(--rich);
+  background: var(--rich-bg);
+}
+.THIN {
+  color: var(--thin);
+  background: var(--thin-bg);
+}
+.GHOST {
+  color: var(--ghost);
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px #d4d4d8;
+}
+.ghost {
+  color: var(--ghost);
+  background: transparent;
+}
+
+.isGhost .who,
+.isGhost .px {
+  opacity: 0.55;
+}
+
+@media (min-width: 760px) {
+  .list {
+    margin-top: 20px;
+    padding: 10px 12px;
+  }
+  .head {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 18px 20px 12px;
+  }
+  .r {
+    grid-template-columns: minmax(220px, 1.6fr) 1fr 110px 150px 104px;
+    grid-template-areas: "who px prem meter badge";
+    height: 76px;
+    padding: 0 20px;
+  }
+  .prem {
+    justify-self: start;
+  }
+}

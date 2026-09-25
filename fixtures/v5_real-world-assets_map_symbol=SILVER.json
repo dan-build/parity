@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Silver",
+        "symbol": "SILVER",
+        "slug": "silver",
+        "rwa_id": 5,
+        "asset_type": "commodity",
+        "rwa_rank": 6,
+        "has_tokens": true,
+        "first_historical_data": "2013-07-14T00:00:00.000Z",
+        "last_historical_data": "2026-09-25T20:59:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:49:59.898Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 1,
+    "credit_count": 0
+  }
+}

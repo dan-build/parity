@@ -7,6 +7,8 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 - Script: `scripts/probe.ts` (`npm run probe`)
 - Raw responses: `fixtures/`
 - Per-call log: `fixtures/_probe-summary.json`
+- Evidence files named below for items 1–7 are from the first probe (commit `8d976c7`).
+  Fixtures have since been re-recorded; `fixtures/_index.json` maps each request to its file.
 
 | # | Issue | Impact on PARITY |
 |---|---|---|
@@ -17,6 +19,10 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 | 5 | DEX numbers are long decimal strings | Every value must be parsed |
 | 6 | `liqUsd` missing on many pool rows | Pool depth is incomplete for tokenised stocks |
 | 7 | `primary_exchange` is returned but not documented | Can't rely on it being stable |
+| 8 | RWA map is paginated and caps `limit` at ~200 | Resolving a name costs 20+ requests |
+| 9 | One invalid id fails the whole `/v2/cryptocurrency/info` call | SILVER lost every contract until we added `skip_invalid` |
+| 10 | `error_code` is a string on some endpoints, a number on others | Error handling must normalise it |
+| 11 | RWA tokens can have a `null` symbol and name | UI must never print "null" |
 
 ---
 
@@ -107,3 +113,34 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 - **Evidence:** `fixtures/rwa-info.GOLD_NVDA.json`
 - **Impact:** It's useful, but we can't tell whether it's stable enough to show to users.
 - **Suggestion:** add it to the schema.
+
+## 8. The RWA map is paginated and caps `limit` at about 200
+
+- **What happened:** `/v5/real-world-assets/map` returns 100 rows by default. `limit=200` works;
+  `limit=500` and `limit=1000` return `4001 "Invalid parameter"`. The full map is about 4,000
+  assets, so 20+ pages.
+- **Impact:** Resolving a name like "nvidia" needs the whole map. Fetched naively on every
+  query it exhausted the 50 requests/min limit in one probe run (429s). We now try the
+  one-request `map?symbol=` lookup first and cache the full map for an hour.
+- **Suggestion:** document the max `limit`, or add a name/slug search parameter.
+
+## 9. One invalid id fails the whole `/v2/cryptocurrency/info` call
+
+- **What happened:** SILVER's quotes list crypto_id 39318, which `/v2/cryptocurrency/info`
+  rejects: HTTP 400 `"Invalid value for 'id': '39318'"`, and no data for the other 4 ids.
+  `skip_invalid=true` returns the 4 valid ones.
+- **Impact:** An id that one CMC endpoint hands out breaks a different CMC endpoint.
+- **Suggestion:** don't list ids in RWA `tokens[]` that the rest of the API rejects, or make
+  `skip_invalid` the default.
+
+## 10. `error_code` type varies
+
+- **What happened:** most errors send `"error_code": "1006"` (string); the 400 above sent
+  `"error_code": 400` (number).
+- **Suggestion:** one type everywhere.
+
+## 11. RWA tokens can have a null symbol and name
+
+- **What happened:** one SILVER wrapper (crypto_id 39318, "NA (Derivatives)") has
+  `symbol: null, name: null, price: null`.
+- **Impact:** any UI keyed or labelled by symbol breaks. We fall back to name, then `#crypto_id`.

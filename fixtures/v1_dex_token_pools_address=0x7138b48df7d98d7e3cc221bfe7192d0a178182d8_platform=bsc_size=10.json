@@ -1,0 +1,263 @@
+{
+  "data": [
+    {
+      "addr": "0xdc20ef670a01159251314722d3873d59e46618d5",
+      "v24": "58198.410314680679663388",
+      "t0": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB"
+      },
+      "t1": {
+        "addr": "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xafa6aedaeda1714e6558e296f9e2d8b181da2d43",
+      "v24": "54835.895538083865382618",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB"
+      },
+      "bidx": 1,
+      "exid": 33933,
+      "exn": "Neptune",
+      "fa": "0xe2588c219697f520757b82f5b0119d72bddc0e13",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xc077bada0c05e160e1a51d0779d67969b684b50c",
+      "v24": "32231.735858912176819787",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB"
+      },
+      "bidx": 1,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xe724b1a06bd1c4e80692a954942181843509599a",
+      "v24": "0",
+      "t0": {
+        "addr": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40216.png",
+        "n": "Sandisk Corporation",
+        "sym": "SNDKB"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xabdc0057daa01b3bb56db1577de4443e4ad07f8d",
+      "v24": "0",
+      "t0": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB"
+      },
+      "t1": {
+        "addr": "0x7425889fe94f9d693e8daefe88bcced6acfef4c0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40592.png",
+        "n": "Meta Platforms",
+        "sym": "METAB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xcc9d128a4cb460dc0ae77ce2cd9f2746849db2bef0dbec94cf740b6c359c1d87",
+      "v24": "22002.697204055521163536",
+      "pubAt": "1785748093000",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "314741.088574844656616183",
+        "liqUsd": "314675.671846515777478598"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB",
+        "liq": "429.872878698617423614",
+        "liqUsd": "331697.982861855526223269"
+      },
+      "bidx": 1,
+      "exid": 11953,
+      "exn": "Uniswap v4 (BSC)",
+      "liqUsd": "646373.654708371303701867",
+      "fa": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xc0a20487d3b6b398dea0ffb77821544b4e7f7ce9",
+      "v24": "0",
+      "pubAt": "1785876908000",
+      "t0": {
+        "addr": "0x48b04234eaa6175b92c7242e93e42a7a3bf1206e",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/FC9181CDEB28ED1412CE596C304E4E50.jpg",
+        "n": "金龙",
+        "sym": "金龙",
+        "liq": "988334196.494690078866243298",
+        "liqUsd": "497576.806397094808723863"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB",
+        "liq": "6.102884770422850232",
+        "liqUsd": "4640.956496715790099777"
+      },
+      "bidx": 0,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "502217.76289381059882364",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x7aa6d92fc369a8c1edc631a3aac44efb0808ddbf",
+      "v24": "996272.230169654415323452",
+      "pubAt": "1783475229000",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "232369.404787836947163943",
+        "liqUsd": "232324.934282106015442828"
+      },
+      "t1": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB",
+        "liq": "137.146131378370016692",
+        "liqUsd": "105792.47415084128399331"
+      },
+      "bidx": 1,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "338117.408432947299436138",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x44ea468b40ec3f9de546fd5da9c3af7a9d23833a",
+      "v24": "50720.563662000472300365",
+      "pubAt": "1785499479000",
+      "t0": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB",
+        "liq": "86.762881803517789625",
+        "liqUsd": "66878.116462129393816177"
+      },
+      "t1": {
+        "addr": "0xe9337dde3dd9e97f1f45a56412767ce5098e7777",
+        "lg": "https://ipfs.sintral.me/cdn-cgi/image/width=480,quality=100,format=webp/ipfs/bafkreiggiqjwfkj7eeivqon6qqodm5n76iqauq3pfanwjmjhopatanynba",
+        "n": "何必东奔西走 币安全部都有",
+        "sym": "币有",
+        "liq": "99782631.66786266460285759",
+        "liqUsd": "66742.944201434046717253"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "133621.060663563440533429",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "0.99679378135926250863837687403915",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x20cf5d25c9cd179d3b4ea7c52d994d9de48477df",
+      "v24": "17745.33202751506954751",
+      "pubAt": "1788429925000",
+      "t0": {
+        "addr": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40790.png",
+        "n": "SPY",
+        "sym": "SPYB",
+        "liq": "84.81229254931592458",
+        "liqUsd": "65353.995837034670641"
+      },
+      "t1": {
+        "addr": "0xc01a2e136f92772eecab15eb054e8f6fa06b7777",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/607C8D8143169720B6481866FD071F03.webp",
+        "n": "牛马",
+        "sym": "NIUMA",
+        "liq": "48289667.792708860597819784",
+        "liqUsd": "65513.73555967968939815"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "130867.73139671436003915",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "0.99767037527896647726501942116587",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:41.889Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 200,
+    "credit_count": 1
+  }
+}

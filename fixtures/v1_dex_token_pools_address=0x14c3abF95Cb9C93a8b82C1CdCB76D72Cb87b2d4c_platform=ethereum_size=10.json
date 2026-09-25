@@ -1,0 +1,247 @@
+{
+  "data": [
+    {
+      "addr": "0x2d8abfb7e8651da75637b948e6a2d30d850062ea",
+      "v24": "24315.285344004672662582",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon"
+      },
+      "t1": {
+        "addr": "0xace8e719899f6e91831b18ae746c9a965c2119f1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38273.png",
+        "n": "Ondo U.S. Dollar Token",
+        "sym": "USDon"
+      },
+      "bidx": 0,
+      "exid": 33109,
+      "exn": "Ondo Global Markets (Ethereum)",
+      "fa": "0x2c158bc456e027b2affccadf1bdbd9f5fc4c5c8c",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xee4269be8f76b18be923d833077664dff1e60d4b",
+      "v24": "107.002584551090297214",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x25256b420b506a3c9a3178732febea2a0ac9bae4",
+      "v24": "0",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon"
+      },
+      "t1": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x3987269afc9aa6836a92a26d36a1635bbae87f3b",
+      "v24": "0",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x38317fe41fceb1ba311aa9a23befa1360cde5434",
+      "v24": "0",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon"
+      },
+      "t1": {
+        "addr": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3717.png",
+        "n": "Wrapped BTC",
+        "sym": "WBTC"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xa21ccd51a13b298749f52b5918e319f978730a40",
+      "v24": "30389.623800784636612469",
+      "pubAt": "1778999279000",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon",
+        "liq": "2289.87503233924795873",
+        "liqUsd": "783937.231478872983386791"
+      },
+      "t1": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH",
+        "liq": "291.454849938786714464",
+        "liqUsd": "782055.61540920383435541"
+      },
+      "bidx": 0,
+      "exid": 32396,
+      "exn": "Ring Exchange (Ethereum)",
+      "liqUsd": "1565992.8468880768177422",
+      "fa": "0xeb2a625b704d73e82946d8d026e1f588eed06416",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xad82c9eb065a5cfed71db087e4a52c8a09c69921",
+      "v24": "23836.402234869332693291",
+      "pubAt": "1758383999000",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon",
+        "liq": "47.178979349087642452",
+        "liqUsd": "15873.592900603837973105"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "21369.904292",
+        "liqUsd": "21367.676501120126174843"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "37241.269401723964147947",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x0d3a432237328d279ecd4a3ed5f462c2a84d8017",
+      "v24": "743.990225801019252998",
+      "pubAt": "1788939179000",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon",
+        "liq": "11.532950487043612641",
+        "liqUsd": "3940.454717237292428445"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "11428.852518",
+        "liqUsd": "11428.747926701146852823"
+      },
+      "bidx": 0,
+      "liqUsd": "15369.202643938439281268",
+      "fa": "0x00a38533c68327abe0cc265436e036066e2d6b38",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x1853fbec50bfa0ea1b6c0e2492b98759c00f9460",
+      "v24": "0",
+      "pubAt": "1789093967000",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon",
+        "liq": "12.191935154382872169",
+        "liqUsd": "4203.186879515261789622"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "6036.214905",
+        "liqUsd": "6035.420114179620571093"
+      },
+      "bidx": 0,
+      "liqUsd": "10238.606993694882360715",
+      "fa": "0x00a38533c68327abe0cc265436e036066e2d6b38",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x150a154d414651f43952575eb6abb9b931b4d9dc",
+      "v24": "142.121184790485103474",
+      "pubAt": "1788920111000",
+      "t0": {
+        "addr": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38037.png",
+        "n": "Apple (Ondo Tokenized)",
+        "sym": "AAPLon",
+        "liq": "10.017487861575292992",
+        "liqUsd": "3425.414270504360399971"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "6768.218799",
+        "liqUsd": "6767.919243234509083526"
+      },
+      "bidx": 0,
+      "liqUsd": "10193.333513738869483497",
+      "fa": "0x00a38533c68327abe0cc265436e036066e2d6b38",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:57.336Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 238,
+    "credit_count": 1
+  }
+}

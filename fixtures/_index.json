@@ -3,16 +3,16 @@
     "file": "v1_key_info.json",
     "status": 200
   },
-  "/v5/real-world-assets/map": {
-    "file": "v5_real-world-assets_map.json",
+  "/v5/real-world-assets/map?symbol=GOLD": {
+    "file": "v5_real-world-assets_map_symbol=GOLD.json",
     "status": 200
   },
   "/v5/real-world-assets/quotes/latest?rwa_id=1": {
     "file": "v5_real-world-assets_quotes_latest_rwa_id=1.json",
     "status": 200
   },
-  "/v2/cryptocurrency/info?id=4705,5176,20245,22492,34212,37082,39344": {
-    "file": "v2_cryptocurrency_info_id=4705_5176_20245_22492_34212_37082_39344.json",
+  "/v2/cryptocurrency/info?id=4705,5176,20245,22492,34212,37082,39344&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=4705_5176_20245_22492_34212_37082_39344_skip_invalid=true.json",
     "status": 200
   },
   "/v1/dex/token/pools?address=0x45804880de22913dafe09f4980848ece6ecbaf78&platform=ethereum&size=10": {
@@ -23,32 +23,124 @@
     "file": "v1_dex_token_pools_address=0x68749665FF8D2d112Fa859AA293F07A622782F38_platform=ethereum_size=10.json",
     "status": 200
   },
+  "/v1/dex/token/pools?address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682_platform=ethereum_size=10.json",
+    "status": 200
+  },
   "/v1/dex/token/pools?address=0x6d57B2E05F26C26b549231c866bdd39779e4a488&platform=ethereum&size=10": {
     "file": "v1_dex_token_pools_address=0x6d57B2E05F26C26b549231c866bdd39779e4a488_platform=ethereum_size=10.json",
     "status": 200
   },
-  "/v1/dex/token/pools?address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682&platform=ethereum&size=10": {
-    "file": "v1_dex_token_pools_address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682_platform=ethereum_size=10.json",
+  "/v5/real-world-assets/map?symbol=NVDA": {
+    "file": "v5_real-world-assets_map_symbol=NVDA.json",
     "status": 200
   },
   "/v5/real-world-assets/quotes/latest?rwa_id=2": {
     "file": "v5_real-world-assets_quotes_latest_rwa_id=2.json",
     "status": 200
   },
-  "/v2/cryptocurrency/info?id=28616,36992,37270,38093,38153,40215,40605,40685": {
-    "file": "v2_cryptocurrency_info_id=28616_36992_37270_38093_38153_40215_40605_40685.json",
-    "status": 200
-  },
-  "/v1/dex/token/pools?address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE&platform=ethereum&size=10": {
-    "file": "v1_dex_token_pools_address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE_platform=ethereum_size=10.json",
+  "/v2/cryptocurrency/info?id=28616,36992,37270,38093,38153,40215,40605,40685&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=28616_36992_37270_38093_38153_40215_40605_40685_skip_invalid=true.json",
     "status": 200
   },
   "/v1/dex/token/pools?address=Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh&platform=solana&size=10": {
     "file": "v1_dex_token_pools_address=Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh_platform=solana_size=10.json",
     "status": 200
   },
+  "/v1/dex/token/pools?address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE_platform=ethereum_size=10.json",
+    "status": 200
+  },
   "/v1/dex/token/pools?address=0x02fca66c1d1afb4e2a7884261eb00f63598a7436&platform=bsc&size=10": {
     "file": "v1_dex_token_pools_address=0x02fca66c1d1afb4e2a7884261eb00f63598a7436_platform=bsc_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=SPY": {
+    "file": "v5_real-world-assets_map_symbol=SPY.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=86": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=86.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=28628,37006,38067,39621,39732,40625,40694,40790,41525&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=28628_37006_38067_39621_39732_40625_40694_40790_41525_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0xFeDC5f4a6c38211c1338aa411018DFAf26612c08&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0xFeDC5f4a6c38211c1338aa411018DFAf26612c08_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x7138b48df7d98d7e3cc221bfe7192d0a178182d8&platform=bsc&size=10": {
+    "file": "v1_dex_token_pools_address=0x7138b48df7d98d7e3cc221bfe7192d0a178182d8_platform=bsc_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=TSLA": {
+    "file": "v5_real-world-assets_map_symbol=TSLA.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=14": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=14.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=28626,37004,37227,38029,38152,39618,40214,40624,40691&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=28626_37004_37227_38029_38152_39618_40214_40624_40691_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0xf6b1117ec07684D3958caD8BEb1b302bfD21103f&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0xf6b1117ec07684D3958caD8BEb1b302bfD21103f_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x5b1910eaad6450e50f816082aa078c41f10c292f&platform=bsc&size=10": {
+    "file": "v1_dex_token_pools_address=0x5b1910eaad6450e50f816082aa078c41f10c292f_platform=bsc_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=AAPL": {
+    "file": "v5_real-world-assets_map_symbol=AAPL.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=3": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=3.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=28624,36994,37269,38037,39491,39624,40598,40703,40927&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=28624_36994_37269_38037_39491_39624_40598_40703_40927_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a&platform=bsc&size=10": {
+    "file": "v1_dex_token_pools_address=0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a_platform=bsc_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=SILVER": {
+    "file": "v5_real-world-assets_map_symbol=SILVER.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=5": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=5.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=24439,32149,37080,39318,39343&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=24439_32149_37080_39318_39343_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0xe560C473Dee7B1d1d5Ae316F4c1cBA7157DE498e&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0xe560C473Dee7B1d1d5Ae316F4c1cBA7157DE498e_platform=ethereum_size=10.json",
     "status": 200
   },
   "/v5/real-world-assets/issuers/list?limit=100": {
@@ -57,6 +149,166 @@
   },
   "/v5/real-world-assets/issuers?issuer_id=6878977dcbbf471de3366e85": {
     "file": "v5_real-world-assets_issuers_issuer_id=6878977dcbbf471de3366e85.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1": {
+    "file": "v5_real-world-assets_map_limit=200_start=1.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=201": {
+    "file": "v5_real-world-assets_map_limit=200_start=201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=401": {
+    "file": "v5_real-world-assets_map_limit=200_start=401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=601": {
+    "file": "v5_real-world-assets_map_limit=200_start=601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=801": {
+    "file": "v5_real-world-assets_map_limit=200_start=801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1001": {
+    "file": "v5_real-world-assets_map_limit=200_start=1001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1201": {
+    "file": "v5_real-world-assets_map_limit=200_start=1201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1401": {
+    "file": "v5_real-world-assets_map_limit=200_start=1401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1601": {
+    "file": "v5_real-world-assets_map_limit=200_start=1601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=1801": {
+    "file": "v5_real-world-assets_map_limit=200_start=1801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=2001": {
+    "file": "v5_real-world-assets_map_limit=200_start=2001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=2201": {
+    "file": "v5_real-world-assets_map_limit=200_start=2201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=2401": {
+    "file": "v5_real-world-assets_map_limit=200_start=2401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=2601": {
+    "file": "v5_real-world-assets_map_limit=200_start=2601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=2801": {
+    "file": "v5_real-world-assets_map_limit=200_start=2801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=3001": {
+    "file": "v5_real-world-assets_map_limit=200_start=3001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=3201": {
+    "file": "v5_real-world-assets_map_limit=200_start=3201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=3401": {
+    "file": "v5_real-world-assets_map_limit=200_start=3401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=3601": {
+    "file": "v5_real-world-assets_map_limit=200_start=3601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=3801": {
+    "file": "v5_real-world-assets_map_limit=200_start=3801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=4001": {
+    "file": "v5_real-world-assets_map_limit=200_start=4001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=4201": {
+    "file": "v5_real-world-assets_map_limit=200_start=4201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=4401": {
+    "file": "v5_real-world-assets_map_limit=200_start=4401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=4601": {
+    "file": "v5_real-world-assets_map_limit=200_start=4601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=4801": {
+    "file": "v5_real-world-assets_map_limit=200_start=4801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=5001": {
+    "file": "v5_real-world-assets_map_limit=200_start=5001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=5201": {
+    "file": "v5_real-world-assets_map_limit=200_start=5201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=5401": {
+    "file": "v5_real-world-assets_map_limit=200_start=5401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=5601": {
+    "file": "v5_real-world-assets_map_limit=200_start=5601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=5801": {
+    "file": "v5_real-world-assets_map_limit=200_start=5801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=6001": {
+    "file": "v5_real-world-assets_map_limit=200_start=6001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=6201": {
+    "file": "v5_real-world-assets_map_limit=200_start=6201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=6401": {
+    "file": "v5_real-world-assets_map_limit=200_start=6401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=6601": {
+    "file": "v5_real-world-assets_map_limit=200_start=6601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=6801": {
+    "file": "v5_real-world-assets_map_limit=200_start=6801.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=7001": {
+    "file": "v5_real-world-assets_map_limit=200_start=7001.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=7201": {
+    "file": "v5_real-world-assets_map_limit=200_start=7201.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=7401": {
+    "file": "v5_real-world-assets_map_limit=200_start=7401.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=7601": {
+    "file": "v5_real-world-assets_map_limit=200_start=7601.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?limit=200&start=7801": {
+    "file": "v5_real-world-assets_map_limit=200_start=7801.json",
     "status": 200
   },
   "/v5/real-world-assets/market-pairs/list?limit=50&rwa_id=1": {

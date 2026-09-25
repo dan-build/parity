@@ -1,0 +1,238 @@
+{
+  "data": [
+    {
+      "addr": "0x882cdde5d31197eb108496c37ee28cea4513ea39",
+      "v24": "65385.218666311058986666",
+      "t0": {
+        "addr": "0xace8e719899f6e91831b18ae746c9a965c2119f1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38273.png",
+        "n": "Ondo U.S. Dollar Token",
+        "sym": "USDon"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 0,
+      "exid": 33109,
+      "exn": "Ondo Global Markets (Ethereum)",
+      "fa": "0x2c158bc456e027b2affccadf1bdbd9f5fc4c5c8c",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x988264c298a7228fe0912aa6a4711b1b4e67bbbd",
+      "v24": "10.433979568285081998",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xef72520feea9c5d140ac4cbd1cc8fe5afe0ec8e6",
+      "v24": "0",
+      "t0": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x37227c2b1f1f4eb7bc7331ee25314bace7582d5f",
+      "v24": "0",
+      "t0": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "exid": 34405,
+      "exn": "OKX FRQ (ETH)",
+      "fa": "0x2bd541ab3b704f7d4c9dff79efadeaa85ec034f1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xf63eed0c2c00fcbda1950ca88988ca733882128e",
+      "v24": "0",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x01592fedfd4ff6ae81452e4197b687026bff5028",
+      "v24": "0",
+      "t0": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5c98a950d8d4639aef36ddc0da242e909b178673",
+      "v24": "0",
+      "t0": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xf153d4ebd595bc0f297e065a67b0d30916ef58eccbf0e2f5eab72942bc23bda1",
+      "v24": "0",
+      "pubAt": "1786189115000",
+      "t0": {
+        "addr": "0x2b70ee121f3dd46018eaa4184e6234688c196548",
+        "n": "STONK",
+        "sym": "STONK",
+        "liq": "861619653.826060503874598849",
+        "liqUsd": "145712.834937783098790621"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon",
+        "liq": "1.122873800616810887",
+        "liqUsd": "22585.113178131807318536"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "168297.948115914906109156",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x139a552b6590ff4912dc3c31b6c0acc969c642db6c953f14b998afce6f3af621",
+      "v24": "0",
+      "pubAt": "1785422507000",
+      "t0": {
+        "addr": "0x31fcdee0aea658e0f7a3d275fd126f6faf3b6d82",
+        "n": "Dog In Vest",
+        "sym": "INVEST",
+        "liq": "923993091.340278527544031959",
+        "liqUsd": "153637.389689556185520782"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon",
+        "liq": "0.291230105697746755",
+        "liqUsd": "11727.808774014907674619"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "165365.198463571093195401",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x5638bbde046ec2efc7c8f3fd8dc5a9a1016f7eeb",
+      "v24": "27015.51330990808324396",
+      "pubAt": "1757108387000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "34200.81416",
+        "liqUsd": "34197.876509625078295785"
+      },
+      "t1": {
+        "addr": "0xfedc5f4a6c38211c1338aa411018dfaf26612c08",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38067.png",
+        "n": "SPDR S&P 500 ETF (Ondo Tokenized)",
+        "sym": "SPYon",
+        "liq": "28.28288729590643967",
+        "liqUsd": "22023.770467959980747173"
+      },
+      "bidx": 1,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "56221.646977585059042957",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:49:40.345Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 244,
+    "credit_count": 1
+  }
+}
