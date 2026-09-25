@@ -1,0 +1,225 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Gold",
+        "symbol": "GOLD",
+        "slug": "gold",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 4285.289151813086,
+            "tokenized_market_cap": 4623501032.313318,
+            "tokenized_volume_24h": 415727441.7895387,
+            "last_updated": "2026-09-25T20:34:03.000Z"
+          }
+        ],
+        "rwa_id": 1,
+        "asset_type": "commodity",
+        "rwa_rank": 1,
+        "has_tokens": true,
+        "average_tokenized_price": 4285.289151813086,
+        "tokenized_market_cap": 4623501032.313318,
+        "tokenized_volume_24h": 415727441.7895387,
+        "last_updated": "2026-09-25T20:33:47.054Z",
+        "tokens": [
+          {
+            "symbol": "PAXG",
+            "name": "PAX Gold",
+            "price": 4282.76665176952,
+            "crypto_id": 4705,
+            "issuer_id": "68904c24abae9b5b9fb35815",
+            "issuer_name": "Paxos",
+            "market_cap": 1862569321.79,
+            "volume_24h": 168553004.9438419
+          },
+          {
+            "symbol": "XAUt",
+            "name": "Tether Gold",
+            "price": 4287.646714730545,
+            "crypto_id": 5176,
+            "issuer_id": "68904e9cabae9b5b9fb358ac",
+            "issuer_name": "Tether Holdings",
+            "market_cap": 2670447817.65,
+            "volume_24h": 245576735.43272343
+          },
+          {
+            "symbol": "XAUM",
+            "name": "Matrixdock Gold",
+            "price": 4276.945667661152,
+            "crypto_id": 34212,
+            "issuer_id": "68905a7babae9b5b9fb35a8d",
+            "issuer_name": "Matrixdock",
+            "market_cap": 46940877.08,
+            "volume_24h": 616658.30394362
+          },
+          {
+            "symbol": "CGO",
+            "name": "Comtech Gold",
+            "price": 138.10094189958957,
+            "crypto_id": 20245,
+            "issuer_id": "68904cceabae9b5b9fb35839",
+            "issuer_name": "Comtech Gold",
+            "market_cap": 19472232.81,
+            "volume_24h": 906291.78716868
+          },
+          {
+            "symbol": "VNXAU",
+            "name": "VNX Gold",
+            "price": 137.84099843866304,
+            "crypto_id": 22492,
+            "issuer_id": "68905b43abae9b5b9fb35a95",
+            "issuer_name": "VNX",
+            "market_cap": 5803106.03,
+            "volume_24h": 2241.30834061
+          },
+          {
+            "symbol": "XAUT0",
+            "name": "Tether Gold Tokens",
+            "price": 4281.219441548837,
+            "crypto_id": 37082,
+            "issuer_id": "68904e9cabae9b5b9fb358ac",
+            "issuer_name": "Tether Holdings",
+            "market_cap": 17786240.7,
+            "volume_24h": 276767.11169347
+          },
+          {
+            "symbol": "XAU",
+            "name": "Gold (Derivatives)",
+            "price": 4291.115248043229,
+            "crypto_id": 39344,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          }
+        ],
+        "tradfi_markets": []
+      },
+      {
+        "name": "Nvidia Corp",
+        "symbol": "NVDA",
+        "slug": "nvidia",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 225.09823427761003,
+            "tokenized_market_cap": 138321481.88510108,
+            "tokenized_volume_24h": 78585474.89499824,
+            "last_updated": "2026-09-25T20:34:03.000Z"
+          }
+        ],
+        "rwa_id": 2,
+        "asset_type": "stock",
+        "rwa_rank": 2,
+        "has_tokens": true,
+        "average_tokenized_price": 225.09823427761003,
+        "tokenized_market_cap": 138321481.88510108,
+        "tokenized_volume_24h": 78585474.89499824,
+        "last_updated": "2026-09-25T20:33:49.453Z",
+        "tokens": [
+          {
+            "symbol": "NVDAX",
+            "name": "NVIDIA tokenized stock (xStock)",
+            "price": 225.20432226855272,
+            "crypto_id": 36992,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 41981083.65,
+            "volume_24h": 21024545.05297356
+          },
+          {
+            "symbol": "NVDA.D",
+            "name": "NVIDIA tokenized stock (Dinari)",
+            "price": null,
+            "crypto_id": 28616,
+            "issuer_id": "688c6172abae9b5b9fb30359",
+            "issuer_name": "Dinari Assets",
+            "market_cap": null,
+            "volume_24h": null
+          },
+          {
+            "symbol": "NVDAon",
+            "name": "NVIDIA Tokenized Stock (Ondo)",
+            "price": 225.27174482427696,
+            "crypto_id": 38093,
+            "issuer_id": "688ca4ccabae9b5b9fb3167a",
+            "issuer_name": "Ondo Assets",
+            "market_cap": 38148668.38,
+            "volume_24h": 2691662.36219642
+          },
+          {
+            "symbol": "NVDA",
+            "name": "NVIDIA (Derivatives)",
+            "price": 225.13336017256057,
+            "crypto_id": 38153,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 502182.90327793
+          },
+          {
+            "symbol": "NVDAB",
+            "name": "NVIDIA Tokenized bStocks",
+            "price": 224.74407862482894,
+            "crypto_id": 40215,
+            "issuer_id": "6a2aed5097c45356b1a5f710",
+            "issuer_name": "bStocks",
+            "market_cap": 34142487.78,
+            "volume_24h": 18586255.72175515
+          },
+          {
+            "symbol": "rNVDA",
+            "name": "NVIDIA Tokenized Stock (Reality)",
+            "price": 224.9340535478801,
+            "crypto_id": 40605,
+            "issuer_id": "6a43600c282e7240b76c8bbb",
+            "issuer_name": "Reality",
+            "market_cap": 2815574.95,
+            "volume_24h": 462805.13454916
+          },
+          {
+            "symbol": "NVDA",
+            "name": "NVIDIA Tokenized Stock (Robinhood)",
+            "price": 225.1865627575826,
+            "crypto_id": 40685,
+            "issuer_id": "6a465832fbe3004b1a0ea2dd",
+            "issuer_name": "Robinhood",
+            "market_cap": 20510331.16,
+            "volume_24h": 31639258.9182061
+          },
+          {
+            "symbol": "WNVDAX",
+            "name": "Wrapped NVIDIA Tokenized stock (xStock)",
+            "price": 225.1474263690106,
+            "crypto_id": 37270,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 825596.84,
+            "volume_24h": 3778779.50489501
+          }
+        ],
+        "tradfi_markets": [
+          {
+            "exchange": {
+              "slug": "binance",
+              "name": "Binance",
+              "exchange_id": 270
+            },
+            "ticker": "NVDA",
+            "market_url": "https://www.binance.com/en/stocks/EQ_NVDA"
+          }
+        ]
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-25T20:35:25.916Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "data": [
+    {
+      "addr": "0x9c4fe5ffd9a9fc5678cfbd93aa2d4fd684b67c4c",
+      "v24": "349823.061060322409897867",
+      "pubAt": "1590017270000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "1907.591011391625712265",
+        "liqUsd": "8152604.267302756367053619"
+      },
+      "t1": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH",
+        "liq": "3036.821442615057674198",
+        "liqUsd": "8177131.235393484727536937"
+      },
+      "bidx": 0,
+      "exid": 1069,
+      "exn": "Uniswap v2",
+      "liqUsd": "16329735.502696241094590555",
+      "fa": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5ae13baaef0620fdae1d355495dc51a17adb4082",
+      "v24": "769553.25284774046698395",
+      "pubAt": "1655264999000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "398.677360176146873355",
+        "liqUsd": "1707005.236955767651375599"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "479793.870531",
+        "liqUsd": "479752.380026187161949842"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "2186757.61698195481332544",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xfd13d9de8164cab18cc85ce981b22b5a4d1b10a90bad4b1bc7cf58469fcffc9c",
+      "v24": "9848.162243823326241497",
+      "pubAt": "1742767223000",
+      "t0": {
+        "addr": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3717.png",
+        "n": "Wrapped BTC",
+        "sym": "WBTC",
+        "liq": "3.99531763",
+        "liqUsd": "335276.07611671028052654"
+      },
+      "t1": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "116.519010249140171006",
+        "liqUsd": "500158.526708270726878705"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "835434.602824981007405244",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xb431c70f800100d87554ac1142c4a94c5fe4c0c4",
+      "v24": "68778.483432013422364006",
+      "pubAt": "1725728795000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "125.198799727710655882",
+        "liqUsd": "537256.812766893793574701"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "286155.541998",
+        "liqUsd": "286136.762728373733622898"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "823393.575495267527197598",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xc58102cf5b0807c23601ac8abc2dc410f4b7846208d35e234950a1c150256acd",
+      "v24": "85887.514622523774443794",
+      "pubAt": "1741182035000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "128.9320460996236296",
+        "liqUsd": "552140.061356154215679169"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "80470.994243",
+        "liqUsd": "80464.021010877840256045"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "632604.082367032055935214",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x6924d7319b4d74d2ce3a52e732ba1ba03d0100f848ce819a21be25b3085e39be",
+      "v24": "89265.379154083227788258",
+      "pubAt": "1747919555000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "103.34125396018891613",
+        "liqUsd": "442404.123991148114661052"
+      },
+      "t1": {
+        "addr": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4943.png",
+        "n": "Dai Stablecoin",
+        "sym": "DAI",
+        "liq": "59482.388070176566375974",
+        "liqUsd": "59455.721497965998680858"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "501859.845489114113341909",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xcc708109490fc52a42a73adc891367b617255164f35eb575fb428b6cd27c2663",
+      "v24": "6403.155853289631075728",
+      "pubAt": "1738497251000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "48.047195826485399181",
+        "liqUsd": "205948.603360806131120712"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "146427.737809",
+        "liqUsd": "146418.128328960299530226"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "352366.731689766430650937",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x940402a89d69e6403a4138d0cca6340f839882034a8649b41cb6bef652ee1095",
+      "v24": "14401.127523753672705524",
+      "pubAt": "1743141371000",
+      "t0": {
+        "addr": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+        "n": "Ethereum",
+        "sym": "ETH",
+        "liq": "38.580542799839316135",
+        "liqUsd": "103043.729818191178239228"
+      },
+      "t1": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "33.042130306978281213",
+        "liqUsd": "140995.345476672745744638"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "244039.075294863923983866",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5a2abdc02ecc86fa3d015f498ec2f2c190c11700",
+      "v24": "6058.511357783277058385",
+      "pubAt": "1748278163000",
+      "t0": {
+        "addr": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3717.png",
+        "n": "Wrapped BTC",
+        "sym": "WBTC",
+        "liq": "0.08739602",
+        "liqUsd": "7310.202869887479017663"
+      },
+      "t1": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "20.434305426335568351",
+        "liqUsd": "87372.102108423155380552"
+      },
+      "bidx": 1,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "94682.304978310634398215",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x7cb85f75e61226060453a997a7733f76707df337",
+      "v24": "46610.712137815141184916",
+      "pubAt": "1726448303000",
+      "t0": {
+        "addr": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/4705.png",
+        "n": "Paxos Gold",
+        "sym": "PAXG",
+        "liq": "8.481911708291970505",
+        "liqUsd": "36338.440879711417284934"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "18273.107914",
+        "liqUsd": "18269.600108735706514136"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "54608.040988447123799069",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T20:35:45.414Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 238,
+    "credit_count": 1
+  }
+}

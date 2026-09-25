@@ -1,0 +1,254 @@
+{
+  "data": [
+    {
+      "addr": "e8f66dc90d4754d164be2ed335cc50adb24d6b1f7e09",
+      "v24": "762.082960289301893053",
+      "t0": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx"
+      },
+      "t1": {
+        "addr": "XsXcJ6GZ9kVnjqGsjBnktRcuwMBmvKWh8S93RefZ1rF",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/39699.png",
+        "n": "AMD xStock",
+        "sym": "AMDx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "976cb2f405a96d59b83ba39241ce4473cf749ef90ede",
+      "v24": "214.724085270668850943",
+      "t0": {
+        "addr": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "USDT",
+        "sym": "USDT",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "a51ce680598522d74bbb643b7014a910b93c9ff212eb",
+      "v24": "0",
+      "t0": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37006.png",
+        "n": "SP500 xStock",
+        "sym": "SPYx",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "c87dd875bb8ea42a3427e789dcbca662f43bcc7e686a",
+      "v24": "0",
+      "t0": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37004.png",
+        "n": "Tesla xStock",
+        "sym": "TSLAx",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "4cb4b816629e116aa3c22e78edd690e4bba4c2be5987",
+      "v24": "0",
+      "t0": {
+        "addr": "3iQL8BFS2vE7mww4ehAqQHAsbmRNCrPxizWAT2Zfyr9y",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/29420.png",
+        "n": "Virtual Protocol",
+        "sym": "VIRTUAL"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6",
+      "v24": "5793478.572855715925205283",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "1658937.077433",
+        "liqUsd": "1658691.784139664862351213"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liq": "5139.8229596",
+        "liqUsd": "1157323.330926501620974807"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "2816015.115066166483326019",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "B4VFURUHHzyt8YzBGBV9jiarBvjh1EbMAbRNBnNqaxUD",
+      "v24": "3481149.113239864949865274",
+      "pubAt": "1790005500000",
+      "t0": {
+        "addr": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
+        "lg": "https://ipfs.sintral.me/cdn-cgi/image/width=480,quality=100,format=webp/url/https%3A%2F%2Faxiomtrading.sfo3.cdn.digitaloceanspaces.com%2F7ovByu4CKE2ogdbYTRx8o9z1XarkNMA3hXyxThWamoon.webp",
+        "n": "Super Inu",
+        "sym": "SI",
+        "liq": "21218980.068819",
+        "liqUsd": "189009.334229807096407607"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liq": "866.22885938",
+        "liqUsd": "195091.441529004496690342"
+      },
+      "bidx": 0,
+      "exid": 10403,
+      "exn": "Raydium (CPMM)",
+      "liqUsd": "384100.775758811593097949",
+      "fa": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "lr": "1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "GjLusGo2z3mnXPmebhhNt9ocMDJgfdxrDFctVF8Ev3Kg",
+      "v24": "60062.169089877700627327",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "229621.701767",
+        "liqUsd": "229599.234442071828235176"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liq": "588.58530436",
+        "liqUsd": "132381.168307960042837601"
+      },
+      "bidx": 1,
+      "exid": 33200,
+      "exn": "Byreal",
+      "liqUsd": "361980.402750031871072777",
+      "fa": "REALQqNEomY6cQGZJUGwywTBD2UmDT32rZcNnfxQ5N2",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "6R4r93V5fcMzc13CL2enEepDSYcr4Qx3ptZBDwudTXCo",
+      "v24": "1814610.196448955887609158",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "64023.3165",
+        "liqUsd": "64013.849902159638498818"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liq": "619.80484505",
+        "liqUsd": "139709.831197737710215014"
+      },
+      "bidx": 1,
+      "exid": 1426,
+      "exn": "Orca",
+      "liqUsd": "203723.681099897348713831",
+      "fa": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "4KqQN6u1pFKroFE2jVEhoepAMRKPcuAzWVDCgm9zRBYN",
+      "v24": "21685.484230029040757094",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "95124.072706",
+        "liqUsd": "95114.765295448076803109"
+      },
+      "t1": {
+        "addr": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36992.png",
+        "n": "NVIDIA xStock",
+        "sym": "NVDAx",
+        "liq": "213.35418546",
+        "liqUsd": "47935.671556784534535804"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "143050.436852232611338913",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T20:35:50.863Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 240,
+    "credit_count": 1
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "data": {
+    "cryptocurrencies": [
+      {
+        "name": "Bitcoin",
+        "symbol": "BTC",
+        "slug": "bitcoin",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 56238.50906,
+            "long_liquidations_1h": 39276.9598,
+            "short_liquidations_1h": 16961.54926,
+            "total_liquidations_4h": 771175.20017,
+            "long_liquidations_4h": 423031.00432,
+            "short_liquidations_4h": 348144.19585,
+            "total_liquidations_24h": 61211146.14616394,
+            "long_liquidations_24h": 42633375.65841432,
+            "short_liquidations_24h": 18577770.48774962,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 1,
+        "cmc_rank": 1
+      },
+      {
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 58973.83652,
+            "long_liquidations_1h": 17124.05722,
+            "short_liquidations_1h": 41849.7793,
+            "total_liquidations_4h": 1641372.38453,
+            "long_liquidations_4h": 686947.7519,
+            "short_liquidations_4h": 954424.63263,
+            "total_liquidations_24h": 53431660.809847,
+            "long_liquidations_24h": 26638197.299429,
+            "short_liquidations_24h": 26793463.510418,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 1027,
+        "cmc_rank": 2
+      },
+      {
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 240399.68016699995,
+            "long_liquidations_1h": 14560.9476,
+            "short_liquidations_1h": 225838.73256699994,
+            "total_liquidations_4h": 2224596.200624,
+            "long_liquidations_4h": 249841.9189,
+            "short_liquidations_4h": 1974754.281724,
+            "total_liquidations_24h": 23186497.257869,
+            "long_liquidations_24h": 4353665.876896,
+            "short_liquidations_24h": 18832831.380973,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 5426,
+        "cmc_rank": 7
+      },
+      {
+        "name": "XRP",
+        "symbol": "XRP",
+        "slug": "xrp",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 31081.65512,
+            "long_liquidations_1h": 0,
+            "short_liquidations_1h": 31081.65512,
+            "total_liquidations_4h": 792932.05795,
+            "long_liquidations_4h": 542238.03993,
+            "short_liquidations_4h": 250694.01802,
+            "total_liquidations_24h": 16236994.810470015,
+            "long_liquidations_24h": 6874027.772610003,
+            "short_liquidations_24h": 9362967.037860012,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 52,
+        "cmc_rank": 5
+      },
+      {
+        "name": "Zcash",
+        "symbol": "ZEC",
+        "slug": "zcash",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 51352.13545,
+            "long_liquidations_1h": 45386.29924,
+            "short_liquidations_1h": 5965.83621,
+            "total_liquidations_4h": 2028495.0380215,
+            "long_liquidations_4h": 1539502.3392615,
+            "short_liquidations_4h": 488992.69876,
+            "total_liquidations_24h": 11602571.3241226,
+            "long_liquidations_24h": 4683777.1334526,
+            "short_liquidations_24h": 6918794.19067,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 1437,
+        "cmc_rank": 9
+      },
+      {
+        "name": "NEAR Protocol",
+        "symbol": "NEAR",
+        "slug": "near-protocol",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 187498.8097,
+            "long_liquidations_1h": 89632.7758,
+            "short_liquidations_1h": 97866.0339,
+            "total_liquidations_4h": 886497.9498999988,
+            "long_liquidations_4h": 603771.0708,
+            "short_liquidations_4h": 282726.8790999988,
+            "total_liquidations_24h": 6615874.300986905,
+            "long_liquidations_24h": 2370788.4213700006,
+            "short_liquidations_24h": 4245085.879616904,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 6535,
+        "cmc_rank": 18
+      },
+      {
+        "name": "Sui",
+        "symbol": "SUI",
+        "slug": "sui",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 838564.7283497992,
+            "long_liquidations_1h": 2714.5309,
+            "short_liquidations_1h": 835850.1974497992,
+            "total_liquidations_4h": 993249.0706770992,
+            "long_liquidations_4h": 54463.7786422,
+            "short_liquidations_4h": 938785.2920348991,
+            "total_liquidations_24h": 6595606.384425191,
+            "long_liquidations_24h": 2047403.0138682006,
+            "short_liquidations_24h": 4548203.370556991,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 20947,
+        "cmc_rank": 23
+      },
+      {
+        "name": "Ethena",
+        "symbol": "ENA",
+        "slug": "ethena",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 601268.9734987,
+            "long_liquidations_1h": 26634.1406529,
+            "short_liquidations_1h": 574634.8328458,
+            "total_liquidations_4h": 792200.522904401,
+            "long_liquidations_4h": 144156.19646500095,
+            "short_liquidations_4h": 648044.3264394,
+            "total_liquidations_24h": 4621327.817921102,
+            "long_liquidations_24h": 776729.081013906,
+            "short_liquidations_24h": 3844598.736907196,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 30171,
+        "cmc_rank": 37
+      },
+      {
+        "name": "Ondo",
+        "symbol": "ONDO",
+        "slug": "ondo-finance",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 12515.34728,
+            "long_liquidations_1h": 268.54093,
+            "short_liquidations_1h": 12246.80635,
+            "total_liquidations_4h": 45506.41271909,
+            "long_liquidations_4h": 16729.75071909,
+            "short_liquidations_4h": 28776.662,
+            "total_liquidations_24h": 4478537.051903932,
+            "long_liquidations_24h": 1846104.2402811632,
+            "short_liquidations_24h": 2632432.811622769,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 21159,
+        "cmc_rank": 36
+      },
+      {
+        "name": "Plasma",
+        "symbol": "XPL",
+        "slug": "plasma-xpl",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 4473.45486599952,
+            "long_liquidations_1h": 3828.789006,
+            "short_liquidations_1h": 644.66585999952,
+            "total_liquidations_4h": 147054.16357449951,
+            "long_liquidations_4h": 48220.9172551,
+            "short_liquidations_4h": 98833.24631939952,
+            "total_liquidations_24h": 4303479.566812044,
+            "long_liquidations_24h": 1991735.69538161,
+            "short_liquidations_24h": 2311743.8714304343,
+            "last_updated": "2026-09-25T20:35:00.000Z"
+          }
+        ],
+        "crypto_id": 36645,
+        "cmc_rank": 113
+      }
+    ],
+    "total_size": 930,
+    "has_more": true
+  },
+  "status": {
+    "timestamp": "2026-09-25T20:36:05.144Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

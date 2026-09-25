@@ -1,0 +1,273 @@
+{
+  "data": [
+    {
+      "addr": "0x1b8045234de7671a02204d12c9b61a40cef4ea83",
+      "v24": "0",
+      "pubAt": "1785385607000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "15.1508951323744067",
+        "liqUsd": "65152.331069129581185843"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "48775.326584",
+        "liqUsd": "48764.10333467372688036"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "113916.434403803308066202",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5cc398c51789b697915a09b2093e2dd639e2dc0dd857f9040738625a8bb9cc11",
+      "v24": "0",
+      "pubAt": "1761411083000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.02257780515091612",
+        "liqUsd": "100.531421373978391133"
+      },
+      "t1": {
+        "addr": "0x85e93e469fae746ffed87036d9cb3d2cbf7773a7",
+        "n": "XAUX",
+        "sym": "XAUX",
+        "liq": "0.02426891",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "100.531421373978391133",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x38e69f1314261ff43797de7f0bb8e9f722a89415364d98c735304021e37d22a6",
+      "pubAt": "1783257023000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.000000230740582478",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "100.000001",
+        "liqUsd": "99.983075305281343055"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "99.983075305281343055",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xfa906f4fbba5b20df32e1af931f6881460e72a04b941b8bc687a773fc5ff5c8a",
+      "pubAt": "1783256951000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.011907876964032302",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "47.709603",
+        "liqUsd": "47.700644386631060639"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "47.700644386631060639",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xd3a37e535c1ef84246b12e6adbff39264d2e9f638abc6dac9e56614dd3c0c5c0",
+      "v24": "0",
+      "pubAt": "1790181011000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.00420908493331929",
+        "liqUsd": "18.245744181683062787"
+      },
+      "t1": {
+        "addr": "0x9cf3561094a0e99e3486912e888fc96caf0793e5",
+        "n": "MIDAS",
+        "sym": "MIDAS",
+        "liq": "998125947.537611274091148502",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "18.245744181683062787",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xb1179e6b70361da59581a41cbedef8a79826a82bc4253f039f2c2ceda7d33da6",
+      "pubAt": "1785489683000",
+      "t0": {
+        "addr": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+        "n": "Ethereum",
+        "sym": "ETH",
+        "liq": "0.000558305382377471",
+        "liqUsd": "1.052116736292596535"
+      },
+      "t1": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.000558305382377471",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "1.052116736292596535",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xc23837ccbecab20102ddb87d41675c8a2f858056-0x166c293f2e3b180f00b25e82ad5b592a7c8f4d3d-0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+      "v24": "0",
+      "t0": {
+        "addr": "0x166c293f2e3b180f00b25e82ad5b592a7c8f4d3d",
+        "n": "₿gold ",
+        "sym": "₿Gold",
+        "liq": "0.0001",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.0001",
+        "liqUsd": "0.476658891950262583"
+      },
+      "bidx": 0,
+      "exid": 1063,
+      "exn": "Curve (Ethereum)",
+      "liqUsd": "0.476658891950262583",
+      "fa": "0xe64608e223433e8a03a1daaefd8cb638c14b552c",
+      "mi": false
+    },
+    {
+      "addr": "0x501c6c506123c1b96fb27e14ed4538526b8f2555-0x2103e845c5e135493bb6c2a4f0b8651956ea8682-0x68749665ff8d2d112fa859aa293f07a622782f38",
+      "v24": "0",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.0001",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0x68749665ff8d2d112fa859aa293f07a622782f38",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/5176.png",
+        "n": "Tether Gold",
+        "sym": "XAUt",
+        "liq": "0.0001",
+        "liqUsd": "0.470178209129312127"
+      },
+      "bidx": 0,
+      "exid": 1063,
+      "exn": "Curve (Ethereum)",
+      "liqUsd": "0.470178209129312127",
+      "fa": "0xe64608e223433e8a03a1daaefd8cb638c14b552c",
+      "mi": false
+    },
+    {
+      "addr": "0x3b27144eca83157e13332a75d45f0205c39c6698",
+      "v24": "0",
+      "pubAt": "1744788119000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.006364719629554388",
+        "liqUsd": "0.001264400651926567"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "0.001266",
+        "liqUsd": "0.001264400651926567"
+      },
+      "bidx": 0,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "0.002528801303853134",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "mi": false
+    },
+    {
+      "addr": "0xa71cf49e8f334b64f2a93a48aabf1d25c7d7902197e06aa0a29e492017930d7c",
+      "pubAt": "1775104115000",
+      "t0": {
+        "addr": "0x2103e845c5e135493bb6c2a4f0b8651956ea8682",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/34212.png",
+        "n": "Matrixdock Gold",
+        "sym": "XAUM",
+        "liq": "0.000003557640772429",
+        "liqUsd": "0.0000009996590071"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "0.000001",
+        "liqUsd": "0.0000009996590071"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "0.000001999318014199",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T20:35:47.873Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 198,
+    "credit_count": 1
+  }
+}
