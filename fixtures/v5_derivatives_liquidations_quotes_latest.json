@@ -1,0 +1,27 @@
+{
+  "data": {
+    "quotes": [
+      {
+        "symbol": "USD",
+        "crypto_id": 2781,
+        "total_liquidations_1h": 6228989.053756027,
+        "long_liquidations_1h": 2278167.6219829423,
+        "short_liquidations_1h": 3950821.4317730847,
+        "total_liquidations_4h": 19270998.884688202,
+        "long_liquidations_4h": 7765575.869232495,
+        "short_liquidations_4h": 11505423.015455708,
+        "total_liquidations_24h": 264787755.33382994,
+        "long_liquidations_24h": 134141402.79308872,
+        "short_liquidations_24h": 130646352.54074122,
+        "last_updated": "2026-09-25T21:06:00.000Z"
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:08:22.053Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 4,
+    "credit_count": 1
+  }
+}

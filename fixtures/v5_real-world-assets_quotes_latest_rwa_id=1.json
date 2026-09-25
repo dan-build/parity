@@ -1,0 +1,109 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Gold",
+        "symbol": "GOLD",
+        "slug": "gold",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 4282.866233826775,
+            "tokenized_market_cap": 4620747426.703591,
+            "tokenized_volume_24h": 438330423.62491864,
+            "last_updated": "2026-09-25T21:07:04.000Z"
+          }
+        ],
+        "rwa_id": 1,
+        "asset_type": "commodity",
+        "rwa_rank": 1,
+        "has_tokens": true,
+        "average_tokenized_price": 4282.866233826775,
+        "tokenized_market_cap": 4620747426.703591,
+        "tokenized_volume_24h": 438330423.62491864,
+        "last_updated": "2026-09-25T21:06:39.937Z",
+        "tokens": [
+          {
+            "symbol": "PAXG",
+            "name": "PAX Gold",
+            "price": 4280.712821313145,
+            "crypto_id": 4705,
+            "issuer_id": "68904c24abae9b5b9fb35815",
+            "issuer_name": "Paxos",
+            "market_cap": 1861676113.75,
+            "volume_24h": 168155186.0978197
+          },
+          {
+            "symbol": "XAUt",
+            "name": "Tether Gold",
+            "price": 4285.499964656685,
+            "crypto_id": 5176,
+            "issuer_id": "68904e9cabae9b5b9fb358ac",
+            "issuer_name": "Tether Holdings",
+            "market_cap": 2669110770.91,
+            "volume_24h": 268373876.42250952
+          },
+          {
+            "symbol": "XAUM",
+            "name": "Matrixdock Gold",
+            "price": 4278.4662660363965,
+            "crypto_id": 34212,
+            "issuer_id": "68905a7babae9b5b9fb35a8d",
+            "issuer_name": "Matrixdock",
+            "market_cap": 46957566.15,
+            "volume_24h": 618083.48750245
+          },
+          {
+            "symbol": "CGO",
+            "name": "Comtech Gold",
+            "price": 137.8358855465121,
+            "crypto_id": 20245,
+            "issuer_id": "68904cceabae9b5b9fb35839",
+            "issuer_name": "Comtech Gold",
+            "market_cap": 19434859.86,
+            "volume_24h": 906995.05931591
+          },
+          {
+            "symbol": "VNXAU",
+            "name": "VNX Gold",
+            "price": 137.52886159234288,
+            "crypto_id": 22492,
+            "issuer_id": "68905b43abae9b5b9fb35a95",
+            "issuer_name": "VNX",
+            "market_cap": 5789965.07,
+            "volume_24h": 2155.4473402
+          },
+          {
+            "symbol": "XAUT0",
+            "name": "Tether Gold Tokens",
+            "price": 4280.055883234371,
+            "crypto_id": 37082,
+            "issuer_id": "68904e9cabae9b5b9fb358ac",
+            "issuer_name": "Tether Holdings",
+            "market_cap": 17778430.9,
+            "volume_24h": 274428.63734503
+          },
+          {
+            "symbol": "XAU",
+            "name": "Gold (Derivatives)",
+            "price": 4289.164070221551,
+            "crypto_id": 39344,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          }
+        ],
+        "tradfi_markets": []
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:08:16.954Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 4,
+    "credit_count": 1
+  }
+}

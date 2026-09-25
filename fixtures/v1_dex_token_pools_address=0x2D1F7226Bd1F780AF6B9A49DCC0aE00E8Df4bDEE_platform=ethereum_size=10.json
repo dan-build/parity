@@ -2,7 +2,7 @@
   "data": [
     {
       "addr": "0x794ee3795f6e9028c3182142eeedc1f55fe66926",
-      "v24": "44007.167280190996953924",
+      "v24": "45457.599996860618408426",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
@@ -44,7 +44,7 @@
     },
     {
       "addr": "0x4d75263652a0b13eec1bf6d81ba460a54cc85a5a",
-      "v24": "2320.220842590945329046",
+      "v24": "2199.452660432806096203",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
@@ -108,84 +108,84 @@
     },
     {
       "addr": "0x9da0dee228d9ceab44b4359ddc30ed97cb147ff6",
-      "v24": "57296.528882123581173811",
+      "v24": "59220.054872474937274035",
       "pubAt": "1778999075000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
         "n": "NVIDIA (Ondo Tokenized)",
         "sym": "NVDAon",
-        "liq": "3601.258189603290008828",
-        "liqUsd": "808456.426835295753018076"
+        "liq": "3595.431026657260474389",
+        "liqUsd": "811485.495271860787094796"
       },
       "t1": {
         "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
         "n": "Wrapped Ether",
         "sym": "WETH",
-        "liq": "300.912296615164549504",
-        "liqUsd": "810377.478518189460140503"
+        "liq": "301.40219618560774023",
+        "liqUsd": "809555.306464962929589584"
       },
       "bidx": 0,
       "exid": 32396,
       "exn": "Ring Exchange (Ethereum)",
-      "liqUsd": "1618833.905353485213158579",
+      "liqUsd": "1621040.801736823716684379",
       "fa": "0xeb2a625b704d73e82946d8d026e1f588eed06416",
       "top": true,
       "mi": false
     },
     {
       "addr": "0xa9a6651fba74df1aab94065ffaabe750d6ed835b94a9e28925ec79beec2d5f73",
-      "v24": "157098.735029886548893286",
+      "v24": "155117.479158315750837757",
       "pubAt": "1788753467000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
         "n": "NVIDIA (Ondo Tokenized)",
         "sym": "NVDAon",
-        "liq": "400.807082308053678877",
-        "liqUsd": "90481.904234983529015883"
+        "liq": "395.960097255741398456",
+        "liqUsd": "89447.972169184692925454"
       },
       "t1": {
         "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
         "n": "USD Coin",
         "sym": "USDC",
-        "liq": "83719.968863",
-        "liqUsd": "83709.390818116493947985"
+        "liq": "84818.107641",
+        "liqUsd": "84814.822248167834303456"
       },
       "bidx": 0,
       "exid": 11955,
       "exn": "Uniswap v4 (Ethereum)",
-      "liqUsd": "174191.295053100022963867",
+      "liqUsd": "174262.794417352527228909",
       "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
       "top": true,
       "mi": false
     },
     {
       "addr": "0xf5294094bce435bfbd0ec488be5c462aaf32bc7a",
-      "v24": "4286.560492058721713204",
+      "v24": "4960.235797704484808113",
       "pubAt": "1758028223000",
       "t0": {
         "addr": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38093.png",
         "n": "NVIDIA (Ondo Tokenized)",
         "sym": "NVDAon",
-        "liq": "27.619276191356641068",
-        "liqUsd": "6324.407255216915795468"
+        "liq": "30.623917543681798975",
+        "liqUsd": "6838.346027587186178408"
       },
       "t1": {
         "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
         "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
         "n": "USD Coin",
         "sym": "USDC",
-        "liq": "15110.402022",
-        "liqUsd": "15109.076748555595088993"
+        "liq": "14436.656554",
+        "liqUsd": "14435.183805631265031129"
       },
       "bidx": 0,
       "exid": 1348,
       "exn": "Uniswap v3 (Ethereum)",
-      "liqUsd": "21433.48400377251088446",
+      "liqUsd": "21273.529833218451209536",
       "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
       "top": true,
       "mi": false
@@ -248,10 +248,10 @@
     }
   ],
   "status": {
-    "timestamp": "2026-09-25T20:35:53.352Z",
+    "timestamp": "2026-09-25T21:08:19.978Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 219,
+    "elapsed": 249,
     "credit_count": 1
   }
 }

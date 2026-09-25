@@ -1,0 +1,169 @@
+{
+  "data": [
+    {
+      "addr": "0x66d1b94f81fba13efbd5307db63dde8cc810ffdf",
+      "v24": "0",
+      "pubAt": "1660921368000",
+      "t0": {
+        "addr": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3717.png",
+        "n": "Wrapped BTC",
+        "sym": "WBTC",
+        "liq": "0.00010123",
+        "liqUsd": "8.237120764913323398"
+      },
+      "t1": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "1.843070722776360051",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "exid": 1348,
+      "exn": "Uniswap v3 (Ethereum)",
+      "liqUsd": "8.237120764913323398",
+      "fa": "0x1f98431c8ad98523631ae4a59f267346ea31f984",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xb898c192b1315eb1870d6081f71fa9ec03514ee1d0db4738f279d67df37b6e02",
+      "v24": "0",
+      "pubAt": "1758320759000",
+      "t0": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "0.282176065222919715",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0x85e93e469fae746ffed87036d9cb3d2cbf7773a7",
+        "n": "XAUX",
+        "sym": "XAUX",
+        "liq": "0.00786649",
+        "liqUsd": "34.052150381886510123"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "34.052150381886510123",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xc26f0b79b2da89d528164ca2e74f9a78457e3c38e0a4781c7cc68cb383844d13",
+      "pubAt": "1785311531000",
+      "t0": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "0",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "30",
+        "liqUsd": "29.996683202922852"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "29.996683202922852",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xf3128584386e6cbff69cd1ca0919d13a7eb71ca887323f97018afb5388594bc2",
+      "v24": "0",
+      "t0": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "0.000235797753864151",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "0.044352",
+        "liqUsd": "0.044338382464614266"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "0.044338382464614266",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x0f36cc986489f1eb09dbca0b3a117ba55fd6006a4939c457be81285310969996",
+      "v24": "0",
+      "t0": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "0.000091225586631778",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "0.028327",
+        "liqUsd": "0.028309287263029285"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "0.028309287263029285",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xbfaa1e1f373154f6ee874a8c963ea55e977b594ffdc0dc51432a83d83347713a",
+      "pubAt": "1772159015000",
+      "t0": {
+        "addr": "0x6d57b2e05f26c26b549231c866bdd39779e4a488",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/22492.png",
+        "n": "VNX Gold",
+        "sym": "VNXAU",
+        "liq": "0.022864104897288635",
+        "liqUsd": "0.000000999902933111"
+      },
+      "t1": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "0.000001",
+        "liqUsd": "0.000000999902933111"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "0.000001999805866221",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-09-25T21:08:18.318Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 212,
+    "credit_count": 1
+  }
+}

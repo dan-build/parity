@@ -1,0 +1,204 @@
+{
+  "data": {
+    "exchanges": [
+      {
+        "name": "Binance",
+        "slug": "binance",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 4484881.03060846,
+            "long_liquidations_1h": 1730208.09135991,
+            "short_liquidations_1h": 2754672.93924855,
+            "total_liquidations_4h": 11202604.35932745,
+            "long_liquidations_4h": 4028070.05091128,
+            "short_liquidations_4h": 7174534.30841617,
+            "total_liquidations_24h": 127185313.52395709,
+            "long_liquidations_24h": 60606096.64607888,
+            "short_liquidations_24h": 66579216.87787821,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 270
+      },
+      {
+        "name": "OKX",
+        "slug": "okx",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 1400694.159504,
+            "long_liquidations_1h": 970181.62416,
+            "short_liquidations_1h": 430512.535344,
+            "total_liquidations_4h": 3869264.266924,
+            "long_liquidations_4h": 2225034.9025,
+            "short_liquidations_4h": 1644229.364424,
+            "total_liquidations_24h": 45798804.536215,
+            "long_liquidations_24h": 22619590.25052,
+            "short_liquidations_24h": 23179214.285695,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 294
+      },
+      {
+        "name": "Hyperliquid",
+        "slug": "hyperliquid",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 187686.273252,
+            "long_liquidations_1h": 112.059503,
+            "short_liquidations_1h": 187574.213749,
+            "total_liquidations_4h": 1226024.831691,
+            "long_liquidations_4h": 557332.273759,
+            "short_liquidations_4h": 668692.557932,
+            "total_liquidations_24h": 34587770.162263,
+            "long_liquidations_24h": 19248885.047296,
+            "short_liquidations_24h": 15338885.114967,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 8112
+      },
+      {
+        "name": "Bybit",
+        "slug": "bybit",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 768817.5966065,
+            "long_liquidations_1h": 390833.750762,
+            "short_liquidations_1h": 377983.8458445,
+            "total_liquidations_4h": 2910504.7667439,
+            "long_liquidations_4h": 1589074.048297,
+            "short_liquidations_4h": 1321430.7184469,
+            "total_liquidations_24h": 31634239.8246696,
+            "long_liquidations_24h": 18633220.2270913,
+            "short_liquidations_24h": 13001019.5975783,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 521
+      },
+      {
+        "name": "Gate",
+        "slug": "gate",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 275494.214241997,
+            "long_liquidations_1h": 96657.33216184225,
+            "short_liquidations_1h": 178836.88208015473,
+            "total_liquidations_4h": 777614.2157488435,
+            "long_liquidations_4h": 302119.9589365053,
+            "short_liquidations_4h": 475494.2568123382,
+            "total_liquidations_24h": 16623280.496166663,
+            "long_liquidations_24h": 8008473.400119062,
+            "short_liquidations_24h": 8614807.0960476,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 302
+      },
+      {
+        "name": "Aster",
+        "slug": "aster-pro",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 27684.4573437,
+            "long_liquidations_1h": 22966.0990403,
+            "short_liquidations_1h": 4718.3583034,
+            "total_liquidations_4h": 313761.0513779,
+            "long_liquidations_4h": 266132.7627526,
+            "short_liquidations_4h": 47628.2886253,
+            "total_liquidations_24h": 3572494.82467342,
+            "long_liquidations_24h": 3006409.7544011,
+            "short_liquidations_24h": 566085.07027232,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 1452
+      },
+      {
+        "name": "HTX",
+        "slug": "htx",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 34458.8718,
+            "long_liquidations_1h": 30084.50425,
+            "short_liquidations_1h": 4374.36755,
+            "total_liquidations_4h": 69835.763134,
+            "long_liquidations_4h": 45070.711914,
+            "short_liquidations_4h": 24765.05122,
+            "total_liquidations_24h": 2883016.486674,
+            "long_liquidations_24h": 1671813.409218,
+            "short_liquidations_24h": 1211203.077456,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 102
+      },
+      {
+        "name": "Kraken",
+        "slug": "kraken",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 51359.54825,
+            "long_liquidations_1h": 18731.80761,
+            "short_liquidations_1h": 32627.74064,
+            "total_liquidations_4h": 195107.370817,
+            "long_liquidations_4h": 40353.83951,
+            "short_liquidations_4h": 154753.531307,
+            "total_liquidations_24h": 2653007.2495105,
+            "long_liquidations_24h": 468741.760984,
+            "short_liquidations_24h": 2184265.4885265,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 24
+      },
+      {
+        "name": "Bitfinex",
+        "slug": "bitfinex",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "total_liquidations_1h": 2021.7392,
+            "long_liquidations_1h": 0,
+            "short_liquidations_1h": 2021.7392,
+            "total_liquidations_4h": 2092.9172,
+            "long_liquidations_4h": 0,
+            "short_liquidations_4h": 2092.9172,
+            "total_liquidations_24h": 11911.884971967862,
+            "long_liquidations_24h": 6309.247659892,
+            "short_liquidations_24h": 5602.637312075861,
+            "last_updated": "2026-09-25T21:08:00.000Z"
+          }
+        ],
+        "exchange_id": 37
+      }
+    ],
+    "total_size": 9,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-25T21:08:22.219Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 3,
+    "credit_count": 1
+  }
+}

@@ -47,8 +47,11 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
   show it in the "can't tell you" panel, never crash
 
 ## Probe findings (25 Sep 2026, Startup key; don't re-probe, read `fixtures/`)
-`npm run probe` (scripts/probe.ts) saves raw responses to `fixtures/`, plus a per-call log
-in `fixtures/_probe-summary.json`. One run costs about 16 credits. The plan allows 15k
+`npm run probe` (scripts/probe.ts) runs the engine's real `check()` for GOLD and NVDA through
+a recording transport. It saves every response to `fixtures/` and adds it to `fixtures/_index.json`
+(request key → file), which `fixtureTransport` in lib/cmc-fixtures.ts replays for tests. It also
+writes a per-call log to `fixtures/_probe-summary.json`. One run costs about 17 credits.
+A live `/api/check` query costs 5–6 credits. The plan allows 15k
 credits/month and 50 requests/min. API friction is logged in `FRICTION.md`.
 
 Works (credits): key/info (0), rwa map (0), rwa info (1), rwa quotes/latest (1),
@@ -87,7 +90,9 @@ The 5 surprises (the engine and UI must handle them):
    score them.
 4. **Chain names differ between endpoints.** The contract lookup says `bnb` but DEX pools
    needs `bsc`. The wrong name returns a misleading 500 "system is busy". The mapping is in
-   `DEX_PLATFORM_ALIASES` in scripts/probe.ts. TON (`gram`), Sui and others are untested.
+   `DEX_PLATFORM_ALIASES` in lib/cmc.ts. Only `SUPPORTED_DEX_CHAINS` (ethereum, solana, bsc)
+   are verified. Other chains (Arbitrum, XDC, Hyperliquid, Robinhood, OKB, TON…) are skipped
+   and reported as a `pools_not_checked` gap.
 5. **The exit check is patchy.** Market pairs are blocked. DEX `liqUsd`/`v24` are long decimal
    strings (parse them), and `liqUsd` is absent on about half of NVDA pool rows. Build exits
    from token volume_24h + pool depth where present + tradfi_markets, and put the gaps in the

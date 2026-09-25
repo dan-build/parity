@@ -1,14 +1,14 @@
 {
   "data": {
-    "value": 73,
-    "update_time": "2026-09-25T20:23:10.043Z",
+    "value": 72,
+    "update_time": "2026-09-25T20:53:10.040Z",
     "value_classification": "Greed"
   },
   "status": {
-    "timestamp": "2026-09-25T20:35:58.288Z",
+    "timestamp": "2026-09-25T21:08:21.693Z",
     "error_code": "0",
     "error_message": "",
-    "elapsed": 3,
+    "elapsed": 4,
     "credit_count": 1
   }
 }

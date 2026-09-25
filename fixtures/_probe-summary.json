@@ -1,321 +1,310 @@
 {
-  "generated_at": "2026-09-25T20:36:09.339Z",
+  "generated_at": "2026-09-25T21:08:22.766Z",
   "assets": [
     "GOLD",
     "NVDA"
   ],
   "rwa_ids": {
-    "GOLD": "1",
-    "NVDA": "2"
-  },
-  "plan": {
-    "credit_limit_monthly": 15000,
-    "credit_limit_monthly_reset": "In 5 days, 3 hours, 23 minutes",
-    "credit_limit_monthly_reset_timestamp": "2026-10-01T00:00:00.000Z",
-    "rate_limit_minute": 50
+    "GOLD": 1,
+    "NVDA": 2
   },
   "credits_used_today": {
-    "before": 32,
-    "after": 48,
-    "delta": 16
+    "before": 48,
+    "after": 65,
+    "delta": 17
   },
-  "results": [
+  "calls": [
     {
-      "name": "key-info.start",
-      "path": "/v1/key/info",
+      "endpoint": "/v1/key/info",
       "params": {},
-      "http_status": 200,
+      "status": 200,
       "error_code": 0,
       "credit_count": 0,
-      "elapsed_ms": 687,
-      "fetched_at": "2026-09-25T20:35:18.037Z",
-      "fixture": "fixtures/key-info.start.json"
+      "fetched_at": "2026-09-25T21:08:15.692Z",
+      "elapsed_ms": 556,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "rwa-map.GOLD_NVDA",
-      "path": "/v5/real-world-assets/map",
-      "params": {
-        "symbol": "GOLD,NVDA"
-      },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "endpoint": "/v5/real-world-assets/map",
+      "params": {},
+      "status": 200,
+      "error_code": null,
       "credit_count": 0,
-      "elapsed_ms": 194,
-      "fetched_at": "2026-09-25T20:35:20.851Z",
-      "fixture": "fixtures/rwa-map.GOLD_NVDA.json"
+      "fetched_at": "2026-09-25T21:08:16.251Z",
+      "elapsed_ms": 176,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "rwa-info.GOLD_NVDA",
-      "path": "/v5/real-world-assets/info",
+      "endpoint": "/v5/real-world-assets/quotes/latest",
       "params": {
-        "rwa_id": "1,2"
+        "rwa_id": 1
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 334,
-      "fetched_at": "2026-09-25T20:35:23.147Z",
-      "fixture": "fixtures/rwa-info.GOLD_NVDA.json"
+      "fetched_at": "2026-09-25T21:08:16.428Z",
+      "elapsed_ms": 356,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "rwa-quotes-latest.GOLD_NVDA",
-      "path": "/v5/real-world-assets/quotes/latest",
+      "endpoint": "/v2/cryptocurrency/info",
       "params": {
-        "rwa_id": "1,2"
+        "id": "4705,5176,20245,22492,34212,37082,39344"
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
-      "credit_count": 1,
-      "elapsed_ms": 186,
-      "fetched_at": "2026-09-25T20:35:25.582Z",
-      "fixture": "fixtures/rwa-quotes-latest.GOLD_NVDA.json"
-    },
-    {
-      "name": "rwa-assets-list.GOLD_NVDA",
-      "path": "/v5/real-world-assets/assets/list",
-      "params": {
-        "rwa_id": "1,2"
-      },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
-      "credit_count": 1,
-      "elapsed_ms": 345,
-      "fetched_at": "2026-09-25T20:35:27.869Z",
-      "fixture": "fixtures/rwa-assets-list.GOLD_NVDA.json"
-    },
-    {
-      "name": "rwa-market-pairs.GOLD",
-      "path": "/v5/real-world-assets/market-pairs/list",
-      "params": {
-        "rwa_id": "1",
-        "limit": 50
-      },
-      "http_status": 403,
-      "error_code": "1006",
-      "error_message": "Your API Key subscription plan doesn't support this endpoint.",
-      "credit_count": 0,
-      "elapsed_ms": 336,
-      "fetched_at": "2026-09-25T20:35:30.315Z",
-      "fixture": "fixtures/rwa-market-pairs.GOLD.json"
-    },
-    {
-      "name": "rwa-market-pairs.NVDA",
-      "path": "/v5/real-world-assets/market-pairs/list",
-      "params": {
-        "rwa_id": "2",
-        "limit": 50
-      },
-      "http_status": 403,
-      "error_code": "1006",
-      "error_message": "Your API Key subscription plan doesn't support this endpoint.",
-      "credit_count": 0,
-      "elapsed_ms": 337,
-      "fetched_at": "2026-09-25T20:35:32.752Z",
-      "fixture": "fixtures/rwa-market-pairs.NVDA.json"
-    },
-    {
-      "name": "rwa-issuers-list",
-      "path": "/v5/real-world-assets/issuers/list",
-      "params": {
-        "limit": 100
-      },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
-      "credit_count": 1,
-      "elapsed_ms": 165,
-      "fetched_at": "2026-09-25T20:35:35.189Z",
-      "fixture": "fixtures/rwa-issuers-list.json"
-    },
-    {
-      "name": "rwa-issuer.68904c24abae9b5b9fb35815",
-      "path": "/v5/real-world-assets/issuers",
-      "params": {
-        "issuer_id": "68904c24abae9b5b9fb35815"
-      },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
-      "credit_count": 1,
-      "elapsed_ms": 166,
-      "fetched_at": "2026-09-25T20:35:37.457Z",
-      "fixture": "fixtures/rwa-issuer.68904c24abae9b5b9fb35815.json"
-    },
-    {
-      "name": "crypto-info.wrappers",
-      "path": "/v2/cryptocurrency/info",
-      "params": {
-        "id": "5176,4705,34212,36992,38093,40215"
-      },
-      "http_status": 200,
+      "status": 200,
       "error_code": 0,
       "credit_count": 1,
-      "elapsed_ms": 190,
-      "fetched_at": "2026-09-25T20:35:39.725Z",
-      "fixture": "fixtures/crypto-info.wrappers.json"
+      "fetched_at": "2026-09-25T21:08:16.785Z",
+      "elapsed_ms": 430,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "dex-token-pools.GOLD.XAUt.ethereum",
-      "path": "/v1/dex/token/pools",
-      "params": {
-        "platform": "ethereum",
-        "address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
-        "size": 10
-      },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
-      "credit_count": 1,
-      "elapsed_ms": 554,
-      "fetched_at": "2026-09-25T20:35:42.016Z",
-      "fixture": "fixtures/dex-token-pools.GOLD.XAUt.ethereum.json"
-    },
-    {
-      "name": "dex-token-pools.GOLD.PAXG.ethereum",
-      "path": "/v1/dex/token/pools",
+      "endpoint": "/v1/dex/token/pools",
       "params": {
         "platform": "ethereum",
         "address": "0x45804880de22913dafe09f4980848ece6ecbaf78",
         "size": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 582,
-      "fetched_at": "2026-09-25T20:35:44.670Z",
-      "fixture": "fixtures/dex-token-pools.GOLD.PAXG.ethereum.json"
+      "fetched_at": "2026-09-25T21:08:17.216Z",
+      "elapsed_ms": 709,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "dex-token-pools.GOLD.XAUM.ethereum",
-      "path": "/v1/dex/token/pools",
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "ethereum",
+        "address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:17.217Z",
+      "elapsed_ms": 735,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "ethereum",
+        "address": "0x6d57B2E05F26C26b549231c866bdd39779e4a488",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:17.223Z",
+      "elapsed_ms": 926,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
       "params": {
         "platform": "ethereum",
         "address": "0x2103E845C5E135493Bb6c2A4f0B8651956eA8682",
         "size": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 846,
-      "fetched_at": "2026-09-25T20:35:47.352Z",
-      "fixture": "fixtures/dex-token-pools.GOLD.XAUM.ethereum.json"
+      "fetched_at": "2026-09-25T21:08:17.221Z",
+      "elapsed_ms": 1079,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "dex-token-pools.NVDA.NVDAX.solana",
-      "path": "/v1/dex/token/pools",
+      "endpoint": "/v5/real-world-assets/quotes/latest",
       "params": {
-        "platform": "solana",
-        "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
-        "size": 10
+        "rwa_id": 2
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 410,
-      "fetched_at": "2026-09-25T20:35:50.299Z",
-      "fixture": "fixtures/dex-token-pools.NVDA.NVDAX.solana.json"
+      "fetched_at": "2026-09-25T21:08:18.367Z",
+      "elapsed_ms": 575,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "dex-token-pools.NVDA.NVDAon.ethereum",
-      "path": "/v1/dex/token/pools",
+      "endpoint": "/v2/cryptocurrency/info",
+      "params": {
+        "id": "28616,36992,37270,38093,38153,40215,40605,40685"
+      },
+      "status": 200,
+      "error_code": 0,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:18.942Z",
+      "elapsed_ms": 437,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
       "params": {
         "platform": "ethereum",
         "address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
         "size": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 381,
-      "fetched_at": "2026-09-25T20:35:52.810Z",
-      "fixture": "fixtures/dex-token-pools.NVDA.NVDAon.ethereum.json"
+      "fetched_at": "2026-09-25T21:08:19.379Z",
+      "elapsed_ms": 428,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "dex-token-pools.NVDA.NVDAB.bsc",
-      "path": "/v1/dex/token/pools",
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "solana",
+        "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:19.379Z",
+      "elapsed_ms": 436,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
       "params": {
         "platform": "bsc",
         "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
         "size": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 387,
-      "fetched_at": "2026-09-25T20:35:55.291Z",
-      "fixture": "fixtures/dex-token-pools.NVDA.NVDAB.bsc.json"
+      "fetched_at": "2026-09-25T21:08:19.379Z",
+      "elapsed_ms": 457,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "fear-and-greed-latest",
-      "path": "/v3/fear-and-greed/latest",
+      "endpoint": "/v5/real-world-assets/issuers/list",
+      "params": {
+        "limit": 100
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:19.839Z",
+      "elapsed_ms": 379,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v5/real-world-assets/issuers",
+      "params": {
+        "issuer_id": "6878977dcbbf471de3366e85"
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-09-25T21:08:20.218Z",
+      "elapsed_ms": 374,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v5/real-world-assets/market-pairs/list",
+      "params": {
+        "rwa_id": 1,
+        "limit": 50
+      },
+      "status": 403,
+      "error_code": "1006",
+      "credit_count": 0,
+      "fetched_at": "2026-09-25T21:08:20.592Z",
+      "elapsed_ms": 398,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v5/real-world-assets/market-pairs/list",
+      "params": {
+        "rwa_id": 2,
+        "limit": 50
+      },
+      "status": 403,
+      "error_code": "1006",
+      "credit_count": 0,
+      "fetched_at": "2026-09-25T21:08:20.990Z",
+      "elapsed_ms": 362,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v3/fear-and-greed/latest",
       "params": {},
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 402,
-      "fetched_at": "2026-09-25T20:35:57.782Z",
-      "fixture": "fixtures/fear-and-greed-latest.json"
+      "fetched_at": "2026-09-25T21:08:21.352Z",
+      "elapsed_ms": 168,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "liquidations-quotes-latest",
-      "path": "/v5/derivatives/liquidations/quotes/latest",
+      "endpoint": "/v5/derivatives/liquidations/quotes/latest",
       "params": {},
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 171,
-      "fetched_at": "2026-09-25T20:36:00.284Z",
-      "fixture": "fixtures/liquidations-quotes-latest.json"
+      "fetched_at": "2026-09-25T21:08:21.520Z",
+      "elapsed_ms": 349,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "liquidations-exchange-list",
-      "path": "/v5/derivatives/liquidations/exchange/list/latest",
+      "endpoint": "/v5/derivatives/liquidations/exchange/list/latest",
       "params": {
         "limit": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 161,
-      "fetched_at": "2026-09-25T20:36:02.556Z",
-      "fixture": "fixtures/liquidations-exchange-list.json"
+      "fetched_at": "2026-09-25T21:08:21.870Z",
+      "elapsed_ms": 194,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "liquidations-cryptocurrency-list",
-      "path": "/v5/derivatives/liquidations/cryptocurrency/list/latest",
+      "endpoint": "/v5/derivatives/liquidations/cryptocurrency/list/latest",
       "params": {
         "limit": 10
       },
-      "http_status": 200,
-      "error_code": "0",
-      "error_message": "",
+      "status": 200,
+      "error_code": null,
       "credit_count": 1,
-      "elapsed_ms": 158,
-      "fetched_at": "2026-09-25T20:36:04.818Z",
-      "fixture": "fixtures/liquidations-cryptocurrency-list.json"
+      "fetched_at": "2026-09-25T21:08:22.065Z",
+      "elapsed_ms": 349,
+      "cached": false,
+      "source": "live"
     },
     {
-      "name": "key-info.end",
-      "path": "/v1/key/info",
+      "endpoint": "/v1/key/info",
       "params": {},
-      "http_status": 200,
+      "status": 200,
       "error_code": 0,
       "credit_count": 0,
-      "elapsed_ms": 158,
-      "fetched_at": "2026-09-25T20:36:07.079Z",
-      "fixture": "fixtures/key-info.end.json"
+      "fetched_at": "2026-09-25T21:08:22.414Z",
+      "elapsed_ms": 352,
+      "cached": false,
+      "source": "live"
     }
   ]
 }

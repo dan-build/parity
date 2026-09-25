@@ -1,0 +1,86 @@
+{
+  "/v1/key/info": {
+    "file": "v1_key_info.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map": {
+    "file": "v5_real-world-assets_map.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=1": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=1.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=4705,5176,20245,22492,34212,37082,39344": {
+    "file": "v2_cryptocurrency_info_id=4705_5176_20245_22492_34212_37082_39344.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x45804880de22913dafe09f4980848ece6ecbaf78&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x45804880de22913dafe09f4980848ece6ecbaf78_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x68749665FF8D2d112Fa859AA293F07A622782F38&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x68749665FF8D2d112Fa859AA293F07A622782F38_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x6d57B2E05F26C26b549231c866bdd39779e4a488&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x6d57B2E05F26C26b549231c866bdd39779e4a488_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x2103E845C5E135493Bb6c2A4f0B8651956eA8682_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=2": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=2.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=28616,36992,37270,38093,38153,40215,40605,40685": {
+    "file": "v2_cryptocurrency_info_id=28616_36992_37270_38093_38153_40215_40605_40685.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x02fca66c1d1afb4e2a7884261eb00f63598a7436&platform=bsc&size=10": {
+    "file": "v1_dex_token_pools_address=0x02fca66c1d1afb4e2a7884261eb00f63598a7436_platform=bsc_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/issuers/list?limit=100": {
+    "file": "v5_real-world-assets_issuers_list_limit=100.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/issuers?issuer_id=6878977dcbbf471de3366e85": {
+    "file": "v5_real-world-assets_issuers_issuer_id=6878977dcbbf471de3366e85.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/market-pairs/list?limit=50&rwa_id=1": {
+    "file": "v5_real-world-assets_market-pairs_list_limit=50_rwa_id=1.json",
+    "status": 403
+  },
+  "/v5/real-world-assets/market-pairs/list?limit=50&rwa_id=2": {
+    "file": "v5_real-world-assets_market-pairs_list_limit=50_rwa_id=2.json",
+    "status": 403
+  },
+  "/v3/fear-and-greed/latest": {
+    "file": "v3_fear-and-greed_latest.json",
+    "status": 200
+  },
+  "/v5/derivatives/liquidations/quotes/latest": {
+    "file": "v5_derivatives_liquidations_quotes_latest.json",
+    "status": 200
+  },
+  "/v5/derivatives/liquidations/exchange/list/latest?limit=10": {
+    "file": "v5_derivatives_liquidations_exchange_list_latest_limit=10.json",
+    "status": 200
+  },
+  "/v5/derivatives/liquidations/cryptocurrency/list/latest?limit=10": {
+    "file": "v5_derivatives_liquidations_cryptocurrency_list_latest_limit=10.json",
+    "status": 200
+  }
+}
