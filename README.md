@@ -10,11 +10,9 @@ Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMa
 
 > **Live:** _link coming_ <!-- TODO: add the Vercel URL -->
 
-<!-- TODO: add docs/screenshot.png (desktop, /?q=GOLD after the reveal) -->
-![Parity: the GOLD verdict](docs/screenshot.png)
+![Parity: the GOLD verdict. Seven gold tokens on one scale, two converted from per-gram prices](docs/screenshot.png)
 
-<!-- TODO: add docs/demo.gif (search → coins drop → verdict → Evidence drawer) -->
-![Demo](docs/demo.gif)
+![Demo: checking Apple. The coins drop, the log narrates each CoinMarketCap call, and the verdict lands](docs/demo.gif)
 
 ---
 
