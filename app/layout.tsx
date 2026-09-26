@@ -12,7 +12,14 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+/** Absolute base for OG image URLs: SITE_URL if set, else Vercel's production or deployment URL. */
+function siteUrl(): URL {
+  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  return new URL(process.env.SITE_URL ?? (host ? `https://${host}` : "http://localhost:3000"));
+}
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl(),
   title: "Parity: is your tokenised asset actually the thing?",
   description: "Type a ticker. See every token that claims to be it, whether it's fairly priced, and whether you can sell it later.",
 };

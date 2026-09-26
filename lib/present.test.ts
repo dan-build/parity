@@ -100,7 +100,8 @@ describe("summary tiles", () => {
   });
 
   it("says plainly when nothing traded", async () => {
-    expect(present(await load("SILVER")).summary[2]).toEqual({ label: "Traded, 24h", value: "$0", note: "nothing traded" });
+    // SILVER's only trading token is KAG, which doesn't track silver: the tile counts it, the reasons say why it doesn't help.
+    expect(present(await load("SILVER")).summary[2]).toEqual({ label: "Traded, 24h", value: "$119k", note: "100% in KAG" });
   });
 
   it("never tells anyone to buy", async () => {
@@ -134,7 +135,7 @@ describe("no easy way out (the best-ranked token has no 24h volume)", () => {
     expect(v.route).toBeNull();
     expect(v.noEasyExit).toBe(true);
     expect(v.list.rows.some((row) => row.best)).toBe(false);
-    expect(v.reasons[0]).toMatchObject({ strong: "Nothing traded in the last day." });
+    expect(v.reasons[0]).toMatchObject({ strong: "No token that tracks silver traded in the last day." });
     expect(v.reasons.some((x) => /easiest to sell/.test(x.strong))).toBe(false);
     expect(logSummary(r).verdictLine).toBe("Thin · no easy way out");
   });

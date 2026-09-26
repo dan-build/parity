@@ -38,7 +38,7 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 - `lib/verdict.ts`: pure scoring logic, no fetching, covered by tests
 - `fixtures/`: real captured responses used by fixture mode and tests
 - Data mode: `PARITY_DATA_MODE=fixture` (default, zero credits, replays `fixtures/`) or `live`
-  (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER.
+  (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER, UNH, KLAC, MS.
 - UI: `lib/present.ts` turns a result into copy and numbers (incl. `recommended()`: no route
   when the best-ranked token has zero 24h volume); `lib/log.ts` builds the narrating log from
   real evidence (one line per call); `components/reveal/Reveal.tsx` is the single clock; all
@@ -46,8 +46,16 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
   `components/reveal/Instrument.tsx` is the behaviour-only instrument (styles and coin passed in).
   The page is `components/desk/`: `Desk.tsx` (shell, states, URL), `Header`, `Hero`
   (Verdict / Tiles / Reasons), `Log`, `Stage`, `List`, `Lower`, `Evidence`, `States`, `RingCoin`.
-  `?t=1560` freezes the reveal, `?drawer` opens Evidence. `/lab/{a,b,c}` are the design labs
-  (always fixtures), kept for reference.
+  `?t=1560` freezes the reveal, `?drawer` opens Evidence.
+- Fallback: in live mode with no key, or when CMC rate-limits (429 / codes 1008–1011) or fails,
+  `runCheck` answers from `fixtures/` when that asset is saved (`fallback` on the response; the
+  page shows a one-line notice). Rate-limited and not saved → "try again in a minute".
+- Share image: `app/api/og/route.tsx` (`/api/og?q=`), set as each page's OG/Twitter image by
+  `generateMetadata` in `app/page.tsx`; `metadataBase` comes from `SITE_URL` or Vercel's URLs.
+- Scripts: `npm run probe` (record the six default assets + extras), `npm run probe -- UNH MS`
+  (record just those, engine calls only), `npm run scan -- --budget 60` (screen assets for
+  RICH/GHOST with live quotes, saves nothing). Demo fixtures cover all four verdicts:
+  FAIR (GOLD, NVDA, SPY, TSLA, AAPL), THIN (SILVER), RICH (UNH), GHOST (KLAC, MS).
 
 ## CMC API notes (verify each with the probe script before relying on it)
 - Base URL: https://pro-api.coinmarketcap.com, header `X-CMC_PRO_API_KEY`
@@ -129,13 +137,14 @@ The 5 surprises (the engine and UI must handle them):
 - Never say "Buy". Use "best way in". When nothing trades, recommend nothing ("no easy way out").
 - Plain-English copy. No jargon a first-time buyer wouldn't know.
 
-## Share image (scope item 7, not built yet)
-`/api/og?q=` uses **Direction C's colour field**, not the desk: a grain field in the verdict's
-colour behind a white card with the verdict, the best way in and a few tiles (see
-`components/lab/c/Field.*` and `/lab/c`). It must be legible at X's thumbnail size. Built with
-`next/og` (Satori), which supports only a subset of CSS: `mask-image`, `mix-blend-mode` and SVG
-filters such as `feTurbulence` are likely unsupported, so plan on a pre-rendered grain PNG plus
-plain gradients. Check before building.
+## Share image (`/api/og?q=`)
+Uses **Direction C's colour field**, not the desk: a grain field in the verdict's colour behind
+a white card (ticker + token count, the verdict word in C's verdict colour, the answer chip, the
+sub-line, three facts). Satori can't do C's mask, blend mode or `feTurbulence` grain, so the
+fields are pre-rendered per verdict to `app/api/og/bg/*.jpg` by `scripts/og-backgrounds.mjs`
+(C's gradient stops live there now; the labs are gone). Fonts are Geist TTFs in
+`app/api/og/fonts/`. Any failure renders the plain branded card, never an error. Keep it legible
+at X's thumbnail size: the verdict word and chip must read at ~500px wide.
 
 ## Working rules for Claude
 - Before any multi-file change, propose a short plan and wait for approval.

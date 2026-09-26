@@ -111,6 +111,11 @@ export function Desk({
                 onReplay={() => setReplays((n) => n + 1)}
                 evidence={{ count: view.evidence.filter((e) => !e.static).length, open: openEvidence }}
               />
+              {view.notice && (
+                <p className={s.notice} role="status">
+                  {view.notice}
+                </p>
+              )}
               <div className={s.grid}>
                 {/* DOM order is the phone order; desktop places these by grid area. */}
                 <Verdict view={view} />

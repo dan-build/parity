@@ -94,14 +94,14 @@ function Route({ view }: { view: View }) {
       </div>
       <p>
         {view.noEasyExit
-          ? `None of the ${asset.total} ${asset.noun} tokens traded in the last day, so none of them is easy to sell. Whichever you pick, getting out later could be hard.`
+          ? `None of the ${asset.noun} tokens that track its price traded in the last day, so none of them is easy to sell. Whichever you pick, getting out later could be hard.`
           : `Every token here is a derivative feed, has no price, or doesn't track ${asset.noun}.`}
       </p>
       {view.noEasyExit && (
         <dl className={s.stats}>
           <div>
-            <dt>traded in the last day</dt>
-            <dd>{view.summary.find((t) => t.label === "Traded, 24h")?.value ?? "$0"}</dd>
+            <dt>traded in the last day, tokens that track it</dt>
+            <dd>$0</dd>
           </div>
           <div>
             <dt>tokens you could hold</dt>

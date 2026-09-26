@@ -17,13 +17,6 @@
   --thin: #f0a83a;
   --ghost: #7a7a83;
 
-  /* Gold ramp for the glossy Coin (lab C, later the share image). */
-  --gold-1: #fff4c9;
-  --gold-2: #f4d47c;
-  --gold-3: #d9a73c;
-  --gold-4: #a8751a;
-  --gold-5: #6e4a0c;
-
   --sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --mono: var(--font-geist-mono), ui-monospace, monospace;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

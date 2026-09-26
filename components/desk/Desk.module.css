@@ -95,6 +95,23 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+/* Live data was wanted but saved data answered. */
+.notice {
+  margin: 0;
+  padding: 9px 18px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--thin);
+  background: color-mix(in srgb, var(--thin) 8%, transparent);
+}
+
+@media (min-width: 760px) {
+  .notice {
+    padding: 9px 32px;
+  }
+}
+
 /* The one-line disclaimer, on the card itself. */
 .fine {
   padding: 12px 18px 14px;

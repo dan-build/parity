@@ -1,8 +1,7 @@
 /** Glyphs from the design reference. Stroke uses currentColor unless noted. */
 import type { Verdict } from "@/lib/verdict";
-import type { GapView, Tone } from "@/lib/present";
+import type { GapView } from "@/lib/present";
 
-type P = { size?: number; className?: string };
 
 export function VerdictGlyph({ verdict, size = 14 }: { verdict: Verdict; size?: number }) {
   return (
@@ -16,26 +15,6 @@ export function VerdictGlyph({ verdict, size = 14 }: { verdict: Verdict; size?: 
 }
 
 /** Reason icon: glyph inside a tinted rounded square. */
-export function ReasonGlyph({ tone }: { tone: Tone }) {
-  const common = { width: 15, height: 15, viewBox: "0 0 24 24", fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-  switch (tone) {
-    case "fair":
-      return <svg {...common} stroke="#07A66B" strokeWidth="3"><path d="m5 12.5 4.5 4.5L19 7.5" /></svg>;
-    case "unit":
-      return <svg {...common} stroke="#A8751A" strokeWidth="3"><path d="M5 9h14M5 15h14" /></svg>;
-    case "rich":
-      return <svg {...common} stroke="#E5234B" strokeWidth="3"><path d="M12 19V5M6 11l6-6 6 6" /></svg>;
-    case "thin":
-      return <svg {...common} stroke="#C77A00" strokeWidth="3"><path d="M5 12h14" /></svg>;
-    case "exit":
-      return <svg {...common} stroke="#3A3A3F" strokeWidth="2.6"><path d="M5 19V13M10 19V10M15 19V7M20 19V4" /></svg>;
-    case "ghost":
-      return <svg {...common} stroke="#8E8E95" strokeWidth="2.4" strokeDasharray="3 3.2"><circle cx="12" cy="12" r="8" /></svg>;
-    case "off":
-      return <svg {...common} stroke="#E5234B" strokeWidth="2.8"><path d="M3 15 L8 7 L12 15 L16 7 L21 15" /></svg>;
-  }
-}
-
 export function GapGlyph({ icon }: { icon: GapView["icon"] }) {
   const common = { width: 15, height: 15, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2.2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (icon) {
@@ -70,21 +49,4 @@ export function GapGlyph({ icon }: { icon: GapView["icon"] }) {
         </svg>
       );
   }
-}
-
-export function SearchGlyph({ size = 20, className }: P) {
-  return (
-    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" />
-      <path d="m20 20-3.5-3.5" />
-    </svg>
-  );
-}
-
-export function BreakMark({ className }: P) {
-  return (
-    <svg className={className} viewBox="0 0 18 20" aria-hidden="true">
-      <path d="M2 14 L7 6 L11 14 L16 6" fill="none" stroke="#C4C4CA" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
 }

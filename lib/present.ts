@@ -3,12 +3,14 @@
  * so components only lay things out.
  */
 import type { CheckResult } from "./check";
+import type { Fallback } from "./data-source";
 import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
 import { OFF_TRACK_PCT, type Gap, type Verdict, type WrapperResult } from "./verdict";
 
 export type Mood = { value: number; classification: string; updated: string | null };
-export type CheckResponse = CheckResult & { mood: Mood | null; mode: "fixture" | "live" };
+/** fallback: why a live request was answered from saved data (null when it wasn't). */
+export type CheckResponse = CheckResult & { mood: Mood | null; mode: "fixture" | "live"; fallback?: Fallback | null };
 
 export type Tone = "fair" | "rich" | "thin" | "ghost" | "unit" | "exit" | "off";
 
@@ -88,6 +90,8 @@ export type View = {
   evidence: EvidenceView[];
   fine: string;
   mode: "fixture" | "live";
+  /** Set when live data was wanted but saved data answered: says why, and from when. */
+  notice: string | null;
 };
 
 export const VERDICT_WORD: Record<Verdict, string> = { FAIR: "Fair", RICH: "Rich", THIN: "Thin", GHOST: "Ghost" };
@@ -222,7 +226,11 @@ export function present(r: CheckResponse, now = Date.now()): View {
       rest: ` ${moneyShort(best.volume_24h ?? 0)} traded in the last day.`,
     });
   } else if (top) {
-    reasons.unshift({ tone: "thin", strong: "Nothing traded in the last day.", rest: " Selling any of these later could be hard." });
+    reasons.unshift({
+      tone: "thin",
+      strong: `No token that tracks ${noun} traded in the last day.`,
+      rest: " Selling one later could be hard.",
+    });
   }
 
   // Instrument
@@ -299,8 +307,10 @@ export function present(r: CheckResponse, now = Date.now()): View {
 
   // Summary tiles
   const livePrems = live.map((w) => w.premium_pct).filter((p): p is number => p !== null);
-  const traded = live.reduce((n, w) => n + (w.volume_24h ?? 0), 0);
-  const busiest = live.reduce<WrapperResult | null>((b, w) => ((w.volume_24h ?? 0) > (b?.volume_24h ?? 0) ? w : b), null);
+  // Real tokens that trade: live ones plus off-track ones (KLAC's trade; they just disagree). Not derivative feeds.
+  const tradable = ws.filter((w) => w.verdict !== "GHOST" || isOffTrack(w)).filter((w) => !isDerivative(w));
+  const traded = tradable.reduce((n, w) => n + (w.volume_24h ?? 0), 0);
+  const busiest = tradable.reduce<WrapperResult | null>((b, w) => ((w.volume_24h ?? 0) > (b?.volume_24h ?? 0) ? w : b), null);
   const summary: SummaryTile[] = [
     { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
     livePrems.length > 1
@@ -343,6 +353,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     noEasyExit: top !== null && best === null,
     gaps: gapViews(r.gaps, noun, commodity),
     evidence: evidenceViews(r.evidence, ws),
+    notice: fallbackNotice(r),
     fine: `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
     mode: r.mode,
   };
@@ -386,6 +397,17 @@ export function answerLine(r: Pick<CheckResult, "wrappers" | "headline_crypto_id
   if (r.wrappers.some((w) => w.verdict !== "GHOST")) return "no easy way out";
   if (r.wrappers.some(isOffTrack)) return "no price to trust";
   return "nothing to hold";
+}
+
+function fallbackNotice(r: CheckResponse): string | null {
+  if (!r.fallback) return null;
+  const when = r.data_as_of ? ` from ${dayLabel(r.data_as_of)}` : "";
+  const why = {
+    no_key: "Live data isn't set up here",
+    rate_limited: "CoinMarketCap is limiting requests right now",
+    unavailable: "CoinMarketCap didn't answer",
+  }[r.fallback];
+  return `${why}, so this is saved data${when}.`;
 }
 
 /** "1 credit", "0 credits". */
