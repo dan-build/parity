@@ -35,6 +35,9 @@ export type RowView = {
   exit: { bars: number; word: string };
 };
 
+/** The hero's four at-a-glance tiles. */
+export type SummaryTile = { label: string; value: string; note: string };
+
 export type GapView = { icon: "exchange" | "waves" | "target" | "lock" | "info"; title: string; sub: string };
 
 export type EvidenceView = {
@@ -52,6 +55,7 @@ export type View = {
   asset: { name: string; symbol: string; noun: string; total: number; claimLine: string };
   headline: { verdict: Verdict; word: string; sub: string };
   reasons: ReasonView[];
+  summary: SummaryTile[];
   instrument: {
     reference: { label: string; price: string };
     coins: InstrumentCoin[];
@@ -258,6 +262,19 @@ export function present(r: CheckResponse, now = Date.now()): View {
       }
     : null;
 
+  // Summary tiles
+  const livePrems = live.map((w) => w.premium_pct).filter((p): p is number => p !== null);
+  const summary: SummaryTile[] = [
+    { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
+    livePrems.length > 1
+      ? { label: "Spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live tokens` }
+      : { label: "Spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
+    best
+      ? { label: "Best way in", value: best.display, note: `${pct(best.premium_pct ?? 0)} · ${moneyShort(best.volume_24h ?? 0)} a day` }
+      : { label: "Best way in", value: "None", note: "nothing worth holding" },
+    { label: "Tokens checked", value: String(ws.length), note: ghosts.length ? `${ghosts.length} can't be held` : "all can be held" },
+  ];
+
   return {
     asset: {
       name: r.asset.name,
@@ -268,6 +285,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     },
     headline: { verdict: r.verdict, word: VERDICT_WORD[r.verdict], sub: sub[r.verdict] },
     reasons: reasons.slice(0, 4),
+    summary,
     instrument: {
       reference: { label: `${Noun} tokens`, price: ref === null ? "—" : money(ref) },
       coins,

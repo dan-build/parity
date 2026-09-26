@@ -2,7 +2,7 @@
 
 /** B · Desk — a dark trading tool; the log narrates the work, then folds into a toast. */
 import { useMemo, useRef, type CSSProperties } from "react";
-import { logLines, logSummary } from "@/lib/lab/log";
+import { logLines, logSummary } from "@/lib/log";
 import { present, type CheckResponse, type RowView, type View } from "@/lib/present";
 import { eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";

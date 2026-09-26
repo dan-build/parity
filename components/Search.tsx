@@ -1,21 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { CHIPS, labelFor, queryFor } from "@/lib/chips";
 import { SearchGlyph } from "./icons";
 import s from "./Chrome.module.css";
-
-export const CHIPS = [
-  { label: "Gold", q: "GOLD" },
-  { label: "Nvidia", q: "NVDA" },
-  { label: "S&P 500", q: "SPY" },
-  { label: "Tesla", q: "TSLA" },
-  { label: "Apple", q: "AAPL" },
-  { label: "Silver", q: "SILVER" },
-] as const;
-
-/** Chip label for a query, so "GOLD" shows as "Gold" in the field. */
-export const labelFor = (q: string) => CHIPS.find((c) => c.q.toLowerCase() === q.trim().toLowerCase())?.label ?? q;
-const queryFor = (text: string) => CHIPS.find((c) => c.label.toLowerCase() === text.trim().toLowerCase())?.q ?? text.trim();
 
 export function Search({ query, busy, onSubmit }: { query: string; busy: boolean; onSubmit: (q: string) => void }) {
   const [text, setText] = useState(labelFor(query));

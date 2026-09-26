@@ -14,7 +14,8 @@ import { HeroCard } from "./reveal/HeroCard";
 import { Lower } from "./reveal/Lower";
 import { Reveal } from "./reveal/Reveal";
 import { TokenList } from "./reveal/TokenList";
-import { labelFor, Search } from "./Search";
+import { labelFor } from "@/lib/chips";
+import { Search } from "./Search";
 import c from "./Chrome.module.css";
 import hero from "./reveal/Hero.module.css";
 

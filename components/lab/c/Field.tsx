@@ -6,7 +6,7 @@
  * into the verdict's colour from the top-left corner.
  */
 import { useMemo, useRef } from "react";
-import { logLines } from "@/lib/lab/log";
+import { logLines } from "@/lib/log";
 import { moneyShort, pct, present, type CheckResponse, type RowView, type View } from "@/lib/present";
 import { eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";

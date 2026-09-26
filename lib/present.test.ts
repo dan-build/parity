@@ -83,3 +83,20 @@ describe("present(other assets)", () => {
     for (const row of v.list.rows) expect(row.ticker).not.toBe("null");
   });
 });
+
+describe("summary tiles", () => {
+  it("gives the hero four plain facts for GOLD", async () => {
+    const v = present(await load("GOLD"));
+    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Spread", "Best way in", "Tokens checked"]);
+    expect(v.summary[0]).toMatchObject({ value: v.instrument.reference.price, note: "per troy ounce" });
+    expect(v.summary[1].value).toMatch(/^\d+\.\d\d%$/);
+    expect(v.summary[2].value).toBe("XAUt");
+    expect(v.summary[3]).toEqual({ label: "Tokens checked", value: "7", note: "1 can't be held" });
+  });
+
+  it("says 'per share' for stocks and names the best token by its display name", async () => {
+    const v = present(await load("NVDA"));
+    expect(v.summary[0].note).toBe("per share");
+    expect(v.summary[2].value).not.toBe("None");
+  });
+});
