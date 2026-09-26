@@ -23,6 +23,8 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 | 9 | One invalid id fails the whole `/v2/cryptocurrency/info` call | SILVER lost every contract until we added `skip_invalid` |
 | 10 | `error_code` is a string on some endpoints, a number on others | Error handling must normalise it |
 | 11 | RWA tokens can have a `null` symbol and name | UI must never print "null" |
+| 12 | No unit field on RWA tokens | Per-gram gold looks 97% cheaper until we infer the unit |
+| 13 | Tokens of one asset can be priced ~10× apart, with no ratio field | KLAC can't be compared at all |
 
 ---
 
@@ -143,4 +145,25 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 
 - **What happened:** one SILVER wrapper (crypto_id 39318, "NA (Derivatives)") has
   `symbol: null, name: null, price: null`.
-- **Impact:** any UI keyed or labelled by symbol breaks. We fall back to name, then `#crypto_id`.
+- **Impact:** any UI keyed or labelled by symbol breaks. `/v2/cryptocurrency/info` has no entry
+  for this id either, so there's nothing to fall back on. We show the symbol, else the name,
+  else "Unnamed listing", and never a raw id.
+
+## 12. No unit field on RWA tokens
+
+- **What happened:** CGO and VNXAU are quoted per gram (about $137), the other gold tokens per
+  troy ounce (about $4,285). Nothing in `tokens[]` says which unit a price is in.
+- **Impact:** compared naively, the per-gram tokens look 97% cheaper. We infer the unit from
+  the consensus price (a token within ±5% of the others once ×31.1035 is per gram) and convert
+  before any premium maths. The UI shows the conversion so it isn't a silent fix.
+- **Suggestion:** add a `unit` (and, for stocks, a share ratio) to each token.
+
+## 13. Tokens of one asset can be priced ~10× apart, with no ratio field
+
+- **What happened:** for KLAC (probed 26 Sep 2026), KLACon (Ondo) is $1,883.88 and KLACx
+  (Backed) is $188.26, both listed as KLAC tokens. That's likely a share ratio (one token =
+  a tenth of a share), but nothing in the response says so.
+- **Evidence:** `fixtures/v5_real-world-assets_quotes_latest_rwa_id=58.json`
+- **Impact:** neither price can be trusted as "the" KLAC price, so PARITY calls every KLAC
+  token a ghost ("the tokens don't agree on a price") rather than guess a ratio.
+- **Suggestion:** same as 12: a `unit` / `shares_per_token` field would make this comparable.
