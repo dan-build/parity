@@ -6,7 +6,7 @@
  * bottom sheet on phones. Opened from the toast, the titlebar, or ?drawer.
  */
 import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
-import type { EvidenceView } from "@/lib/present";
+import { dayLabel, type EvidenceView } from "@/lib/present";
 import s from "./Evidence.module.css";
 
 export function Evidence({
@@ -70,7 +70,7 @@ export function Evidence({
             <p>
               {calls} calls ·{" "}
               {mode === "live"
-                ? `live from CoinMarketCap, ${new Date(generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })}`
+                ? `live from CoinMarketCap, ${stamp(generatedAt)}`
                 : "saved CoinMarketCap responses, replayed without spending credits"}
             </p>
           </div>
@@ -111,10 +111,7 @@ export function Evidence({
 }
 
 /** 25 Sep 2026, 14:02:11 UTC: when CoinMarketCap answered (for saved responses, when they were recorded). */
-const stamp = (iso: string) => {
-  const d = new Date(iso);
-  return `${d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}, ${d.toISOString().slice(11, 19)} UTC`;
-};
+const stamp = (iso: string) => `${dayLabel(iso)}, ${new Date(iso).toISOString().slice(11, 19)} UTC`;
 
 /** Pretty JSON with keys muted and numbers in gold. */
 function highlight(value: unknown): ReactNode {

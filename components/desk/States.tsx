@@ -9,35 +9,73 @@ import { RingCoin } from "./RingCoin";
 import s from "./States.module.css";
 
 /** First visit: the question, and a quiet line of coins waiting to be weighed. */
+const ANSWERS = [
+  {
+    v: "FAIR",
+    word: "Fair",
+    line: "Priced like the others, with a market to sell into.",
+  },
+  {
+    v: "RICH",
+    word: "Rich",
+    line: "Even the best token costs more than the typical price.",
+  },
+  {
+    v: "THIN",
+    word: "Thin",
+    line: "The price is fine, but little trading to sell into later.",
+  },
+  {
+    v: "GHOST",
+    word: "Ghost",
+    line: "Nothing you can really hold: no price, or not a real token.",
+  },
+] as const;
+
 export function Empty() {
   return (
-    <div className={s.empty}>
-      <div className={s.eyebrow}>tokenised real-world assets</div>
-      <h1 className={s.title}>Is your tokenised gold actually gold?</h1>
-      <p className={s.lede}>
-        Pick an asset above. We weigh every token that claims to be it: whether it&apos;s fairly priced, what unit it&apos;s
-        quoted in, and whether you could sell it later.
-      </p>
-      <div className={s.idle} aria-hidden="true">
-        <span className={s.line} />
-        <span className={s.coins}>
-          <RingCoin size={42} ticker="PAXG" />
-          <RingCoin size={42} ticker="XAUt" />
-          <RingCoin size={42} ticker="CGO" />
-          <RingCoin size={42} variant="ghost" />
-        </span>
+    <div className={s.emptyGrid}>
+      <div className={s.empty}>
+        <div className={s.eyebrow}>tokenised real-world assets</div>
+        <h1 className={s.title}>Is your tokenised gold actually gold?</h1>
+        <p className={s.lede}>
+          Pick an asset above. We weigh every token that claims to be it:
+          whether it&apos;s fairly priced, what unit it&apos;s quoted in, and
+          whether you could sell it later.
+        </p>
+        <div className={s.idle} aria-hidden="true">
+          <span className={s.line} />
+          <span className={s.coins}>
+            <RingCoin size={42} ticker="PAXG" />
+            <RingCoin size={42} ticker="XAUt" />
+            <RingCoin size={42} ticker="CGO" />
+            <RingCoin size={42} variant="ghost" />
+          </span>
+        </div>
+        <ol className={s.steps}>
+          <li>
+            <b>01</b> find the asset, not just the symbol
+          </li>
+          <li>
+            <b>02</b> price every token on one scale
+          </li>
+          <li>
+            <b>03</b> check you could sell it later
+          </li>
+        </ol>
       </div>
-      <ol className={s.steps}>
-        <li>
-          <b>01</b> find the asset, not just the symbol
-        </li>
-        <li>
-          <b>02</b> price every token on one scale
-        </li>
-        <li>
-          <b>03</b> check you could sell it later
-        </li>
-      </ol>
+      <section className={s.answers} aria-labelledby="answers-title">
+        <h2 id="answers-title">four possible answers</h2>
+        <ul>
+          {ANSWERS.map((a) => (
+            <li key={a.v} data-verdict={a.v}>
+              <strong>{a.word}</strong>
+              <span>{a.line}</span>
+            </li>
+          ))}
+        </ul>
+        <p>Every answer comes with the calls behind it, one click away.</p>
+      </section>
     </div>
   );
 }
@@ -108,7 +146,13 @@ export function Retry({ onRetry }: { onRetry: () => void }) {
   );
 }
 
-export function Suggestions({ items, onPick }: { items: { symbol: string; name: string }[]; onPick: (q: string) => void }) {
+export function Suggestions({
+  items,
+  onPick,
+}: {
+  items: { symbol: string; name: string }[];
+  onPick: (q: string) => void;
+}) {
   return (
     <div className={s.suggest}>
       {items.map((x) => (

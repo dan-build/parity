@@ -196,8 +196,9 @@ export function verdict(input: VerdictInput): VerdictResult {
   const ref = median(refPrices);
 
   // Symbols collide ("NVDA" × 2) and can be missing, so copy names a wrapper by symbol
-  // (or name, or id), plus the issuer when another wrapper shares the symbol.
-  const baseName = (t: RwaToken) => t.symbol ?? t.name ?? `#${t.crypto_id}`;
+  // (or name), plus the issuer when another wrapper shares it. CMC sometimes has neither
+  // (SILVER's 39318); we never show a raw id to a buyer.
+  const baseName = (t: RwaToken) => t.symbol ?? t.name ?? "Unnamed listing";
   const symbolCount = new Map<string, number>();
   for (const t of tokens) symbolCount.set(baseName(t), (symbolCount.get(baseName(t)) ?? 0) + 1);
   const display = (t: RwaToken) =>
@@ -387,7 +388,7 @@ function headlineReasons(args: {
   // In priority order; anything past 6 is dropped.
   if (ghosts) {
     out.push(
-      `${ghosts} of ${wrappers.length} ${label} tokens ${ghosts === 1 ? "isn't" : "aren't"} worth considering: derivative price feeds, no price, or off-track.`,
+      `${ghosts} of ${wrappers.length} ${label} tokens ${ghosts === 1 ? "isn't" : "aren't"} worth considering: derivative price feeds, no price, or a price far from the rest.`,
     );
   }
   if (perGram) {

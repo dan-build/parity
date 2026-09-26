@@ -32,7 +32,7 @@ describe("logLines", () => {
 
   it("narrates Fear & Greed with its reading", async () => {
     const line = logLines(await load("GOLD")).find((l) => l.text === "fear & greed")!;
-    expect(line.meta).toMatch(/^\d+ [a-z ]+ · \d+ cr$/);
+    expect(line.meta).toMatch(/^\d+ [a-z ]+ · \d+ credits?$/);
   });
 
   it("finishes every call line before the first finding, in time order", async () => {

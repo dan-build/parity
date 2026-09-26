@@ -6,7 +6,7 @@
  */
 import { useMemo, useRef } from "react";
 import { logLines, logSummary } from "@/lib/log";
-import type { CheckResponse } from "@/lib/present";
+import { credits1, type CheckResponse } from "@/lib/present";
 import { eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";
 import { VerdictGlyph } from "../icons";
@@ -48,7 +48,7 @@ export function Log({ data, onEvidence }: { data: CheckResponse; onEvidence?: ()
       <div className={s.head}>
         <span>log</span>
         <span>
-          {sum.calls} calls · {sum.credits} cr
+          {sum.calls} calls · {credits1(sum.credits)}
         </span>
       </div>
       <ol className={s.lines}>
@@ -70,7 +70,7 @@ export function Log({ data, onEvidence }: { data: CheckResponse; onEvidence?: ()
         <span>
           <strong>{sum.verdictLine}</strong>
           <small>
-            {sum.calls} calls · {sum.credits} cr
+            {sum.calls} calls · {credits1(sum.credits)}
           </small>
         </span>
         {onEvidence && (

@@ -61,7 +61,7 @@
   font-weight: 500;
   letter-spacing: -0.045em;
   line-height: 0.85;
-  color: var(--text);
+  color: var(--v);
 }
 
 .chip {

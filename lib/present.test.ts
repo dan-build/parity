@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { clearCmcCache } from "./cmc";
-import { logSummary } from "./log";
+import { logLines, logSummary } from "./log";
 import { exitMeter, moneyShort, pct, present, recommended, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
 
@@ -183,5 +183,27 @@ describe("claims the data must back", () => {
     const kag = present(await load("SILVER")).list.rows.find((r) => r.ticker === "KAG")!;
     expect(kag.premium.tone).toBe("ghost");
     expect(kag.priceNote?.text).toBe("Doesn't track silver");
+  });
+});
+
+describe("plain copy", () => {
+  it("never shows a raw id: a token with no symbol or name is an unnamed listing", async () => {
+    const v = present(await load("SILVER"));
+    expect(v.list.rows.some((r) => r.ticker.startsWith("#"))).toBe(false);
+    expect(v.list.rows.find((r) => r.id === 39318)?.ticker).toBe("Unnamed listing");
+  });
+
+  it("says when replayed data was saved instead of how many hours ago", async () => {
+    expect(present(await load("GOLD")).list.unitLine).toMatch(/^Per troy ounce, saved data from \d{1,2} [A-Z][a-z]{2} 20\d\d$/);
+  });
+
+  it("spells out credits and never says off-track", async () => {
+    for (const q of ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER"]) {
+      const r = await load(q);
+      const v = present(r);
+      const copy = JSON.stringify([v.reasons, v.instrument.ghostNote, v.list.rows, v.evidence.map((e) => e.meta), logLines(r), r.reasons]);
+      expect(copy).not.toMatch(/off-track/i);
+      expect(copy).not.toMatch(/\d cr\b/);
+    }
   });
 });

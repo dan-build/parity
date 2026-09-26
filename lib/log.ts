@@ -6,7 +6,7 @@
  */
 import type { EvidenceEntry } from "./cmc";
 import type { CheckResponse } from "./present";
-import { money, moneyShort, pct, recommended } from "./present";
+import { credits1, money, moneyShort, pct, recommended } from "./present";
 import { T } from "./reveal/timings";
 
 export type LogLine = {
@@ -57,10 +57,10 @@ export function logLines(r: CheckResponse): LogLine[] {
   const ghosts = r.wrappers.filter((w) => w.verdict === "GHOST");
   if (ghosts.length === 1) {
     const w = ghosts[0];
-    const why = w.price_raw === null ? "no price" : /derivative/i.test(w.issuer_name ?? "") ? "derivative feed" : "off-track";
+    const why = w.price_raw === null ? "no price" : /derivative/i.test(w.issuer_name ?? "") ? "derivative feed" : "price far from the rest";
     lines.push({ at: T.ghost.fallStart, verb: "✕", text: w.display, meta: why, tone: "ghost", calls: 0 });
   } else if (ghosts.length > 1) {
-    lines.push({ at: T.ghost.fallStart, verb: "✕", text: `${ghosts.length} listings`, meta: "no price, feed or off-track", tone: "ghost", calls: 0 });
+    lines.push({ at: T.ghost.fallStart, verb: "✕", text: `${ghosts.length} listings`, meta: "no price, not a token, or far off", tone: "ghost", calls: 0 });
   }
 
   return lines.sort((a, b) => a.at - b.at);
@@ -75,7 +75,7 @@ function callLines(r: CheckResponse): Omit<LogLine, "at">[] {
   for (const e of r.evidence) {
     if (mapPages.includes(e) && e !== mapPages[0]) continue;
     const base = { verb: "GET", tone: ok(e) ? ("call" as const) : ("fail" as const), calls: 1 };
-    const cr = `${spent(e)} cr`;
+    const cr = credits1(spent(e));
     if (!ok(e)) {
       out.push({ ...base, text: short(e.endpoint), meta: `${e.status ?? "error"} · ${e.error_code ?? "no data"}` });
       continue;

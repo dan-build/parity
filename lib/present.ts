@@ -241,7 +241,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
       ? null
       : ghosts.length === 1
         ? ghostLine(ghosts[0], noun)
-        : `${ghosts.length} listings fell through: no price, not a token, or off-track`;
+        : `${ghosts.length} listings fell through: no price, not a token, or a price far from the rest`;
 
   // List
   const rows: RowView[] = ws.map((w) => {
@@ -333,7 +333,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     },
     list: {
       title: `Every token that claims to be ${noun}`,
-      unitLine: `Per ${commodity ? "troy ounce" : unitWord}${r.data_as_of ? `, ${relativeTime(r.data_as_of, now)}` : ""}`,
+      unitLine: `Per ${commodity ? "troy ounce" : unitWord}${freshness(r, now)}`,
       rows,
     },
     route,
@@ -355,6 +355,26 @@ function checkedNote(unholdable: number, offTrack: number): string {
   ].filter(Boolean);
   return parts.length ? parts.join(", ") : "all can be held";
 }
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** "25 Sep 2026" in UTC, the same on every server and browser (locales disagree on "Sept"). */
+export function dayLabel(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+/** ", 3 min ago" live; ", saved data from 25 Sep 2026" when replaying fixtures (a replay isn't stale). */
+function freshness(r: CheckResponse, now: number): string {
+  if (!r.data_as_of) return "";
+  if (r.mode === "fixture") {
+    return `, saved data from ${dayLabel(r.data_as_of)}`;
+  }
+  return `, ${relativeTime(r.data_as_of, now)}`;
+}
+
+/** "1 credit", "0 credits". */
+export const credits1 = (n: number) => `${n} credit${n === 1 ? "" : "s"}`;
 
 function ghostLine(w: WrapperResult, noun: string): string {
   if (w.price_raw === null) return `${w.display} has no price`;
@@ -436,7 +456,7 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
       id: `${i}`,
       label,
       // Live: a cache hit spent nothing, say so. Fixture: show what the recorded call cost.
-      meta: !ok ? String(e.status ?? "error") : e.cached && e.source === "live" ? "cached" : `${credits ?? 0} cr`,
+      meta: !ok ? String(e.status ?? "error") : e.cached && e.source === "live" ? "cached" : credits1(credits ?? 0),
       ok,
       note: ok ? null : `CoinMarketCap said: ${e.error_code ?? e.status}`,
       at: e.fetched_at,

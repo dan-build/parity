@@ -25,6 +25,61 @@
 }
 
 /* ---------- empty ---------- */
+.answers {
+  padding: 22px 18px 26px;
+  border-top: 1px solid var(--line);
+}
+
+.answers h2 {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.answers ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.answers li {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 14px;
+  background: var(--panel);
+}
+
+.answers strong {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--v);
+}
+
+.answers span {
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+
+.answers p {
+  margin: 14px 0 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
 .empty,
 .message {
   padding: 30px 18px 32px;
@@ -221,6 +276,9 @@
   .message {
     padding: 56px 32px 60px;
   }
+  .answers {
+    padding: 32px;
+  }
   .title {
     font-size: 56px;
   }
@@ -266,6 +324,21 @@
 }
 
 @media (min-width: 1100px) {
+  .emptyGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(340px, 1fr);
+  }
+  /* Beside the answers there's no room for the steps in a row. */
+  .emptyGrid .steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .answers {
+    align-self: stretch;
+    padding: 56px 32px 60px;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
   .skTiles {
     align-self: end;
     padding: 30px 32px 24px 0;
