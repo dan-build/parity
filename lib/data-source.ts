@@ -14,8 +14,8 @@ export function dataMode(): DataMode {
   return process.env.PARITY_DATA_MODE === "live" ? "live" : "fixture";
 }
 
-export function createClient(): { client: CmcClient; mode: DataMode } | { error: string } {
-  const mode = dataMode();
+export function createClient(force?: DataMode): { client: CmcClient; mode: DataMode } | { error: string } {
+  const mode = force ?? dataMode();
   if (mode === "fixture") {
     return { mode, client: createCmcClient({ transport: fixtureTransport(join(process.cwd(), "fixtures")), source: "fixture" }) };
   }

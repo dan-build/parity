@@ -43,11 +43,13 @@ const CLAMP_PCT = 1.02;
 /** Piles never grow past this (taller would reach the needle label). */
 const MAX_STACK = 3;
 
-export function computeGeometry(width: number, coins: InstrumentCoinInput[]): Geometry {
+export type GeometryOptions = { coin?: { desktop: number; mobile: number }; zone?: { desktop: number; mobile: number } };
+
+export function computeGeometry(width: number, coins: InstrumentCoinInput[], opts: GeometryOptions = {}): Geometry {
   const mobile = width < MOBILE_BELOW;
   const hasZone = coins.some((c) => c.kind === "gram");
-  const zoneWidth = mobile ? 76 : 132;
-  const D = mobile ? 34 : 52;
+  const zoneWidth = mobile ? (opts.zone?.mobile ?? 76) : (opts.zone?.desktop ?? 132);
+  const D = mobile ? (opts.coin?.mobile ?? 34) : (opts.coin?.desktop ?? 52);
   // On desktop the scale starts after the red zone and its break mark; on mobile the zone floats above.
   const left = mobile || !hasZone ? (mobile ? 10 : 24) : zoneWidth + 48;
   const right = width - (mobile ? 10 : 24);

@@ -10,11 +10,11 @@ export type CheckBody =
   | ({ ok: true } & CheckResponse)
   | { ok: false; error: "missing_query" | "no_api_key" | "not_found" | "upstream_error"; message: string; suggestions?: { symbol: string; name: string }[]; evidence?: unknown; mode?: string };
 
-export async function runCheck(rawQuery: string): Promise<{ status: number; body: CheckBody }> {
+export async function runCheck(rawQuery: string, force?: "fixture" | "live"): Promise<{ status: number; body: CheckBody }> {
   const q = rawQuery.trim();
   if (!q) return { status: 400, body: { ok: false, error: "missing_query", message: "Add ?q= with a ticker, e.g. ?q=NVDA" } };
 
-  const source = createClient();
+  const source = createClient(force);
   if ("error" in source) return { status: 503, body: { ok: false, error: "no_api_key", message: source.error } };
   const { client, mode } = source;
 
