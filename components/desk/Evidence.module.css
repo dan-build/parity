@@ -144,6 +144,14 @@ button.top:hover {
   color: var(--rich);
 }
 
+.at {
+  display: block;
+  margin: -6px 8px 10px 26px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
 .note {
   margin: -4px 8px 10px 26px;
   font-size: 12.5px;

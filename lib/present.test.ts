@@ -88,7 +88,7 @@ describe("present(other assets)", () => {
 describe("summary tiles", () => {
   it("gives the hero four plain facts for GOLD", async () => {
     const v = present(await load("GOLD"));
-    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Spread", "Traded, 24h", "Tokens checked"]);
+    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Price spread", "Traded, 24h", "Tokens checked"]);
     expect(v.summary[0]).toMatchObject({ value: v.instrument.reference.price, note: "per troy ounce" });
     expect(v.summary[1].value).toMatch(/^\d+\.\d\d%$/);
     expect(v.summary[2]).toMatchObject({ value: expect.stringMatching(/^\$\d/), note: expect.stringMatching(/^\d+% in XAUt$/) });
@@ -160,5 +160,28 @@ describe("where the best way in lives", () => {
     const v = present(await load("GOLD"));
     expect(v.route?.where.map((w) => w.label)).toEqual(["chain", "contract"]);
     expect(v.route?.where[1].value).toMatch(/^0x[0-9a-fA-F]{4}…[0-9a-fA-F]{4}$/);
+  });
+});
+
+describe("claims the data must back", () => {
+  it("only says 'whichever token you pick' when every token you could hold is fair", async () => {
+    // TSLA's Hyperliquid token is off-track (about −19%) but can still be bought.
+    expect(present(await load("TSLA")).headline.sub).toBe("if you pick the right token.");
+  });
+
+  it("counts off-track tokens apart from ones that can't be held", async () => {
+    expect(present(await load("SILVER")).summary[3].note).toBe("2 can't be held, 1 doesn't track it");
+  });
+
+  it("calls the pick the most traded, not the deepest", async () => {
+    const line = present(await load("GOLD")).route?.line ?? "";
+    expect(line).toMatch(/most traded/);
+    expect(line).not.toMatch(/deepest/);
+  });
+
+  it("keeps red for overpriced: an off-track price is grey", async () => {
+    const kag = present(await load("SILVER")).list.rows.find((r) => r.ticker === "KAG")!;
+    expect(kag.premium.tone).toBe("ghost");
+    expect(kag.priceNote?.text).toBe("Doesn't track silver");
   });
 });

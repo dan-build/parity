@@ -98,6 +98,7 @@ export function Evidence({
                 ) : (
                   <div className={s.top}>{top}</div>
                 )}
+                {r.at && <time className={s.at} dateTime={r.at}>{stamp(r.at)}</time>}
                 {r.note && <p className={s.note}>{r.note}</p>}
                 {isOpen && <pre className={s.pre}>{highlight(r.excerpt)}</pre>}
               </li>
@@ -108,6 +109,12 @@ export function Evidence({
     </div>
   );
 }
+
+/** 25 Sep 2026, 14:02:11 UTC: when CoinMarketCap answered (for saved responses, when they were recorded). */
+const stamp = (iso: string) => {
+  const d = new Date(iso);
+  return `${d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" })}, ${d.toISOString().slice(11, 19)} UTC`;
+};
 
 /** Pretty JSON with keys muted and numbers in gold. */
 function highlight(value: unknown): ReactNode {

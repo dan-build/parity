@@ -219,9 +219,6 @@
     top: 8px;
     font-size: 10px;
   }
-  .stackNote {
-    display: block;
-  }
 }
 
 /* A coin showing its tooltip rises above its neighbours. */

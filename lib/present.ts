@@ -50,6 +50,8 @@ export type EvidenceView = {
   meta: string;
   ok: boolean;
   note: string | null;
+  /** When the call was made (ISO), null for rows we didn't call. */
+  at: string | null;
   excerpt: unknown;
   /** Not a call we made: a known limit we show for completeness. */
   static?: boolean;
@@ -156,7 +158,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
 
   // Headline
   const sub: Record<Verdict, string> = {
-    FAIR: live.every((w) => w.verdict === "FAIR") ? "whichever token you pick." : "if you pick the right token.",
+    FAIR: live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack) ? "whichever token you pick." : "if you pick the right token.",
     RICH: "even the best token costs extra.",
     THIN: "not much market to sell into.",
     GHOST: "nothing here you can really hold.",
@@ -203,7 +205,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     reasons.push({
       tone: "off",
       strong: offTrack.length > 1 ? `${offTrack.length} don't track ${Noun}.` : `${w.display} is ${Math.abs(w.premium_pct ?? 0).toFixed(0)}% off.`,
-      rest: offTrack.length > 1 ? " Their prices are far from the others." : ` It doesn't track ${Noun}.`,
+      rest: offTrack.length > 1 ? " Their prices are far from the others." : ` It doesn't track ${noun}.`,
     });
   }
   const thin = live.filter((w) => w.verdict === "THIN");
@@ -238,7 +240,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     ghosts.length === 0
       ? null
       : ghosts.length === 1
-        ? ghostLine(ghosts[0], Noun)
+        ? ghostLine(ghosts[0], noun)
         : `${ghosts.length} listings fell through: no price, not a token, or off-track`;
 
   // List
@@ -252,7 +254,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     else if (w.verdict === "GHOST" && isDerivative(w)) {
       price = "Not a token";
       priceNote = { text: "Derivative price feed", tone: "mute" };
-    } else if (isOffTrack(w)) priceNote = { text: `Doesn't track ${Noun}`, tone: "mute" };
+    } else if (isOffTrack(w)) priceNote = { text: `Doesn't track ${noun}`, tone: "mute" };
     return {
       id: w.crypto_id,
       ticker: w.symbol,
@@ -264,7 +266,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
       premium:
         w.premium_pct === null || (w.verdict === "GHOST" && !isOffTrack(w))
           ? { text: "—", tone: "ghost" }
-          : { text: pct(w.premium_pct), tone: w.verdict === "RICH" || isOffTrack(w) ? "rich" : "fair" },
+          : { text: pct(w.premium_pct), tone: w.verdict === "RICH" ? "rich" : isOffTrack(w) ? "ghost" : "fair" },
       exit: w.verdict === "GHOST" ? { bars: 0, word: "None" } : exitMeter(w.exit_score),
       best: w.crypto_id === best?.crypto_id,
     };
@@ -299,12 +301,12 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const summary: SummaryTile[] = [
     { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
     livePrems.length > 1
-      ? { label: "Spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live` }
-      : { label: "Spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
+      ? { label: "Price spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live` }
+      : { label: "Price spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
     traded > 0 && busiest
       ? { label: "Traded, 24h", value: moneyShort(traded), note: `${Math.round(((busiest.volume_24h ?? 0) / traded) * 100)}% in ${busiest.display}` }
       : { label: "Traded, 24h", value: "$0", note: "nothing traded" },
-    { label: "Tokens checked", value: String(ws.length), note: ghosts.length ? `${ghosts.length} can't be held` : "all can be held" },
+    { label: "Tokens checked", value: String(ws.length), note: checkedNote(ghosts.filter((w) => !isOffTrack(w)).length, ghosts.filter(isOffTrack).length) },
   ];
 
   return {
@@ -346,16 +348,24 @@ export function present(r: CheckResponse, now = Date.now()): View {
 /** 0x6874…2F38: enough to match against the issuer's site, short enough to read. */
 export const shortAddress = (a: string) => (a.length > 14 ? `${a.slice(0, 6)}…${a.slice(-4)}` : a);
 
-function ghostLine(w: WrapperResult, Noun: string): string {
+function checkedNote(unholdable: number, offTrack: number): string {
+  const parts = [
+    unholdable ? `${unholdable} can't be held` : null,
+    offTrack ? `${offTrack} ${offTrack > 1 ? "don't" : "doesn't"} track it` : null,
+  ].filter(Boolean);
+  return parts.length ? parts.join(", ") : "all can be held";
+}
+
+function ghostLine(w: WrapperResult, noun: string): string {
   if (w.price_raw === null) return `${w.display} has no price`;
-  if (isOffTrack(w)) return `${w.display} doesn't track ${Noun}`;
+  if (isOffTrack(w)) return `${w.display} doesn't track ${noun}`;
   return `${w.display} (derivative listing) isn't a token`;
 }
 
 function routeLine(v: Verdict): string {
   switch (v) {
     case "FAIR":
-      return "Fairly priced, with the deepest market to sell into later.";
+      return "Fairly priced, and the most traded, so the easiest to sell later.";
     case "RICH":
       return "The least overpriced option, with a real market to sell into.";
     case "THIN":
@@ -429,6 +439,7 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
       meta: !ok ? String(e.status ?? "error") : e.cached && e.source === "live" ? "cached" : `${credits ?? 0} cr`,
       ok,
       note: ok ? null : `CoinMarketCap said: ${e.error_code ?? e.status}`,
+      at: e.fetched_at,
       excerpt: curate(e),
     });
   });
@@ -438,6 +449,7 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
     meta: "403",
     ok: false,
     note: "Not called: it returns 403 on our plan. Shown under “What the data can’t tell you”.",
+    at: null,
     excerpt: null,
     static: true,
   });

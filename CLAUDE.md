@@ -39,9 +39,15 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 - `fixtures/`: real captured responses used by fixture mode and tests
 - Data mode: `PARITY_DATA_MODE=fixture` (default, zero credits, replays `fixtures/`) or `live`
   (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER.
-- UI: `lib/present.ts` turns a result into copy and numbers; `components/reveal/Reveal.tsx` is the
-  single clock; all motion timings live in `lib/reveal/timings.ts`; instrument geometry in
-  `lib/reveal/layout.ts`. `?t=1560` freezes the reveal, `?drawer` opens Evidence.
+- UI: `lib/present.ts` turns a result into copy and numbers (incl. `recommended()`: no route
+  when the best-ranked token has zero 24h volume); `lib/log.ts` builds the narrating log from
+  real evidence (one line per call); `components/reveal/Reveal.tsx` is the single clock; all
+  motion timings live in `lib/reveal/timings.ts`; instrument geometry in `lib/reveal/layout.ts`;
+  `components/reveal/Instrument.tsx` is the behaviour-only instrument (styles and coin passed in).
+  The page is `components/desk/`: `Desk.tsx` (shell, states, URL), `Header`, `Hero`
+  (Verdict / Tiles / Reasons), `Log`, `Stage`, `List`, `Lower`, `Evidence`, `States`, `RingCoin`.
+  `?t=1560` freezes the reveal, `?drawer` opens Evidence. `/lab/{a,b,c}` are the design labs
+  (always fixtures), kept for reference.
 
 ## CMC API notes (verify each with the probe script before relying on it)
 - Base URL: https://pro-api.coinmarketcap.com, header `X-CMC_PRO_API_KEY`
@@ -103,14 +109,33 @@ The 5 surprises (the engine and UI must handle them):
    from token volume_24h + pool depth where present + tradfi_markets, and put the gaps in the
    "can't tell you" panel.
 
-## Design principles
-- One screen, one answer. The verdict is the hero; everything else supports it.
-- Calm, confident, typographic. Generous spacing, one accent colour per verdict state.
-- Numbers use tabular figures. Premiums shown as $ and %, never bps by default.
-- Motion is small and purposeful (verdict settles in, rows stagger once). No spinners
-  longer than needed; use skeletons that match the final layout.
-- Works beautifully on a phone. The share image must be legible at X's thumbnail size.
+## Design principles (Direction B · Desk)
+- One window, one answer. A dark trading-tool window (titlebar, `verdict │ log`, then the
+  instrument, the full list, the lower cards). The verdict word is the hero.
+- Dark and precise, not loud. Tokens in `app/globals.css`: page `#0F0F10`, panel `#161618`,
+  hairlines at 8% white. Gold `#E3B04B` is the brand accent (brand mark, eyebrows, focus, the
+  per-gram story). Each verdict gets one colour via `[data-verdict]` → `var(--v)`: FAIR green,
+  RICH red, THIN amber, GHOST grey. Colour only carries meaning: a fair premium is plain text.
+- Type: Geist for words, Geist Mono for data, labels and the log. Tabular figures everywhere.
+  Premiums as $ and %, never bps by default. Small mono labels are uppercase with tracking.
+- The log tells the truth about the work: every line is a real call or finding, the call count
+  matches the evidence, and it folds into a toast that carries the answer and opens Evidence.
+- Motion is one clock and one story: coins drop, the log narrates, the verdict settles, rows
+  stagger once. Skeletons match the final layout; no long spinners.
+- Phones first: the instrument sits straight under the verdict so the reveal is on screen;
+  the log is a one-line strip, then the toast. No horizontal scroll, no truncated names:
+  ring-coin tickers shrink (8px floor) and show the full name on hover or tap; issuer and chain
+  wrap rather than clip.
+- Never say "Buy". Use "best way in". When nothing trades, recommend nothing ("no easy way out").
 - Plain-English copy. No jargon a first-time buyer wouldn't know.
+
+## Share image (scope item 7, not built yet)
+`/api/og?q=` uses **Direction C's colour field**, not the desk: a grain field in the verdict's
+colour behind a white card with the verdict, the best way in and a few tiles (see
+`components/lab/c/Field.*` and `/lab/c`). It must be legible at X's thumbnail size. Built with
+`next/og` (Satori), which supports only a subset of CSS: `mask-image`, `mix-blend-mode` and SVG
+filters such as `feTurbulence` are likely unsupported, so plan on a pre-rendered grain PNG plus
+plain gradients. Check before building.
 
 ## Working rules for Claude
 - Before any multi-file change, propose a short plan and wait for approval.
