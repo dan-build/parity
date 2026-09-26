@@ -33,6 +33,8 @@ export type RowView = {
   priceNote: { text: string; tone: "unit" | "mute" } | null;
   premium: { text: string; tone: "fair" | "rich" | "ghost" };
   exit: { bars: number; word: string };
+  /** The best way in (the headline token). */
+  best: boolean;
 };
 
 /** The hero's four at-a-glance tiles. */
@@ -67,6 +69,8 @@ export type View = {
   list: { title: string; unitLine: string; rows: RowView[] };
   route: {
     ticker: string;
+    /** Symbol, plus issuer when another token shares the symbol. */
+    display: string;
     by: string | null;
     line: string;
     stats: { value: string; label: string }[];
@@ -242,6 +246,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
           ? { text: "—", tone: "ghost" }
           : { text: pct(w.premium_pct), tone: w.verdict === "RICH" || isOffTrack(w) ? "rich" : "fair" },
       exit: w.verdict === "GHOST" ? { bars: 0, word: "None" } : exitMeter(w.exit_score),
+      best: w.crypto_id === best?.crypto_id,
     };
   });
 
@@ -249,6 +254,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const route = best
     ? {
         ticker: best.symbol,
+        display: best.display,
         by: best.issuer_name && !/derivative/i.test(best.issuer_name) ? best.issuer_name : null,
         line: routeLine(best.verdict),
         stats: [
@@ -264,14 +270,16 @@ export function present(r: CheckResponse, now = Date.now()): View {
 
   // Summary tiles
   const livePrems = live.map((w) => w.premium_pct).filter((p): p is number => p !== null);
+  const traded = live.reduce((n, w) => n + (w.volume_24h ?? 0), 0);
+  const busiest = live.reduce<WrapperResult | null>((b, w) => ((w.volume_24h ?? 0) > (b?.volume_24h ?? 0) ? w : b), null);
   const summary: SummaryTile[] = [
     { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
     livePrems.length > 1
-      ? { label: "Spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live tokens` }
+      ? { label: "Spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live` }
       : { label: "Spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
-    best
-      ? { label: "Best way in", value: best.display, note: `${pct(best.premium_pct ?? 0)} · ${moneyShort(best.volume_24h ?? 0)} a day` }
-      : { label: "Best way in", value: "None", note: "nothing worth holding" },
+    traded > 0 && busiest
+      ? { label: "Traded, 24h", value: moneyShort(traded), note: `${Math.round(((busiest.volume_24h ?? 0) / traded) * 100)}% in ${busiest.display}` }
+      : { label: "Traded, 24h", value: "$0", note: "nothing traded" },
     { label: "Tokens checked", value: String(ws.length), note: ghosts.length ? `${ghosts.length} can't be held` : "all can be held" },
   ];
 
@@ -323,7 +331,7 @@ function routeLine(v: Verdict): string {
     case "RICH":
       return "The least overpriced option, with a real market to sell into.";
     case "THIN":
-      return "The easiest to sell of a thin bunch. Buy small.";
+      return "The easiest to sell of a thin bunch. Keep it small.";
     default:
       return "";
   }

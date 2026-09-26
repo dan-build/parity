@@ -1,0 +1,198 @@
+/* Header: brand · command-bar search · mood, chips under the search. Mobile first. */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "brand mood"
+    "search search"
+    "chips chips";
+  align-items: center;
+  column-gap: 16px;
+  padding: 12px 4px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.brand {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand i {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+
+.mood {
+  grid-area: mood;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.mood i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.mood b {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.moodLabel {
+  display: none;
+}
+
+/* ---------- search ---------- */
+.search {
+  grid-area: search;
+  margin-top: 10px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 6px 0 12px;
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  transition: box-shadow 0.15s var(--ease-out);
+}
+
+.field:focus-within {
+  box-shadow: inset 0 0 0 1px rgba(227, 176, 75, 0.6), 0 0 0 3px rgba(227, 176, 75, 0.12);
+}
+
+.prompt {
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px; /* 16px stops iOS zooming on focus */
+}
+
+.field input::placeholder {
+  color: var(--text-3);
+}
+
+.field kbd {
+  display: none;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 11px;
+  color: var(--text-3);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+
+.field button {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 7px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--page);
+  background: var(--gold);
+}
+
+.field button:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+/* ---------- chips ---------- */
+.chips {
+  grid-area: chips;
+  display: flex;
+  gap: 6px;
+  margin: 10px -14px 0;
+  padding: 0 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chips button {
+  flex: none;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.chips button:hover {
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+
+.chips button[aria-pressed="true"] {
+  color: var(--gold);
+  background: rgba(227, 176, 75, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(227, 176, 75, 0.35);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .header {
+    grid-template-columns: 1fr minmax(0, 560px) 1fr;
+    grid-template-areas:
+      "brand search mood"
+      ". chips .";
+    padding: 16px 0 18px;
+  }
+  .mood {
+    justify-self: end;
+  }
+  .moodLabel {
+    display: inline;
+    color: var(--text-3);
+  }
+  .search {
+    margin-top: 0;
+  }
+  .field kbd {
+    display: inline-block;
+  }
+  .chips {
+    margin: 10px 0 0;
+    padding: 0;
+    overflow: visible;
+    flex-wrap: wrap;
+    mask-image: none;
+  }
+}

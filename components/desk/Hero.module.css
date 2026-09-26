@@ -1,0 +1,244 @@
+/* Hero cells: verdict, tiles, reasons. Each is its own grid item in the desk grid
+   (areas live in Desk.module.css). Mobile first. */
+
+.verdictCell {
+  padding: 22px 18px 20px;
+}
+
+.tilesCell {
+  padding: 18px 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* "weighing…" and the verdict share one cell so the height fits whichever is taller. */
+.slot {
+  display: grid;
+  align-items: end;
+  min-height: 96px;
+  margin-top: 12px;
+}
+
+.checking,
+.verdict {
+  grid-area: 1 / 1;
+  will-change: transform, opacity;
+}
+
+.checking {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.checking b {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: -2px;
+  background: var(--text-2);
+}
+
+.vrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.word {
+  margin: 0;
+  font-size: 68px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+  color: var(--text);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--v);
+  background: color-mix(in srgb, var(--v) 12%, transparent);
+  will-change: transform, opacity;
+}
+
+.chip i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--v);
+}
+
+.sub {
+  margin: 10px 0 0;
+  font-size: 17px;
+  color: var(--text-2);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- tiles ---------- */
+/* The frame stays put while tiles fade in, so the space never reads as a grey block. */
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tile:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.tile:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+
+.tile {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px 12px 11px;
+  will-change: transform, opacity;
+}
+
+.tile dt {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.tile dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.tile strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile small {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-3);
+  line-height: 1.35;
+}
+
+/* ---------- reasons ---------- */
+.reasons {
+  list-style: none;
+  margin: 0;
+  padding: 16px 18px 20px;
+  display: grid;
+  gap: 7px;
+}
+
+.reasons li {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-2);
+  will-change: transform, opacity;
+  --tone: var(--text-3);
+}
+
+.reasons li::before {
+  content: "▸";
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--tone);
+  padding-top: 2px;
+}
+
+.reasons strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.reasons .fair {
+  --tone: var(--fair);
+}
+.reasons .unit {
+  --tone: var(--gold);
+}
+.reasons .rich,
+.reasons .off {
+  --tone: var(--rich);
+}
+.reasons .thin {
+  --tone: var(--thin);
+}
+.reasons .ghost {
+  --tone: var(--ghost);
+}
+.reasons .exit {
+  --tone: var(--text-2);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .verdictCell {
+    grid-area: verdict;
+    padding: 30px 32px 0;
+  }
+  .tilesCell {
+    grid-area: tiles;
+    padding: 24px 32px 0;
+    border-top: 0;
+  }
+  .reasons {
+    grid-area: reasons;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+    row-gap: 8px;
+    padding: 24px 32px 26px;
+  }
+  .slot {
+    min-height: 124px;
+  }
+  .word {
+    font-size: 96px;
+  }
+  .sub {
+    font-size: 20px;
+  }
+}
+
+/* Wide: the tiles fill the right half of the hero, beside the verdict. */
+@media (min-width: 1100px) {
+  .tilesCell {
+    align-self: end;
+    padding: 30px 32px 0 0;
+  }
+}

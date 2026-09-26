@@ -1,15 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Instrument_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-instrument",
-  display: "swap",
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 
-// Only used in the Evidence drawer.
+// Data, labels and the log.
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -26,12 +21,12 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#F2F2F4",
+  themeColor: "#0F0F10",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${instrumentSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   );

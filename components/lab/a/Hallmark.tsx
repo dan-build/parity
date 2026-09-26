@@ -6,7 +6,7 @@ import { present, type CheckResponse, type RowView, type View } from "@/lib/pres
 import { eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";
 import { useTrack } from "../../reveal/Reveal";
-import { LabInstrument, type LabCoinProps } from "../LabInstrument";
+import { Instrument as LabInstrument, type CoinProps as LabCoinProps } from "../../reveal/Instrument";
 import { LabShell } from "../LabShell";
 import s from "./Hallmark.module.css";
 

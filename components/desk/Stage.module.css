@@ -1,0 +1,224 @@
+/* The instrument's styles (class names are the ones Instrument.tsx expects). Mobile first. */
+
+.stage {
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 18px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.instrument {
+  position: relative;
+  height: 230px;
+  margin: 0 12px 26px;
+}
+
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.24) 10%, rgba(255, 255, 255, 0.24) 90%, transparent);
+  transform-origin: 50% 50%;
+}
+
+.ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 48px;
+  height: 10px;
+}
+
+.ticks i {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ticks i.major {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  height: 16px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-3);
+}
+
+.axis span {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.needle {
+  position: absolute;
+  bottom: 48px;
+  width: 1px;
+  height: 124px;
+  background: linear-gradient(180deg, rgba(227, 176, 75, 0), var(--gold));
+  transform-origin: 50% 100%;
+}
+
+.needleLabel {
+  position: absolute;
+  bottom: 172px;
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--raised);
+  box-shadow: 0 0 0 1px var(--line-2);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.needleLabel b {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.zone {
+  position: absolute;
+  left: 0;
+  bottom: 80px;
+  width: 64px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 107, 122, 0.4);
+  background: repeating-linear-gradient(135deg, rgba(255, 107, 122, 0.08) 0 1px, transparent 1px 6px);
+}
+
+.zone span {
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  line-height: 1.3;
+  color: var(--rich);
+  white-space: pre-line;
+}
+
+.c {
+  position: absolute;
+  left: 0;
+  bottom: 63px;
+  will-change: transform, opacity;
+}
+
+.shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 90%;
+  height: 8px;
+  margin-left: -45%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(227, 176, 75, 0.28), rgba(227, 176, 75, 0));
+}
+
+.pin {
+  position: absolute;
+  bottom: 60px;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
+  border-radius: 50%;
+  background: var(--fair);
+  box-shadow: 0 0 0 2px var(--panel);
+}
+
+.pin.RICH {
+  background: var(--rich);
+}
+.pin.THIN {
+  background: var(--thin);
+}
+
+.stackNote,
+.callout,
+.ghostNote {
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.stackNote {
+  display: none;
+  color: var(--fair);
+}
+
+.callout {
+  bottom: 63px;
+  color: var(--rich);
+}
+
+.ghostNote {
+  bottom: -14px;
+  width: calc(100% - 20px);
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 1.35;
+  white-space: normal;
+  color: var(--text-3);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .stage {
+    grid-area: stage;
+  }
+  .head {
+    padding: 14px 32px 0;
+  }
+  .instrument {
+    height: 270px;
+    margin: 0 28px;
+  }
+  .ghostNote {
+    bottom: 4px;
+    width: auto;
+    white-space: nowrap;
+  }
+  .needle {
+    height: 150px;
+  }
+  .needleLabel {
+    bottom: 198px;
+  }
+  .zone {
+    bottom: 48px;
+    width: 104px;
+    height: 96px;
+  }
+  .zone span {
+    left: 10px;
+    top: 8px;
+    font-size: 10px;
+  }
+  .stackNote {
+    display: block;
+  }
+}

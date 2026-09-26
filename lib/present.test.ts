@@ -87,16 +87,39 @@ describe("present(other assets)", () => {
 describe("summary tiles", () => {
   it("gives the hero four plain facts for GOLD", async () => {
     const v = present(await load("GOLD"));
-    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Spread", "Best way in", "Tokens checked"]);
+    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Spread", "Traded, 24h", "Tokens checked"]);
     expect(v.summary[0]).toMatchObject({ value: v.instrument.reference.price, note: "per troy ounce" });
     expect(v.summary[1].value).toMatch(/^\d+\.\d\d%$/);
-    expect(v.summary[2].value).toBe("XAUt");
+    expect(v.summary[2]).toMatchObject({ value: expect.stringMatching(/^\$\d/), note: expect.stringMatching(/^\d+% in XAUt$/) });
     expect(v.summary[3]).toEqual({ label: "Tokens checked", value: "7", note: "1 can't be held" });
   });
 
-  it("says 'per share' for stocks and names the best token by its display name", async () => {
-    const v = present(await load("NVDA"));
-    expect(v.summary[0].note).toBe("per share");
-    expect(v.summary[2].value).not.toBe("None");
+  it("says 'per share' for stocks", async () => {
+    expect(present(await load("NVDA")).summary[0].note).toBe("per share");
+  });
+
+  it("says plainly when nothing traded", async () => {
+    expect(present(await load("SILVER")).summary[2]).toEqual({ label: "Traded, 24h", value: "$0", note: "nothing traded" });
+  });
+
+  it("never tells anyone to buy", async () => {
+    for (const q of ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER"]) {
+      const v = present(await load(q));
+      const copy = [v.headline.sub, v.route?.line, ...v.reasons.map((r) => r.strong + r.rest), ...v.summary.map((t) => t.note)].join(" ");
+      expect(copy).not.toMatch(/\bbuy\b/i);
+    }
+  });
+});
+
+describe("best way in", () => {
+  it("marks exactly one row and names it unambiguously when symbols collide", async () => {
+    for (const q of ["GOLD", "NVDA"]) {
+      const v = present(await load(q));
+      const best = v.list.rows.filter((r) => r.best);
+      expect(best).toHaveLength(1);
+      expect(best[0].ticker).toBe(v.route?.ticker);
+      const sameSymbol = v.list.rows.filter((r) => r.ticker === v.route?.ticker).length;
+      if (sameSymbol > 1) expect(v.route?.display).not.toBe(v.route?.ticker);
+    }
   });
 });

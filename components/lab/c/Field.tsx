@@ -13,7 +13,7 @@ import { SPRING, T } from "@/lib/reveal/timings";
 import type { Verdict } from "@/lib/verdict";
 import { Coin } from "../../Coin";
 import { useTrack } from "../../reveal/Reveal";
-import { LabInstrument } from "../LabInstrument";
+import { Instrument as LabInstrument } from "../../reveal/Instrument";
 import { LabShell } from "../LabShell";
 import s from "./Field.module.css";
 

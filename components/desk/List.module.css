@@ -1,0 +1,262 @@
+/* The full token list. Phones: two lines per token. Desktop: a table. */
+
+.list {
+  border-top: 1px solid var(--line);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 14px 18px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.head h2 {
+  margin: 0;
+  font: inherit;
+  color: var(--text-2);
+}
+
+.head b {
+  margin-left: 4px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+.cols {
+  display: none;
+}
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0 8px 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "who who price"
+    "status exit prem";
+  row-gap: 5px;
+  column-gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  will-change: transform, opacity;
+}
+
+.row + .row {
+  box-shadow: 0 -1px 0 var(--line);
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.best {
+  background: color-mix(in srgb, var(--v) 5%, transparent);
+}
+
+.who {
+  grid-area: who;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.who strong {
+  flex: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Issuer and chain get their own line under the ticker until the table is wide enough. */
+.who {
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+
+.who small {
+  flex-basis: 100%;
+  padding-left: 32px;
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+.tag {
+  flex: none;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--v);
+  background: color-mix(in srgb, var(--v) 12%, transparent);
+}
+
+.price {
+  grid-area: price;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.price small {
+  display: block;
+  max-width: 20ch;
+  margin-left: auto;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: var(--text-3);
+}
+
+.price small.unit {
+  color: var(--gold);
+}
+
+.prem {
+  grid-area: prem;
+  justify-self: end;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-3);
+}
+
+.fair {
+  color: var(--text);
+}
+.rich {
+  color: var(--rich);
+}
+
+.exit {
+  grid-area: exit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+}
+
+.bars i {
+  width: 3px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.bars i.on {
+  background: var(--text-2);
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.status {
+  grid-area: status;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 52px;
+  padding-left: 6px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--v);
+}
+
+.status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--v);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .list {
+    grid-area: list;
+  }
+  .head {
+    padding: 16px 32px 8px;
+  }
+  .cols,
+  .row {
+    display: grid;
+    grid-template-columns: minmax(180px, 2fr) minmax(140px, 1.2fr) 88px 110px 70px;
+    grid-template-areas: "who price prem exit status";
+    column-gap: 16px;
+    align-items: center;
+  }
+  .cols {
+    padding: 0 32px 6px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .cols span:nth-child(2),
+  .cols span:nth-child(3),
+  .cols span:nth-child(5) {
+    text-align: right;
+  }
+  .rows {
+    padding: 0 20px 16px;
+  }
+  .row {
+    min-height: 48px;
+    padding: 6px 12px;
+  }
+  .exit {
+    padding-left: 16px;
+  }
+  .status {
+    justify-self: end;
+    padding-left: 0;
+    min-width: 0;
+  }
+}
+
+/* Wide enough for price notes on one line, so every row keeps one height. */
+@media (min-width: 1100px) {
+  .cols,
+  .row {
+    grid-template-columns: minmax(240px, 2fr) minmax(210px, 1.2fr) 100px 120px 90px;
+  }
+  .price small {
+    max-width: none;
+    white-space: nowrap;
+  }
+  .who {
+    flex-wrap: nowrap;
+  }
+  .who small {
+    flex-basis: auto;
+    min-width: 0;
+    padding-left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

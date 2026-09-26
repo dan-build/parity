@@ -1,76 +1,68 @@
 @import "tailwindcss";
 
-/* ============ Parity design tokens (design/DESIGN.md) ============ */
+/* ============ Parity · Desk tokens (see CLAUDE.md, Design principles) ============ */
 :root {
-  --canvas: #f2f2f4;
-  --surface: #ffffff;
-  --ink: #0a0a0b;
-  --ink-2: #3a3a3f;
-  --mute: #76767c;
-  --faint: #aeaeb4;
-  --line: rgba(10, 10, 20, 0.07);
-  --line-2: rgba(10, 10, 20, 0.12);
+  --page: #0f0f10;
+  --panel: #161618;
+  --raised: #1c1c1f;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.14);
+  --text: #ededef;
+  --text-2: #a1a1aa;
+  --text-3: #74747d;
 
+  --gold: #e3b04b;
+  --fair: #3dd68c;
+  --rich: #ff6b7a;
+  --thin: #f0a83a;
+  --ghost: #7a7a83;
+
+  /* Gold ramp for the glossy Coin (lab C, later the share image). */
   --gold-1: #fff4c9;
   --gold-2: #f4d47c;
   --gold-3: #d9a73c;
   --gold-4: #a8751a;
   --gold-5: #6e4a0c;
 
-  --fair: #07a66b;
-  --fair-bg: #e6f7ef;
-  --fair-hi: #3ee3a2;
-  --rich: #e5234b;
-  --rich-bg: #ffe9ed;
-  --thin: #c77a00;
-  --thin-bg: #fff3d9;
-  --ghost: #8e8e95;
-  --ghost-bg: #f4f4f6;
-  --unit-bg: #fbf3dc;
-
-  --sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --mono: var(--font-geist-mono), ui-monospace, monospace;
-
-  --shadow-card: 0 1px 1px rgba(10, 10, 20, 0.03), 0 2px 4px rgba(10, 10, 20, 0.03),
-    0 24px 48px -24px rgba(10, 10, 20, 0.16);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-  --radius-card: 26px;
-  --gutter: 14px;
 }
 
-@media (min-width: 760px) {
-  :root {
-    --radius-card: 32px;
-    --gutter: 32px;
-  }
+/* One accent per verdict: anything inside [data-verdict] can use var(--v). */
+[data-verdict="FAIR"] {
+  --v: var(--fair);
+}
+[data-verdict="RICH"] {
+  --v: var(--rich);
+}
+[data-verdict="THIN"] {
+  --v: var(--thin);
+}
+[data-verdict="GHOST"] {
+  --v: var(--ghost);
 }
 
 @theme inline {
   --font-sans: var(--sans);
   --font-mono: var(--mono);
-  --color-ink: var(--ink);
-  --color-mute: var(--mute);
 }
 
 html {
-  background: var(--canvas);
+  background: var(--page);
+  color-scheme: dark;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  position: relative;
   min-height: 100vh;
-  color: var(--ink);
+  background: var(--page);
+  color: var(--text);
   font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.5;
   font-variant-numeric: tabular-nums;
-  background:
-    radial-gradient(1200px 500px at 50% -120px, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
-    var(--canvas);
+  -webkit-font-smoothing: antialiased;
 }
 
 button {
@@ -83,8 +75,8 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
