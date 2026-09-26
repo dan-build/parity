@@ -1,0 +1,89 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "KLA Corp",
+        "symbol": "KLAC",
+        "slug": "kla",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 1877.4121568499447,
+            "tokenized_market_cap": 445805.4665257086,
+            "tokenized_volume_24h": 133603.89865448,
+            "last_updated": "2026-09-26T17:36:59.000Z"
+          }
+        ],
+        "rwa_id": 58,
+        "asset_type": "stock",
+        "rwa_rank": 64,
+        "has_tokens": true,
+        "average_tokenized_price": 1877.4121568499447,
+        "tokenized_market_cap": 445805.4665257086,
+        "tokenized_volume_24h": 133603.89865448,
+        "last_updated": "2026-09-26T17:37:27.186Z",
+        "tokens": [
+          {
+            "symbol": "KLACon",
+            "name": "KLA Tokenized Stock (Ondo)",
+            "price": 1883.878841037002,
+            "crypto_id": 39240,
+            "issuer_id": "688ca4ccabae9b5b9fb3167a",
+            "issuer_name": "Ondo Assets",
+            "market_cap": 71543.18,
+            "volume_24h": 133094.36388746
+          },
+          {
+            "symbol": "KLACx",
+            "name": "KLA Corporation tokenized stock (xStock)",
+            "price": 188.26279185438415,
+            "crypto_id": 40131,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 374257.96,
+            "volume_24h": 509.52887205
+          },
+          {
+            "symbol": "KLAC",
+            "name": "KLA Corp (Derivatives)",
+            "price": 188.14773816324302,
+            "crypto_id": 40548,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          },
+          {
+            "symbol": "wKLACx",
+            "name": "Wrapped KLA Corporation Tokenized Stock (xStock)",
+            "price": null,
+            "crypto_id": 41437,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": null,
+            "volume_24h": null
+          }
+        ],
+        "tradfi_markets": [
+          {
+            "exchange": {
+              "slug": "binance",
+              "name": "Binance",
+              "exchange_id": 270
+            },
+            "ticker": "KLAC",
+            "market_url": "https://www.binance.com/en/stocks/EQ_KLAC"
+          }
+        ]
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:22.357Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

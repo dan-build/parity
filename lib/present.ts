@@ -59,7 +59,8 @@ export type EvidenceView = {
 
 export type View = {
   asset: { name: string; symbol: string; noun: string; total: number; claimLine: string };
-  headline: { verdict: Verdict; word: string; sub: string };
+  /** chip: the one-line answer beside the verdict word (best way in, or why there isn't one). */
+  headline: { verdict: Verdict; word: string; sub: string; chip: string };
   reasons: ReasonView[];
   summary: SummaryTile[];
   instrument: {
@@ -129,7 +130,7 @@ export function exitMeter(score: number | null): { bars: number; word: string } 
 }
 
 const isDerivative = (w: WrapperResult) => !!w.issuer_name && /derivative/i.test(w.issuer_name);
-const isOffTrack = (w: WrapperResult) =>
+export const isOffTrack = (w: WrapperResult) =>
   w.verdict === "GHOST" && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
 
 /**
@@ -154,14 +155,16 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const best = recommended(r);
   const ghosts = ws.filter((w) => w.verdict === "GHOST");
   const perGram = ws.filter((w) => w.unit === "per_gram_to_oz" && w.verdict !== "GHOST");
-  const ref = r.reference.price_usd;
+  // With no live token the "typical price" is a midpoint of prices that disagree (KLAC: 10× apart). Don't show it.
+  const ref = ws.some((w) => w.verdict !== "GHOST") ? r.reference.price_usd : null;
 
   // Headline
   const sub: Record<Verdict, string> = {
     FAIR: live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack) ? "whichever token you pick." : "if you pick the right token.",
     RICH: "even the best token costs extra.",
     THIN: "not much market to sell into.",
-    GHOST: "nothing here you can really hold.",
+    // Off-track tokens can be held; they just don't agree on a price (KLAC: two tokens 10× apart).
+    GHOST: ws.some(isOffTrack) ? "the tokens don't agree on a price." : "nothing here you can really hold.",
   };
 
   // Reasons (design style: bold fact + plain rest), in priority order, max 4.
@@ -317,7 +320,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
       total: ws.length,
       claimLine: `${ws.length} token${ws.length === 1 ? "" : "s"} claim to be it`,
     },
-    headline: { verdict: r.verdict, word: VERDICT_WORD[r.verdict], sub: sub[r.verdict] },
+    headline: { verdict: r.verdict, word: VERDICT_WORD[r.verdict], sub: sub[r.verdict], chip: answerLine(r) },
     reasons: reasons.slice(0, 4),
     summary,
     instrument: {
@@ -371,6 +374,18 @@ function freshness(r: CheckResponse, now: number): string {
     return `, saved data from ${dayLabel(r.data_as_of)}`;
   }
   return `, ${relativeTime(r.data_as_of, now)}`;
+}
+
+/**
+ * The answer in a few words, shared by the chip and the toast: the best way in, or why
+ * there isn't one. Never "buy".
+ */
+export function answerLine(r: Pick<CheckResult, "wrappers" | "headline_crypto_id">): string {
+  const best = recommended(r);
+  if (best) return `best way in · ${best.display}`;
+  if (r.wrappers.some((w) => w.verdict !== "GHOST")) return "no easy way out";
+  if (r.wrappers.some(isOffTrack)) return "no price to trust";
+  return "nothing to hold";
 }
 
 /** "1 credit", "0 credits". */

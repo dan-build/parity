@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "probe": "tsx --env-file=.env.local scripts/probe.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "scan": "tsx --env-file=.env.local scripts/scan.ts"
   },
   "dependencies": {
     "next": "16.3.6",

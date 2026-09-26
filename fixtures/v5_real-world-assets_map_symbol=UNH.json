@@ -1,0 +1,26 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "UnitedHealth Group Inc",
+        "symbol": "UNH",
+        "slug": "unitedhealth",
+        "rwa_id": 33,
+        "asset_type": "stock",
+        "rwa_rank": 42,
+        "has_tokens": true,
+        "first_historical_data": "2003-09-07T04:00:00.000Z",
+        "last_historical_data": "2026-09-25T23:59:00.000Z"
+      }
+    ],
+    "total_size": 1,
+    "has_more": false
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:09.549Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 0,
+    "credit_count": 0
+  }
+}

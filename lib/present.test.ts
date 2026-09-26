@@ -207,3 +207,42 @@ describe("plain copy", () => {
     }
   });
 });
+
+describe("all four verdicts have a saved demo", () => {
+  it.each([
+    ["GOLD", "FAIR"],
+    ["SILVER", "THIN"],
+    ["UNH", "RICH"],
+    ["KLAC", "GHOST"],
+    ["MS", "GHOST"],
+  ])("%s → %s", async (q, verdict) => {
+    expect((await load(q)).verdict).toBe(verdict);
+  });
+
+  it("UNH: the only liquid token costs extra, and the page says so", async () => {
+    const v = present(await load("UNH"));
+    expect(v.headline.sub).toBe("even the best token costs extra.");
+    expect(v.route?.display).toBe("UNHon");
+    expect(v.list.rows.find((r) => r.ticker === "UNHon")?.premium.tone).toBe("rich");
+  });
+
+  it("GHOST copy tells apart 'nothing to hold' from 'tokens that disagree'", async () => {
+    expect(present(await load("MS")).headline.sub).toBe("nothing here you can really hold.");
+    expect(present(await load("KLAC")).headline.sub).toBe("the tokens don't agree on a price.");
+  });
+});
+
+describe("KLAC: two tokens 10× apart", () => {
+  it("shows no typical price and says there's no price to trust, in the chip and the toast", async () => {
+    const r = await load("KLAC");
+    const v = present(r);
+    expect(v.summary[0].value).toBe("—");
+    expect(v.instrument.reference.price).toBe("—");
+    expect(v.headline.chip).toBe("no price to trust");
+    expect(logSummary(r).verdictLine).toBe("Ghost · no price to trust");
+  });
+
+  it("MS has nothing to hold at all", async () => {
+    expect(present(await load("MS")).headline.chip).toBe("nothing to hold");
+  });
+});

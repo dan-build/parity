@@ -1,0 +1,59 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "Morgan Stanley",
+        "symbol": "MS",
+        "slug": "morgan-stanley",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": null,
+            "tokenized_market_cap": null,
+            "tokenized_volume_24h": null,
+            "last_updated": "2026-09-26T17:36:59.000Z"
+          }
+        ],
+        "rwa_id": 35,
+        "asset_type": "stock",
+        "rwa_rank": 44,
+        "has_tokens": true,
+        "average_tokenized_price": null,
+        "tokenized_market_cap": null,
+        "tokenized_volume_24h": null,
+        "last_updated": "2026-09-26T17:37:38.138Z",
+        "tokens": [
+          {
+            "symbol": "wMSx",
+            "name": "Wrapped Morgan Stanley Tokenized Stock (xStock)",
+            "price": null,
+            "crypto_id": 41513,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": null,
+            "volume_24h": null
+          }
+        ],
+        "tradfi_markets": [
+          {
+            "exchange": {
+              "slug": "binance",
+              "name": "Binance",
+              "exchange_id": 270
+            },
+            "ticker": "MS",
+            "market_url": "https://www.binance.com/en/stocks/EQ_MS"
+          }
+        ]
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:18.155Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}

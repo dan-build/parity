@@ -1,0 +1,417 @@
+{
+  "data": {
+    "37045": {
+      "id": 37045,
+      "name": "UnitedHealth tokenized stock (xStock)",
+      "symbol": "UNHX",
+      "category": "token",
+      "description": "UnitedHealth tokenized stock (xStock) (UNHX) is a cryptocurrency and operates on the Solana platform. UnitedHealth tokenized stock (xStock) has a current supply of 354,102.15946916 with 1,336.35172689 in circulation. The last known price of UnitedHealth tokenized stock (xStock) is 379.135099 USD and is down -1.29 over the last 24 hours. It is currently trading on 9 active market(s) with $50,924.43 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/unitedhealth-xstock.",
+      "slug": "unitedhealth-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37045.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "arbitrum-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "internet-capital-markets",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "Arbitrum Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "Internet Capital Markets",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/products/unitedhealth-xstock"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/xstocksfi"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://solscan.io/token/XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe",
+          "https://arbiscan.io/token/0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "https://explorer.inkonchain.com/token/0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "https://etherscan.io/token/0x167a6375da1efc4a5be0f470e73ecefd66245048"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe"
+      },
+      "date_added": "2025-07-01T18:39:40.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "0x167a6375da1efc4a5be0f470e73ecefd66245048",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "EQCQu9PwIhgX6oEY0U1U4QdKA5nB7gML_K1pyBJWVb6p2ZMr",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        }
+      ],
+      "infinite_supply": true
+    },
+    "37228": {
+      "id": 37228,
+      "name": "Wrapped UnitedHealth Tokenized stock (xStock)",
+      "symbol": "WUNHX",
+      "category": "token",
+      "description": "For too long, investing has come with barriers. Borders. Brokers. Limitations. It’s been complicated, costly, and — for millions — out of reach. xStocks were created to change that.\r\n\r\nxStocks are tokenized stocks. They’re backed 1:1 by the underlying assets, composable with DeFi protocols, compliant with EU regulations, accessible to non-US users, and provide a legal claim to the value of the stock.\r\n\r\nxStocks enable easy access to 57 US Stocks and ETFs to regular users through top centralized and decentralized exchanges, and can be integrated with other DeFi protocols like any other token.\r\n\r\nThis is a wrapped xStock, meaning that it does not rebase, allowing it to be used within DeFi applications.",
+      "slug": "wrapped-unitedhealth-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37228.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "x-layer-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "X Layer Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0xa0412ce46fe877b7f174b82acd95e70063bbaf2a",
+          "https://www.arbiscan.io/token/0xa0412ce46fe877b7f174b82acd95e70063bbaf2a"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0x1F652b05eFB825a068304972BC506Fb43Fac4D6F"
+      },
+      "date_added": "2025-07-07T04:50:34.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x1F652b05eFB825a068304972BC506Fb43Fac4D6F",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        },
+        {
+          "contract_address": "0xa0412ce46fe877b7f174b82acd95e70063bbaf2a",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "38039": {
+      "id": 38039,
+      "name": "UnitedHealth Tokenized Stock (Ondo)",
+      "symbol": "UNHon",
+      "category": "token",
+      "description": "UnitedHealth Tokenized Stock (Ondo) (UNHon) is a cryptocurrency and operates on the Ethereum platform. UnitedHealth Tokenized Stock (Ondo) has a current supply of 3,152.26347247. The last known price of UnitedHealth Tokenized Stock (Ondo) is 391.19529207 USD and is up 1.21 over the last 24 hours. It is currently trading on 26 active market(s) with $884,060.24 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/unhon.",
+      "slug": "unitedhealth-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38039.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "binance-alpha",
+        "binance-ecosystem",
+        "tokenized-assets",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Binance Alpha",
+        "Binance Ecosystem",
+        "Tokenized Assets",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/unhon"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0x075756F3b6381a79633438fAA8964946bf40163d",
+          "https://bscscan.com/token/0x3385cb29cca0ac66f5d2354d13ef977b49a2510f",
+          "https://solscan.io/token/kPBGL8vAwKN3UGmr9cjkM2dU79SC3nzTC9yu7F8ondo"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0x075756F3b6381a79633438fAA8964946bf40163d"
+      },
+      "date_added": "2025-09-03T10:55:24.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x075756F3b6381a79633438fAA8964946bf40163d",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x3385cb29cca0ac66f5d2354d13ef977b49a2510f",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "kPBGL8vAwKN3UGmr9cjkM2dU79SC3nzTC9yu7F8ondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "39630": {
+      "id": 39630,
+      "name": "UnitedHealth Group (Derivatives)",
+      "symbol": "UNH",
+      "category": "token",
+      "description": "UnitedHealth Group (Derivatives) (UNH) is a cryptocurrency . UnitedHealth Group (Derivatives) has a current supply of 0. The last known price of UnitedHealth Group (Derivatives) is 376.91733365 USD and is down -0.11 over the last 24 hours. It is currently trading on 22 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "unitedhealth-group-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39630.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "synthetics",
+        "tokenized-assets",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Synthetics",
+        "Tokenized Assets",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-02-26T06:44:46.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:12.543Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 7,
+    "credit_count": 1,
+    "notice": null
+  }
+}

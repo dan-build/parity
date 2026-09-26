@@ -1,0 +1,402 @@
+{
+  "data": {
+    "39240": {
+      "id": 39240,
+      "name": "KLA Tokenized Stock (Ondo)",
+      "symbol": "KLACon",
+      "category": "token",
+      "description": "KLA Tokenized Stock (Ondo) (KLACon) is a cryptocurrency and operates on the Ethereum platform. KLA Tokenized Stock (Ondo) has a current supply of 37.9765269. The last known price of KLA Tokenized Stock (Ondo) is 1,883.87884104 USD and is down -0.19 over the last 24 hours. It is currently trading on 13 active market(s) with $133,094.36 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/KLACon.",
+      "slug": "kla-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39240.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "ethereum-ecosystem",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "tokenized-assets",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "Ethereum Ecosystem",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Tokenized Assets",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/KLACon"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0xa637ae510cb50e61236a89ac480b93b8c3bccc46",
+          "https://bscscan.com/token/0xfc263946439b0d802bf4c5a6fcd34e2885259f91",
+          "https://solscan.io/token/149o8ppQf9SzKCKXZ4v3dzHkwumvtQSRzSEkr29uondo"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0xa637ae510cb50e61236a89ac480b93b8c3bccc46"
+      },
+      "date_added": "2026-01-08T15:44:34.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xa637ae510cb50e61236a89ac480b93b8c3bccc46",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "149o8ppQf9SzKCKXZ4v3dzHkwumvtQSRzSEkr29uondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0xfc263946439b0d802bf4c5a6fcd34e2885259f91",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40131": {
+      "id": 40131,
+      "name": "KLA Corporation tokenized stock (xStock)",
+      "symbol": "KLACx",
+      "category": "token",
+      "description": "KLA Corporation tokenized stock (xStock) (KLACx) is a cryptocurrency and operates on the Solana platform. KLA Corporation tokenized stock (xStock) has a current supply of 327,449.24373186 with 1,987.95501435 in circulation. The last known price of KLA Corporation tokenized stock (xStock) is 188.26279185 USD and is down -0.79 over the last 24 hours. It is currently trading on 3 active market(s) with $509.53 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/kla-corporation-xstock.",
+      "slug": "kla-corporation-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40131.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "mantle-ecosystem",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "Mantle Ecosystem",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/products/kla-corporation-xstock"
+        ],
+        "twitter": [
+          "https://twitter.com/xstocksfi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/xstocksfi",
+          "https://xstocks.fi/",
+          "https://www.linkedin.com/company/xstocksfi/"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "https://bscscan.com/token/0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "https://tonviewer.com/EQBUI51pVO7H7Za26FMx35rvYe2387S3V99qAM8TbxluKz5T",
+          "https://mantlescan.xyz/token/0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN"
+      },
+      "date_added": "2026-06-10T06:33:39.000Z",
+      "twitter_username": "xstocksfi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "platform": {
+            "name": "Mantle",
+            "coin": {
+              "id": "27075",
+              "name": "Mantle",
+              "symbol": "MNT",
+              "slug": "mantle"
+            }
+          }
+        },
+        {
+          "contract_address": "EQBUI51pVO7H7Za26FMx35rvYe2387S3V99qAM8TbxluKz5T",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        },
+        {
+          "contract_address": "0xb7e2e3ef9f5c6b72a162ffc76382e4477a44d913",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40548": {
+      "id": 40548,
+      "name": "KLA Corp (Derivatives)",
+      "symbol": "KLAC",
+      "category": "token",
+      "description": "KLA Corp (Derivatives) (KLAC) is a cryptocurrency . KLA Corp (Derivatives) has a current supply of 0. The last known price of KLA Corp (Derivatives) is 188.14773816 USD and is up 0.46 over the last 24 hours. It is currently trading on 37 active market(s) with $0.00 traded over the last 24 hours.",
+      "slug": "kla-corp-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40548.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-06-22T11:55:56.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    },
+    "41437": {
+      "id": 41437,
+      "name": "Wrapped KLA Corporation Tokenized Stock (xStock)",
+      "symbol": "wKLACx",
+      "category": "token",
+      "description": "Wrapped KLA Corporation xStock (wKLACx) is the non-rebasing ERC-20/ERC-4626 wrapped version of KLA Corporation xStock (KLACx) on X Layer. Vault shares represent a proportional claim on the underlying xStock deposited in the wrapper (0xb7e2E3eF9F5c6b72a162FFc76382e4477A44D913), and wrap/unwrap conversion uses the live xStocks multiplier.",
+      "slug": "wrapped-kla-corporation-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/41437.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "x-layer-ecosystem",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "X Layer Ecosystem",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://xstocks.fi"
+        ],
+        "twitter": [
+          "https://twitter.com/xstocksfi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://defi.xstocks.fi/wrap",
+          " https://docs.xstocks.fi/developers/wrapped-xstocks",
+          " https://t.me/xstocksfi",
+          " https://www.linkedin.com/company/backed-finance/"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://www.oklink.com/x-layer/address/0x924221DB27d2A55548CbBfe924FaA1159805EDCb"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0x924221DB27d2A55548CbBfe924FaA1159805EDCb"
+      },
+      "date_added": "2026-08-11T16:23:46.000Z",
+      "twitter_username": "xstocksfi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x924221DB27d2A55548CbBfe924FaA1159805EDCb",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:23.759Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 5,
+    "credit_count": 1,
+    "notice": null
+  }
+}

@@ -334,5 +334,57 @@
   "/v5/derivatives/liquidations/cryptocurrency/list/latest?limit=10": {
     "file": "v5_derivatives_liquidations_cryptocurrency_list_latest_limit=10.json",
     "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=UNH": {
+    "file": "v5_real-world-assets_map_symbol=UNH.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=33": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=33.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=37045,37228,38039,39630&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=37045_37228_38039_39630_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x075756F3b6381a79633438fAA8964946bf40163d&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0x075756F3b6381a79633438fAA8964946bf40163d_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=MS": {
+    "file": "v5_real-world-assets_map_symbol=MS.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=35": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=35.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=41513&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=41513_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=KLAC": {
+    "file": "v5_real-world-assets_map_symbol=KLAC.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=58": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=58.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=39240,40131,40548,41437&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=39240_40131_40548_41437_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0xa637ae510cb50e61236a89ac480b93b8c3bccc46&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0xa637ae510cb50e61236a89ac480b93b8c3bccc46_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN_platform=solana_size=10.json",
+    "status": 200
   }
 }

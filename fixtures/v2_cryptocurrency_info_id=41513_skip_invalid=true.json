@@ -1,0 +1,92 @@
+{
+  "data": {
+    "41513": {
+      "id": 41513,
+      "name": "Wrapped Morgan Stanley Tokenized Stock (xStock)",
+      "symbol": "wMSx",
+      "category": "token",
+      "description": "Wrapped Morgan Stanley xStock (wMSx) is the non-rebasing ERC-20/ERC-4626 wrapped version of Morgan Stanley xStock (MSx) on X Layer. Vault shares represent a proportional claim on the underlying xStock deposited in the wrapper (0xd8cD1c1FF337B2d4Dc61b70aA8006e0Eba401F58), and wrap/unwrap conversion uses the live xStocks multiplier.",
+      "slug": "wrapped-morgan-stanley-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/41513.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "x-layer-ecosystem",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "X Layer Ecosystem",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://xstocks.fi"
+        ],
+        "twitter": [
+          "https://twitter.com/xstocksfi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://defi.xstocks.fi/wrap",
+          " https://docs.xstocks.fi/developers/wrapped-xstocks",
+          " https://t.me/xstocksfi",
+          " https://www.linkedin.com/company/backed-finance/"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://www.oklink.com/x-layer/address/0x2874A11805783324C54562eDB1A641C5d1d077a5"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0x2874A11805783324C54562eDB1A641C5d1d077a5"
+      },
+      "date_added": "2026-08-11T16:24:36.000Z",
+      "twitter_username": "xstocksfi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x2874A11805783324C54562eDB1A641C5d1d077a5",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:19.373Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 5,
+    "credit_count": 1,
+    "notice": null
+  }
+}

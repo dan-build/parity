@@ -8,6 +8,7 @@
  *
  * Writes fixtures/<request>.json, fixtures/_index.json, fixtures/_probe-summary.json.
  * Run: npm run probe   (reads CMC_API_KEY from .env.local)
+ *      npm run probe -- UNH MS   (record just these assets: engine calls only, ~5–6 credits each)
  *
  * The API key is only ever sent as a request header. It is never logged or saved.
  */
@@ -18,7 +19,9 @@ import { clearCmcCache, createCmcClient, isSupportedDexChain, liveTransport, typ
 import { recordingTransport } from "@/lib/cmc-fixtures";
 
 const FIXTURES = join(process.cwd(), "fixtures");
-const ASSETS = ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER"];
+const DEFAULT_ASSETS = ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER"];
+const ONLY = process.argv.slice(2).filter((a) => !a.startsWith("-")).map((a) => a.toUpperCase());
+const ASSETS = ONLY.length ? ONLY : DEFAULT_ASSETS;
 
 const KEY = process.env.CMC_API_KEY;
 if (!KEY) {
@@ -75,6 +78,8 @@ async function main() {
     }
   }
 
+  if (ONLY.length) return finish(before, rwaIds);
+
   // Extra probes (not used by the engine yet).
   const issuers = await client.get("/v5/real-world-assets/issuers/list", { limit: 100 });
   const firstIssuer = issuers.ok
@@ -91,6 +96,10 @@ async function main() {
   await client.get("/v5/derivatives/liquidations/exchange/list/latest", { limit: 10 });
   await client.get("/v5/derivatives/liquidations/cryptocurrency/list/latest", { limit: 10 });
 
+  return finish(before, rwaIds);
+}
+
+async function finish(before: number | null, rwaIds: Record<string, number>) {
   clearCmcCache(); // so the second key/info call is real
   const after = usedToday(await client.get("/v1/key/info"));
 
@@ -102,7 +111,8 @@ async function main() {
   }
 
   writeFileSync(
-    join(FIXTURES, "_probe-summary.json"),
+    // A targeted run gets its own log so the full probe's summary stays intact.
+    join(FIXTURES, ONLY.length ? `_probe-${ONLY.join("-")}.json` : "_probe-summary.json"),
     JSON.stringify(
       {
         generated_at: new Date().toISOString(),

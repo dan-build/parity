@@ -1,0 +1,89 @@
+{
+  "data": {
+    "rwa_assets": [
+      {
+        "name": "UnitedHealth Group Inc",
+        "symbol": "UNH",
+        "slug": "unitedhealth",
+        "quotes": [
+          {
+            "symbol": "USD",
+            "crypto_id": 2781,
+            "average_tokenized_price": 390.5295032265505,
+            "tokenized_market_cap": 1739831.5774015854,
+            "tokenized_volume_24h": 929041.9954038,
+            "last_updated": "2026-09-26T17:36:59.000Z"
+          }
+        ],
+        "rwa_id": 33,
+        "asset_type": "stock",
+        "rwa_rank": 42,
+        "has_tokens": true,
+        "average_tokenized_price": 390.5295032265505,
+        "tokenized_market_cap": 1739831.5774015854,
+        "tokenized_volume_24h": 929041.9954038,
+        "last_updated": "2026-09-26T17:37:41.728Z",
+        "tokens": [
+          {
+            "symbol": "UNHX",
+            "name": "UnitedHealth tokenized stock (xStock)",
+            "price": 379.1476217086259,
+            "crypto_id": 37045,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": 506674.58,
+            "volume_24h": 50992.18059804
+          },
+          {
+            "symbol": "UNHon",
+            "name": "UnitedHealth Tokenized Stock (Ondo)",
+            "price": 390.7999153844941,
+            "crypto_id": 38039,
+            "issuer_id": "688ca4ccabae9b5b9fb3167a",
+            "issuer_name": "Ondo Assets",
+            "market_cap": 1231904.3,
+            "volume_24h": 885954.89836298
+          },
+          {
+            "symbol": "UNH",
+            "name": "UnitedHealth Group (Derivatives)",
+            "price": 376.42262687608445,
+            "crypto_id": 39630,
+            "issuer_id": "695e11f774b54210f3b95dc3",
+            "issuer_name": "NA (Derivatives)",
+            "market_cap": 0,
+            "volume_24h": 0
+          },
+          {
+            "symbol": "WUNHX",
+            "name": "Wrapped UnitedHealth Tokenized stock (xStock)",
+            "price": null,
+            "crypto_id": 37228,
+            "issuer_id": "6878977dcbbf471de3366e85",
+            "issuer_name": "Backed Assets",
+            "market_cap": null,
+            "volume_24h": null
+          }
+        ],
+        "tradfi_markets": [
+          {
+            "exchange": {
+              "slug": "binance",
+              "name": "Binance",
+              "exchange_id": 270
+            },
+            "ticker": "UNH",
+            "market_url": "https://www.binance.com/en/stocks/EQ_UNH"
+          }
+        ]
+      }
+    ]
+  },
+  "status": {
+    "timestamp": "2026-09-26T17:38:10.957Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 5,
+    "credit_count": 1
+  }
+}
