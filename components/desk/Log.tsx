@@ -70,7 +70,7 @@ export function Log({ data, onEvidence }: { data: CheckResponse; onEvidence?: ()
         <span>
           <strong>{sum.verdictLine}</strong>
           <small>
-            {sum.calls} calls · {sum.credits} cr · {data.mode === "fixture" ? "replayed" : "live"}
+            {sum.calls} calls · {sum.credits} cr
           </small>
         </span>
         {onEvidence && (

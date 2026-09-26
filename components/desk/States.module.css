@@ -1,0 +1,280 @@
+/* Empty, loading, not-found and error states. Mobile first. */
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  margin: 14px 0 0;
+  max-width: 17ch;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.lede {
+  margin: 14px 0 0;
+  max-width: 54ch;
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+/* ---------- empty ---------- */
+.empty,
+.message {
+  padding: 30px 18px 32px;
+}
+
+.idle {
+  position: relative;
+  height: 70px;
+  margin: 30px 0 0;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24) 70%, transparent);
+}
+
+.coins {
+  position: absolute;
+  left: 0;
+  bottom: 13px;
+  display: flex;
+  gap: 10px;
+}
+
+.steps {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+
+.steps b {
+  margin-right: 10px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+/* ---------- loading skeleton ---------- */
+.checking {
+  margin: 44px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.checking b {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: -2px;
+  background: var(--text-2);
+  animation: blink 0.96s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.skVerdict {
+  padding: 22px 18px 24px;
+}
+
+.skLog {
+  display: grid;
+  gap: 12px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.skHead {
+  display: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.skLine time {
+  margin-right: 14px;
+  color: var(--text-3);
+}
+
+.skLine em {
+  font-style: normal;
+  color: var(--text-3);
+}
+
+.skTiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.skTiles span {
+  height: 62px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.skStage {
+  position: relative;
+  height: 200px;
+  border-top: 1px solid var(--line);
+}
+
+.skStage span {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12) 10%, rgba(255, 255, 255, 0.12) 90%, transparent);
+}
+
+.skList {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.skList span {
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.07) 50%, rgba(255, 255, 255, 0.03) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+/* ---------- not found / error ---------- */
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.suggest button {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+
+.suggest button:hover {
+  box-shadow: inset 0 0 0 1px rgba(227, 176, 75, 0.5);
+}
+
+.suggest .primary {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--page);
+  background: var(--gold);
+  box-shadow: none;
+}
+
+.suggest span {
+  margin-left: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .empty,
+  .message {
+    padding: 56px 32px 60px;
+  }
+  .title {
+    font-size: 56px;
+  }
+  .lede {
+    font-size: 16px;
+  }
+  .steps {
+    grid-template-columns: repeat(3, max-content);
+    gap: 28px;
+  }
+  .skVerdict {
+    grid-area: verdict;
+    min-height: 300px;
+    padding: 30px 32px;
+  }
+  .skLog {
+    grid-area: log;
+    align-content: start;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+    padding: 16px;
+  }
+  .skHead {
+    display: block;
+  }
+  .skTiles {
+    grid-area: tiles;
+    padding: 24px 32px 24px;
+    border-top: 0;
+  }
+  .skStage {
+    grid-area: stage;
+    height: 290px;
+  }
+  .skStage span {
+    left: 28px;
+    right: 28px;
+  }
+  .skList {
+    grid-area: list;
+    padding: 20px 32px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .skTiles {
+    align-self: end;
+    padding: 30px 32px 24px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skList span,
+  .checking b {
+    animation: none;
+  }
+}

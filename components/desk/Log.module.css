@@ -147,21 +147,29 @@
     height: auto;
     border-top: 0;
     border-left: 1px solid var(--line);
-    padding: 16px 16px 100px;
+    padding: 16px 12px 12px 16px;
   }
   .head {
     display: flex;
   }
   .lines {
     position: static;
-    gap: 12px;
+    gap: 10px;
   }
   .line {
     display: grid;
   }
+  /* The toast follows the lines and stays in view while the column is on screen. */
   .toast {
-    left: 12px;
-    right: 12px;
+    position: sticky;
     bottom: 12px;
+    margin-top: 18px;
+  }
+}
+
+/* Wide: the log runs beside the instrument too, so lines can breathe. */
+@media (min-width: 1100px) {
+  .lines {
+    gap: 12px;
   }
 }

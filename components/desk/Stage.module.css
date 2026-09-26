@@ -19,6 +19,7 @@
   position: relative;
   height: 230px;
   margin: 0 12px 26px;
+  clip-path: inset(0 -60px -60px -60px);
 }
 
 .track {

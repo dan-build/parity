@@ -6,7 +6,7 @@
  * desk window: hero │ log on top, instrument │ log below, the full list underneath.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { labelFor } from "@/lib/chips";
+import { CHIPS } from "@/lib/chips";
 import { present, type CheckResponse, type Mood } from "@/lib/present";
 import type { CheckBody } from "@/lib/run-check";
 import { Reveal } from "../reveal/Reveal";
@@ -17,6 +17,7 @@ import { List } from "./List";
 import { Log } from "./Log";
 import { Lower } from "./Lower";
 import { Stage } from "./Stage";
+import { Empty, Loading, Message, Retry, Suggestions } from "./States";
 import s from "./Desk.module.css";
 
 type State =
@@ -134,53 +135,45 @@ export function Desk({
         )}
 
         {state.status === "loading" && (
-          <main className={s.window} aria-busy="true">
-            <TitleBar title={`check ${labelFor(state.q)}`} />
-            <div className={s.message}>
-              <p className={s.checking}>
-                resolving {labelFor(state.q)}
-                <b aria-hidden="true" />
-              </p>
-            </div>
+          <main className={s.window}>
+            <TitleBar title={`check ${state.q.toUpperCase()}`} />
+            <Loading q={state.q} grid={s.grid} />
           </main>
         )}
 
         {state.status === "empty" && (
           <main className={s.window}>
             <TitleBar title="start" />
-            <div className={s.message}>
-              <h1>Is your tokenised gold actually gold?</h1>
-              <p>Pick an asset above. We check every token that claims to be it: the price, the units, and whether you could sell it later.</p>
-            </div>
+            <Empty />
           </main>
         )}
 
         {state.status === "not_found" && (
-          <main className={s.window} role="status">
+          <main className={s.window}>
             <TitleBar title={`check ${state.q}`} />
-            <div className={s.message}>
-              <h1>We couldn&apos;t find “{state.q}”.</h1>
-              <p>Try a ticker like GOLD, NVDA or SPY.</p>
-              {state.suggestions.length > 0 && (
-                <div className={s.suggest}>
-                  {state.suggestions.map((x) => (
-                    <button key={x.symbol} type="button" onClick={() => run(x.symbol, true)}>
-                      {x.name} <span>{x.symbol}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Message
+              eyebrow="no match"
+              title={`We couldn’t find “${state.q}”.`}
+              body={
+                state.suggestions.length
+                  ? "CoinMarketCap has no tokenised asset by that name. Did you mean one of these?"
+                  : "CoinMarketCap has no tokenised asset by that name. Try one of these instead."
+              }
+            >
+              <Suggestions
+                items={state.suggestions.length ? state.suggestions : CHIPS.map((c) => ({ symbol: c.q, name: c.label }))}
+                onPick={(q) => run(q, true)}
+              />
+            </Message>
           </main>
         )}
 
         {state.status === "error" && (
-          <main className={s.window} role="status">
+          <main className={s.window}>
             <TitleBar title={`check ${state.q}`} />
-            <div className={s.message}>
-              <h1>That didn&apos;t work.</h1>
-              <p>{state.message}</p>
-            </div>
+            <Message eyebrow="something went wrong" title="That didn’t work." body={state.message}>
+              <Retry onRetry={() => run(state.q, false)} />
+            </Message>
           </main>
         )}
       </div>
