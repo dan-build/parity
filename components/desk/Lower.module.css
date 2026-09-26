@@ -1,0 +1,186 @@
+/* Lower cards: best way in │ what the data can't tell you. Stacked on phones. */
+
+.lower {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.route,
+.gaps {
+  padding: 20px 18px 22px;
+  will-change: transform, opacity;
+}
+
+.gaps {
+  border-top: 1px solid var(--line);
+}
+
+.label {
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ---------- best way in ---------- */
+.route {
+  background: radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--v) 7%, transparent), transparent 70%);
+}
+
+.rrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rrow h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.rrow h3 span {
+  display: block;
+  margin-top: 2px;
+  font-size: 13.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-2);
+}
+
+.route p {
+  margin: 14px 0 0;
+  max-width: 46ch;
+  font-size: 14.5px;
+  color: var(--text-2);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 18px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 10px 12px;
+}
+
+.stats div + div {
+  border-left: 1px solid var(--line);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.stats dt {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--text-3);
+}
+
+.where {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.where div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line-2);
+}
+
+.where dd {
+  margin: 0;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+/* ---------- gaps ---------- */
+.gaps ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.gaps li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.ic {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.gaps strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.gaps small {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.coda {
+  margin: 16px 0 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+/* ---------- desktop ---------- */
+@media (min-width: 760px) {
+  .lower {
+    grid-area: lower;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .route,
+  .gaps {
+    padding: 26px 32px 30px;
+  }
+  .gaps {
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+  .rrow h3 {
+    font-size: 30px;
+  }
+}

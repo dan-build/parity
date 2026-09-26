@@ -51,7 +51,7 @@ export function Verdict({ view }: { view: View }) {
             </h1>
             <span ref={chip} className={s.chip}>
               <i />
-              {view.route ? `best way in · ${view.route.display}` : "nothing to hold"}
+              {view.route ? `best way in · ${view.route.display}` : view.noEasyExit ? "no easy way out" : "nothing to hold"}
             </span>
           </div>
           <p className={s.sub}>{headline.sub}</p>

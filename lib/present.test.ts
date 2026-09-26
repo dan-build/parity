@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { clearCmcCache } from "./cmc";
-import { exitMeter, moneyShort, pct, present, type CheckResponse } from "./present";
+import { logSummary } from "./log";
+import { exitMeter, moneyShort, pct, present, recommended, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
 
 async function load(q: string): Promise<CheckResponse> {
@@ -121,5 +122,43 @@ describe("best way in", () => {
       const sameSymbol = v.list.rows.filter((r) => r.ticker === v.route?.ticker).length;
       if (sameSymbol > 1) expect(v.route?.display).not.toBe(v.route?.ticker);
     }
+  });
+});
+
+describe("no easy way out (the best-ranked token has no 24h volume)", () => {
+  it("recommends nothing for SILVER, and says why everywhere", async () => {
+    const r = await load("SILVER");
+    const top = r.wrappers.find((w) => w.crypto_id === r.headline_crypto_id)!;
+    expect(top.volume_24h ?? 0).toBe(0); // the fixture this rule exists for
+    const v = present(r);
+    expect(v.route).toBeNull();
+    expect(v.noEasyExit).toBe(true);
+    expect(v.list.rows.some((row) => row.best)).toBe(false);
+    expect(v.reasons[0]).toMatchObject({ strong: "Nothing traded in the last day." });
+    expect(v.reasons.some((x) => /easiest to sell/.test(x.strong))).toBe(false);
+    expect(logSummary(r).verdictLine).toBe("Thin · no easy way out");
+  });
+
+  it("still recommends the headline token when it trades", async () => {
+    const v = present(await load("GOLD"));
+    expect(v.noEasyExit).toBe(false);
+    expect(v.route?.display).toBe("XAUt");
+  });
+
+  it("applies to any asset: zero volume on the top token means no route", async () => {
+    const r = await load("GOLD");
+    const dry = { ...r, wrappers: r.wrappers.map((w) => (w.crypto_id === r.headline_crypto_id ? { ...w, volume_24h: 0 } : w)) };
+    const v = present(dry);
+    expect(v.route).toBeNull();
+    expect(v.noEasyExit).toBe(true);
+    expect(recommended(dry)).toBeNull();
+  });
+});
+
+describe("where the best way in lives", () => {
+  it("names the chain and a short contract for GOLD's XAUt", async () => {
+    const v = present(await load("GOLD"));
+    expect(v.route?.where.map((w) => w.label)).toEqual(["chain", "contract"]);
+    expect(v.route?.where[1].value).toMatch(/^0x[0-9a-fA-F]{4}…[0-9a-fA-F]{4}$/);
   });
 });

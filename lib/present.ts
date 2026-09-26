@@ -17,6 +17,8 @@ export type ReasonView = { tone: Tone; strong: string; rest: string };
 export type InstrumentCoin = {
   id: number;
   ticker: string;
+  /** Unambiguous name for the coin's tooltip: "NVDA (Robinhood)". */
+  display: string;
   kind: CoinKind;
   verdict: Verdict;
   /** Normalised premium in %, null for GHOSTs without a usable price. */
@@ -67,11 +69,15 @@ export type View = {
     ghostNote: string | null;
   };
   list: { title: string; unitLine: string; rows: RowView[] };
+  /** Some tokens can be held, but none traded in the last day: no way in is recommended. */
+  noEasyExit: boolean;
   route: {
     ticker: string;
     /** Symbol, plus issuer when another token shares the symbol. */
     display: string;
     by: string | null;
+    /** Where the token lives: chain and a shortened contract, when CMC gave them. */
+    where: { label: string; value: string }[];
     line: string;
     stats: { value: string; label: string }[];
   } | null;
@@ -124,6 +130,15 @@ const isDerivative = (w: WrapperResult) => !!w.issuer_name && /derivative/i.test
 const isOffTrack = (w: WrapperResult) =>
   w.verdict === "GHOST" && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
 
+/**
+ * The token we point people to: the engine's headline token, unless nothing trades.
+ * A token with no volume in the last 24 hours isn't a way in, however well it ranks.
+ */
+export function recommended(r: Pick<CheckResult, "wrappers" | "headline_crypto_id">): WrapperResult | null {
+  const top = r.wrappers.find((w) => w.crypto_id === r.headline_crypto_id) ?? null;
+  return top && (top.volume_24h ?? 0) > 0 ? top : null;
+}
+
 // --- the view --------------------------------------------------------------------------
 
 export function present(r: CheckResponse, now = Date.now()): View {
@@ -133,7 +148,8 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const unitWord = commodity ? "ounce" : r.asset.asset_type === "stock" || r.asset.asset_type === "etf" ? "share" : "unit";
   const ws = r.wrappers;
   const live = ws.filter((w) => w.verdict !== "GHOST");
-  const best = ws.find((w) => w.crypto_id === r.headline_crypto_id) ?? null;
+  const top = ws.find((w) => w.crypto_id === r.headline_crypto_id) ?? null;
+  const best = recommended(r);
   const ghosts = ws.filter((w) => w.verdict === "GHOST");
   const perGram = ws.filter((w) => w.unit === "per_gram_to_oz" && w.verdict !== "GHOST");
   const ref = r.reference.price_usd;
@@ -148,7 +164,8 @@ export function present(r: CheckResponse, now = Date.now()): View {
 
   // Reasons (design style: bold fact + plain rest), in priority order, max 4.
   const reasons: ReasonView[] = [];
-  if (live.length) {
+  // When nothing trades, a tight price spread is beside the point; that reason makes way.
+  if (live.length && !(top && !best)) {
     const within = [0.1, 0.2, 0.5, 1].find((th) => live.filter((w) => Math.abs(w.premium_pct ?? 99) <= th).length >= Math.ceil(live.length / 2));
     if (within !== undefined) {
       const k = live.filter((w) => Math.abs(w.premium_pct ?? 99) <= within).length;
@@ -199,6 +216,8 @@ export function present(r: CheckResponse, now = Date.now()): View {
       strong: `${best.display} is easiest to sell,`,
       rest: ` ${moneyShort(best.volume_24h ?? 0)} traded in the last day.`,
     });
+  } else if (top) {
+    reasons.unshift({ tone: "thin", strong: "Nothing traded in the last day.", rest: " Selling any of these later could be hard." });
   }
 
   // Instrument
@@ -208,6 +227,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const coins: InstrumentCoin[] = ordered.map((w) => ({
     id: w.crypto_id,
     ticker: w.symbol,
+    display: w.display,
     kind: coinKind(w),
     verdict: w.verdict,
     premium: w.verdict === "GHOST" ? null : w.premium_pct,
@@ -256,6 +276,10 @@ export function present(r: CheckResponse, now = Date.now()): View {
         ticker: best.symbol,
         display: best.display,
         by: best.issuer_name && !/derivative/i.test(best.issuer_name) ? best.issuer_name : null,
+        where: [
+          best.chain ? { label: "chain", value: best.chain } : null,
+          best.contract ? { label: "contract", value: shortAddress(best.contract) } : null,
+        ].filter((x): x is { label: string; value: string } => x !== null),
         line: routeLine(best.verdict),
         stats: [
           { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} the typical price` },
@@ -311,12 +335,16 @@ export function present(r: CheckResponse, now = Date.now()): View {
       rows,
     },
     route,
+    noEasyExit: top !== null && best === null,
     gaps: gapViews(r.gaps, noun, commodity),
     evidence: evidenceViews(r.evidence, ws),
     fine: `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
     mode: r.mode,
   };
 }
+
+/** 0x6874…2F38: enough to match against the issuer's site, short enough to read. */
+export const shortAddress = (a: string) => (a.length > 14 ? `${a.slice(0, 6)}…${a.slice(-4)}` : a);
 
 function ghostLine(w: WrapperResult, Noun: string): string {
   if (w.price_raw === null) return `${w.display} has no price`;

@@ -4,7 +4,7 @@ import type { Mood } from "@/lib/present";
 import { runCheck } from "@/lib/run-check";
 
 // ?q=GOLD renders the result on the server (shareable). Design review: ?t=1560 freezes
-// the reveal at that moment.
+// the reveal at that moment, ?drawer opens Evidence.
 export default async function Page({ searchParams }: PageProps<"/">) {
   const sp = await searchParams;
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
@@ -15,7 +15,7 @@ export default async function Page({ searchParams }: PageProps<"/">) {
   const initial = q ? (await runCheck(q)).body : null;
   const mood = initial?.ok ? initial.mood : await loadMood();
 
-  return <Desk initialQuery={q} initial={initial} initialMood={mood} seek={seek} />;
+  return <Desk initialQuery={q} initial={initial} initialMood={mood} seek={seek} drawer={sp.drawer !== undefined} />;
 }
 
 async function loadMood(): Promise<Mood | null> {

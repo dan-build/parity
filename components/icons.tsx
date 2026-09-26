@@ -37,7 +37,7 @@ export function ReasonGlyph({ tone }: { tone: Tone }) {
 }
 
 export function GapGlyph({ icon }: { icon: GapView["icon"] }) {
-  const common = { width: 15, height: 15, viewBox: "0 0 24 24", fill: "none", stroke: "#76767C", strokeWidth: 2.2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  const common = { width: 15, height: 15, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2.2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   switch (icon) {
     case "exchange":
       return <svg {...common}><path d="M4 7h12l-3-3M20 17H8l3 3" /></svg>;

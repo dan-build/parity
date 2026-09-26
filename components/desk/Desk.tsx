@@ -10,10 +10,12 @@ import { labelFor } from "@/lib/chips";
 import { present, type CheckResponse, type Mood } from "@/lib/present";
 import type { CheckBody } from "@/lib/run-check";
 import { Reveal } from "../reveal/Reveal";
+import { Evidence } from "./Evidence";
 import { Header } from "./Header";
 import { Reasons, Tiles, Verdict } from "./Hero";
 import { List } from "./List";
 import { Log } from "./Log";
+import { Lower } from "./Lower";
 import { Stage } from "./Stage";
 import s from "./Desk.module.css";
 
@@ -36,16 +38,22 @@ export function Desk({
   initial,
   initialMood,
   seek,
+  drawer,
 }: {
   initialQuery: string;
   /** Rendered on the server for ?q= links. */
   initial: CheckBody | null;
   initialMood: Mood | null;
   seek: number | null;
+  /** ?drawer: open Evidence on load (design review). */
+  drawer: boolean;
 }) {
   const [state, setState] = useState<State>(initial ? toState(initialQuery, initial) : { status: "empty" });
   const [mood, setMood] = useState(initialMood);
   const [replays, setReplays] = useState(0);
+  const [evidenceOpen, setEvidenceOpen] = useState(drawer);
+  const openEvidence = useCallback(() => setEvidenceOpen(true), []);
+  const closeEvidence = useCallback(() => setEvidenceOpen(false), []);
   const inflight = useRef<AbortController | null>(null);
 
   const load = useCallback(async (query: string) => {
@@ -67,6 +75,7 @@ export function Desk({
   const run = useCallback(
     (q: string, push: boolean) => {
       const query = q.trim();
+      setEvidenceOpen(false);
       if (push) window.history.pushState({ q: query }, "", query ? `?q=${encodeURIComponent(query)}` : window.location.pathname);
       if (!query) {
         inflight.current?.abort();
@@ -95,17 +104,32 @@ export function Desk({
         {state.status === "ready" && view && (
           <Reveal runKey={`${state.run}:${replays}`} seek={seek}>
             <main className={s.window} data-verdict={view.headline.verdict}>
-              <TitleBar title={`check ${view.asset.symbol}`} mode={view.mode} onReplay={() => setReplays((n) => n + 1)} />
+              <TitleBar
+                title={`check ${view.asset.symbol}`}
+                mode={view.mode}
+                onReplay={() => setReplays((n) => n + 1)}
+                evidence={{ count: view.evidence.filter((e) => !e.static).length, open: openEvidence }}
+              />
               <div className={s.grid}>
                 {/* DOM order is the phone order; desktop places these by grid area. */}
                 <Verdict view={view} />
-                <Log data={state.data} />
+                <Log data={state.data} onEvidence={openEvidence} />
                 <Stage view={view} />
                 <Tiles view={view} />
                 <Reasons view={view} />
                 <List view={view} />
+                <Lower view={view} />
               </div>
+              <footer className={s.fine}>{view.fine}</footer>
             </main>
+            <Evidence
+              key={state.run}
+              rows={view.evidence}
+              mode={view.mode}
+              generatedAt={state.data.generated_at}
+              open={evidenceOpen}
+              onClose={closeEvidence}
+            />
           </Reveal>
         )}
 
@@ -164,7 +188,17 @@ export function Desk({
   );
 }
 
-function TitleBar({ title, mode, onReplay }: { title: string; mode?: "fixture" | "live"; onReplay?: () => void }) {
+function TitleBar({
+  title,
+  mode,
+  onReplay,
+  evidence,
+}: {
+  title: string;
+  mode?: "fixture" | "live";
+  onReplay?: () => void;
+  evidence?: { count: number; open: () => void };
+}) {
   return (
     <div className={s.titlebar}>
       <span className={s.dots} aria-hidden="true">
@@ -175,8 +209,13 @@ function TitleBar({ title, mode, onReplay }: { title: string; mode?: "fixture" |
       <span className={s.title}>parity — {title}</span>
       <span className={s.tools}>
         {onReplay && (
-          <button type="button" onClick={onReplay} aria-label="Replay the check">
+          <button type="button" className={s.replay} onClick={onReplay} aria-label="Replay the check">
             replay
+          </button>
+        )}
+        {evidence && (
+          <button type="button" onClick={evidence.open} aria-haspopup="dialog">
+            evidence <b>{evidence.count}</b>
           </button>
         )}
         {mode && <em title={mode === "fixture" ? "Saved CoinMarketCap responses, replayed" : "Live CoinMarketCap data"}>{mode === "fixture" ? "saved" : "live"}</em>}

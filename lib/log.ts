@@ -6,7 +6,7 @@
  */
 import type { EvidenceEntry } from "./cmc";
 import type { CheckResponse } from "./present";
-import { money, moneyShort, pct } from "./present";
+import { money, moneyShort, pct, recommended } from "./present";
 import { T } from "./reveal/timings";
 
 export type LogLine = {
@@ -118,11 +118,12 @@ function callLines(r: CheckResponse): Omit<LogLine, "at">[] {
 }
 
 export function logSummary(r: CheckResponse): LogSummary {
-  const best = r.wrappers.find((w) => w.crypto_id === r.headline_crypto_id);
+  const best = recommended(r);
   const word = { FAIR: "Fair", RICH: "Rich", THIN: "Thin", GHOST: "Ghost" }[r.verdict];
+  const holdable = r.wrappers.some((w) => w.verdict !== "GHOST");
   return {
     calls: r.evidence.length,
     credits: r.evidence.reduce((s, e) => s + spent(e), 0),
-    verdictLine: best ? `${word} · best way in: ${best.display}` : `${word} · nothing worth holding`,
+    verdictLine: best ? `${word} · best way in: ${best.display}` : holdable ? `${word} · no easy way out` : `${word} · nothing worth holding`,
   };
 }

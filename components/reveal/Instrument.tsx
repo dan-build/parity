@@ -19,6 +19,8 @@ export type CoinProps = {
   size: number;
   ticker?: string | null;
   variant?: "gold" | "ghost" | "rich";
+  /** Full name, shown on hover or tap. */
+  title?: string;
   ref?: Ref<HTMLSpanElement>;
   style?: CSSProperties;
 };
@@ -223,6 +225,7 @@ export function Instrument({
                     ref={refFor(c.id, "coin")}
                     size={geo.D}
                     ticker={c.ticker}
+                    title={c.display}
                     variant={c.kind === "ghost" ? "ghost" : c.verdict === "RICH" ? "rich" : "gold"}
                     style={c.kind === "gram" ? { transformOrigin: "50% 100%" } : undefined}
                   />

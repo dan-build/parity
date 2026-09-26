@@ -1,0 +1,36 @@
+/* Full-name tooltip for instrument coins (hover on desktop, tap on phones). */
+
+.tip {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translate(-50%, 4px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--raised);
+  box-shadow: 0 0 0 1px var(--line-2), 0 10px 24px -10px rgba(0, 0, 0, 0.8);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--text);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.12s var(--ease-out),
+    transform 0.12s var(--ease-out);
+}
+
+.tip:hover::after,
+.tip:focus::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
