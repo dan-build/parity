@@ -8,7 +8,7 @@ Parity is built for a **crypto-native retail buyer** who is about to buy a token
 
 Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMarketCap API.
 
-> **Live:** _link coming_ <!-- TODO: add the Vercel URL -->
+> **Live:** **[parity-gray-one.vercel.app](https://parity-gray-one.vercel.app)**. Try [GOLD](https://parity-gray-one.vercel.app/?q=GOLD), [UNH](https://parity-gray-one.vercel.app/?q=UNH), [SILVER](https://parity-gray-one.vercel.app/?q=SILVER) or [KLAC](https://parity-gray-one.vercel.app/?q=KLAC)
 
 ![Parity: the GOLD verdict. Seven gold tokens on one scale, two converted from per-gram prices](docs/screenshot.png)
 
