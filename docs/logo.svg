@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <title>Parity</title>
+  <!-- A token at parity: one ring coin resting on the price scale, the needle (the typical
+       price) passing straight through its centre. Desk palette: near-black, gold, one green pin. -->
+  <defs>
+    <linearGradient id="needle" gradientUnits="userSpaceOnUse" x1="240" y1="84" x2="240" y2="146">
+      <stop offset="0" stop-color="#E3B04B" stop-opacity="0"/>
+      <stop offset="1" stop-color="#E3B04B"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="480" fill="#0F0F10"/>
+  <!-- the scale -->
+  <line x1="96" y1="366" x2="384" y2="366" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="8" stroke-linecap="round"/>
+  <!-- the coin -->
+  <circle cx="240" cy="264" r="92" fill="#E3B04B" fill-opacity="0.12" stroke="#E3B04B" stroke-width="16"/>
+  <circle cx="240" cy="264" r="64" fill="none" stroke="#E3B04B" stroke-opacity="0.4" stroke-width="4"/>
+  <!-- the needle: above the coin, then through its centre -->
+  <line x1="240" y1="84" x2="240" y2="146" stroke="url(#needle)" stroke-width="8" stroke-linecap="round"/>
+  <line x1="240" y1="214" x2="240" y2="314" stroke="#E3B04B" stroke-width="8" stroke-linecap="round"/>
+  <!-- the fair pin, exactly under the needle -->
+  <circle cx="240" cy="366" r="12" fill="#3DD68C" stroke="#0F0F10" stroke-width="6"/>
+</svg>
