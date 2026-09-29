@@ -8,7 +8,7 @@ Parity is built for a **crypto-native retail buyer** who is about to buy a token
 
 Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMarketCap API.
 
-> **Live:** **[parity-gray-one.vercel.app](https://parity-gray-one.vercel.app)**. Try [GOLD](https://parity-gray-one.vercel.app/?q=GOLD), [UNH](https://parity-gray-one.vercel.app/?q=UNH), [SILVER](https://parity-gray-one.vercel.app/?q=SILVER) or [KLAC](https://parity-gray-one.vercel.app/?q=KLAC)
+> **Live:** **[parity-gray-one.vercel.app](https://parity-gray-one.vercel.app)**. Try [GOLD](https://parity-gray-one.vercel.app/?q=GOLD), [SILVER](https://parity-gray-one.vercel.app/?q=SILVER) or [KLAC](https://parity-gray-one.vercel.app/?q=KLAC). Verdicts are live, so they move with the market.
 
 ![Parity: the GOLD verdict. Seven gold tokens on one scale, two converted from per-gram prices](docs/screenshot.png)
 
@@ -21,11 +21,13 @@ Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMa
 | Verdict | Means | Try it | Why |
 |---|---|---|---|
 | **Fair** | Priced like the others, with a market to sell into | `/?q=GOLD` | 7 tokens. Two are quoted **per gram** and look 97% cheaper until converted. XAUt is the most traded. |
-| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | UNHon is the only UNH token with real trading, and it costs **+1.51%** (about $5.83 a share) more than UNHX. |
+| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | When recorded (26 Sep), UNHon was the only UNH token with real trading, and it cost **+1.51%** (about $5.83 a share) more than UNHX. |
 | **Thin** | The price is fine, but little trading to sell into later | `/?q=SILVER` | No token that tracks silver traded in the last day, so Parity recommends none: **"no easy way out"**. |
 | **Ghost** | Nothing you can rely on: no price, not a real token, or tokens that disagree | `/?q=KLAC` | Its two holdable tokens are priced **about 10× apart** ($1,883.88 vs $188.26). Parity won't guess which one is right. |
 
-These all work with no API key. The chips under the search box load them in one click. NVDA, SPY, TSLA, AAPL and MS are saved too.
+These examples come from saved data (25–26 Sep), and they all work with no API key. The chips under the search box load them in one click. NVDA, SPY, TSLA, AAPL and MS are saved too.
+
+**The live site uses live data, so verdicts move with the market.** On 29 Sep, GOLD, SILVER and KLAC still read Fair, Thin and Ghost live, but UNH had moved back to Fair. To see the Rich snapshot, run Parity locally with no key.
 
 ## What you see
 
