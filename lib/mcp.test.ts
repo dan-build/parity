@@ -58,6 +58,15 @@ describe("check_rwa (in memory)", () => {
     expect(o.tokens).toHaveLength(7);
   });
 
+  it("reads cleanly: a colon after the verdict word, prices in cents, volumes in dollars", async () => {
+    const o = (await call("SILVER")).structuredContent as Out & { summary: string; tokens: { price_usd: number | null; volume_24h_usd: number | null }[] };
+    expect(o.summary).toBe("Thin: not much market to sell into.");
+    for (const t of o.tokens) {
+      if (t.price_usd !== null) expect(String(t.price_usd)).toMatch(/^\d+(\.\d{1,2})?$/);
+      if (t.volume_24h_usd !== null) expect(Number.isInteger(t.volume_24h_usd)).toBe(true);
+    }
+  });
+
   it("keeps colliding symbols apart", async () => {
     const o = (await call("NVDA")).structuredContent as Out;
     const nvda = o.tokens.filter((t) => t.token.startsWith("NVDA ("));

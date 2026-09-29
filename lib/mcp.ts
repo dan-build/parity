@@ -21,7 +21,7 @@ export const checkOutput = {
   asset: z.object({ name: z.string(), symbol: z.string(), rwa_id: z.number() }),
   verdict,
   answer: z.string().describe('One line: "best way in · XAUt", "no easy way out", "no price to trust" or "nothing to hold"'),
-  summary: z.string().describe("The verdict in a sentence, e.g. 'Fair if you pick the right token.'"),
+  summary: z.string().describe("The verdict in a sentence, e.g. 'Fair: if you pick the right token.'"),
   reasons: z.array(z.string()),
   best_way_in: z
     .object({ token: z.string(), issuer: z.string().nullable(), chain: z.string().nullable(), contract: z.string().nullable() })
@@ -51,6 +51,8 @@ export const checkOutput = {
   disclaimer: z.string(),
 };
 
+const round = (n: number | null, digits: number) => (n === null ? null : Math.round(n * 10 ** digits) / 10 ** digits);
+
 type CheckOutput = { [K in keyof typeof checkOutput]: z.infer<(typeof checkOutput)[K]> };
 
 /** Run one check and shape it for an agent. `null` with a message when there's no answer. */
@@ -67,7 +69,7 @@ export async function checkRwa(query: string): Promise<{ ok: true; out: CheckOut
     asset: { name: body.asset.name, symbol: body.asset.symbol, rwa_id: body.asset.rwa_id },
     verdict: body.verdict,
     answer: answerLine(body),
-    summary: `${view.headline.word} ${view.headline.sub}`,
+    summary: `${view.headline.word}: ${view.headline.sub}`,
     reasons: view.reasons.map((r) => `${r.strong}${r.rest}`.trim()),
     best_way_in: best ? { token: best.display, issuer: best.issuer_name, chain: best.chain, contract: best.contract } : null,
     tokens: body.wrappers.map((w) => ({
@@ -75,9 +77,9 @@ export async function checkRwa(query: string): Promise<{ ok: true; out: CheckOut
       crypto_id: w.crypto_id,
       issuer: w.issuer_name,
       chain: w.chain,
-      price_usd: w.price_usd,
-      premium_pct: w.premium_pct === null ? null : Math.round(w.premium_pct * 100) / 100,
-      volume_24h_usd: w.volume_24h,
+      price_usd: round(w.price_usd, 2),
+      premium_pct: round(w.premium_pct, 2),
+      volume_24h_usd: round(w.volume_24h, 0),
       exit: view.list.rows.find((r) => r.id === w.crypto_id)?.exit.word ?? "None",
       verdict: w.verdict,
     })),
