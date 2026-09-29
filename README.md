@@ -202,4 +202,13 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 
 ---
 
+## What's next
+
+Parity's plan is to become the neutral, open trust check for tokenised assets. That means
+real reference prices, an open registry of what each token represents (units, share ratios,
+redemption terms), alerts, and a public API. Every step ships with its evaluations. See
+[`ROADMAP.md`](ROADMAP.md).
+
+---
+
 Data from [CoinMarketCap](https://coinmarketcap.com/api/). Not financial advice.
