@@ -25,7 +25,9 @@ Hard deadline: Wed 30 Sep 2026, 23:59 UTC. Treat 29 Sep night as the real deadli
 7. Share image per verdict (Open Graph image at /api/og?q=NVDA) + shareable URL
 8. Fixture mode: if no key or rate-limited, serve saved JSON responses so the demo never breaks
 9. STRETCH: market-stress badge (Fear & Greed and/or derivatives liquidations, if the key allows)
-10. STRETCH: tiny MCP server exposing `check_rwa(query)` using the same engine
+10. STRETCH: tiny MCP server exposing `check_rwa(query)` using the same engine. **Done:**
+    `lib/mcp.ts` (server + `checkRwa()`), `scripts/mcp.ts` (stdio; relative imports on purpose,
+    because tsx resolves `@/` from the cwd), evaluated by `lib/mcp.test.ts`
 
 Out of scope: x402, user accounts, databases, portfolio tracking, charts for decoration.
 

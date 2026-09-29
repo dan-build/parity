@@ -96,12 +96,44 @@ If the asset isn't saved, the page asks you to try again in a minute.
 
 | Command | What it does | Credits |
 |---|---|---|
-| `npm test` | 100 tests: verdict engine, copy, log, fallbacks, all against saved responses | 0 |
+| `npm test` | 112 tests: verdict engine, copy, log, fallbacks, and the MCP server (in memory and over stdio), all against saved responses | 0 |
+| `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
 | `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |
 | `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~5–6 each |
 | `npm run scan -- --budget 60` | Screens assets for RICH/GHOST candidates: reads the saved asset list, pulls live quotes and runs the real `verdict()`. Saves nothing. | 1 per asset |
 
 `probe` and `scan` read `CMC_API_KEY` from `.env.local`. They space out calls to stay under 50 requests a minute, and print the day's credits before and after.
+
+### Use it from an AI agent (MCP)
+
+Parity is also an [MCP](https://modelcontextprotocol.io) server with one read-only tool, **`check_rwa(query)`**. It runs the same engine as the site and returns structured JSON:
+- the verdict and the one-line answer
+- the reasons
+- the best way in, with its chain and contract (or `null` when nothing is recommended)
+- every token, with price, premium, exit and verdict
+- what the data can't tell you
+- a share link
+
+For Claude Code:
+
+```bash
+claude mcp add parity -- /path/to/parity/node_modules/.bin/tsx /path/to/parity/scripts/mcp.ts
+```
+
+For Claude Desktop or Cursor (`mcpServers` in the client's config):
+
+```json
+{
+  "mcpServers": {
+    "parity": {
+      "command": "/path/to/parity/node_modules/.bin/tsx",
+      "args": ["/path/to/parity/scripts/mcp.ts"]
+    }
+  }
+}
+```
+
+It uses saved data by default, with no key and no credits. With `CMC_API_KEY` and `PARITY_DATA_MODE=live` in `.env.local`, it uses live data, with the same automatic fallback as the site. Then ask things like *"Is tokenised gold fairly priced right now? Which token should I look at?"*
 
 ---
 
