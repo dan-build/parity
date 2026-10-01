@@ -9,7 +9,7 @@
  * and the coin component.
  */
 import { useLayoutEffect, useMemo, useRef, useState, type ComponentType, type CSSProperties, type ReactNode, type Ref } from "react";
-import type { View } from "@/lib/present";
+import { pct, type View } from "@/lib/present";
 import { computeGeometry, type GeometryOptions } from "@/lib/reveal/layout";
 import { drop, eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";
@@ -24,6 +24,8 @@ export type CoinProps = {
   ref?: Ref<HTMLSpanElement>;
   style?: CSSProperties;
 };
+export const coinTitle = (display: string, premium: number | null) =>
+  premium === null ? display : `${display} · ${pct(premium)} vs typical`;
 
 type Styles = Record<string, string>;
 type CoinEls = { wrap: HTMLElement | null; coin: HTMLElement | null; shadow: HTMLElement | null; pin: HTMLElement | null };
@@ -225,7 +227,7 @@ export function Instrument({
                     ref={refFor(c.id, "coin")}
                     size={geo.D}
                     ticker={c.ticker}
-                    title={c.display}
+                    title={coinTitle(c.display, c.premium)}
                     variant={c.kind === "ghost" ? "ghost" : c.verdict === "RICH" ? "rich" : "gold"}
                     style={c.kind === "gram" ? { transformOrigin: "50% 100%" } : undefined}
                   />
