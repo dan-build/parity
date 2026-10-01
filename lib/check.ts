@@ -5,12 +5,13 @@
 import {
   isSupportedDexChain,
   type AssetType,
+  type MetalCode,
   type CmcClient,
   type EvidenceEntry,
   type RwaMapEntry,
   type WrapperContract,
 } from "./cmc";
-import { METHOD_VERSION, preScreen, verdict, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
+import { METHOD_VERSION, preScreen, verdict, type Spot, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
 
 export type CheckResult = VerdictResult & {
   query: string;
@@ -101,6 +102,13 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   };
 }
 
+/** RWA commodity symbol → the metal CMC prices as spot (/v1/fiat/map?include_metals=true). */
+const METAL_FOR: Record<string, MetalCode> = { GOLD: "XAU", SILVER: "XAG", PLATINUM: "XPT", PALLADIUM: "XPD" };
+
+/** The metal CMC prices as spot for this RWA asset, if any. */
+export const metalFor = (a: { asset_type: AssetType; symbol: string }): MetalCode | undefined =>
+  a.asset_type === "commodity" ? METAL_FOR[a.symbol.toUpperCase()] : undefined;
+
 /**
  * Fetch everything verdict() needs for one rwa_id: wrappers (quotes/latest),
  * their primary contracts, and DEX pools for live wrappers on verified chains.
@@ -117,6 +125,15 @@ export async function gatherInputs(
   if (!quoteRes.data) return { ok: false, message: "no data returned" };
   const quote = quoteRes.data;
   const tokens = quote.tokens.filter((t) => typeof t.crypto_id === "number");
+
+  // Metals: CMC's spot price at the moment of these quotes, so the comparison is like-for-like.
+  let spot: Spot | null = null;
+  const metal = metalFor(quote);
+  if (metal) {
+    const s = await client.metalSpot(metal, quote.last_updated);
+    if (s.ok) spot = { code: metal, ...s.data };
+    else gaps.push({ code: "spot_unavailable", message: `Couldn't get the ${quote.name.toLowerCase()} spot price (${s.message}), so tokens are compared with each other instead.` });
+  }
 
   // Contracts (chain + address) per wrapper.
   let contracts = new Map<number, WrapperContract>();
@@ -158,6 +175,7 @@ export async function gatherInputs(
       tokens,
       contracts,
       pools,
+      spot,
     },
   };
 }

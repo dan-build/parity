@@ -19,15 +19,21 @@ async function full(symbol: string) {
 }
 
 describe("hourly price rows", () => {
-  it("convert per-gram tokens and agree with the full check's typical price", async () => {
-    const q = await fixtureClient().rwaQuotesLatest(1);
+  it("convert per-gram tokens, record spot, and agree with the full check", async () => {
+    const c = fixtureClient();
+    const q = await c.rwaQuotesLatest(1);
     if (!q.ok || !q.data) throw new Error("GOLD quotes");
-    const row = priceRow(q.data, T);
+    const s = await c.metalSpot("XAU", q.data.last_updated);
+    if (!s.ok) throw new Error("GOLD spot");
+    const row = priceRow(q.data, T, { code: "XAU", ...s.data });
     expect(row).toMatchObject({ t: T, kind: "prices", symbol: "GOLD", rwa_id: 1 });
     expect(row.tokens.filter((x) => x.unit === "per_gram_to_oz")).toHaveLength(2);
     const cgo = row.tokens.find((x) => x.token === "CGO")!;
     expect(cgo.price).toBeGreaterThan(4000); // per ounce, not ~$137 per gram
-    expect(row.typical_price).toBe(Math.round((await full("GOLD")).reference.price_usd! * 100) / 100);
+    const f = await full("GOLD");
+    expect(row.typical_price).toBe(Math.round(f.reference.consensus_usd! * 100) / 100);
+    expect(row.spot).toBe(4285.41);
+    expect(row.tokens.find((x) => x.token === "XAUt")!.premium_pct).toBe(Math.round(f.wrappers.find((w) => w.display === "XAUt")!.premium_pct! * 100) / 100);
   });
 
   it("works for every watched asset, and the watchlist ids are the assets they claim", async () => {

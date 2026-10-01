@@ -36,7 +36,7 @@ export function List({ view }: { view: View }) {
       <div className={s.cols} aria-hidden="true">
         <span>token</span>
         <span>price</span>
-        <span>vs typical</span>
+        <span>{view.instrument.reference.vs.replace(" price", "")}</span>
         <span>exit</span>
         <span>verdict</span>
       </div>

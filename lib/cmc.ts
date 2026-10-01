@@ -15,6 +15,10 @@ export const CACHE_TTL_MS = 60_000;
 export const DEX_PLATFORM_ALIASES: Record<string, string> = { bnb: "bsc" };
 /** Chains whose DEX pool lookups we've verified. Others are skipped and reported as a gap. */
 export const SUPPORTED_DEX_CHAINS = ["ethereum", "solana", "bsc"] as const;
+
+/** CMC ids of precious metals, from /v1/fiat/map?include_metals=true (fixtures/). */
+export const METAL_IDS = { XAU: 3575, XAG: 3574, XPT: 3577, XPD: 3576 } as const;
+export type MetalCode = keyof typeof METAL_IDS;
 const MAP_PAGE_SIZE = 200;
 const MAP_MAX_PAGES = 40;
 /** The RWA map (~4,000 assets, 20+ pages) barely changes; cache it for an hour. */
@@ -313,6 +317,21 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
         }
         return out;
       });
+    },
+
+    /**
+     * GET /v2/tools/price-conversion: 1 troy ounce of a metal in USD (1 credit). With `at`, the
+     * spot price at that moment, so it can be compared like-for-like with token quotes taken then.
+     */
+    async metalSpot(code: MetalCode, at: string | null): Promise<CmcResult<{ price_usd: number; as_of: string | null }>> {
+      const params: Params = { amount: 1, id: METAL_IDS[code], convert: "USD" };
+      if (at) params.time = at;
+      const res = await request("/v2/tools/price-conversion", params);
+      if (!res.ok) return res;
+      const price = num(get(res.data, "data", "quote", "USD", "price"));
+      if (price === null || price <= 0) return { ok: false, status: 200, errorCode: null, message: "no spot price in the response" };
+      const asOf = get(res.data, "data", "quote", "USD", "last_updated");
+      return { ok: true, data: { price_usd: price, as_of: typeof asOf === "string" ? asOf : null } };
     },
 
     /** GET /v1/dex/token/pools. `platform` is a CMC platform slug; aliases are applied here. */

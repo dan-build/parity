@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { clearCmcCache } from "./cmc";
 import { logLines, logSummary } from "./log";
-import { exitMeter, moneyShort, pct, present, recommended, type CheckResponse } from "./present";
+import { exitMeter, moneyShort, pct, present, recommended, usMarketClosedAt, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
 
 async function load(q: string): Promise<CheckResponse> {
@@ -38,8 +38,8 @@ describe("present(GOLD)", () => {
     expect(v.reasons.length).toBeGreaterThan(0);
     expect(v.reasons.length).toBeLessThanOrEqual(4);
     expect(v.reasons.find((r) => r.tone === "unit")?.strong).toBe("2 are priced per gram.");
-    // Honest label: the needle is the typical token price, not the spot price.
-    expect(v.instrument.reference.label).toBe("Gold tokens");
+    // The needle is CMC's gold spot price at the time of the quotes (method 1.1.0).
+    expect(v.instrument.reference).toMatchObject({ label: "Gold spot", price: "$4,285.41", vs: "vs spot price" });
     expect(v.instrument.zone?.label).toMatch(/^Looks 9\d% cheaper$/);
     expect(v.list.unitLine).toMatch(/^Per troy ounce/);
   });
@@ -88,15 +88,17 @@ describe("present(other assets)", () => {
 describe("summary tiles", () => {
   it("gives the hero four plain facts for GOLD", async () => {
     const v = present(await load("GOLD"));
-    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Price spread", "Traded, 24h", "Tokens checked"]);
+    expect(v.summary.map((t) => t.label)).toEqual(["Spot price", "Price spread", "Traded, 24h", "Tokens checked"]);
     expect(v.summary[0]).toMatchObject({ value: v.instrument.reference.price, note: "per troy ounce" });
     expect(v.summary[1].value).toMatch(/^\d+\.\d\d%$/);
     expect(v.summary[2]).toMatchObject({ value: expect.stringMatching(/^\$\d/), note: expect.stringMatching(/^\d+% in XAUt$/) });
     expect(v.summary[3]).toEqual({ label: "Tokens checked", value: "7", note: "1 can't be held" });
   });
 
-  it("says 'per share' for stocks", async () => {
-    expect(present(await load("NVDA")).summary[0].note).toBe("per share");
+  it("says 'per share' for stocks, which keep the tokens' typical price", async () => {
+    const v = present(await load("NVDA"));
+    expect(v.summary[0]).toMatchObject({ label: "Typical price", note: "per share" });
+    expect(v.instrument.reference.vs).toBe("vs typical price");
   });
 
   it("says plainly when nothing traded", async () => {
@@ -245,5 +247,22 @@ describe("KLAC: two tokens 10× apart", () => {
 
   it("MS has nothing to hold at all", async () => {
     expect(present(await load("MS")).headline.chip).toBe("nothing to hold");
+  });
+});
+
+describe("US market hours (stocks)", () => {
+  it("knows regular hours in New York time, across daylight saving", () => {
+    expect(usMarketClosedAt("2026-09-25T14:00:00Z")).toBe(false); // Fri 10:00 EDT
+    expect(usMarketClosedAt("2026-09-25T13:00:00Z")).toBe(true); // Fri 09:00 EDT, before the open
+    expect(usMarketClosedAt("2026-09-25T20:00:00Z")).toBe(true); // Fri 16:00 EDT, at the close
+    expect(usMarketClosedAt("2026-09-26T15:00:00Z")).toBe(true); // Saturday
+    expect(usMarketClosedAt("2026-12-01T14:45:00Z")).toBe(false); // Tue 09:45 EST
+    expect(usMarketClosedAt("2026-12-01T14:15:00Z")).toBe(true); // Tue 09:15 EST
+  });
+
+  it("tells stock buyers when quotes were taken with the market closed, and never metal buyers", async () => {
+    const title = "Where the shares are trading now";
+    expect(present(await load("NVDA")).gaps.some((g) => g.title === title)).toBe(true); // Fri 17:48 New York
+    expect(present(await load("GOLD")).gaps.some((g) => g.title === title)).toBe(false);
   });
 });

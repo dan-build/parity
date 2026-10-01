@@ -67,11 +67,19 @@ partial snapshot run fails the workflow, which GitHub reports by email.
 ## Phase 2: the real price (1–2 months)
 
 **Goal:** answer "is this token worth what it claims?", not only "do the tokens agree?".
+**Constraint for now:** CoinMarketCap only. A second, free provider for share prices is a
+decision for after the hackathon results.
 
-- [ ] **Reference prices:** the real share price for stocks (with market-hours awareness:
-      tokens trade 24/7, stocks don't) and the spot price for gold and silver
-- [ ] Show premium against the real price alongside premium against the other tokens
-- [ ] "What the data can't tell you" drops "the real price" when it's covered
+- [x] **Metals: real spot from CoinMarketCap** (method 1.1.0). Gold, silver, platinum and
+      palladium tokens are measured against CMC's spot price at the moment of the quotes
+      (`/v2/tools/price-conversion` with `time`). On the golden set no verdict changed; gold
+      tokens sit within ±0.2% of spot
+- [x] **Stocks: market-hours awareness.** When quotes were taken outside US hours, the page says
+      tokens can drift from the last close
+- [x] "What the data can't tell you" drops "the real price" for metals
+- [ ] **Stocks: a real share price.** CoinMarketCap doesn't have one; needs a second provider
+      (after results)
+- [ ] US market holidays (today only weekends and hours are known)
 
 **Evals:** tracking error of each token against its reference price over the history
 (flags tokens that drift); a backtest over saved history checks verdicts wouldn't flip-flop

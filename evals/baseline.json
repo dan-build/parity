@@ -1,59 +1,59 @@
 {
-  "method_version": "1.0.0",
+  "method_version": "1.1.0",
   "assets": {
     "GOLD": {
       "verdict": "FAIR",
       "answer": "best way in · XAUt",
       "sub": "if you pick the right token.",
-      "reference_price": 4281.38,
+      "reference_price": 4285.41,
       "tokens": {
         "4705": {
           "token": "PAXG",
           "verdict": "FAIR",
           "unit": "as_quoted",
-          "premium_pct": 0.08,
+          "premium_pct": -0.01,
           "exit_score": 80
         },
         "5176": {
           "token": "XAUt",
           "verdict": "FAIR",
           "unit": "as_quoted",
-          "premium_pct": 0.12,
+          "premium_pct": 0.03,
           "exit_score": 80
         },
         "20245": {
           "token": "CGO",
           "verdict": "THIN",
           "unit": "per_gram_to_oz",
-          "premium_pct": -0.84,
+          "premium_pct": -0.93,
           "exit_score": 25
         },
         "22492": {
           "token": "VNXAU",
           "verdict": "THIN",
           "unit": "per_gram_to_oz",
-          "premium_pct": -0.08,
+          "premium_pct": -0.18,
           "exit_score": 0
         },
         "34212": {
           "token": "XAUM",
           "verdict": "THIN",
           "unit": "as_quoted",
-          "premium_pct": -0.04,
+          "premium_pct": -0.14,
           "exit_score": 35
         },
         "37082": {
           "token": "XAUT0",
           "verdict": "THIN",
           "unit": "as_quoted",
-          "premium_pct": 0.04,
+          "premium_pct": -0.05,
           "exit_score": 25
         },
         "39344": {
           "token": "XAU",
           "verdict": "GHOST",
           "unit": "as_quoted",
-          "premium_pct": 0.31,
+          "premium_pct": 0.21,
           "exit_score": null
         }
       }
@@ -339,27 +339,27 @@
       "verdict": "THIN",
       "answer": "no easy way out",
       "sub": "not much market to sell into.",
-      "reference_price": 64.42,
+      "reference_price": 64.29,
       "tokens": {
         "24439": {
           "token": "KAG",
           "verdict": "GHOST",
           "unit": "as_quoted",
-          "premium_pct": -48.6,
+          "premium_pct": -48.5,
           "exit_score": null
         },
         "32149": {
           "token": "XAGX",
           "verdict": "THIN",
           "unit": "as_quoted",
-          "premium_pct": 0,
+          "premium_pct": 0.19,
           "exit_score": 0
         },
         "37080": {
           "token": "GRAMS",
           "verdict": "THIN",
           "unit": "per_gram_to_oz",
-          "premium_pct": 0.06,
+          "premium_pct": 0.26,
           "exit_score": 0
         },
         "39318": {
@@ -373,7 +373,7 @@
           "token": "XAG",
           "verdict": "GHOST",
           "unit": "as_quoted",
-          "premium_pct": -0.01,
+          "premium_pct": 0.18,
           "exit_score": null
         }
       }

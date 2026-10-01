@@ -13,7 +13,7 @@ export function Stage({ view }: { view: View }) {
   return (
     <section className={s.stage} aria-label="Every token on one scale">
       <div className={s.head}>
-        <span>vs typical price</span>
+        <span>{view.instrument.reference.vs}</span>
         <span>±1%</span>
       </div>
       <Instrument

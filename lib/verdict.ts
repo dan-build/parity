@@ -15,7 +15,7 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
  * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
  * this stays the same.
  */
-export const METHOD_VERSION = "1.0.0";
+export const METHOD_VERSION = "1.1.0";
 
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
@@ -56,7 +56,11 @@ export type VerdictInput = {
   tokens: RwaToken[];
   contracts: Map<number, WrapperContract>;
   pools: Map<number, PoolLookup>;
+  /** Metals only: CMC's spot price at the moment of the token quotes. When present it is the reference. */
+  spot?: Spot | null;
 };
+
+export type Spot = { code: string; price_usd: number; as_of: string | null };
 
 export type WrapperResult = {
   crypto_id: number;
@@ -99,8 +103,13 @@ export type VerdictResult = {
   reasons: string[];
   wrappers: WrapperResult[];
   reference: {
-    method: "median_of_live_wrappers";
+    /** metal_spot: CMC's spot price (metals). median_of_live_wrappers: the tokens' consensus (stocks). */
+    method: "metal_spot" | "median_of_live_wrappers";
+    /** What premiums are measured against. */
     price_usd: number | null;
+    /** The tokens' own median (after unit conversion), always computed. */
+    consensus_usd: number | null;
+    spot: Spot | null;
     wrappers_used: number;
     cmc_average_tokenized_price: number | null;
   };
@@ -200,7 +209,10 @@ export function verdict(input: VerdictInput): VerdictResult {
 
   // 3. Reference price: median of normalised live prices.
   const refPrices = live.map((t) => normalised(t) as number);
-  const ref = median(refPrices);
+  const consensus = median(refPrices);
+  // Metals: measure against the real spot price when CMC gives one; otherwise the consensus.
+  const spot = input.spot && input.spot.price_usd > 0 ? input.spot : null;
+  const ref = spot ? spot.price_usd : consensus;
 
   // Symbols collide ("NVDA" × 2) and can be missing, so copy names a wrapper by symbol
   // (or name), plus the issuer when another wrapper shares it. CMC sometimes has neither
@@ -306,13 +318,13 @@ export function verdict(input: VerdictInput): VerdictResult {
       message:
         "We can't see which exchanges trade each token or how much trades there. That data isn't in our CoinMarketCap plan.",
     },
-    {
+    ...(spot ? [] : [{
       code: "no_underlying_price",
       message:
         asset.asset_type === "stock" || asset.asset_type === "etf"
           ? `We compare ${assetLabel} tokens with each other, not with the real ${assetLabel} share price. If they all drifted together, we wouldn't see it.`
           : `We compare ${assetLabel} tokens with each other, not with the ${asset.name.toLowerCase()} spot price. If they all drifted together, we wouldn't see it.`,
-    },
+    }]),
   ];
   for (const w of liveResults) {
     if (!w.dex.checked) {
@@ -336,8 +348,10 @@ export function verdict(input: VerdictInput): VerdictResult {
     reasons,
     wrappers,
     reference: {
-      method: "median_of_live_wrappers",
+      method: spot ? "metal_spot" : "median_of_live_wrappers",
       price_usd: ref,
+      consensus_usd: consensus,
+      spot,
       wrappers_used: refPrices.length,
       cmc_average_tokenized_price: asset.average_tokenized_price,
     },

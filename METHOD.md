@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.0.0**
+**Method version 1.1.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -33,16 +33,28 @@ within **±5%** of, either as quoted or multiplied by **31.1035** (grams per tro
 token that only agrees with the consensus after that multiplication is per gram, and is
 converted. The page shows each conversion.
 
-## 5. The typical price
-The **typical price** is the median of the remaining tokens' prices, after unit conversion.
-It's a comparison between tokens, not the real share or spot price. If no token is left to
-compare, no typical price is shown.
+## 5. The reference price
+Premiums are measured against one reference price:
+
+- **Metals (gold, silver, platinum, palladium): CoinMarketCap's spot price** for one troy
+  ounce, taken **at the moment of the token quotes** (`/v2/tools/price-conversion` with
+  `time` set to the quotes' `last_updated`). The comparison is like-for-like, live or replayed.
+- **Stocks and ETFs: the typical price,** the median of the remaining tokens' prices after unit
+  conversion. CoinMarketCap has no share prices, so this compares tokens with each other. If no
+  token is left to compare, no typical price is shown.
+
+If the spot price can't be fetched, metals fall back to the typical price, and the page says so.
+The typical price is always computed too (unit detection in §4 uses it).
+
+**Stocks outside market hours:** tokens trade around the clock, but the shares don't. When the
+quotes were taken outside regular US hours (Mon–Fri 9:30–16:00 New York time), the page says
+prices can drift from the last close. Market holidays aren't known yet.
 
 ## 6. Premium
-Each token's **premium** = its price ÷ the typical price − 1, shown in % and in $ per unit.
+Each token's **premium** = its price ÷ the reference price − 1, shown in % and in $ per unit.
 
 ## 7. Prices that don't track the asset (Ghost)
-A token more than **5%** above or below the typical price doesn't track the asset. It's a
+A token more than **5%** above or below the reference price doesn't track the asset. It's a
 **Ghost** ("a price far from the rest"). It may still be holdable; it just can't be trusted
 as this asset's price.
 
@@ -75,8 +87,8 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 - Parity never says "buy".
 
 ## 12. What this method can't see
-- The real share or spot price: tokens are compared with each other, so if they all drifted
-  together, it wouldn't show. (Roadmap, Phase 2.)
+- The real share price of stocks: CoinMarketCap doesn't have it, so stock tokens are compared
+  with each other. If they all drifted together, it wouldn't show. (Metals use real spot.)
 - Which exchanges each token trades on (market pairs not in our plan).
 - Pool depth on chains other than Ethereum, Solana and BSC.
 - Whether the issuer really holds the asset: no API can check that. Read the issuer's
@@ -85,6 +97,16 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 ---
 
 ## Changelog
+
+### 1.1.0 (1 Oct 2026)
+**Metals are measured against real spot.** Gold, silver, platinum and palladium tokens are now
+compared with CoinMarketCap's spot price at the moment of the quotes, instead of with each
+other. This answers "is it worth what it claims?", not just "do the tokens agree?".
+Effect on the golden set (`npm run eval`): no verdict changed. Gold's reference moved from the
+token median $4,281.38 to spot $4,285.41, and its tokens sit within ±0.2% of spot. Silver's
+moved from $64.42 to spot $64.29 (XAGX +0.19%, GRAMS +0.26%; KAG −48.5%, still off-track).
+Stocks are unchanged: CoinMarketCap has no share prices. Stocks now also say when quotes were
+taken outside US market hours (wording only, not a rule change).
 
 ### 1.0.0 (1 Oct 2026)
 First published version. It's the method as submitted to Build with CMC (30 Sep 2026); no

@@ -1,7 +1,7 @@
 [
   {
     "q": "GOLD",
-    "why": "Units: two tokens are quoted per gram and must be converted before any comparison.",
+    "why": "Units: two tokens are quoted per gram and must be converted before any comparison. Measured against CMC's gold spot price.",
     "verdict": "FAIR",
     "answer": "best way in · XAUt",
     "sub": "if you pick the right token.",
@@ -9,7 +9,7 @@
     "per_gram": 2,
     "ghosts": 1,
     "reasons_include": ["^2 are priced per gram\\.", "isn't a token"],
-    "tiles": { "Typical price": "$4,281.38", "Traded, 24h": "$443.2M" }
+    "tiles": { "Spot price": "$4,285.41", "Traded, 24h": "$443.2M" }
   },
   {
     "q": "NVDA",
@@ -57,7 +57,7 @@
     "tokens": 5,
     "per_gram": 1,
     "ghosts": 3,
-    "reasons_include": ["^No token that tracks silver traded in the last day\\.", "KAG is 49% off"],
+    "reasons_include": ["^No token that tracks silver traded in the last day\\.", "KAG is 48% off"],
     "tiles": { "Traded, 24h": "$119k" }
   },
   {

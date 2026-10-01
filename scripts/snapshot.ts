@@ -15,7 +15,7 @@
  */
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { check } from "../lib/check";
+import { check, metalFor } from "../lib/check";
 import { createCmcClient, liveTransport, type Transport } from "../lib/cmc";
 import { creditsLeft, dailyRow, historyPath, mayRun, monthlyLimit, pickKind, priceRow } from "../lib/history";
 
@@ -61,7 +61,7 @@ async function main() {
 
   const info = await client.get("/v1/key/info");
   const kind = asked === "auto" ? pickKind(info.ok ? monthlyLimit(info.data) : null, new Date().getUTCHours()) : asked;
-  const cost = watchlist.length * (kind === "prices" ? 1 : 7);
+  const cost = watchlist.length * (kind === "prices" ? 1 : 7) + 2; // + spot for gold and silver
   const gate = mayRun(info.ok ? creditsLeft(info.data) : null, cost, reserve);
   if (!gate.ok) {
     console.log(`::warning::Snapshot skipped: ${gate.why}`);
@@ -79,7 +79,9 @@ async function main() {
         console.log(`✗ ${a.symbol}: ${q.ok ? "no data" : q.message}`);
         continue;
       }
-      append(historyPath("prices", a.symbol, t), priceRow(q.data, t));
+      const metal = metalFor(q.data);
+      const s = metal ? await client.metalSpot(metal, q.data.last_updated) : null;
+      append(historyPath("prices", a.symbol, t), priceRow(q.data, t, s?.ok ? { code: metal as string, ...s.data } : null));
       console.log(`✓ ${a.symbol}`);
     } else {
       const r = await check(a.symbol, client);

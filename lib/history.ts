@@ -12,7 +12,7 @@
 import type { CheckResult } from "./check";
 import type { RwaQuote } from "./cmc";
 import { answerLine } from "./present";
-import { METHOD_VERSION, verdict } from "./verdict";
+import { METHOD_VERSION, verdict, type Spot } from "./verdict";
 
 const r2 = (n: number | null) => (n === null ? null : Math.round(n * 100) / 100);
 
@@ -22,7 +22,10 @@ export type PriceRow = {
   symbol: string;
   rwa_id: number;
   as_of: string | null;
+  /** The tokens' consensus (median after unit conversion). */
   typical_price: number | null;
+  /** Metals: CMC spot at the time of the quotes; premiums are measured against it. */
+  spot: number | null;
   tokens: { id: number; token: string; price: number | null; premium_pct: number | null; volume_24h: number | null; unit: string }[];
 };
 
@@ -36,11 +39,12 @@ export type DailyRow = {
   verdict: string;
   answer: string;
   typical_price: number | null;
+  spot: number | null;
   tokens: { id: number; token: string; verdict: string; premium_pct: number | null; exit_score: number | null; liquidity_usd: number | null; volume_24h: number | null }[];
 };
 
 /** Hourly row from a quotes/latest response alone (no pools: exit scores aren't meaningful here). */
-export function priceRow(q: RwaQuote, t: string): PriceRow {
+export function priceRow(q: RwaQuote, t: string, spot: Spot | null = null): PriceRow {
   const tokens = q.tokens.filter((x) => typeof x.crypto_id === "number");
   const v = verdict({
     asset: {
@@ -54,6 +58,7 @@ export function priceRow(q: RwaQuote, t: string): PriceRow {
     tokens,
     contracts: new Map(),
     pools: new Map(),
+    spot,
   });
   return {
     t,
@@ -61,7 +66,8 @@ export function priceRow(q: RwaQuote, t: string): PriceRow {
     symbol: q.symbol,
     rwa_id: q.rwa_id,
     as_of: q.last_updated,
-    typical_price: r2(v.reference.price_usd),
+    typical_price: r2(v.reference.consensus_usd),
+    spot: r2(v.reference.spot?.price_usd ?? null),
     tokens: v.wrappers.map((w) => ({
       id: w.crypto_id,
       token: w.display,
@@ -84,7 +90,8 @@ export function dailyRow(r: CheckResult, t: string): DailyRow {
     as_of: r.data_as_of,
     verdict: r.verdict,
     answer: answerLine(r),
-    typical_price: r2(r.reference.price_usd),
+    typical_price: r2(r.reference.consensus_usd),
+    spot: r2(r.reference.spot?.price_usd ?? null),
     tokens: r.wrappers.map((w) => ({
       id: w.crypto_id,
       token: w.display,

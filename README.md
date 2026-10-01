@@ -151,6 +151,7 @@ It uses saved data by default, with no key and no credits. With `CMC_API_KEY` an
 | `GET /v5/real-world-assets/map` (paged) | 0 | The full asset list, for name searches ("nvidia") and not-found suggestions. Cached for an hour. |
 | `GET /v5/real-world-assets/quotes/latest` | 1 | Every token for the asset: issuer, price, market cap and 24h volume, plus the average tokenised price and TradFi venues |
 | `GET /v2/cryptocurrency/info` | 1 | Turns each token's `crypto_id` into its chain and contract address (the RWA endpoints don't give them) |
+| `GET /v2/tools/price-conversion` | 1 | **Metals only:** CMC's gold/silver spot price at the moment of the token quotes (`time` = the quotes' `last_updated`), so premiums compare tokens with the real metal, like-for-like. Metal IDs come from `/v1/fiat/map?include_metals=true`. |
 | `GET /v1/dex/token/pools` | 1 per token | On-chain pool depth and volume on Ethereum, Solana and BSC, for the "can I sell it later?" score |
 | `GET /v3/fear-and-greed/latest` | 1 | The "crypto mood" in the header, shown for context only |
 
