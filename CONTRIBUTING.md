@@ -4,6 +4,10 @@ Thanks for helping. Parity answers one question for a regular buyer of a tokenis
 *is this token actually the thing, at a fair price, and can I sell it later?* The answer has
 to be **honest and checkable**, so a few rules matter more than any feature.
 
+> **Until the Build with CMC hackathon results are out, open pull requests against the `next`
+> branch, not `main`.** `main` is frozen at the submitted version, and `next` is where new
+> work lands (including features some issues refer to, like spot prices for metals).
+
 ## The rules
 1. **Never say "buy".** Parity is informational. Say "best way in", or that there isn't one.
 2. **Every claim needs data behind it.** If the copy says it, a test should prove the data
