@@ -56,7 +56,7 @@ that says whether it helped.
 - [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
 - [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
 - [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
-- [ ] "good first issue" labels on a few starter issues
+- [x] Starter issues labelled "good first issue" (#2 market holidays, #3 coin tooltips, #4 a new golden case)
 
 **Evals:** the golden set passes in CI; a method change without a version bump fails CI;
 snapshot rows are tested on saved data (units converted, typical price matches the full
