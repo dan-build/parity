@@ -12,7 +12,8 @@
     "scan": "tsx --env-file=.env.local scripts/scan.ts",
     "mcp": "tsx scripts/mcp.ts",
     "eval": "tsx scripts/eval.ts",
-    "snapshot": "tsx scripts/snapshot.ts"
+    "snapshot": "tsx scripts/snapshot.ts",
+    "registry:seed": "tsx scripts/registry-seed.ts"
   },
   "dependencies": {
     "next": "16.3.6",

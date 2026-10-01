@@ -31,6 +31,8 @@ responses saved in `fixtures/`.
 - **Add a golden case:** add an entry to `evals/golden.json`, with a `why` saying what it
   proves. If the asset isn't saved yet, someone with a key records it:
   `npm run probe -- SYMBOL` (about 5–7 credits).
+- **Add or correct a registry fact:** edit `registry/<SYMBOL>.json` with a source link; see
+  [`registry/README.md`](registry/README.md). The tests check every unit against observed prices.
 - **Change the method:** follow rule 5. The pull request should include the eval's diff
   report: which verdicts changed, and why that's right.
 

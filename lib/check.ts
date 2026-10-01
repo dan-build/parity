@@ -11,7 +11,8 @@ import {
   type RwaMapEntry,
   type WrapperContract,
 } from "./cmc";
-import { METHOD_VERSION, preScreen, verdict, type Spot, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
+import { loadRegistry } from "./registry";
+import { METHOD_VERSION, preScreen, verdict, type Spot, type TokenUnit, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
 
 export type CheckResult = VerdictResult & {
   query: string;
@@ -22,6 +23,8 @@ export type CheckResult = VerdictResult & {
   generated_at: string;
   /** METHOD.md version that produced this verdict. */
   method_version: string;
+  /** The registry file used for units, if any (registry/<SYMBOL>.json). */
+  registry: { file: string; tokens: number; units: number } | null;
 };
 
 export type CheckOutcome =
@@ -82,7 +85,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   if (!gathered.ok) {
     return { kind: "error", query, message: `Couldn't load prices for ${match.name}: ${gathered.message}`, evidence: client.evidence };
   }
-  const { input, slug, gaps, dataAsOf } = gathered;
+  const { input, slug, gaps, dataAsOf, registry } = gathered;
 
   // 5. Pure verdict.
   const v = verdict(input);
@@ -98,6 +101,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
       data_as_of: dataAsOf,
       generated_at: new Date().toISOString(),
       method_version: METHOD_VERSION,
+      registry,
     },
   };
 }
@@ -117,7 +121,8 @@ export async function gatherInputs(
   rwaId: number,
   client: CmcClient,
 ): Promise<
-  { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[] } | { ok: false; message: string }
+  | { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[]; registry: CheckResult["registry"] }
+  | { ok: false; message: string }
 > {
   const gaps: Gap[] = [];
   const quoteRes = await client.rwaQuotesLatest(rwaId);
@@ -134,6 +139,12 @@ export async function gatherInputs(
     if (s.ok) spot = { code: metal, ...s.data };
     else gaps.push({ code: "spot_unavailable", message: `Couldn't get the ${quote.name.toLowerCase()} spot price (${s.message}), so tokens are compared with each other instead.` });
   }
+
+  // Units from the open registry, where someone has recorded them.
+  const reg = loadRegistry(quote.symbol, quote.rwa_id);
+  const units = new Map<number, TokenUnit>();
+  for (const t of reg?.tokens ?? []) if (t.unit) units.set(t.crypto_id, t.unit);
+  const registry = reg ? { file: `registry/${quote.symbol.toUpperCase()}.json`, tokens: reg.tokens.length, units: units.size } : null;
 
   // Contracts (chain + address) per wrapper.
   let contracts = new Map<number, WrapperContract>();
@@ -176,6 +187,8 @@ export async function gatherInputs(
       contracts,
       pools,
       spot,
+      units,
     },
+    registry,
   };
 }

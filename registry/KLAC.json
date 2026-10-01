@@ -1,0 +1,66 @@
+{
+  "asset": {
+    "symbol": "KLAC",
+    "rwa_id": 58,
+    "name": "KLA Corp",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 39240,
+      "symbol": "KLACon",
+      "issuer": "Ondo Assets",
+      "unit": null,
+      "unit_note": "Price is +82% from the reference, so its unit or ratio can't be inferred. Needs a source.",
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0xa637ae510cb50e61236a89ac480b93b8c3bccc46",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40131,
+      "symbol": "KLACx",
+      "issuer": "Backed Assets",
+      "unit": null,
+      "unit_note": "Price is −82% from the reference, so its unit or ratio can't be inferred. Needs a source.",
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 41437,
+      "symbol": "wKLACx",
+      "issuer": "Backed Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0x924221DB27d2A55548CbBfe924FaA1159805EDCb",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

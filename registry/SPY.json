@@ -1,0 +1,177 @@
+{
+  "asset": {
+    "symbol": "SPY",
+    "rwa_id": 86,
+    "name": "SPDR S&P 500 ETF Trust",
+    "type": "etf",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 37006,
+      "symbol": "SPYX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 28628,
+      "symbol": "SPY.D",
+      "issuer": "Dinari Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0xF4BD09B048248876E39Fcf2e0CDF1aee1240a9D2",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 38067,
+      "symbol": "SPYon",
+      "issuer": "Ondo Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 39621,
+      "symbol": "SPY",
+      "issuer": "Hyperliquid Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Hyperliquid",
+          "address": "0xb7bf37783db41a2851b77c6917280c56312c833a",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40625,
+      "symbol": "rSPY",
+      "issuer": "Reality",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0x9a0fda21276f245b89d2b7f1120f42e4466b1cb5",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40694,
+      "symbol": "SPY",
+      "issuer": "Robinhood",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Robinhood",
+          "address": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40790,
+      "symbol": "SPYB",
+      "issuer": "bStocks",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "BNB",
+          "address": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 41525,
+      "symbol": "wSPYx",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0xE7E553Cd128F0011777323A0b44a7b96EA1CB540",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.1.0**
+**Method version 1.2.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -27,8 +27,14 @@ A token is a **Ghost** straight away if:
 - it has no live price (missing, zero or not a number).
 
 ## 4. Put every price in the same unit
-For commodities, some tokens are quoted per gram and others per troy ounce, and the API
-doesn't say which. Parity finds the **consensus price**: the level that the most tokens sit
+**First, the open registry** (`registry/<SYMBOL>.json`). Where it records what one token
+represents (an ounce, a gram, a share, or a fraction of one), that unit is used, and the
+token's price is converted to per ounce or per share. Each recorded unit says where it came
+from (the issuer, a contributor, or inferred from price). A test checks that every recorded
+unit puts the token's price within 5% of the reference, so a wrong entry fails CI.
+
+**Otherwise, inference from price.** For commodities, some tokens are quoted per gram and
+others per troy ounce, and the API doesn't say which. Parity finds the **consensus price**: the level that the most tokens sit
 within **±5%** of, either as quoted or multiplied by **31.1035** (grams per troy ounce). A
 token that only agrees with the consensus after that multiplication is per gram, and is
 converted. The page shows each conversion.
@@ -97,6 +103,14 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 ---
 
 ## Changelog
+
+### 1.2.0 (1 Oct 2026)
+**Units come from the open registry first.** Parity now keeps a public registry of what each
+token represents (`registry/`), and the engine uses its units before inferring them from
+price. It can also convert share ratios (e.g. a token for 0.1 of a share), which inference
+can't. The registry was seeded from the units inference already found, so on the golden set
+nothing changed (`npm run eval`: no differences). 35 of 47 tokens have a unit; the other 12
+(including both KLAC tokens) stay unknown, with a note saying why, until someone adds a source.
 
 ### 1.1.0 (1 Oct 2026)
 **Metals are measured against real spot.** Gold, silver, platinum and palladium tokens are now

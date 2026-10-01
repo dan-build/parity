@@ -1,0 +1,156 @@
+{
+  "asset": {
+    "symbol": "NVDA",
+    "rwa_id": 2,
+    "name": "Nvidia Corp",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 36992,
+      "symbol": "NVDAX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 28616,
+      "symbol": "NVDA.D",
+      "issuer": "Dinari Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 38093,
+      "symbol": "NVDAon",
+      "issuer": "Ondo Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40215,
+      "symbol": "NVDAB",
+      "issuer": "bStocks",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "BNB",
+          "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40605,
+      "symbol": "rNVDA",
+      "issuer": "Reality",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40685,
+      "symbol": "NVDA",
+      "issuer": "Robinhood",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Robinhood",
+          "address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37270,
+      "symbol": "WNVDAX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

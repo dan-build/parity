@@ -357,7 +357,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     route,
     noEasyExit: top !== null && best === null,
     gaps: gapViews(r.gaps, noun, commodity, stockMarketClosed(r)),
-    evidence: evidenceViews(r.evidence, ws),
+    evidence: evidenceViews(r.evidence, ws, r.registry ?? null),
     notice: fallbackNotice(r),
     fine: isSpot
       ? `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the ${noun} spot price at the time of the quotes, after converting units.`
@@ -498,7 +498,7 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = 
   return out;
 }
 
-function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): EvidenceView[] {
+function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[], registry: CheckResult["registry"]): EvidenceView[] {
   const byAddress = new Map(ws.filter((w) => w.contract).map((w) => [String(w.contract).toLowerCase(), w]));
   const out: EvidenceView[] = [];
   const mapPages = evidence.filter((e) => e.endpoint === "/v5/real-world-assets/map" && "start" in e.params);
@@ -533,6 +533,18 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
       excerpt: curate(e),
     });
   });
+  if (registry) {
+    out.push({
+      id: "registry",
+      label: `READ ${registry.file}`,
+      meta: "0 credits",
+      ok: true,
+      note: `Parity's open registry: units for ${registry.units} of ${registry.tokens} tokens. Each fact says where it came from; unknown ones stay empty.`,
+      at: null,
+      excerpt: { file: registry.file, tokens: registry.tokens, units_known: registry.units, url: `https://github.com/dan-build/parity/blob/main/${registry.file}` },
+      static: true,
+    });
+  }
   out.push({
     id: "market-pairs",
     label: "GET /v5/real-world-assets/market-pairs/list",

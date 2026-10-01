@@ -1,0 +1,138 @@
+{
+  "asset": {
+    "symbol": "GOLD",
+    "rwa_id": 1,
+    "name": "Gold",
+    "type": "commodity",
+    "reference": "troy_ounce"
+  },
+  "tokens": [
+    {
+      "crypto_id": 4705,
+      "symbol": "PAXG",
+      "issuer": "Paxos",
+      "unit": {
+        "measure": "troy_ounce",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x45804880de22913dafe09f4980848ece6ecbaf78",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 5176,
+      "symbol": "XAUt",
+      "issuer": "Tether Holdings",
+      "unit": {
+        "measure": "troy_ounce",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x68749665FF8D2d112Fa859AA293F07A622782F38",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 34212,
+      "symbol": "XAUM",
+      "issuer": "Matrixdock",
+      "unit": {
+        "measure": "troy_ounce",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x2103E845C5E135493Bb6c2A4f0B8651956eA8682",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 20245,
+      "symbol": "CGO",
+      "issuer": "Comtech Gold",
+      "unit": {
+        "measure": "gram",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "XDC Network",
+          "address": "0x8f9920283470F52128bF11B0c14E798bE704fD15",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 22492,
+      "symbol": "VNXAU",
+      "issuer": "VNX",
+      "unit": {
+        "measure": "gram",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x6d57B2E05F26C26b549231c866bdd39779e4a488",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37082,
+      "symbol": "XAUT0",
+      "issuer": "Tether Holdings",
+      "unit": {
+        "measure": "troy_ounce",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Hyperliquid",
+          "address": "0xf4d9235269a96aadafc9adae454a0618ebe37949",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

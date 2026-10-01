@@ -1,0 +1,174 @@
+{
+  "asset": {
+    "symbol": "AAPL",
+    "rwa_id": 3,
+    "name": "Apple Inc.",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 36994,
+      "symbol": "AAPLX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 28624,
+      "symbol": "AAPL.D",
+      "issuer": "Dinari Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0xCe38e140fC3982a6bCEbc37b040913EF2Cd6C5a7",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 38037,
+      "symbol": "AAPLon",
+      "issuer": "Ondo Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x14c3abF95Cb9C93a8b82C1CdCB76D72Cb87b2d4c",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 39624,
+      "symbol": "AAPL",
+      "issuer": "Hyperliquid Assets",
+      "unit": null,
+      "unit_note": "Price is −15% from the reference, so its unit or ratio can't be inferred. Needs a source.",
+      "contracts": [
+        {
+          "chain": "Hyperliquid",
+          "address": "0x499e347174f237ad28687b947b94c0d49570d1b7",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40598,
+      "symbol": "rAAPL",
+      "issuer": "Reality",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0xaba5e0c80e9f58e391214689fb342049c0d31892",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40703,
+      "symbol": "AAPL",
+      "issuer": "Robinhood",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Robinhood",
+          "address": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40927,
+      "symbol": "AAPLB",
+      "issuer": "bStocks",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "BNB",
+          "address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37269,
+      "symbol": "WAAPLX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0x943BF64D566c32A2Bcd41AC92FB63C111cC9De8f",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

@@ -90,13 +90,17 @@ hour to hour (verdict stability rate); weekend and after-hours cases in the gold
 
 **Goal:** the dataset everyone else needs, and the thing Parity becomes known for.
 
-- [ ] **`registry/`:** one JSON file per tokenised asset, recording for each token its unit and
-      share ratio (per gram? 0.1 share?), chains and contracts, issuer, redemption terms, who
-      can hold it (KYC, jurisdictions), and links to proof-of-reserve and attestations
-- [ ] **Schema + CI validation;** contributions by pull request, like token lists
-- [ ] Parity uses the registry first and falls back to inference (the per-gram detection),
-      showing which source it used
-- [ ] Invite issuers to verify their own entries (a "verified by issuer" mark)
+- [x] **`registry/`:** one JSON file per watched asset (9), recording each token's unit and
+      share ratio, contracts, issuer, and empty slots for redemption terms, eligibility and
+      attestations. Seeded from saved data: 35 of 47 tokens have a unit; 12 are marked unknown
+      with the reason (`npm run registry:seed`)
+- [x] **Schema + CI validation;** contributions by pull request (`registry/README.md`, an issue
+      template for registry facts)
+- [x] Parity uses the registry first and falls back to inference (method 1.2.0), and says
+      which source it used (`unit_source`, a receipt in the Evidence drawer, the MCP output)
+- [ ] Invite issuers to verify their own entries (the `verified_by_issuer` mark exists; the
+      outreach doesn't yet)
+- [ ] Fill redemption, eligibility and attestations, with sources
 
 **Evals:** schema validation on every PR; contract addresses checked on-chain; unit and ratio
 entries cross-checked against observed prices (would have caught per-gram gold and KLAC).
