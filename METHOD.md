@@ -1,0 +1,92 @@
+# How Parity decides
+
+**Method version 1.0.0**
+
+This is the whole method: every rule and threshold behind a verdict, in order. It's
+versioned. When a rule changes, the version goes up and the changelog below says why. Every
+result carries the version that produced it (`method_version` in `/api/check` and in the MCP
+tool's output).
+
+The code is in `lib/verdict.ts` (the engine) and `lib/present.ts` (the wording). A test
+(`lib/method.test.ts`) fails if this document and the code disagree on a number.
+
+---
+
+## 1. Find the asset, not the symbol
+A query resolves to CoinMarketCap's `rwa_id` (ticker first, then name). Everything after
+that is keyed by `rwa_id` and each token's `crypto_id`, never by symbol: different tokens
+share symbols (two are called "NVDA").
+
+## 2. Collect every token
+`/v5/real-world-assets/quotes/latest` lists every token that claims to be the asset, with
+issuer, price, market cap and 24h volume.
+
+## 3. Set aside what can't be held (Ghost, before any maths)
+A token is a **Ghost** straight away if:
+- its issuer is a derivatives listing (e.g. "NA (Derivatives)"): a price feed, not a token, or
+- it has no live price (missing, zero or not a number).
+
+## 4. Put every price in the same unit
+For commodities, some tokens are quoted per gram and others per troy ounce, and the API
+doesn't say which. Parity finds the **consensus price**: the level that the most tokens sit
+within **±5%** of, either as quoted or multiplied by **31.1035** (grams per troy ounce). A
+token that only agrees with the consensus after that multiplication is per gram, and is
+converted. The page shows each conversion.
+
+## 5. The typical price
+The **typical price** is the median of the remaining tokens' prices, after unit conversion.
+It's a comparison between tokens, not the real share or spot price. If no token is left to
+compare, no typical price is shown.
+
+## 6. Premium
+Each token's **premium** = its price ÷ the typical price − 1, shown in % and in $ per unit.
+
+## 7. Prices that don't track the asset (Ghost)
+A token more than **5%** above or below the typical price doesn't track the asset. It's a
+**Ghost** ("a price far from the rest"). It may still be holdable; it just can't be trusted
+as this asset's price.
+
+## 8. Can you sell it later? (exit score, 0–100)
+
+| Part | Tiers |
+|---|---|
+| 24h volume | ≥ $1,000,000 → 40 · ≥ $100,000 → 25 · ≥ $10,000 → 10 |
+| DEX pool depth (Ethereum, Solana, BSC) | ≥ $1,000,000 → 40 · ≥ $250,000 → 25 · ≥ $50,000 → 10 |
+| Listed on a traditional exchange | 20 |
+
+Pools on other chains aren't checked yet, and that's shown as a gap. The market-pairs
+endpoint (where a token trades) isn't available on our API plan, and that's shown too.
+
+## 9. Each token's verdict
+- Exit score below **40** → **Thin**.
+- Otherwise, premium above **+1%** → **Rich**.
+- Otherwise → **Fair**. A discount beyond **−1%** stays Fair, but is flagged ("a discount
+  this big usually has a reason").
+
+## 10. The page's verdict
+The best token decides it: Fair beats Rich beats Thin. Among equals, the higher exit score
+wins, then the larger market cap. If every token is a Ghost, the page is **Ghost**.
+
+## 11. The answer, and when to recommend nothing
+- The best token is named as the **best way in**, but only if it traded in the last 24 hours.
+- If it didn't, Parity recommends nothing: **"no easy way out"**.
+- If every token is a Ghost: **"no price to trust"** when tokens disagree on price, otherwise
+  **"nothing to hold"**.
+- Parity never says "buy".
+
+## 12. What this method can't see
+- The real share or spot price: tokens are compared with each other, so if they all drifted
+  together, it wouldn't show. (Roadmap, Phase 2.)
+- Which exchanges each token trades on (market pairs not in our plan).
+- Pool depth on chains other than Ethereum, Solana and BSC.
+- Whether the issuer really holds the asset: no API can check that. Read the issuer's
+  attestations.
+
+---
+
+## Changelog
+
+### 1.0.0 (1 Oct 2026)
+First published version. It's the method as submitted to Build with CMC (30 Sep 2026); no
+rule changed, it was written down. The golden set (`evals/golden.json`) and baseline
+(`evals/baseline.json`) record its output on saved data.

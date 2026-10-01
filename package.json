@@ -10,7 +10,8 @@
     "probe": "tsx --env-file=.env.local scripts/probe.ts",
     "test": "vitest run",
     "scan": "tsx --env-file=.env.local scripts/scan.ts",
-    "mcp": "tsx scripts/mcp.ts"
+    "mcp": "tsx scripts/mcp.ts",
+    "eval": "tsx scripts/eval.ts"
   },
   "dependencies": {
     "next": "16.3.6",

@@ -46,6 +46,7 @@ export const checkOutput = {
     as_of: z.string().nullable(),
     notice: z.string().nullable().describe("Set when live data was wanted but saved data answered"),
     calls: z.number(),
+    method_version: z.string().describe("METHOD.md version that produced this verdict"),
   }),
   share_url: z.string(),
   disclaimer: z.string(),
@@ -84,7 +85,7 @@ export async function checkRwa(query: string): Promise<{ ok: true; out: CheckOut
       verdict: w.verdict,
     })),
     cant_tell: view.gaps.map((g) => `${g.title}: ${g.sub}`),
-    data: { source: body.mode === "live" ? "live" : "saved", as_of: body.data_as_of, notice: view.notice, calls: body.evidence.length },
+    data: { source: body.mode === "live" ? "live" : "saved", as_of: body.data_as_of, notice: view.notice, calls: body.evidence.length, method_version: body.method_version },
     share_url: `${PARITY_URL}/?q=${encodeURIComponent(body.asset.symbol)}`,
     disclaimer: "Not financial advice. Prices from CoinMarketCap.",
   };

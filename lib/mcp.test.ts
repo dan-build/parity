@@ -56,6 +56,7 @@ describe("check_rwa (in memory)", () => {
     expect(o.best_way_in).toMatchObject({ token: "XAUt", chain: "Ethereum", contract: expect.stringMatching(/^0x/) });
     expect(o.share_url).toMatch(/\/\?q=GOLD$/);
     expect(o.tokens).toHaveLength(7);
+    expect((o.data as { method_version?: string }).method_version).toMatch(/^\d+\.\d+\.\d+$/);
   });
 
   it("reads cleanly: a colon after the verdict word, prices in cents, volumes in dollars", async () => {

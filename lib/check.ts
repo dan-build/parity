@@ -10,7 +10,7 @@ import {
   type RwaMapEntry,
   type WrapperContract,
 } from "./cmc";
-import { preScreen, verdict, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
+import { METHOD_VERSION, preScreen, verdict, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
 
 export type CheckResult = VerdictResult & {
   query: string;
@@ -19,6 +19,8 @@ export type CheckResult = VerdictResult & {
   /** When CMC last updated these quotes (ISO), from quotes/latest `last_updated`. */
   data_as_of: string | null;
   generated_at: string;
+  /** METHOD.md version that produced this verdict. */
+  method_version: string;
 };
 
 export type CheckOutcome =
@@ -94,6 +96,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
       evidence: client.evidence,
       data_as_of: dataAsOf,
       generated_at: new Date().toISOString(),
+      method_version: METHOD_VERSION,
     },
   };
 }

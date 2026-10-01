@@ -1,0 +1,92 @@
+[
+  {
+    "q": "GOLD",
+    "why": "Units: two tokens are quoted per gram and must be converted before any comparison.",
+    "verdict": "FAIR",
+    "answer": "best way in · XAUt",
+    "sub": "if you pick the right token.",
+    "tokens": 7,
+    "per_gram": 2,
+    "ghosts": 1,
+    "reasons_include": ["^2 are priced per gram\\.", "isn't a token"],
+    "tiles": { "Typical price": "$4,281.38", "Traded, 24h": "$443.2M" }
+  },
+  {
+    "q": "NVDA",
+    "why": "Symbol collision: two different tokens are both called NVDA.",
+    "verdict": "FAIR",
+    "answer": "best way in · NVDAX",
+    "sub": "whichever token you pick.",
+    "tokens": 8,
+    "ghosts": 2,
+    "reasons_include": ["NVDAX is easiest to sell"]
+  },
+  {
+    "q": "SPY",
+    "why": "An ETF: 'per share' units and a thin token among fair ones.",
+    "verdict": "FAIR",
+    "answer": "best way in · SPYX",
+    "tokens": 9,
+    "ghosts": 2,
+    "reasons_include": ["^1 is thin\\."]
+  },
+  {
+    "q": "TSLA",
+    "why": "A holdable token far off the price (−19%): never say 'whichever token you pick'.",
+    "verdict": "FAIR",
+    "answer": "best way in · TSLAX",
+    "sub": "if you pick the right token.",
+    "tokens": 9,
+    "ghosts": 3,
+    "reasons_include": ["TSLA \\(Hyperliquid Assets\\) is 19% off"]
+  },
+  {
+    "q": "AAPL",
+    "why": "The best way in is not the cheapest token: ranked by exit, then price.",
+    "verdict": "FAIR",
+    "answer": "best way in · AAPLon",
+    "tokens": 9,
+    "ghosts": 3
+  },
+  {
+    "q": "SILVER",
+    "why": "The best-ranked token has zero volume: recommend nothing ('no easy way out'). Also a token with no symbol or name.",
+    "verdict": "THIN",
+    "answer": "no easy way out",
+    "sub": "not much market to sell into.",
+    "tokens": 5,
+    "per_gram": 1,
+    "ghosts": 3,
+    "reasons_include": ["^No token that tracks silver traded in the last day\\.", "KAG is 49% off"],
+    "tiles": { "Traded, 24h": "$119k" }
+  },
+  {
+    "q": "UNH",
+    "why": "RICH: the only liquid token costs more than the typical price.",
+    "verdict": "RICH",
+    "answer": "best way in · UNHon",
+    "sub": "even the best token costs extra.",
+    "tokens": 4,
+    "ghosts": 2,
+    "reasons_include": ["^UNHon costs 1\\.51% extra"]
+  },
+  {
+    "q": "KLAC",
+    "why": "GHOST by disagreement: two holdable tokens ~10× apart; no typical price is shown.",
+    "verdict": "GHOST",
+    "answer": "no price to trust",
+    "sub": "the tokens don't agree on a price.",
+    "tokens": 4,
+    "ghosts": 4,
+    "tiles": { "Typical price": "—" }
+  },
+  {
+    "q": "MS",
+    "why": "GHOST by absence: the only token has no price.",
+    "verdict": "GHOST",
+    "answer": "nothing to hold",
+    "sub": "nothing here you can really hold.",
+    "tokens": 1,
+    "ghosts": 1
+  }
+]

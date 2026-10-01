@@ -10,6 +10,13 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
 
 // --- tunables (exported so tests and UI copy share them) ------------------------
 
+/**
+ * Version of the verdict method documented in METHOD.md. Bump it (and add a changelog entry
+ * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
+ * this stays the same.
+ */
+export const METHOD_VERSION = "1.0.0";
+
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
 export const PER_GRAM_TOLERANCE = 0.05;
@@ -344,7 +351,7 @@ function premiumSentence(sym: string, pct: number, usd: number, assetLabel: stri
   if (Math.abs(pct) < 0.01) return `${sym} is priced in line with other ${assetLabel} tokens.`;
   const dir = pct > 0 ? "more" : "less";
   const base = `${sym} costs ${fmtPrice(Math.abs(usd))} (${fmtPct(pct)}) ${dir} than the typical ${assetLabel} token.`;
-  if (pct < DISCOUNT_WARN_PCT) return `${base} A discount this big usually has a reason, so find out why before buying.`;
+  if (pct < DISCOUNT_WARN_PCT) return `${base} A discount this big usually has a reason, so find out why first.`;
   return base;
 }
 
@@ -371,7 +378,7 @@ function headlineReasons(args: {
   if (!best) {
     out.push(`None of the ${wrappers.length} ${label} tokens CoinMarketCap tracks has a usable live price.`);
     if (ghosts) out.push("They're derivative price feeds, have no price, or don't track the asset.");
-    out.push("There's no token here we can recommend buying.");
+    out.push("There's no token here we can recommend.");
     return out;
   }
 
