@@ -98,7 +98,8 @@ If the asset isn't saved, the page asks you to try again in a minute.
 
 | Command | What it does | Credits |
 |---|---|---|
-| `npm test` | 112 tests: verdict engine, copy, log, fallbacks, and the MCP server (in memory and over stdio), all against saved responses | 0 |
+| `npm test` | 130 tests: verdict engine, copy, log, fallbacks, the MCP server (in memory and over stdio), the golden set, and checks that `METHOD.md` matches the code. All run against saved responses. | 0 |
+| `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
 | `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
 | `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |
 | `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~5–6 each |
@@ -204,6 +205,12 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 
 ---
 
+## How verdicts are decided
+
+Every rule and threshold is written down in [`METHOD.md`](METHOD.md), with a version number
+and a changelog. Each result carries the method version that produced it. A test fails if the
+document and the code disagree, and the eval fails if verdicts change without a new version.
+
 ## What's next
 
 Parity's plan is to become the neutral, open trust check for tokenised assets. That means
@@ -212,5 +219,7 @@ redemption terms), alerts, and a public API. Every step ships with its evaluatio
 [`ROADMAP.md`](ROADMAP.md).
 
 ---
+
+Contributions are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md). MIT licensed.
 
 Data from [CoinMarketCap](https://coinmarketcap.com/api/). Not financial advice.

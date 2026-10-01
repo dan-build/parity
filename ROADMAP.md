@@ -33,8 +33,8 @@ that says whether it helped.
 
 - [x] MCP server `check_rwa(query)` (`lib/mcp.ts`, `npm run mcp`)
 - [x] **Eval:** in-memory client + real stdio script, all four verdicts, schema-validated (`lib/mcp.test.ts`)
-- [ ] Tag the submitted state: `buildwithcmc-submission`
-- [ ] Keep `main` and production unchanged until results. New work goes on `next`, which
+- [x] Tag the submitted state: `buildwithcmc-submission`
+- [x] Keep `main` and production unchanged until results. New work goes on `next`, which
       Vercel deploys to its own preview URL
 - [ ] Watch CoinMarketCap credit use daily; the site falls back to saved data if it runs out
 
@@ -42,15 +42,16 @@ that says whether it helped.
 
 **Goal:** make the verdict method explicit, testable and reproducible before adding reach.
 
-- [ ] **Golden set + eval runner** (`npm run eval`): expected verdicts and claims for every
+- [x] **Golden set + eval runner** (`npm run eval`): expected verdicts and claims for every
       saved asset, producing a scorecard and a diff against the last run
-- [ ] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
+- [x] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
       exit < 40…), with a version number and a changelog
 - [ ] **Scheduled snapshots:** a cron job saves live results every few minutes; pages read
       snapshots instead of calling the API per visitor, so costs stay flat as traffic grows
 - [ ] **Daily history** per token: premium, volume and exit over time
-- [ ] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue templates, "good first
-      issue" labels
+- [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
+- [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
+- [ ] "good first issue" labels on a few starter issues
 
 **Evals:** the golden set passes in CI; a method change without a changelog entry fails CI;
 snapshot freshness is monitored (alert when older than 15 minutes).
