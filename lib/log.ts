@@ -37,7 +37,7 @@ export function logLines(r: CheckResponse): LogLine[] {
 
   const rich = r.wrappers.filter((w) => w.verdict === "RICH").sort((a, b) => (b.premium_pct ?? 0) - (a.premium_pct ?? 0));
   rich.slice(0, 1).forEach((w) =>
-    lines.push({ at: T.callout.start, verb: "▲", text: w.display, meta: `${pct(w.premium_pct ?? 0)} over typical`, tone: "rich", calls: 0 }),
+    lines.push({ at: T.callout.start, verb: "▲", text: w.display, meta: `${pct(w.premium_pct ?? 0)} over ${r.reference.method === "metal_spot" ? "spot" : "typical"}`, tone: "rich", calls: 0 }),
   );
 
   r.wrappers
@@ -105,6 +105,11 @@ function callLines(r: CheckResponse): Omit<LogLine, "at">[] {
             ? `${w.dex.pools} pool${w.dex.pools > 1 ? "s" : ""}, depth unknown`
             : `${moneyShort(w.dex.liquidity_usd)} deep`;
         out.push({ ...base, text: `pools · ${w?.display ?? "token"}`, meta: `${e.params.platform} · ${depth}` });
+        break;
+      }
+      case "/v2/tools/price-conversion": {
+        const s = r.reference.spot;
+        out.push({ ...base, text: `spot · ${s?.code ?? "metal"}`, meta: s ? `${money(s.price_usd)}/oz · ${cr}` : cr });
         break;
       }
       case "/v3/fear-and-greed/latest":

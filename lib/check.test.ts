@@ -29,7 +29,15 @@ describe("check() end to end on fixtures", () => {
     expect(r.wrappers.length).toBeGreaterThan(0);
     const codes = r.gaps.map((g) => g.code);
     expect(codes).toContain("market_pairs_unavailable");
-    expect(codes).toContain("no_underlying_price");
+    // Metals are measured against CMC's spot price; stocks have no underlying price in CMC.
+    if (q === "GOLD") {
+      expect(codes).not.toContain("no_underlying_price");
+      expect(r.reference).toMatchObject({ method: "metal_spot", spot: { code: "XAU", price_usd: expect.any(Number) } });
+      expect(r.evidence.some((e) => e.endpoint === "/v2/tools/price-conversion" && e.params.time === r.data_as_of)).toBe(true);
+    } else {
+      expect(codes).toContain("no_underlying_price");
+      expect(r.reference.method).toBe("median_of_live_wrappers");
+    }
     expect(r.evidence.length).toBeGreaterThanOrEqual(3);
     expect(r.evidence.every((e) => e.source === "fixture" && e.status === 200)).toBe(true);
     expect(r.evidence.some((e) => e.endpoint === "/v1/dex/token/pools")).toBe(true);

@@ -133,6 +133,7 @@ export function Desk({
               rows={view.evidence}
               mode={view.mode}
               generatedAt={state.data.generated_at}
+              methodVersion={state.data.method_version}
               open={evidenceOpen}
               onClose={closeEvidence}
             />

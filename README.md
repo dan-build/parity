@@ -98,7 +98,10 @@ If the asset isn't saved, the page asks you to try again in a minute.
 
 | Command | What it does | Credits |
 |---|---|---|
-| `npm test` | 112 tests: verdict engine, copy, log, fallbacks, and the MCP server (in memory and over stdio), all against saved responses | 0 |
+| `npm test` | 130 tests: verdict engine, copy, log, fallbacks, the MCP server (in memory and over stdio), the golden set, and checks that `METHOD.md` matches the code. All run against saved responses. | 0 |
+| `npm run snapshot -- --kind auto` | Appends a history snapshot of the watched assets (`scripts/watchlist.json`). The hourly GitHub workflow runs it and saves to the `data` branch. | 9 (prices) to ~60 (full) |
+| `npm run registry:seed` | Adds registry entries for the watched assets from saved data (never overwrites) | 0 |
+| `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
 | `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
 | `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |
 | `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~5–6 each |
@@ -149,6 +152,7 @@ It uses saved data by default, with no key and no credits. With `CMC_API_KEY` an
 | `GET /v5/real-world-assets/map` (paged) | 0 | The full asset list, for name searches ("nvidia") and not-found suggestions. Cached for an hour. |
 | `GET /v5/real-world-assets/quotes/latest` | 1 | Every token for the asset: issuer, price, market cap and 24h volume, plus the average tokenised price and TradFi venues |
 | `GET /v2/cryptocurrency/info` | 1 | Turns each token's `crypto_id` into its chain and contract address (the RWA endpoints don't give them) |
+| `GET /v2/tools/price-conversion` | 1 | **Metals only:** CMC's gold/silver spot price at the moment of the token quotes (`time` = the quotes' `last_updated`), so premiums compare tokens with the real metal, like-for-like. Metal IDs come from `/v1/fiat/map?include_metals=true`. |
 | `GET /v1/dex/token/pools` | 1 per token | On-chain pool depth and volume on Ethereum, Solana and BSC, for the "can I sell it later?" score |
 | `GET /v3/fear-and-greed/latest` | 1 | The "crypto mood" in the header, shown for context only |
 
@@ -204,6 +208,21 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 
 ---
 
+## The open registry
+
+CoinMarketCap doesn't say what a token represents: an ounce, a gram, a whole share or a tenth
+of one. Parity keeps that in [`registry/`](registry/), one JSON file per asset. Every fact
+says where it came from, and unknown facts stay empty instead of guessed. The engine uses the
+registry's units first. Tests check every recorded unit against real prices, so a wrong ratio
+fails CI. Today 35 of 47 tokens have a unit. Help wanted: KLAC's share ratio, and redemption
+terms and attestations for every token ([how to contribute](registry/README.md)).
+
+## How verdicts are decided
+
+Every rule and threshold is written down in [`METHOD.md`](METHOD.md), with a version number
+and a changelog. Each result carries the method version that produced it. A test fails if the
+document and the code disagree, and the eval fails if verdicts change without a new version.
+
 ## What's next
 
 Parity's plan is to become the neutral, open trust check for tokenised assets. That means
@@ -212,5 +231,7 @@ redemption terms), alerts, and a public API. Every step ships with its evaluatio
 [`ROADMAP.md`](ROADMAP.md).
 
 ---
+
+Contributions are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md). MIT licensed.
 
 Data from [CoinMarketCap](https://coinmarketcap.com/api/). Not financial advice.

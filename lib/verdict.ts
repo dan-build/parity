@@ -10,6 +10,13 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
 
 // --- tunables (exported so tests and UI copy share them) ------------------------
 
+/**
+ * Version of the verdict method documented in METHOD.md. Bump it (and add a changelog entry
+ * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
+ * this stays the same.
+ */
+export const METHOD_VERSION = "1.2.0";
+
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
 export const PER_GRAM_TOLERANCE = 0.05;
@@ -49,7 +56,27 @@ export type VerdictInput = {
   tokens: RwaToken[];
   contracts: Map<number, WrapperContract>;
   pools: Map<number, PoolLookup>;
+  /** Metals only: CMC's spot price at the moment of the token quotes. When present it is the reference. */
+  spot?: Spot | null;
+  /** Units from the registry, by crypto_id. They win over price inference. */
+  units?: Map<number, TokenUnit>;
 };
+
+export type Spot = { code: string; price_usd: number; as_of: string | null };
+
+/** What one token is a claim on, from the open registry (registry/<SYMBOL>.json). */
+export type TokenUnit = {
+  measure: "troy_ounce" | "gram" | "share";
+  /** How much of `measure` one token represents (1 = one ounce / one gram / one share). */
+  per_token: number;
+  source: "issuer" | "community" | "inferred-from-price" | "cmc";
+};
+
+/** Ounces (metals) or shares (stocks) one token stands for; null if unknown. */
+export function referenceUnitsPerToken(u: TokenUnit | null | undefined): number | null {
+  if (!u || !(u.per_token > 0)) return null;
+  return u.measure === "gram" ? u.per_token / GRAMS_PER_TROY_OUNCE : u.per_token;
+}
 
 export type WrapperResult = {
   crypto_id: number;
@@ -63,7 +90,12 @@ export type WrapperResult = {
   price_raw: number | null;
   /** Price in the asset's reference unit (per-gram gold converted to per-ounce). */
   price_usd: number | null;
-  unit: "as_quoted" | "per_gram_to_oz";
+  /** per_token_ratio: the registry says one token is a fraction or multiple of a share/ounce. */
+  unit: "as_quoted" | "per_gram_to_oz" | "per_token_ratio";
+  /** Where the unit came from: the registry, price inference, or nowhere (as quoted). */
+  unit_source: "registry" | "inferred" | null;
+  /** From the registry: how much of the reference unit one token is (e.g. 0.1 share). */
+  units_per_token: number | null;
   premium_pct: number | null;
   premium_usd: number | null;
   volume_24h: number | null;
@@ -92,8 +124,13 @@ export type VerdictResult = {
   reasons: string[];
   wrappers: WrapperResult[];
   reference: {
-    method: "median_of_live_wrappers";
+    /** metal_spot: CMC's spot price (metals). median_of_live_wrappers: the tokens' consensus (stocks). */
+    method: "metal_spot" | "median_of_live_wrappers";
+    /** What premiums are measured against. */
     price_usd: number | null;
+    /** The tokens' own median (after unit conversion), always computed. */
+    consensus_usd: number | null;
+    spot: Spot | null;
     wrappers_used: number;
     cmc_average_tokenized_price: number | null;
   };
@@ -168,32 +205,56 @@ export function verdict(input: VerdictInput): VerdictResult {
   //    (= $64.46/oz); the median picks KAG, the consensus picks $64.4.
   const isCommodity = asset.asset_type === "commodity";
   const near = (a: number, b: number) => Math.abs(a / b - 1) <= PER_GRAM_TOLERANCE;
-  const levels = (p: number) => (isCommodity ? [p, p * GRAMS_PER_TROY_OUNCE] : [p]);
+  // The registry's unit wins: such a token has one known price level. Others: as quoted or ×31.1035.
+  const registryFactor = (t: RwaToken) => {
+    const per = referenceUnitsPerToken(input.units?.get(t.crypto_id));
+    return per === null ? null : 1 / per;
+  };
+  const levels = (t: RwaToken) => {
+    const p = t.price as number;
+    const f = registryFactor(t);
+    return f !== null ? [p * f] : isCommodity ? [p, p * GRAMS_PER_TROY_OUNCE] : [p];
+  };
   let anchor: number | null = null;
   let bestScore: [number, number] = [-1, -1]; // [wrappers agreeing in any unit, agreeing as quoted]
   for (const t of live) {
-    for (const level of levels(t.price as number)) {
-      const any = live.filter((u) => levels(u.price as number).some((x) => near(x, level))).length;
-      const asQuoted = live.filter((u) => near(u.price as number, level)).length;
+    for (const level of levels(t)) {
+      const any = live.filter((u) => levels(u).some((x) => near(x, level))).length;
+      const asQuoted = live.filter((u) => near(levels(u)[0], level)).length;
       if (any > bestScore[0] || (any === bestScore[0] && asQuoted > bestScore[1])) {
         bestScore = [any, asQuoted];
         anchor = level;
       }
     }
   }
+  // Multiply a quoted price by factor → price per ounce (metals) or per share (stocks).
+  const factor = new Map<number, number>();
   const perGram = new Set<number>();
-  if (isCommodity && anchor !== null) {
-    for (const t of live) {
-      const p = t.price as number;
-      if (!near(p, anchor) && near(p * GRAMS_PER_TROY_OUNCE, anchor)) perGram.add(t.crypto_id);
+  for (const t of tokens) {
+    const f = registryFactor(t);
+    if (f !== null) {
+      factor.set(t.crypto_id, f);
+      if (input.units?.get(t.crypto_id)?.measure === "gram") perGram.add(t.crypto_id);
     }
   }
-  const normalised = (t: RwaToken): number | null =>
-    livePrice(t) ? (t.price as number) * (perGram.has(t.crypto_id) ? GRAMS_PER_TROY_OUNCE : 1) : null;
+  if (isCommodity && anchor !== null) {
+    for (const t of live) {
+      if (factor.has(t.crypto_id)) continue;
+      const p = t.price as number;
+      if (!near(p, anchor) && near(p * GRAMS_PER_TROY_OUNCE, anchor)) {
+        perGram.add(t.crypto_id);
+        factor.set(t.crypto_id, GRAMS_PER_TROY_OUNCE);
+      }
+    }
+  }
+  const normalised = (t: RwaToken): number | null => (livePrice(t) ? (t.price as number) * (factor.get(t.crypto_id) ?? 1) : null);
 
   // 3. Reference price: median of normalised live prices.
   const refPrices = live.map((t) => normalised(t) as number);
-  const ref = median(refPrices);
+  const consensus = median(refPrices);
+  // Metals: measure against the real spot price when CMC gives one; otherwise the consensus.
+  const spot = input.spot && input.spot.price_usd > 0 ? input.spot : null;
+  const ref = spot ? spot.price_usd : consensus;
 
   // Symbols collide ("NVDA" × 2) and can be missing, so copy names a wrapper by symbol
   // (or name), plus the issuer when another wrapper shares it. CMC sometimes has neither
@@ -239,7 +300,13 @@ export function verdict(input: VerdictInput): VerdictResult {
       contract: c?.address ?? null,
       price_raw: t.price,
       price_usd: price,
-      unit: perGram.has(t.crypto_id) ? ("per_gram_to_oz" as const) : ("as_quoted" as const),
+      unit: perGram.has(t.crypto_id)
+        ? ("per_gram_to_oz" as const)
+        : factor.has(t.crypto_id) && factor.get(t.crypto_id) !== 1
+          ? ("per_token_ratio" as const)
+          : ("as_quoted" as const),
+      unit_source: input.units?.has(t.crypto_id) ? ("registry" as const) : perGram.has(t.crypto_id) ? ("inferred" as const) : null,
+      units_per_token: input.units?.get(t.crypto_id)?.per_token ?? null,
       premium_pct,
       premium_usd,
       volume_24h: t.volume_24h,
@@ -251,6 +318,12 @@ export function verdict(input: VerdictInput): VerdictResult {
     if (pre) return { ...base, exit_score: null, exit_breakdown: null, verdict: "GHOST" as const, reasons: [pre] };
 
     const reasons: string[] = [];
+    const per = input.units?.get(t.crypto_id);
+    if (per && per.measure !== "gram" && per.per_token !== 1) {
+      reasons.push(
+        `One token is ${per.per_token} ${per.measure === "share" ? "share" : "troy ounce"}${per.per_token === 1 ? "" : "s"} (registry); converted to per ${per.measure === "share" ? "share" : "ounce"} (${fmtPrice(t.price as number)} ÷ ${per.per_token} = ${fmtPrice(price as number)}).`,
+      );
+    }
     if (perGram.has(t.crypto_id)) {
       reasons.push(
         `Priced per gram; converted to per ounce (${fmtPrice(t.price as number)} × ${GRAMS_PER_TROY_OUNCE} = ${fmtPrice(price as number)}).`,
@@ -299,13 +372,13 @@ export function verdict(input: VerdictInput): VerdictResult {
       message:
         "We can't see which exchanges trade each token or how much trades there. That data isn't in our CoinMarketCap plan.",
     },
-    {
+    ...(spot ? [] : [{
       code: "no_underlying_price",
       message:
         asset.asset_type === "stock" || asset.asset_type === "etf"
           ? `We compare ${assetLabel} tokens with each other, not with the real ${assetLabel} share price. If they all drifted together, we wouldn't see it.`
           : `We compare ${assetLabel} tokens with each other, not with the ${asset.name.toLowerCase()} spot price. If they all drifted together, we wouldn't see it.`,
-    },
+    }]),
   ];
   for (const w of liveResults) {
     if (!w.dex.checked) {
@@ -329,8 +402,10 @@ export function verdict(input: VerdictInput): VerdictResult {
     reasons,
     wrappers,
     reference: {
-      method: "median_of_live_wrappers",
+      method: spot ? "metal_spot" : "median_of_live_wrappers",
       price_usd: ref,
+      consensus_usd: consensus,
+      spot,
       wrappers_used: refPrices.length,
       cmc_average_tokenized_price: asset.average_tokenized_price,
     },
@@ -344,7 +419,7 @@ function premiumSentence(sym: string, pct: number, usd: number, assetLabel: stri
   if (Math.abs(pct) < 0.01) return `${sym} is priced in line with other ${assetLabel} tokens.`;
   const dir = pct > 0 ? "more" : "less";
   const base = `${sym} costs ${fmtPrice(Math.abs(usd))} (${fmtPct(pct)}) ${dir} than the typical ${assetLabel} token.`;
-  if (pct < DISCOUNT_WARN_PCT) return `${base} A discount this big usually has a reason, so find out why before buying.`;
+  if (pct < DISCOUNT_WARN_PCT) return `${base} A discount this big usually has a reason, so find out why first.`;
   return base;
 }
 
@@ -371,7 +446,7 @@ function headlineReasons(args: {
   if (!best) {
     out.push(`None of the ${wrappers.length} ${label} tokens CoinMarketCap tracks has a usable live price.`);
     if (ghosts) out.push("They're derivative price feeds, have no price, or don't track the asset.");
-    out.push("There's no token here we can recommend buying.");
+    out.push("There's no token here we can recommend.");
     return out;
   }
 

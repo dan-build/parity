@@ -5,12 +5,14 @@
 import {
   isSupportedDexChain,
   type AssetType,
+  type MetalCode,
   type CmcClient,
   type EvidenceEntry,
   type RwaMapEntry,
   type WrapperContract,
 } from "./cmc";
-import { preScreen, verdict, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
+import { loadRegistry } from "./registry";
+import { METHOD_VERSION, preScreen, verdict, type Spot, type TokenUnit, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
 
 export type CheckResult = VerdictResult & {
   query: string;
@@ -19,6 +21,10 @@ export type CheckResult = VerdictResult & {
   /** When CMC last updated these quotes (ISO), from quotes/latest `last_updated`. */
   data_as_of: string | null;
   generated_at: string;
+  /** METHOD.md version that produced this verdict. */
+  method_version: string;
+  /** The registry file used for units, if any (registry/<SYMBOL>.json). */
+  registry: { file: string; tokens: number; units: number } | null;
 };
 
 export type CheckOutcome =
@@ -79,7 +85,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   if (!gathered.ok) {
     return { kind: "error", query, message: `Couldn't load prices for ${match.name}: ${gathered.message}`, evidence: client.evidence };
   }
-  const { input, slug, gaps, dataAsOf } = gathered;
+  const { input, slug, gaps, dataAsOf, registry } = gathered;
 
   // 5. Pure verdict.
   const v = verdict(input);
@@ -94,9 +100,18 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
       evidence: client.evidence,
       data_as_of: dataAsOf,
       generated_at: new Date().toISOString(),
+      method_version: METHOD_VERSION,
+      registry,
     },
   };
 }
+
+/** RWA commodity symbol → the metal CMC prices as spot (/v1/fiat/map?include_metals=true). */
+const METAL_FOR: Record<string, MetalCode> = { GOLD: "XAU", SILVER: "XAG", PLATINUM: "XPT", PALLADIUM: "XPD" };
+
+/** The metal CMC prices as spot for this RWA asset, if any. */
+export const metalFor = (a: { asset_type: AssetType; symbol: string }): MetalCode | undefined =>
+  a.asset_type === "commodity" ? METAL_FOR[a.symbol.toUpperCase()] : undefined;
 
 /**
  * Fetch everything verdict() needs for one rwa_id: wrappers (quotes/latest),
@@ -106,7 +121,8 @@ export async function gatherInputs(
   rwaId: number,
   client: CmcClient,
 ): Promise<
-  { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[] } | { ok: false; message: string }
+  | { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[]; registry: CheckResult["registry"] }
+  | { ok: false; message: string }
 > {
   const gaps: Gap[] = [];
   const quoteRes = await client.rwaQuotesLatest(rwaId);
@@ -114,6 +130,21 @@ export async function gatherInputs(
   if (!quoteRes.data) return { ok: false, message: "no data returned" };
   const quote = quoteRes.data;
   const tokens = quote.tokens.filter((t) => typeof t.crypto_id === "number");
+
+  // Metals: CMC's spot price at the moment of these quotes, so the comparison is like-for-like.
+  let spot: Spot | null = null;
+  const metal = metalFor(quote);
+  if (metal) {
+    const s = await client.metalSpot(metal, quote.last_updated);
+    if (s.ok) spot = { code: metal, ...s.data };
+    else gaps.push({ code: "spot_unavailable", message: `Couldn't get the ${quote.name.toLowerCase()} spot price (${s.message}), so tokens are compared with each other instead.` });
+  }
+
+  // Units from the open registry, where someone has recorded them.
+  const reg = loadRegistry(quote.symbol, quote.rwa_id);
+  const units = new Map<number, TokenUnit>();
+  for (const t of reg?.tokens ?? []) if (t.unit) units.set(t.crypto_id, t.unit);
+  const registry = reg ? { file: `registry/${quote.symbol.toUpperCase()}.json`, tokens: reg.tokens.length, units: units.size } : null;
 
   // Contracts (chain + address) per wrapper.
   let contracts = new Map<number, WrapperContract>();
@@ -155,6 +186,9 @@ export async function gatherInputs(
       tokens,
       contracts,
       pools,
+      spot,
+      units,
     },
+    registry,
   };
 }

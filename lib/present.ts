@@ -66,7 +66,8 @@ export type View = {
   reasons: ReasonView[];
   summary: SummaryTile[];
   instrument: {
-    reference: { label: string; price: string };
+    /** vs: "vs spot price" for metals measured against CMC spot, else "vs typical price". */
+    reference: { label: string; price: string; vs: string };
     coins: InstrumentCoin[];
     zone: { label: string; pct: string } | null;
     callout: { id: number; text: string } | null;
@@ -159,8 +160,12 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const best = recommended(r);
   const ghosts = ws.filter((w) => w.verdict === "GHOST");
   const perGram = ws.filter((w) => w.unit === "per_gram_to_oz" && w.verdict !== "GHOST");
+  // Metals are measured against CMC's spot price; stocks against the tokens' own typical price.
+  const isSpot = r.reference.method === "metal_spot";
+  const refName = isSpot ? "the spot price" : "the typical price";
   // With no live token the "typical price" is a midpoint of prices that disagree (KLAC: 10× apart). Don't show it.
-  const ref = ws.some((w) => w.verdict !== "GHOST") ? r.reference.price_usd : null;
+  // A spot price is real whatever the tokens do, so it always shows.
+  const ref = isSpot || ws.some((w) => w.verdict !== "GHOST") ? r.reference.price_usd : null;
 
   // Headline
   const sub: Record<Verdict, string> = {
@@ -178,7 +183,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     const within = [0.1, 0.2, 0.5, 1].find((th) => live.filter((w) => Math.abs(w.premium_pct ?? 99) <= th).length >= Math.ceil(live.length / 2));
     if (within !== undefined) {
       const k = live.filter((w) => Math.abs(w.premium_pct ?? 99) <= within).length;
-      reasons.push({ tone: "fair", strong: `${k} of ${ws.length}`, rest: ` trade within ${within}% of the typical price.` });
+      reasons.push({ tone: "fair", strong: `${k} of ${ws.length}`, rest: ` trade within ${within}% of ${refName}.` });
     }
   }
   if (perGram.length) {
@@ -295,7 +300,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
         ].filter((x): x is { label: string; value: string } => x !== null),
         line: routeLine(best.verdict),
         stats: [
-          { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} the typical price` },
+          { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} ${refName}` },
           {
             value: moneyShort(best.premium_usd ?? 0),
             label: `${(best.premium_usd ?? 0) >= 0 ? "extra" : "less"} per ${unitWord}`,
@@ -312,7 +317,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const traded = tradable.reduce((n, w) => n + (w.volume_24h ?? 0), 0);
   const busiest = tradable.reduce<WrapperResult | null>((b, w) => ((w.volume_24h ?? 0) > (b?.volume_24h ?? 0) ? w : b), null);
   const summary: SummaryTile[] = [
-    { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
+    { label: isSpot ? "Spot price" : "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
     livePrems.length > 1
       ? { label: "Price spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live` }
       : { label: "Price spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
@@ -334,7 +339,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     reasons: reasons.slice(0, 4),
     summary,
     instrument: {
-      reference: { label: `${Noun} tokens`, price: ref === null ? "—" : money(ref) },
+      reference: { label: isSpot ? `${Noun} spot` : `${Noun} tokens`, price: ref === null ? "—" : money(ref), vs: isSpot ? "vs spot price" : "vs typical price" },
       coins,
       zone: zoneDiscount === null ? null : { label: `Looks ${Math.abs(zoneDiscount).toFixed(0)}% cheaper`, pct: pct(zoneDiscount, 0) },
       callout: rich[0] ? { id: rich[0].crypto_id, text: `${pct(rich[0].premium_pct ?? 0)}, ${moneyShort(rich[0].premium_usd ?? 0)} extra` } : null,
@@ -351,10 +356,12 @@ export function present(r: CheckResponse, now = Date.now()): View {
     },
     route,
     noEasyExit: top !== null && best === null,
-    gaps: gapViews(r.gaps, noun, commodity),
-    evidence: evidenceViews(r.evidence, ws),
+    gaps: gapViews(r.gaps, noun, commodity, stockMarketClosed(r)),
+    evidence: evidenceViews(r.evidence, ws, r.registry ?? null),
     notice: fallbackNotice(r),
-    fine: `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
+    fine: isSpot
+      ? `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the ${noun} spot price at the time of the quotes, after converting units.`
+      : `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
     mode: r.mode,
   };
 }
@@ -432,7 +439,25 @@ function routeLine(v: Verdict): string {
   }
 }
 
-function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
+/**
+ * Stocks only: were US markets closed when these quotes were taken? Tokens trade 24/7, the
+ * shares don't, so prices can drift from the last close. Regular hours: Mon–Fri 9:30–16:00
+ * New York time (holidays aren't known here, so this can only under-report).
+ */
+export function usMarketClosedAt(iso: string): boolean {
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  if (get("weekday") === "Sat" || get("weekday") === "Sun") return true;
+  const minutes = Number(get("hour")) * 60 + Number(get("minute"));
+  return minutes < 9 * 60 + 30 || minutes >= 16 * 60;
+}
+
+function stockMarketClosed(r: CheckResponse): boolean {
+  const stock = r.asset.asset_type === "stock" || r.asset.asset_type === "etf";
+  return stock && !!r.data_as_of && usMarketClosedAt(r.data_as_of);
+}
+
+function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = false): GapView[] {
   const out: GapView[] = [];
   const has = (c: string) => gaps.some((g) => g.code === c);
   if (has("market_pairs_unavailable")) {
@@ -454,8 +479,16 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
       sub: "We compare tokens with each other. If they all drifted together, we wouldn't see it.",
     });
   }
-  for (const g of gaps.filter((x) => x.code === "ambiguous_query" || x.code === "contracts_unavailable")) {
-    out.push({ icon: "info", title: g.code === "ambiguous_query" ? "Which asset you meant" : "Token contracts", sub: g.message });
+  for (const g of gaps.filter((x) => ["ambiguous_query", "contracts_unavailable", "spot_unavailable"].includes(x.code))) {
+    const title = { ambiguous_query: "Which asset you meant", contracts_unavailable: "Token contracts", spot_unavailable: `The ${noun} spot price` }[g.code as "ambiguous_query"];
+    out.push({ icon: "info", title, sub: g.message });
+  }
+  if (marketClosed) {
+    out.push({
+      icon: "info",
+      title: "Where the shares are trading now",
+      sub: "US markets were closed when these prices were taken. Tokens trade around the clock, so they can drift from the last close.",
+    });
   }
   out.push({
     icon: "lock",
@@ -465,7 +498,7 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
   return out;
 }
 
-function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): EvidenceView[] {
+function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[], registry: CheckResult["registry"]): EvidenceView[] {
   const byAddress = new Map(ws.filter((w) => w.contract).map((w) => [String(w.contract).toLowerCase(), w]));
   const out: EvidenceView[] = [];
   const mapPages = evidence.filter((e) => e.endpoint === "/v5/real-world-assets/map" && "start" in e.params);
@@ -500,6 +533,18 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
       excerpt: curate(e),
     });
   });
+  if (registry) {
+    out.push({
+      id: "registry",
+      label: `READ ${registry.file}`,
+      meta: "0 credits",
+      ok: true,
+      note: `Parity's open registry: units for ${registry.units} of ${registry.tokens} tokens. Each fact says where it came from; unknown ones stay empty.`,
+      at: null,
+      excerpt: { file: registry.file, tokens: registry.tokens, units_known: registry.units, url: `https://github.com/dan-build/parity/blob/main/${registry.file}` },
+      static: true,
+    });
+  }
   out.push({
     id: "market-pairs",
     label: "GET /v5/real-world-assets/market-pairs/list",

@@ -33,8 +33,8 @@ that says whether it helped.
 
 - [x] MCP server `check_rwa(query)` (`lib/mcp.ts`, `npm run mcp`)
 - [x] **Eval:** in-memory client + real stdio script, all four verdicts, schema-validated (`lib/mcp.test.ts`)
-- [ ] Tag the submitted state: `buildwithcmc-submission`
-- [ ] Keep `main` and production unchanged until results. New work goes on `next`, which
+- [x] Tag the submitted state: `buildwithcmc-submission`
+- [x] Keep `main` and production unchanged until results. New work goes on `next`, which
       Vercel deploys to its own preview URL
 - [ ] Watch CoinMarketCap credit use daily; the site falls back to saved data if it runs out
 
@@ -42,28 +42,44 @@ that says whether it helped.
 
 **Goal:** make the verdict method explicit, testable and reproducible before adding reach.
 
-- [ ] **Golden set + eval runner** (`npm run eval`): expected verdicts and claims for every
+- [x] **Golden set + eval runner** (`npm run eval`): expected verdicts and claims for every
       saved asset, producing a scorecard and a diff against the last run
-- [ ] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
+- [x] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
       exit < 40…), with a version number and a changelog
-- [ ] **Scheduled snapshots:** a cron job saves live results every few minutes; pages read
-      snapshots instead of calling the API per visitor, so costs stay flat as traffic grows
-- [ ] **Daily history** per token: premium, volume and exit over time
-- [ ] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue templates, "good first
-      issue" labels
+- [x] **Scheduled snapshots** (`npm run snapshot`, `.github/workflows/snapshot.yml`): hourly,
+      as JSON lines on a separate `data` branch, so anyone can audit the history and `main`
+      never gets data commits. The cadence adapts to the CoinMarketCap plan: a full check
+      every hour on a big plan (≥100k credits/month, ~39k used), or prices hourly plus one
+      full check a day on 15k (~8k used). A 4,000-credit reserve is always kept for the live
+      site. **Starts when this lands on `main`:** GitHub only runs schedules from the default branch
+- [x] **History** per token: premium, volume, exit score and liquidity over time (`lib/history.ts`)
+- [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
+- [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
+- [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
+- [x] Starter issues labelled "good first issue" (#2 market holidays, #3 coin tooltips, #4 a new golden case)
 
-**Evals:** the golden set passes in CI; a method change without a changelog entry fails CI;
-snapshot freshness is monitored (alert when older than 15 minutes).
+**Evals:** the golden set passes in CI; a method change without a version bump fails CI;
+snapshot rows are tested on saved data (units converted, typical price matches the full
+check, no NaN); the data-branch script is tested against a throwaway remote; a failed or
+partial snapshot run fails the workflow, which GitHub reports by email.
 **Measure:** API credits per 1,000 page views (should fall sharply); time from push to deploy.
 
 ## Phase 2: the real price (1–2 months)
 
 **Goal:** answer "is this token worth what it claims?", not only "do the tokens agree?".
+**Constraint for now:** CoinMarketCap only. A second, free provider for share prices is a
+decision for after the hackathon results.
 
-- [ ] **Reference prices:** the real share price for stocks (with market-hours awareness:
-      tokens trade 24/7, stocks don't) and the spot price for gold and silver
-- [ ] Show premium against the real price alongside premium against the other tokens
-- [ ] "What the data can't tell you" drops "the real price" when it's covered
+- [x] **Metals: real spot from CoinMarketCap** (method 1.1.0). Gold, silver, platinum and
+      palladium tokens are measured against CMC's spot price at the moment of the quotes
+      (`/v2/tools/price-conversion` with `time`). On the golden set no verdict changed; gold
+      tokens sit within ±0.2% of spot
+- [x] **Stocks: market-hours awareness.** When quotes were taken outside US hours, the page says
+      tokens can drift from the last close
+- [x] "What the data can't tell you" drops "the real price" for metals
+- [ ] **Stocks: a real share price.** CoinMarketCap doesn't have one; needs a second provider
+      (after results)
+- [ ] US market holidays (today only weekends and hours are known)
 
 **Evals:** tracking error of each token against its reference price over the history
 (flags tokens that drift); a backtest over saved history checks verdicts wouldn't flip-flop
@@ -74,13 +90,17 @@ hour to hour (verdict stability rate); weekend and after-hours cases in the gold
 
 **Goal:** the dataset everyone else needs, and the thing Parity becomes known for.
 
-- [ ] **`registry/`:** one JSON file per tokenised asset, recording for each token its unit and
-      share ratio (per gram? 0.1 share?), chains and contracts, issuer, redemption terms, who
-      can hold it (KYC, jurisdictions), and links to proof-of-reserve and attestations
-- [ ] **Schema + CI validation;** contributions by pull request, like token lists
-- [ ] Parity uses the registry first and falls back to inference (the per-gram detection),
-      showing which source it used
-- [ ] Invite issuers to verify their own entries (a "verified by issuer" mark)
+- [x] **`registry/`:** one JSON file per watched asset (9), recording each token's unit and
+      share ratio, contracts, issuer, and empty slots for redemption terms, eligibility and
+      attestations. Seeded from saved data: 35 of 47 tokens have a unit; 12 are marked unknown
+      with the reason (`npm run registry:seed`)
+- [x] **Schema + CI validation;** contributions by pull request (`registry/README.md`, an issue
+      template for registry facts)
+- [x] Parity uses the registry first and falls back to inference (method 1.2.0), and says
+      which source it used (`unit_source`, a receipt in the Evidence drawer, the MCP output)
+- [ ] Invite issuers to verify their own entries (the `verified_by_issuer` mark exists; the
+      outreach doesn't yet)
+- [ ] Fill redemption, eligibility and attestations, with sources
 
 **Evals:** schema validation on every PR; contract addresses checked on-chain; unit and ratio
 entries cross-checked against observed prices (would have caught per-gram gold and KLAC).

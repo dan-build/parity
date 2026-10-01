@@ -13,12 +13,15 @@ export function Evidence({
   rows,
   mode,
   generatedAt,
+  methodVersion,
   open,
   onClose,
 }: {
   rows: EvidenceView[];
   mode: "fixture" | "live";
   generatedAt: string;
+  /** METHOD.md version behind this verdict. */
+  methodVersion: string;
   open: boolean;
   onClose: () => void;
 }) {
@@ -73,6 +76,11 @@ export function Evidence({
                 ? `live from CoinMarketCap, ${stamp(generatedAt)}`
                 : "saved CoinMarketCap responses, replayed without spending credits"}
             </p>
+            <p>
+              <a href={METHOD_URL} target="_blank" rel="noreferrer">
+                how the verdict is decided · method {methodVersion}
+              </a>
+            </p>
           </div>
           <button ref={close} className={s.x} onClick={onClose} aria-label="Close evidence">
             ×
@@ -109,6 +117,8 @@ export function Evidence({
     </div>
   );
 }
+
+const METHOD_URL = "https://github.com/dan-build/parity/blob/main/METHOD.md";
 
 /** 25 Sep 2026, 14:02:11 UTC: when CoinMarketCap answered (for saved responses, when they were recorded). */
 const stamp = (iso: string) => `${dayLabel(iso)}, ${new Date(iso).toISOString().slice(11, 19)} UTC`;

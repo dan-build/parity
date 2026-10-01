@@ -10,7 +10,10 @@
     "probe": "tsx --env-file=.env.local scripts/probe.ts",
     "test": "vitest run",
     "scan": "tsx --env-file=.env.local scripts/scan.ts",
-    "mcp": "tsx scripts/mcp.ts"
+    "mcp": "tsx scripts/mcp.ts",
+    "eval": "tsx scripts/eval.ts",
+    "snapshot": "tsx scripts/snapshot.ts",
+    "registry:seed": "tsx scripts/registry-seed.ts"
   },
   "dependencies": {
     "next": "16.3.6",
@@ -30,5 +33,6 @@
     "typescript": "^5",
     "vitest": "^5.0.2",
     "zod": "^4.6.5"
-  }
+  },
+  "license": "MIT"
 }

@@ -23,6 +23,9 @@ export const checkOutput = {
   answer: z.string().describe('One line: "best way in · XAUt", "no easy way out", "no price to trust" or "nothing to hold"'),
   summary: z.string().describe("The verdict in a sentence, e.g. 'Fair: if you pick the right token.'"),
   reasons: z.array(z.string()),
+  reference: z
+    .object({ kind: z.enum(["spot", "tokens"]), price_usd: z.number().nullable() })
+    .describe("What premiums are measured against: CMC's metal spot price, or the tokens' typical price (stocks; CMC has no share prices)"),
   best_way_in: z
     .object({ token: z.string(), issuer: z.string().nullable(), chain: z.string().nullable(), contract: z.string().nullable() })
     .nullable()
@@ -34,9 +37,10 @@ export const checkOutput = {
       issuer: z.string().nullable(),
       chain: z.string().nullable(),
       price_usd: z.number().nullable().describe("Per ounce for metals (per-gram quotes are converted), per share for stocks"),
-      premium_pct: z.number().nullable().describe("Against the typical price of all this asset's tokens"),
+      premium_pct: z.number().nullable().describe("Against `reference`: spot for metals, the tokens' typical price for stocks"),
       volume_24h_usd: z.number().nullable(),
       exit: z.string().describe("How easy it is to sell later: Deep, Good, Some, Thin or None"),
+      unit_source: z.enum(["registry", "inferred"]).nullable().describe("Where the token's unit came from: Parity's open registry, price inference, or nowhere (priced as quoted)"),
       verdict,
     }),
   ),
@@ -46,6 +50,7 @@ export const checkOutput = {
     as_of: z.string().nullable(),
     notice: z.string().nullable().describe("Set when live data was wanted but saved data answered"),
     calls: z.number(),
+    method_version: z.string().describe("METHOD.md version that produced this verdict"),
   }),
   share_url: z.string(),
   disclaimer: z.string(),
@@ -71,6 +76,7 @@ export async function checkRwa(query: string): Promise<{ ok: true; out: CheckOut
     answer: answerLine(body),
     summary: `${view.headline.word}: ${view.headline.sub}`,
     reasons: view.reasons.map((r) => `${r.strong}${r.rest}`.trim()),
+    reference: { kind: body.reference.method === "metal_spot" ? "spot" : "tokens", price_usd: round(body.reference.price_usd, 2) },
     best_way_in: best ? { token: best.display, issuer: best.issuer_name, chain: best.chain, contract: best.contract } : null,
     tokens: body.wrappers.map((w) => ({
       token: w.display,
@@ -81,10 +87,11 @@ export async function checkRwa(query: string): Promise<{ ok: true; out: CheckOut
       premium_pct: round(w.premium_pct, 2),
       volume_24h_usd: round(w.volume_24h, 0),
       exit: view.list.rows.find((r) => r.id === w.crypto_id)?.exit.word ?? "None",
+      unit_source: w.unit_source,
       verdict: w.verdict,
     })),
     cant_tell: view.gaps.map((g) => `${g.title}: ${g.sub}`),
-    data: { source: body.mode === "live" ? "live" : "saved", as_of: body.data_as_of, notice: view.notice, calls: body.evidence.length },
+    data: { source: body.mode === "live" ? "live" : "saved", as_of: body.data_as_of, notice: view.notice, calls: body.evidence.length, method_version: body.method_version },
     share_url: `${PARITY_URL}/?q=${encodeURIComponent(body.asset.symbol)}`,
     disclaimer: "Not financial advice. Prices from CoinMarketCap.",
   };

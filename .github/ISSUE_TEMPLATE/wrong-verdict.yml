@@ -1,0 +1,31 @@
+name: This verdict looks wrong
+description: Parity said something about a token that you think isn't right.
+labels: ["verdict", "needs-check"]
+body:
+  - type: input
+    id: asset
+    attributes:
+      label: Asset
+      description: The ticker or name you checked, and the link if you have it.
+      placeholder: GOLD, or https://parity-gray-one.vercel.app/?q=GOLD
+    validations:
+      required: true
+  - type: textarea
+    id: said
+    attributes:
+      label: What Parity said
+      description: The verdict, the token, or the sentence you disagree with.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and why
+      description: Link a source if you can (issuer site, attestation, explorer, exchange).
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: When you checked
+      description: Verdicts are live and move with the market, so the time helps.

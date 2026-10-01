@@ -1,0 +1,72 @@
+{
+  "asset": {
+    "symbol": "UNH",
+    "rwa_id": 33,
+    "name": "UnitedHealth Group Inc",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 37045,
+      "symbol": "UNHX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "XszvaiXGPwvk2nwb3o9C1CX4K6zH8sez11E6uyup6fe",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 38039,
+      "symbol": "UNHon",
+      "issuer": "Ondo Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0x075756F3b6381a79633438fAA8964946bf40163d",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37228,
+      "symbol": "WUNHX",
+      "issuer": "Backed Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0x1F652b05eFB825a068304972BC506Fb43Fac4D6F",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}
