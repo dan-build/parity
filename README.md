@@ -99,6 +99,7 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | Command | What it does | Credits |
 |---|---|---|
 | `npm test` | 130 tests: verdict engine, copy, log, fallbacks, the MCP server (in memory and over stdio), the golden set, and checks that `METHOD.md` matches the code. All run against saved responses. | 0 |
+| `npm run snapshot -- --kind auto` | Appends a history snapshot of the watched assets (`scripts/watchlist.json`). The hourly GitHub workflow runs it and saves to the `data` branch. | 9 (prices) to ~60 (full) |
 | `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
 | `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
 | `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |

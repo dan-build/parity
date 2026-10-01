@@ -1,0 +1,47 @@
+# Hourly history snapshots → the `data` branch (never `main`, never a production deploy).
+# Needs the repository secret CMC_API_KEY. Scheduled runs only start once this file is on
+# the default branch; "Run workflow" (workflow_dispatch) works from then on too.
+name: Snapshot
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly, off the top of the hour when GitHub is busiest
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "auto (by plan size), prices or full"
+        type: choice
+        options: [auto, prices, full]
+        default: auto
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Open the data branch
+        run: scripts/data-branch.sh open data
+      - name: Take the snapshot
+        id: snap
+        continue-on-error: true # still save whatever was recorded
+        env:
+          CMC_API_KEY: ${{ secrets.CMC_API_KEY }}
+        run: npm run snapshot -- --kind ${{ inputs.kind || 'auto' }} --out data/history
+      - name: Save to the data branch
+        run: scripts/data-branch.sh save data "snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+      - name: Fail if any asset couldn't be recorded
+        if: steps.snap.outcome == 'failure'
+        run: exit 1

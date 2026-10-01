@@ -72,8 +72,9 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 a recording transport. It saves every response to `fixtures/` and adds it to `fixtures/_index.json`
 (request key → file), which `fixtureTransport` in lib/cmc-fixtures.ts replays for tests. It also
 writes a per-call log to `fixtures/_probe-summary.json`. One run costs about 17 credits.
-A live `/api/check` query costs 5–6 credits. The plan allows 15k
-credits/month and 50 requests/min. API friction is logged in `FRICTION.md`.
+A live `/api/check` query costs 5–6 credits. The plan allowed 15k
+credits/month and 50 requests/min at probe time; on 1 Oct 2026 the same key reported
+450k/month and 600/min. Don't assume either: read `/v1/key/info` (the snapshot job does). API friction is logged in `FRICTION.md`.
 
 Works (credits): key/info (0), rwa map (0), rwa info (1), rwa quotes/latest (1),
 rwa assets/list (1), rwa issuers/list (1), rwa issuers (1), /v2/cryptocurrency/info (1),

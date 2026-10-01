@@ -46,15 +46,22 @@ that says whether it helped.
       saved asset, producing a scorecard and a diff against the last run
 - [x] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
       exit < 40…), with a version number and a changelog
-- [ ] **Scheduled snapshots:** a cron job saves live results every few minutes; pages read
-      snapshots instead of calling the API per visitor, so costs stay flat as traffic grows
-- [ ] **Daily history** per token: premium, volume and exit over time
+- [x] **Scheduled snapshots** (`npm run snapshot`, `.github/workflows/snapshot.yml`): hourly,
+      as JSON lines on a separate `data` branch, so anyone can audit the history and `main`
+      never gets data commits. The cadence adapts to the CoinMarketCap plan: a full check
+      every hour on a big plan (≥100k credits/month, ~39k used), or prices hourly plus one
+      full check a day on 15k (~8k used). A 4,000-credit reserve is always kept for the live
+      site. **Starts when this lands on `main`:** GitHub only runs schedules from the default branch
+- [x] **History** per token: premium, volume, exit score and liquidity over time (`lib/history.ts`)
+- [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
 - [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
 - [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
 - [ ] "good first issue" labels on a few starter issues
 
-**Evals:** the golden set passes in CI; a method change without a changelog entry fails CI;
-snapshot freshness is monitored (alert when older than 15 minutes).
+**Evals:** the golden set passes in CI; a method change without a version bump fails CI;
+snapshot rows are tested on saved data (units converted, typical price matches the full
+check, no NaN); the data-branch script is tested against a throwaway remote; a failed or
+partial snapshot run fails the workflow, which GitHub reports by email.
 **Measure:** API credits per 1,000 page views (should fall sharply); time from push to deploy.
 
 ## Phase 2: the real price (1–2 months)
