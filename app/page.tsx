@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Desk } from "@/components/desk/Desk";
 import { createClient } from "@/lib/data-source";
 import type { Mood } from "@/lib/present";
-import { runCheck } from "@/lib/run-check";
+import { headers } from "next/headers";
+import { clientKey, siteLimiter, validQuery } from "@/lib/public-api";
+import { rateLimitedBody, runCheck, type CheckBody } from "@/lib/run-check";
 
 /**
  * Each ?q= link shares its own verdict card (/api/og?q=…). The metadata doesn't run the
@@ -33,7 +35,16 @@ export default async function Page({ searchParams }: PageProps<"/">) {
   const t = one(sp.t);
   const seek = t !== undefined && t !== "" && Number.isFinite(Number(t)) ? Number(t) : null;
 
-  const initial = q ? (await runCheck(q)).body : null;
+  // Server-rendered checks spend credits too, so they share the page's per-client budget.
+  const gate = q ? siteLimiter(clientKey(await headers())) : null;
+  const valid = q ? validQuery(q) : null;
+  const initial: CheckBody | null = !q
+    ? null
+    : !valid
+      ? { ok: false, error: "missing_query", message: "That doesn't look like a ticker or asset name." }
+      : gate && !gate.ok
+        ? rateLimitedBody(gate.retryAfter)
+        : (await runCheck(valid)).body;
   const mood = initial?.ok ? initial.mood : await loadMood();
 
   return <Desk initialQuery={q} initial={initial} initialMood={mood} seek={seek} drawer={sp.drawer !== undefined} />;

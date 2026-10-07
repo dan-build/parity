@@ -16,12 +16,13 @@
     "registry:seed": "tsx scripts/registry-seed.ts"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
     "next": "16.3.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@modelcontextprotocol/sdk": "^1.31.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24.13.6",
     "@types/react": "^19",
@@ -31,8 +32,7 @@
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",
-    "vitest": "^5.0.2",
-    "zod": "^4.6.5"
+    "vitest": "^5.0.2"
   },
   "license": "MIT"
 }

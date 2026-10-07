@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.2.0**
+**Method version 1.2.1**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -103,6 +103,19 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 ---
 
 ## Changelog
+
+### 1.2.1 (7 Oct 2026)
+**Wording only; no rule changed.** From an evaluation in which an AI assistant answered buyer
+questions using Parity's MCP tool:
+- A derivative price feed is counted once, as "not a token", and no longer also as "doesn't
+  track" (KLAC said "3 don't track KLAC"; two holdable tokens disagree, plus one feed). Feeds
+  and tokens with no price are named apart ("3 listings can't be held. One is a price feed…").
+- A single per-gram token is named ("GRAMS is priced per gram") instead of "1 is".
+- "Fair: whichever token you pick" says "whichever of the N real tokens" when the list also has
+  listings that aren't tokens (NVDA).
+- Stocks with only 1–2 live tokens get a gap saying a premium there means "more than the other
+  token", not "more than the share" (UNH).
+Golden set: verdicts unchanged; NVDA's sub-line is the one baseline change.
 
 ### 1.2.0 (1 Oct 2026)
 **Units come from the open registry first.** Parity now keeps a public registry of what each

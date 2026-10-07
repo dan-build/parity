@@ -178,11 +178,18 @@ export function num(v: unknown): number | null {
 
 // --- client -----------------------------------------------------------------------
 
+/**
+ * Module-level (shared by every client in this server instance), keyed by source AND request:
+ * a saved response must never be served to a live client as if it were live.
+ */
 const cache = new Map<string, { at: number; res: CmcResponse }>();
+/** Requests on the wire right now: simultaneous identical requests share one call (and its credits). */
+const inflight = new Map<string, Promise<CmcResponse>>();
 
 /** Test helper: clear the module-level cache. */
 export function clearCmcCache() {
   cache.clear();
+  inflight.clear();
 }
 
 export type CmcClient = ReturnType<typeof createCmcClient>;
@@ -193,7 +200,7 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
 
   async function request(path: string, params: Params = {}, ttlMs = CACHE_TTL_MS): Promise<CmcResult<unknown>> {
     const req = { path, params };
-    const key = requestKey(req);
+    const key = `${source}:${requestKey(req)}`;
     const started = now();
     const hit = cache.get(key);
     let res: CmcResponse | null = null;
@@ -205,8 +212,20 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
       cached = true;
     } else {
       try {
-        res = await transport(req);
-        if (res.status >= 200 && res.status < 300) cache.set(key, { at: started, res });
+        const shared = inflight.get(key);
+        if (shared) {
+          res = await shared;
+          cached = true; // answered by a call already on its way: no extra credits
+        } else {
+          const call = transport(req);
+          inflight.set(key, call);
+          try {
+            res = await call;
+          } finally {
+            inflight.delete(key);
+          }
+          if (res.status >= 200 && res.status < 300) cache.set(key, { at: started, res });
+        }
       } catch (err) {
         message = `Network error: ${(err as Error).message}`;
       }

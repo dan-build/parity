@@ -137,8 +137,9 @@ export function exitMeter(score: number | null): { bars: number; word: string } 
 }
 
 const isDerivative = (w: WrapperResult) => !!w.issuer_name && /derivative/i.test(w.issuer_name);
+/** A holdable token whose price is far from the reference. Derivative feeds aren't tokens, so they never count. */
 export const isOffTrack = (w: WrapperResult) =>
-  w.verdict === "GHOST" && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
+  w.verdict === "GHOST" && !isDerivative(w) && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
 
 /**
  * The token we point people to: the engine's headline token, unless nothing trades.
@@ -171,7 +172,12 @@ export function present(r: CheckResponse, now = Date.now()): View {
 
   // Headline
   const sub: Record<Verdict, string> = {
-    FAIR: live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack) ? "whichever token you pick." : "if you pick the right token.",
+    FAIR:
+      live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack)
+        ? ghosts.length
+          ? `whichever of the ${live.length} real tokens you pick.`
+          : "whichever token you pick."
+        : "if you pick the right token.",
     RICH: "even the best token costs extra.",
     THIN: "not much market to sell into.",
     // Off-track tokens can be held; they just don't agree on a price (KLAC: two tokens 10× apart).
@@ -191,7 +197,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
   if (perGram.length) {
     reasons.push({
       tone: "unit",
-      strong: `${perGram.length === 1 ? "1 is" : `${perGram.length} are`} priced per gram.`,
+      strong: perGram.length === 1 ? `${perGram[0].display} is priced per gram.` : `${perGram.length} are priced per gram.`,
       rest: ` We converted ${perGram.length === 1 ? "it" : "them"} so you can compare.`,
     });
   }
@@ -205,13 +211,20 @@ export function present(r: CheckResponse, now = Date.now()): View {
     });
   }
   const unholdable = ghosts.filter((w) => !isOffTrack(w));
-  if (unholdable.length) {
-    const noPrice = unholdable.every((w) => w.price_raw === null);
+  // Two different reasons a listing can't be held: it's a price feed, or a token with no price.
+  const feeds = unholdable.filter(isDerivative).length;
+  const priceless = unholdable.length - feeds;
+  const listings = (n: number) => `${n} listing${n > 1 ? "s" : ""}`;
+  if (feeds && priceless) {
     reasons.push({
       tone: "ghost",
-      strong: `${unholdable.length} listing${unholdable.length > 1 ? "s" : ""} ${noPrice ? (unholdable.length > 1 ? "have" : "has") + " no price." : (unholdable.length > 1 ? "aren't" : "isn't") + " a token."}`,
-      rest: noPrice ? " It isn't something you can hold." : " Derivative price feeds, not something you can hold.",
+      strong: `${listings(unholdable.length)} can't be held.`,
+      rest: ` ${feeds === 1 ? "One is a price feed" : `${feeds} are price feeds`}, not a token; ${priceless === 1 ? "one has" : `${priceless} have`} no price.`,
     });
+  } else if (feeds) {
+    reasons.push({ tone: "ghost", strong: `${listings(feeds)} ${feeds > 1 ? "aren't" : "isn't"} a token.`, rest: " Derivative price feeds, not something you can hold." });
+  } else if (priceless) {
+    reasons.push({ tone: "ghost", strong: `${listings(priceless)} ${priceless > 1 ? "have" : "has"} no price.`, rest: " It isn't something you can hold." });
   }
   const offTrack = ghosts.filter(isOffTrack);
   if (offTrack.length) {
@@ -359,7 +372,8 @@ export function present(r: CheckResponse, now = Date.now()): View {
     },
     route,
     noEasyExit: top !== null && best === null,
-    gaps: gapViews(r.gaps, noun, commodity, stockMarketClosed(r)),
+    // The midpoint note only matters when a typical price is actually shown.
+    gaps: gapViews(r.gaps, noun, commodity, stockMarketClosed(r), isSpot || ref === null ? null : r.reference.wrappers_used),
     evidence: evidenceViews(r.evidence, ws, r.registry ?? null),
     notice: fallbackNotice(r),
     fine: isSpot
@@ -482,7 +496,7 @@ function stockMarketClosed(r: CheckResponse): boolean {
   return stock && !!r.data_as_of && usMarketClosedAt(r.data_as_of);
 }
 
-function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = false): GapView[] {
+function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = false, comparedTokens: number | null = null): GapView[] {
   const out: GapView[] = [];
   const has = (c: string) => gaps.some((g) => g.code === c);
   if (has("market_pairs_unavailable")) {
@@ -507,6 +521,17 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = 
   for (const g of gaps.filter((x) => ["ambiguous_query", "contracts_unavailable", "spot_unavailable"].includes(x.code))) {
     const title = { ambiguous_query: "Which asset you meant", contracts_unavailable: "Token contracts", spot_unavailable: `The ${noun} spot price` }[g.code as "ambiguous_query"];
     out.push({ icon: "info", title, sub: g.message });
+  }
+  // With 1–2 tokens to compare, the "typical price" is one token or a midpoint: say what a premium can mean.
+  if (comparedTokens === 1 || comparedTokens === 2) {
+    out.push({
+      icon: "target",
+      title: "How far a token is from the real price",
+      sub:
+        comparedTokens === 2
+          ? "Only 2 tokens can be compared, so the typical price is their midpoint: a premium here means more than the other token, not more than the share."
+          : "Only 1 token has a live price, so there's nothing to compare it with.",
+    });
   }
   if (marketClosed) {
     out.push({

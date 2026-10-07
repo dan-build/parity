@@ -1,5 +1,5 @@
 {
-  "method_version": "1.2.0",
+  "method_version": "1.2.1",
   "assets": {
     "GOLD": {
       "verdict": "FAIR",
@@ -61,7 +61,7 @@
     "NVDA": {
       "verdict": "FAIR",
       "answer": "best way in · NVDAX",
-      "sub": "whichever token you pick.",
+      "sub": "whichever of the 6 real tokens you pick.",
       "reference_price": 225.3,
       "tokens": {
         "28616": {

@@ -140,6 +140,74 @@ For Claude Desktop or Cursor (`mcpServers` in the client's config):
 
 It uses saved data by default, with no key and no credits. With `CMC_API_KEY` and `PARITY_DATA_MODE=live` in `.env.local`, it uses live data, with the same automatic fallback as the site. Then ask things like *"Is tokenised gold fairly priced right now? Which token should I look at?"*
 
+### Public API and hosted MCP
+
+Two public endpoints return the same result as the MCP tool. Both are **off by default**:
+set `PARITY_PUBLIC_API=on` to enable them on a deployment.
+
+**JSON API**: `GET /api/v1/check?q=<ticker or name>`
+
+```bash
+curl "https://<your-deployment>/api/v1/check?q=GOLD"
+```
+
+```jsonc
+{
+  "ok": true,
+  "api_version": "1",
+  "verdict": "FAIR",                      // FAIR | RICH | THIN | GHOST
+  "answer": "best way in · XAUt",          // or "no easy way out", "no price to trust", "nothing to hold"
+  "summary": "Fair: if you pick the right token.",
+  "reference": { "kind": "spot", "price_usd": 4285.41 },   // spot for metals, "tokens" (typical price) for stocks
+  "best_way_in": { "token": "XAUt", "issuer": "Tether Holdings", "chain": "Ethereum", "contract": "0x6874…" },
+  "tokens": [ { "token": "PAXG", "verdict": "FAIR", "premium_pct": -0.01, "exit": "Deep", "unit_source": "registry", … } ],
+  "reasons": [ … ], "cant_tell": [ … ],
+  "data": { "source": "live", "as_of": "…", "notice": null, "calls": 9, "method_version": "1.2.0" },
+  "share_url": "…/?q=GOLD", "disclaimer": "Not financial advice. Prices from CoinMarketCap."
+}
+```
+
+**Field guide** (full contract: `GET /api/v1/schema`, a JSON Schema with descriptions):
+- `verdict`: show it; `summary` is the same in a sentence.
+- `answer` is display text. Don't parse it; use `best_way_in`, which is `null` when nothing is
+  recommended (nothing trades, or no price can be trusted).
+- `reference.price_usd` is what premiums are measured against: spot per troy ounce for metals,
+  the tokens' typical price per share for stocks. It's `null` when there's no meaningful
+  reference (e.g. tokens 10× apart); hide premiums then too.
+- `tokens[].price_usd` is per ounce or per share **after unit conversion**.
+  `unit_source` says where the unit came from (`registry`, `inferred`, or `null` = as quoted).
+- `tokens[].exit`: how easy it is to sell later, `Deep` > `Good` > `Some` > `Thin` > `None`.
+- `data.source` is `live` or `saved`. **If `data.notice` is set, show it**: it says why the data
+  isn't live and from when.
+- `cant_tell` and `disclaimer`: show them with the verdict.
+
+| Status | Meaning |
+|---|---|
+| `200` | A verdict. Cached by the CDN for about a minute (cached answers don't count toward your limit). |
+| `400` `bad_query` | `q` missing or invalid (1–40 letters, digits, spaces, `. & ' -`) |
+| `404` `not_found` | No such asset; `suggestions` lists close matches (`GOLDD` → GOLD) |
+| `429` `rate_limited` | Over 30 requests a minute from your address; see `Retry-After`. `X-RateLimit-Remaining` counts down. |
+| `502` | CoinMarketCap failed and no saved data covers this asset |
+| `503` `public_api_disabled` | The deployment hasn't enabled the public API |
+
+Every error has the same shape: `{ "ok": false, "error": "<code>", "message": "…" }`. CORS is open.
+
+**Hosted MCP (Streamable HTTP, stateless)**: `POST /api/mcp`, one tool, `check_rwa(query)`,
+with the same result as the JSON API (`structuredContent`). Its schema is in `tools/list`. One
+JSON-RPC message per POST: batches are refused, bodies are capped at 64 KB, and the limit is
+60 requests a minute per address. Errors (unknown asset, invalid query) come back as a tool
+result with `isError: true` and a plain-text message. In a client that supports remote MCP servers,
+add `https://<your-deployment>/api/mcp`. A raw call looks like this:
+
+```bash
+curl -s https://<your-deployment>/api/mcp \
+  -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"check_rwa","arguments":{"query":"UNH"}}}'
+```
+
+Verdicts are informational, not financial advice. Please show `disclaimer` and the `cant_tell` gaps
+when you present them.
+
 ---
 
 ## CoinMarketCap endpoints

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { check, resolveQuery, type CheckResult } from "./check";
+import { check, resolveQuery, suggest, type CheckResult } from "./check";
 import { clearCmcCache, createCmcClient, type RwaMapEntry } from "./cmc";
 import { fixtureTransport } from "./cmc-fixtures";
 
@@ -86,5 +86,19 @@ describe("query resolution", () => {
     const { match, others } = resolveQuery("dup", [e(1, false, 1), e(2, true, 50), e(3, true, 9)]);
     expect(match?.rwa_id).toBe(3);
     expect(others.map((o) => o.rwa_id)).toEqual([2, 1]);
+  });
+});
+
+describe("suggestions for a query that finds nothing", () => {
+  const entries = [
+    { rwa_id: 1, name: "Gold", symbol: "GOLD", slug: "gold", asset_type: "commodity" as const, rwa_rank: 1, has_tokens: true },
+    { rwa_id: 2, name: "NVIDIA Corp", symbol: "NVDA", slug: "nvidia", asset_type: "stock" as const, rwa_rank: 2, has_tokens: true },
+    { rwa_id: 9, name: "Goldcorp", symbol: "GG", slug: "goldcorp", asset_type: "stock" as const, rwa_rank: 50, has_tokens: false },
+  ];
+  it("catches an extra letter, a typo and a partial name, and skips assets without tokens", () => {
+    expect(suggest("GOLDD", entries).map((s) => s.symbol)).toEqual(["GOLD"]);
+    expect(suggest("NVDIA", entries).map((s) => s.symbol)).toEqual(["NVDA"]);
+    expect(suggest("nvidi", entries).map((s) => s.symbol)).toEqual(["NVDA"]);
+    expect(suggest("zzzz", entries)).toEqual([]);
   });
 });

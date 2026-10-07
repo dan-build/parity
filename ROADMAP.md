@@ -109,15 +109,23 @@ contributors; issuers who correct their own entries (the real sign of trust).
 
 ## Phase 4: reach, where people buy (3–6 months)
 
-- [ ] **Public API + hosted MCP endpoint** (HTTP), rate-limited, so wallets and agents don't
-      need to run anything
+- [x] **Public API + hosted MCP endpoint**: `GET /api/v1/check`, `POST /api/mcp` (stateless),
+      `GET /api/v1/schema`. Off unless `PARITY_PUBLIC_API=on`. Per-client limits, no batches,
+      a 64 KB body cap, in-flight request sharing, and a per-instance live-call budget that
+      falls back to saved data. The site's own `/api/check`, `?q=` pages and share images are
+      limited too
+- [x] **Evals for it:** contract tests (incl. a real MCP HTTP client), the attacks from a
+      security review, an outside-developer test from the README alone, and an agent eval
+      (an AI assistant answering buyer questions through MCP: 25/25 on a rubric fixed in
+      advance, no buy advice)
+- [ ] A global credit budget shared across instances (needs shared storage, e.g. Upstash/KV)
 - [ ] **Alerts:** notify when a token's premium jumps or its market dries up
 - [ ] **Browser extension:** a Parity badge on swap screens for tokenised assets
 - [ ] **X bot:** reply "@parity NVDA" and get the verdict card back
 - [ ] One or two wallet or DEX integrations
 
 **Evals:** an agent eval (an LLM answering questions with `check_rwa` must cite the verdict,
-state the gaps and never recommend buying); alert precision measured against history (how
+state the gaps and never recommend buying; first run 7 Oct: 25/25); alert precision measured against history (how
 many alerts were real events); extension tested against recorded swap pages.
 **Measure:** weekly repeat users, API/MCP calls, alert opt-ins, integrations live.
 

@@ -44,11 +44,36 @@ export function resolveQuery(q: string, entries: RwaMapEntry[]): { match: RwaMap
   return { match: null, others: [] };
 }
 
+/** Edit distance, capped: returns early once it's past `max` (only "one typo away" matters here). */
+function withinEdits(a: string, b: string, max: number): boolean {
+  if (Math.abs(a.length - b.length) > max) return false;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    if (Math.min(...cur) > max) return false;
+    prev = cur;
+  }
+  return prev[b.length] <= max;
+}
+
+/**
+ * Close matches for a query that found nothing: a ticker, slug or name that contains it, a
+ * ticker it contains ("GOLDD" → GOLD), or a ticker one typo away ("NVDIA" → NVDA).
+ */
 export function suggest(q: string, entries: RwaMapEntry[], limit = 5): { symbol: string; name: string }[] {
   const n = q.trim().toLowerCase();
   if (!n) return [];
+  const close = (e: RwaMapEntry) => {
+    const sym = String(e.symbol ?? "").toLowerCase();
+    return (
+      [e.symbol, e.slug, e.name].some((f) => String(f ?? "").toLowerCase().includes(n)) ||
+      (sym.length >= 3 && n.includes(sym)) ||
+      (n.length >= 3 && withinEdits(n, sym, 1))
+    );
+  };
   return entries
-    .filter((e) => e.has_tokens && [e.symbol, e.slug, e.name].some((f) => String(f ?? "").toLowerCase().includes(n)))
+    .filter((e) => e.has_tokens && close(e))
     .sort((a, b) => (a.rwa_rank ?? Infinity) - (b.rwa_rank ?? Infinity))
     .slice(0, limit)
     .map((e) => ({ symbol: e.symbol, name: e.name }));
