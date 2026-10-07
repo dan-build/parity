@@ -145,6 +145,11 @@ It uses saved data by default, with no key and no credits. With `CMC_API_KEY` an
 Two public endpoints return the same result as the MCP tool. Both are **off by default**:
 set `PARITY_PUBLIC_API=on` to enable them on a deployment.
 
+> **Licensing:** the results include CoinMarketCap data (token prices, volumes). CMC's API terms
+> let you use their data inside your own product, but not "redistribute or resell it … through
+> your own API". Before enabling these endpoints with live data, get CoinMarketCap's permission.
+> Running the MCP server yourself with your own key (`npm run mcp`) doesn't have this problem.
+
 **JSON API**: `GET /api/v1/check?q=<ticker or name>`
 
 ```bash

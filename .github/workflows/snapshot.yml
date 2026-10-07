@@ -1,6 +1,10 @@
 # Hourly history snapshots → the `data` branch (never `main`, never a production deploy).
-# Needs the repository secret CMC_API_KEY. Scheduled runs only start once this file is on
-# the default branch; "Run workflow" (workflow_dispatch) works from then on too.
+# Needs the repository secret CMC_API_KEY.
+#
+# OFF until the repository variable SNAPSHOTS_ENABLED is "true" (Settings → Secrets and
+# variables → Actions → Variables). The data branch is public, and CoinMarketCap's terms don't
+# allow making their data available to third parties: get CMC's written OK (or store only
+# derived fields) before turning this on. Merging this file does NOT start it.
 name: Snapshot
 
 on:
@@ -23,6 +27,7 @@ concurrency:
 
 jobs:
   snapshot:
+    if: vars.SNAPSHOTS_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

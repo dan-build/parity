@@ -51,7 +51,9 @@ that says whether it helped.
       never gets data commits. The cadence adapts to the CoinMarketCap plan: a full check
       every hour on a big plan (≥100k credits/month, ~39k used), or prices hourly plus one
       full check a day on 15k (~8k used). A 4,000-credit reserve is always kept for the live
-      site. **Starts when this lands on `main`:** GitHub only runs schedules from the default branch
+      site. **Off until the `SNAPSHOTS_ENABLED` repository variable is set:** the `data` branch
+      is public, and CoinMarketCap's terms don't allow making their data available to third
+      parties. Needs CMC's written OK, or a history that keeps only derived fields
 - [x] **History** per token: premium, volume, exit score and liquidity over time (`lib/history.ts`)
 - [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
 - [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates

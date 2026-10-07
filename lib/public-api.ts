@@ -3,8 +3,9 @@
  * the public API (/api/v1/check), the hosted MCP endpoint (/api/mcp), and the page's own
  * /api/check and server-rendered ?q= pages.
  *
- * - The public endpoints are OFF unless PARITY_PUBLIC_API=on (CMC's terms on redistributing
- *   data are still to be checked; see design/AFTER-RESULTS.md).
+ * - The public endpoints are OFF unless PARITY_PUBLIC_API=on. CMC's API terms (pricing page:
+ *   "you may not redistribute or resell it … through your own API") mean they need CMC's
+ *   permission before they serve live data.
  * - Per-client rate limits, in memory. On serverless every instance keeps its own counts, so
  *   this is a guard, not a guarantee; the CDN cache (Cache-Control) absorbs repeat requests,
  *   and the CMC client's own 60s cache absorbs the rest.
