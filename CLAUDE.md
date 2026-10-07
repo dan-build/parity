@@ -74,7 +74,7 @@ a recording transport. It saves every response to `fixtures/` and adds it to `fi
 writes a per-call log to `fixtures/_probe-summary.json`. One run costs about 17 credits.
 A live `/api/check` query costs 5–6 credits. The plan allowed 15k
 credits/month and 50 requests/min at probe time; on 1 Oct 2026 the same key reported
-450k/month and 600/min. Don't assume either: read `/v1/key/info` (the snapshot job does). API friction is logged in `FRICTION.md`.
+450k/month and 600/min. Don't assume either: read `/v1/key/info` (scripts/snapshot.ts does). API friction is logged in `FRICTION.md`.
 
 Works (credits): key/info (0), rwa map (0), rwa info (1), rwa quotes/latest (1),
 rwa assets/list (1), rwa issuers/list (1), rwa issuers (1), /v2/cryptocurrency/info (1),
@@ -154,3 +154,6 @@ at X's thumbnail size: the verdict word and chip must read at ~500px wide.
 - Keep changes small; after each step, tell me exactly how to check it works.
 - Never invent API fields. If unsure, read `fixtures/` or run the probe script.
 - Not financial advice: show a one-line disclaimer on the card.
+- Never redistribute CoinMarketCap data: no public data API or hosted data endpoint, no published
+  history (CMC's terms allow use inside our own product only). Self-hosted MCP with the user's
+  own key is fine.

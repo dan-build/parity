@@ -9,7 +9,7 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { dataMode } from "@/lib/data-source";
 import { present, type View } from "@/lib/present";
-import { clientKey, siteLimiter, validQuery } from "@/lib/public-api";
+import { clientKey, siteLimiter, validQuery } from "@/lib/rate-limit";
 import { runCheck } from "@/lib/run-check";
 import type { Verdict } from "@/lib/verdict";
 

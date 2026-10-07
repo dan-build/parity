@@ -1,7 +1,7 @@
 /**
  * Append one history snapshot per watched asset (scripts/watchlist.json).
  *
- *   npm run snapshot -- --kind auto     what the hourly workflow runs: a full check if the plan
+ *   npm run snapshot -- --kind auto     a full check if the plan
  *                                       is big (≥100k credits/month), else prices hourly and a
  *                                       full check once a day
  *   npm run snapshot -- --kind prices   quotes only, 1 credit per asset
@@ -9,9 +9,11 @@
  *   options: --out <dir> (default history/), --reserve <credits> (default 4000, or SNAPSHOT_RESERVE)
  *
  * Live data only, never the saved-data fallback: a rate-limited run records nothing and
- * exits non-zero so the workflow shows it. It skips (exit 0) when the month's credits left
- * would drop below the reserve kept for the live site. In CI the key comes from the
- * CMC_API_KEY secret; locally from .env.local.
+ * exits non-zero. It skips (exit 0) when the month's credits left would drop below the
+ * reserve kept for the live site. The key comes from .env.local.
+ *
+ * PRIVATE: history/ is git-ignored. CoinMarketCap's terms allow storing data for your own
+ * product, not making it available to third parties, so this history is never published.
  */
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";

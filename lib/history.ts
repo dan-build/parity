@@ -1,6 +1,7 @@
 /**
- * History snapshots: one JSON line per asset per run, appended to monthly files on the
- * `data` branch (see scripts/snapshot.ts and .github/workflows/snapshot-*.yml).
+ * History snapshots: one JSON line per asset per run, appended to monthly files in the
+ * private, git-ignored history/ folder (scripts/snapshot.ts). Never published: CoinMarketCap's
+ * terms don't allow making their data available to third parties.
  *
  * - prices (hourly, 1 credit per asset): quotes only, run through the real verdict()
  *   without pools, so units are converted and premiums match the site.

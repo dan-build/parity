@@ -3,7 +3,7 @@ import { Desk } from "@/components/desk/Desk";
 import { createClient } from "@/lib/data-source";
 import type { Mood } from "@/lib/present";
 import { headers } from "next/headers";
-import { clientKey, siteLimiter, validQuery } from "@/lib/public-api";
+import { clientKey, siteLimiter, validQuery } from "@/lib/rate-limit";
 import { rateLimitedBody, runCheck, type CheckBody } from "@/lib/run-check";
 
 /**

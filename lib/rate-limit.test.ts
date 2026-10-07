@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { clientKey, createLimiter, networkOf, readBody, validQuery } from "./public-api";
+import { clientKey, createLimiter, networkOf, validQuery } from "./rate-limit";
 
 describe("rate limiter", () => {
   it("allows `limit` hits per window per client, then says when to retry", () => {
@@ -37,12 +37,5 @@ describe("networkOf", () => {
     expect(networkOf("2001:db8:1:2:bbbb:cccc:dddd:eeee")).toBe("2001:db8:1:2::/64");
     expect(networkOf("2001:db8::1")).toBe("2001:db8:0:0::/64");
     expect(networkOf("1.2.3.4")).toBe("1.2.3.4");
-  });
-});
-
-describe("readBody", () => {
-  it("stops at the cap", async () => {
-    expect(await readBody(new Request("http://t", { method: "POST", body: "abc" }), 10)).toBe("abc");
-    expect(await readBody(new Request("http://t", { method: "POST", body: "x".repeat(11) }), 10)).toBeNull();
   });
 });

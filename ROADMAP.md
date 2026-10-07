@@ -46,15 +46,15 @@ that says whether it helped.
       saved asset, producing a scorecard and a diff against the last run
 - [x] **Published method** (`METHOD.md`): every threshold (rich > +1%, off-track > 5%, thin
       exit < 40…), with a version number and a changelog
-- [x] **Scheduled snapshots** (`npm run snapshot`, `.github/workflows/snapshot.yml`): hourly,
-      as JSON lines on a separate `data` branch, so anyone can audit the history and `main`
-      never gets data commits. The cadence adapts to the CoinMarketCap plan: a full check
-      every hour on a big plan (≥100k credits/month, ~39k used), or prices hourly plus one
-      full check a day on 15k (~8k used). A 4,000-credit reserve is always kept for the live
-      site. **Off until the `SNAPSHOTS_ENABLED` repository variable is set:** the `data` branch
-      is public, and CoinMarketCap's terms don't allow making their data available to third
-      parties. Needs CMC's written OK, or a history that keeps only derived fields
+- [x] **Snapshots** (`npm run snapshot`): history as JSON lines in a private, git-ignored
+      `history/` folder (CoinMarketCap's terms allow storing data for your own product, not
+      publishing it; an earlier public `data` branch plan was dropped on 7 Oct). The cadence
+      adapts to the CoinMarketCap plan: a full check per run on a big plan (≥100k
+      credits/month), or prices plus one full check a day on 15k. A 4,000-credit reserve is
+      always kept for the live site
 - [x] **History** per token: premium, volume, exit score and liquidity over time (`lib/history.ts`)
+- [ ] Scheduled snapshots into private server-side storage (e.g. Vercel Blob or KV, not the
+      public repo), so history builds without a laptop running
 - [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
 - [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
 - [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
@@ -62,8 +62,7 @@ that says whether it helped.
 
 **Evals:** the golden set passes in CI; a method change without a version bump fails CI;
 snapshot rows are tested on saved data (units converted, typical price matches the full
-check, no NaN); the data-branch script is tested against a throwaway remote; a failed or
-partial snapshot run fails the workflow, which GitHub reports by email.
+check, no NaN).
 **Measure:** API credits per 1,000 page views (should fall sharply); time from push to deploy.
 
 ## Phase 2: the real price (1–2 months)
@@ -111,16 +110,15 @@ contributors; issuers who correct their own entries (the real sign of trust).
 
 ## Phase 4: reach, where people buy (3–6 months)
 
-- [x] **Public API + hosted MCP endpoint**: `GET /api/v1/check`, `POST /api/mcp` (stateless),
-      `GET /api/v1/schema`. Off unless `PARITY_PUBLIC_API=on`. Per-client limits, no batches,
-      a 64 KB body cap, in-flight request sharing, and a per-instance live-call budget that
-      falls back to saved data. The site's own `/api/check`, `?q=` pages and share images are
-      limited too
-- [x] **Evals for it:** contract tests (incl. a real MCP HTTP client), the attacks from a
-      security review, an outside-developer test from the README alone, and an agent eval
-      (an AI assistant answering buyer questions through MCP: 25/25 on a rubric fixed in
-      advance, no buy advice)
-- [ ] A global credit budget shared across instances (needs shared storage, e.g. Upstash/KV)
+- [x] **Self-hosted MCP** (`npm run mcp`): agents use Parity with their own CoinMarketCap key.
+      Evaluated with a real MCP client, and with an AI assistant answering buyer questions
+      through it (25/25 on a rubric fixed in advance, no buy advice)
+- [x] **The site's own paths are protected:** per-client rate limits and input validation on
+      `/api/check`, `?q=` pages and share images; simultaneous identical CMC requests share one
+      call; a per-instance cap on live calls falls back to saved data (from a security review)
+- **Not doing: a public data API or hosted MCP endpoint.** Built on 7 Oct, then removed:
+  CoinMarketCap's API terms allow using their data inside your own product, not
+  redistributing it "through your own API". Revisit only with CMC's written permission.
 - [ ] **Alerts:** notify when a token's premium jumps or its market dries up
 - [ ] **Browser extension:** a Parity badge on swap screens for tokenised assets
 - [ ] **X bot:** reply "@parity NVDA" and get the verdict card back
@@ -137,7 +135,8 @@ many alerts were real events); extension tested against recorded swap pages.
       RetroPGF), data-provider grants, paid API tiers for wallets. **Never** issuer payments
       tied to verdicts; all funding disclosed
 - [ ] Read DEX pools directly on-chain as well, so Parity doesn't depend on one data provider
-- [ ] Check CoinMarketCap's terms before redistributing any data (snapshots, API)
+- [x] Checked CoinMarketCap's terms (7 Oct): no redistribution. The public API, hosted MCP
+      and public history were removed; saved responses in the repo are a question for CMC
 - [ ] Public **corrections log:** when Parity is wrong, say so, link the fix and the eval that now covers it
 
 ---

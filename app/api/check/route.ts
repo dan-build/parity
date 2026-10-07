@@ -1,4 +1,4 @@
-import { clientKey, siteLimiter, validQuery } from "@/lib/public-api";
+import { clientKey, siteLimiter, validQuery } from "@/lib/rate-limit";
 import { rateLimitedBody, runCheck } from "@/lib/run-check";
 
 // GET /api/check?q=NVDA → { ok, verdict, reasons, wrappers, evidence, gaps, mood, mode, ... }
