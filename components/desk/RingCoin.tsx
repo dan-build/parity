@@ -15,7 +15,7 @@ export function tickerFont(size: number, ticker: string): number {
   return Math.max(MIN_FONT, Math.min(size * 0.26, fit));
 }
 
-export function RingCoin({ size, ticker, variant = "gold", title, ref, style }: CoinProps) {
+export function RingCoin({ size, ticker, variant = "gold", title, tipAlign = "center", ref, style }: CoinProps) {
   const ghost = variant === "ghost";
   const rich = variant === "rich";
   const colour = ghost ? "var(--ghost)" : rich ? "var(--rich)" : "var(--gold)";
@@ -48,6 +48,7 @@ export function RingCoin({ size, ticker, variant = "gold", title, ref, style }: 
       aria-hidden="true"
       className={title ? s.tip : undefined}
       data-tip={title}
+      data-align={title ? tipAlign : undefined}
       tabIndex={title ? -1 : undefined}
     >
       {label}

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { clearCmcCache } from "./cmc";
 import { logLines, logSummary } from "./log";
-import { exitMeter, moneyShort, pct, present, recommended, usMarketClosedAt, type CheckResponse } from "./present";
+import { coinTooltip, exitMeter, moneyShort, pct, present, recommended, usMarketClosedAt, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
 
 async function load(q: string): Promise<CheckResponse> {
@@ -264,5 +264,39 @@ describe("US market hours (stocks)", () => {
     const title = "Where the shares are trading now";
     expect(present(await load("NVDA")).gaps.some((g) => g.title === title)).toBe(true); // Fri 17:48 New York
     expect(present(await load("GOLD")).gaps.some((g) => g.title === title)).toBe(false);
+  });
+});
+
+describe("coin tooltips", () => {
+  const tip = (v: ReturnType<typeof present>, ticker: string) => v.instrument.coins.find((c) => c.ticker === ticker)?.tooltip;
+
+  it("say the premium against the right reference: spot for metals, typical for stocks", async () => {
+    expect(tip(present(await load("GOLD")), "XAUt")).toBe("XAUt · +0.03% vs spot");
+    expect(tip(present(await load("NVDA")), "NVDAX")).toBe("NVDAX · +0.06% vs typical");
+  });
+
+  it("explain a converted unit", async () => {
+    expect(tip(present(await load("GOLD")), "CGO")).toBe("CGO · −0.93% vs spot · priced per gram");
+  });
+
+  it("say why a ghost is a ghost", async () => {
+    const gold = present(await load("GOLD"));
+    expect(tip(gold, "XAU")).toBe("XAU · price feed, not a token");
+    expect(tip(present(await load("NVDA")), "NVDA.D")).toBe("NVDA.D · no price");
+    expect(tip(present(await load("SILVER")), "KAG")).toBe("KAG · −48% vs spot · doesn't track silver");
+  });
+
+  it("keep colliding symbols apart", async () => {
+    const v = present(await load("NVDA"));
+    const nvda = v.instrument.coins.filter((c) => c.ticker === "NVDA").map((c) => c.tooltip);
+    expect(nvda).toHaveLength(2);
+    expect(nvda.every((t) => /^NVDA \(/.test(t))).toBe(true);
+  });
+
+  it("explain a registry share ratio", async () => {
+    const r = await load("KLAC");
+    const klacx = r.wrappers.find((w) => w.symbol === "KLACx")!;
+    const asRatio = { ...klacx, verdict: "FAIR" as const, unit: "per_token_ratio" as const, units_per_token: 0.1, premium_pct: -0.07 };
+    expect(coinTooltip(asRatio, { isSpot: false, noun: "KLAC" })).toBe("KLACx · −0.07% vs typical · 1 token = 0.1 shares");
   });
 });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeGeometry, SCALE_SPAN, type InstrumentCoinInput } from "./layout";
+import { computeGeometry, SCALE_SPAN, tipAlign, type InstrumentCoinInput } from "./layout";
 import { SPRING, T } from "./timings";
 import { drop, spring } from "./motion";
 
@@ -69,5 +69,19 @@ describe("timeline", () => {
     expect(spring(0, 100, SPRING.SOFT)).toBe(0);
     expect(drop(0, 100, 170)).toEqual({ y: -170, visible: false });
     expect(drop(2000, 100, 170).y).toBeCloseTo(0, 3);
+  });
+});
+
+describe("tipAlign", () => {
+  const long = "CGO · −0.93% vs spot · priced per gram"; // ~290px
+  it("centres a tooltip with room on both sides", () => {
+    expect(tipAlign(600, 1200, long)).toBe("center");
+  });
+  it("grows inward near the left and right edges", () => {
+    expect(tipAlign(40, 1200, long)).toBe("start");
+    expect(tipAlign(1180, 1200, long)).toBe("end");
+  });
+  it("gives short tooltips more room before shifting", () => {
+    expect(tipAlign(60, 1200, "XAUt")).toBe("center");
   });
 });

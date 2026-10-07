@@ -25,6 +25,8 @@ export type InstrumentCoin = {
   verdict: Verdict;
   /** Normalised premium in %, null for GHOSTs without a usable price. */
   premium: number | null;
+  /** Hover/tap text: name, premium against the reference, and any unit story or reason. */
+  tooltip: string;
 };
 
 export type RowView = {
@@ -249,6 +251,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     kind: coinKind(w),
     verdict: w.verdict,
     premium: w.verdict === "GHOST" ? null : w.premium_pct,
+    tooltip: coinTooltip(w, { isSpot, noun }),
   }));
   const rawGram = perGram.find((w) => w.price_raw !== null && ref);
   const zoneDiscount = rawGram && ref ? ((rawGram.price_raw as number) / ref - 1) * 100 : null;
@@ -419,6 +422,28 @@ function fallbackNotice(r: CheckResponse): string | null {
 
 /** "1 credit", "0 credits". */
 export const credits1 = (n: number) => `${n} credit${n === 1 ? "" : "s"}`;
+
+/**
+ * One coin's tooltip, e.g. "XAUt · +0.03% vs spot", "CGO · −0.93% vs spot · priced per gram",
+ * "XAU · price feed, not a token". Says what the premium is measured against, and never
+ * leaves a converted price or a ghost unexplained.
+ */
+export function coinTooltip(w: WrapperResult, ctx: { isSpot: boolean; noun: string }): string {
+  const vs = ctx.isSpot ? "spot" : "typical";
+  if (w.verdict === "GHOST") {
+    if (isDerivative(w)) return `${w.display} · price feed, not a token`;
+    if (w.price_raw === null || w.premium_pct === null) return `${w.display} · no price`;
+    if (isOffTrack(w)) return `${w.display} · ${pct(w.premium_pct, 0)} vs ${vs} · doesn't track ${ctx.noun}`;
+    return w.display;
+  }
+  const parts = [w.display, `${pct(w.premium_pct ?? 0)} vs ${vs}`];
+  if (w.unit === "per_gram_to_oz") parts.push("priced per gram");
+  if (w.unit === "per_token_ratio" && w.units_per_token !== null) {
+    const what = ctx.isSpot ? "ounce" : "share";
+    parts.push(`1 token = ${w.units_per_token} ${what}${w.units_per_token === 1 ? "" : "s"}`);
+  }
+  return parts.join(" · ");
+}
 
 function ghostLine(w: WrapperResult, noun: string): string {
   if (w.price_raw === null) return `${w.display} has no price`;

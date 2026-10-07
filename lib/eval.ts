@@ -122,7 +122,7 @@ export function checkGolden(c: GoldenCase, body: CheckBody): string[] {
   }
   // Rules that hold for every asset, golden or not, checked on the words a person reads.
   // Includes the engine's raw reasons too: they ship in /api/check and the MCP tool.
-  const copy = strings([v.headline, v.reasons, v.summary, v.route, v.gaps, v.instrument.ghostNote, v.list, v.fine, body.reasons, body.wrappers.map((w) => w.reasons)]);
+  const copy = strings([v.headline, v.reasons, v.summary, v.route, v.gaps, v.instrument.ghostNote, v.instrument.coins.map((x) => x.tooltip), v.list, v.fine, body.reasons, body.wrappers.map((w) => w.reasons)]);
   const said = (re: RegExp) => copy.filter((t) => re.test(t));
   for (const t of said(/\bbuy(s|ing)?\b/i)) miss.push(`${c.q}: copy says "buy": "${t}"`);
   for (const t of said(/#\d{3,}|\bnull\b|\bundefined\b|\bNaN\b/)) miss.push(`${c.q}: copy shows a raw id, null, undefined or NaN: "${t}"`);
