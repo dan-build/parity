@@ -19,7 +19,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { check, metalFor } from "../lib/check";
 import { createCmcClient, liveTransport, type Transport } from "../lib/cmc";
-import { creditsLeft, dailyRow, historyPath, mayRun, monthlyLimit, pickKind, priceRow } from "../lib/history";
+import { creditsLeft, dailyRow, historyPath, mayRun, monthlyLimit, paceMs, pickKind, priceRow, rateLimitPerMinute } from "../lib/history";
 
 const root = resolve(__dirname, "..");
 if (!process.env.CMC_API_KEY && existsSync(join(root, ".env.local"))) process.loadEnvFile(join(root, ".env.local"));
@@ -34,8 +34,8 @@ const out = resolve(arg("out") ?? join(root, "history"));
 const reserve = Number(arg("reserve") ?? process.env.SNAPSHOT_RESERVE ?? 4000);
 const watchlist = JSON.parse(readFileSync(join(root, "scripts/watchlist.json"), "utf8")) as { symbol: string; rwa_id: number }[];
 
-// 50 requests/min on the plan.
-function throttled(inner: Transport, gapMs = 1_300): Transport {
+// Paced from the key's own per-minute limit (see paceMs), so the live site keeps headroom.
+function throttled(inner: Transport, gapMs: number): Transport {
   let last = 0;
   let chain: Promise<unknown> = Promise.resolve();
   return (req) => {
@@ -59,9 +59,9 @@ function append(file: string, row: unknown) {
 async function main() {
   if (asked !== "prices" && asked !== "full" && asked !== "auto") throw new Error("--kind auto|prices|full is required");
   if (!KEY) throw new Error("CMC_API_KEY is not set");
-  const client = createCmcClient({ transport: throttled(liveTransport(KEY)), source: "live" });
-
-  const info = await client.get("/v1/key/info");
+  const info = await createCmcClient({ transport: liveTransport(KEY), source: "live" }).get("/v1/key/info"); // 0 credits
+  const gap = paceMs(info.ok ? rateLimitPerMinute(info.data) : null);
+  const client = createCmcClient({ transport: throttled(liveTransport(KEY), gap), source: "live" });
   const kind = asked === "auto" ? pickKind(info.ok ? monthlyLimit(info.data) : null, new Date().getUTCHours()) : asked;
   const cost = watchlist.length * (kind === "prices" ? 1 : 7) + 2; // + spot for gold and silver
   const gate = mayRun(info.ok ? creditsLeft(info.data) : null, cost, reserve);
@@ -69,7 +69,7 @@ async function main() {
     console.log(`::warning::Snapshot skipped: ${gate.why}`);
     return 0;
   }
-  console.log(`${kind} snapshot of ${watchlist.length} assets (${gate.why})`);
+  console.log(`${kind} snapshot of ${watchlist.length} assets (${gate.why}; one call every ${gap} ms)`);
 
   const t = new Date().toISOString();
   let failed = 0;

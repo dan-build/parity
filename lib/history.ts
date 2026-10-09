@@ -128,6 +128,20 @@ export function monthlyLimit(keyInfo: unknown): number | null {
   return typeof n === "number" ? n : null;
 }
 
+/** Requests per minute from /v1/key/info, or null. */
+export function rateLimitPerMinute(keyInfo: unknown): number | null {
+  const n = (keyInfo as { data?: { plan?: { rate_limit_minute?: unknown } } })?.data?.plan?.rate_limit_minute;
+  return typeof n === "number" && n > 0 ? n : null;
+}
+
+/**
+ * Gap between snapshot calls. The live site shares the key's per-minute limit, so a run takes
+ * at most half of it; when the limit is unknown it assumes a small plan (30/min).
+ */
+export function paceMs(perMinute: number | null): number {
+  return Math.ceil(60_000 / ((perMinute ?? 30) / 2));
+}
+
 /** Credits left this month from /v1/key/info, or null if the response doesn't say. */
 export function creditsLeft(keyInfo: unknown): number | null {
   const left = (keyInfo as { data?: { usage?: { current_month?: { credits_left?: unknown } } } })?.data?.usage?.current_month?.credits_left;

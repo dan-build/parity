@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { check } from "./check";
 import { clearCmcCache } from "./cmc";
 import { fixtureClient } from "./data-source";
-import { creditsLeft, dailyRow, FULL_HOUR_UTC, historyPath, mayRun, pickKind, priceRow } from "./history";
+import { creditsLeft, dailyRow, FULL_HOUR_UTC, historyPath, mayRun, paceMs, pickKind, priceRow, rateLimitPerMinute } from "./history";
 import { METHOD_VERSION } from "./verdict";
 
 const T = "2026-10-01T12:00:00.000Z";
@@ -71,6 +71,15 @@ describe("paths and the credit guard", () => {
     expect(pickKind(15_000, 14)).toBe("prices");
     expect(pickKind(15_000, FULL_HOUR_UTC)).toBe("full");
     expect(pickKind(null, 14)).toBe("prices"); // unknown plan: the cheap option
+  });
+
+  it("paces calls at half the key's per-minute limit, leaving the rest for the live site", () => {
+    const info = JSON.parse(readFileSync(join(process.cwd(), "fixtures/v1_key_info.json"), "utf8"));
+    expect(rateLimitPerMinute(info.body ?? info)).toBe(50);
+    expect(rateLimitPerMinute({})).toBeNull();
+    expect(paceMs(50)).toBe(2_400); // 25 a minute
+    expect(paceMs(600)).toBe(200); // 300 a minute
+    expect(paceMs(null)).toBe(4_000); // unknown: assume a small plan (30/min), use 15
   });
 
   it("keeps the reserve for the live site", () => {
