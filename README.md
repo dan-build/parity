@@ -21,7 +21,7 @@ Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMa
 | Verdict | Means | Try it | Why |
 |---|---|---|---|
 | **Fair** | Priced like the others, with a market to sell into | `/?q=GOLD` | 7 tokens. Two are quoted **per gram** and look 97% cheaper until converted. XAUt is the most traded. |
-| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | When recorded (26 Sep), UNHon was the only UNH token with real trading, and it cost **+1.51%** (about $5.83 a share) more than UNHX. |
+| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | When recorded (26 Sep), UNHon was the only UNH token with real trading, and it cost **+1.51%** (about $5.83 a share) over the typical price, the midpoint of the two tokens. That's about $11.65 more than UNHX. |
 | **Thin** | The price is fine, but little trading to sell into later | `/?q=SILVER` | No token that tracks silver traded in the last day, so Parity recommends none: **"no easy way out"**. |
 | **Ghost** | Nothing you can rely on: no price, not a real token, or tokens that disagree | `/?q=KLAC` | Its two holdable tokens are priced **about 10× apart** ($1,883.88 vs $188.26). Parity won't guess which one is right. |
 
@@ -75,7 +75,7 @@ CMC_API_KEY=your-key
 PARITY_DATA_MODE=live
 ```
 
-A live check costs about 5–7 credits.
+A live check costs about 5–8 credits.
 
 If live data isn't available, Parity **falls back to saved data automatically** and shows a one-line notice explaining why. That covers three cases:
 - no key is set
@@ -102,9 +102,9 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | `npm run snapshot -- --kind auto` | Appends a private history snapshot of the watched assets (`scripts/watchlist.json`) to the git-ignored `history/` folder. Never published (see Licensing below). | 9 (prices) to ~60 (full) |
 | `npm run registry:seed` | Adds registry entries for the watched assets from saved data (never overwrites) | 0 |
 | `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
-| `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
-| `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |
-| `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~5–6 each |
+| `npm run mcp` | Starts the MCP server over stdio (see below) | 0 saved, 5–8 per live check |
+| `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~35 |
+| `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~3–4 each |
 | `npm run scan -- --budget 60` | Screens assets for RICH/GHOST candidates: reads the saved asset list, pulls live quotes and runs the real `verdict()`. Saves nothing. | 1 per asset |
 
 `probe` and `scan` read `CMC_API_KEY` from `.env.local`. They space out calls to stay under 50 requests a minute, and print the day's credits before and after.

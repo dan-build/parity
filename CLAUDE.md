@@ -15,6 +15,12 @@ allocators with dense terminals. We win on clarity, craft and shareability.
 Hackathon: Build with CMC (DoraHacks), Real World Assets track.
 Hard deadline: Wed 30 Sep 2026, 23:59 UTC. Treat 29 Sep night as the real deadline.
 
+## Status after the deadline (read first)
+The entry is submitted. **Until results are announced, `main` (= tag `buildwithcmc-submission`,
+`ae06a52`) and Vercel production are frozen; all work goes on `next` (draft PR #1).** Start a
+session with `design/HANDOFF.md` (current state, rules, git conventions, how to verify) and
+`design/AFTER-RESULTS.md` (the post-results checklist); both are local and git-ignored.
+
 ## Scope (in priority order — never start a lower item before the higher one works)
 1. Resolve query → rwa_id (never trust symbols; collisions are real)
 2. Wrapper list for that rwa_id: issuer, chain, price, premium vs average tokenised price
@@ -30,6 +36,7 @@ Hard deadline: Wed 30 Sep 2026, 23:59 UTC. Treat 29 Sep night as the real deadli
     because tsx resolves `@/` from the cwd), evaluated by `lib/mcp.test.ts`
 
 Out of scope: x402, user accounts, databases, portfolio tracking, charts for decoration.
+(Exception on the roadmap: private storage for history snapshots, e.g. Vercel Blob/KV. Never public.)
 
 ## Stack
 - Next.js (App Router) + TypeScript + Tailwind, deployed on Vercel
@@ -68,11 +75,13 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
   show it in the "can't tell you" panel, never crash
 
 ## Probe findings (25 Sep 2026, Startup key; don't re-probe, read `fixtures/`)
-`npm run probe` (scripts/probe.ts) runs the engine's real `check()` for GOLD and NVDA through
+`npm run probe` (scripts/probe.ts) runs the engine's real `check()` for the six default assets
+(GOLD, NVDA, SPY, TSLA, AAPL, SILVER) through
 a recording transport. It saves every response to `fixtures/` and adds it to `fixtures/_index.json`
 (request key → file), which `fixtureTransport` in lib/cmc-fixtures.ts replays for tests. It also
-writes a per-call log to `fixtures/_probe-summary.json`. One run costs about 17 credits.
-A live `/api/check` query costs 5–6 credits. The plan allowed 15k
+writes a per-call log to `fixtures/_probe-summary.json`. One run costs about 35 credits;
+`npm run probe -- UNH MS KLAC` records just those (≈10 credits for the three).
+A live `/api/check` query costs 5–8 credits (GOLD 8, with the spot and Fear & Greed calls). The plan allowed 15k
 credits/month and 50 requests/min at probe time; on 1 Oct 2026 the same key reported
 450k/month and 600/min. Don't assume either: read `/v1/key/info` (scripts/snapshot.ts does). API friction is logged in `FRICTION.md`.
 
@@ -103,7 +112,7 @@ Fields that exist:
   total/long/short liquidations over 1h/4h/24h. Market-wide crypto only, nothing RWA-specific.
 
 The 5 surprises (the engine and UI must handle them):
-1. **Units differ.** CGO and VNXAU are priced per gram (about 137.9) while other gold wrappers
+1. **Units differ.** CGO and VNXAU are priced per gram (about $136.5 and $137.5) while other gold wrappers
    are per troy ounce (about 4,285); 1 oz = 31.1035 g. Normalise units before any premium math.
 2. **Token symbols collide.** Two different wrappers are both `NVDA` (Robinhood 40685 and
    "NA (Derivatives)" 38153). Key everything by `crypto_id`, never by symbol.
@@ -151,6 +160,10 @@ at X's thumbnail size: the verdict word and chip must read at ~500px wide.
 
 ## Working rules for Claude
 - Before any multi-file change, propose a short plan and wait for approval.
+- Verify before every push: `npx eslint app components lib scripts`, `npx next typegen && npx tsc --noEmit`,
+  `npm test`, `npm run eval`, `npm run build`. Commit style and the co-author line: see `design/HANDOFF.md`.
+- Ask before anything public or irreversible (GitHub comments, PR/issue actions, posts, merges,
+  tag moves) and show the exact text first.
 - Keep changes small; after each step, tell me exactly how to check it works.
 - Never invent API fields. If unsure, read `fixtures/` or run the probe script.
 - Not financial advice: show a one-line disclaimer on the card.

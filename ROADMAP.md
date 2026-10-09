@@ -74,7 +74,7 @@ decision for after the hackathon results.
 - [x] **Metals: real spot from CoinMarketCap** (method 1.1.0). Gold, silver, platinum and
       palladium tokens are measured against CMC's spot price at the moment of the quotes
       (`/v2/tools/price-conversion` with `time`). On the golden set no verdict changed; gold
-      tokens sit within ±0.2% of spot
+      tokens sit within ±0.2% of spot except CGO (−0.93%)
 - [x] **Stocks: market-hours awareness.** When quotes were taken outside US hours, the page says
       tokens can drift from the last close
 - [x] "What the data can't tell you" drops "the real price" for metals
@@ -127,12 +127,14 @@ contributors; issuers who correct their own entries (the real sign of trust).
 **Evals:** an agent eval (an LLM answering questions with `check_rwa` must cite the verdict,
 state the gaps and never recommend buying; first run 7 Oct: 25/25); alert precision measured against history (how
 many alerts were real events); extension tested against recorded swap pages.
-**Measure:** weekly repeat users, API/MCP calls, alert opt-ins, integrations live.
+**Measure:** weekly repeat users, self-hosted MCP setups (stars, issues, questions), alert
+opt-ins, integrations live.
 
 ## Phase 5: sustain without losing neutrality (ongoing)
 
 - [ ] Funding that keeps verdicts independent: public-goods grants (Gitcoin, Optimism
-      RetroPGF), data-provider grants, paid API tiers for wallets. **Never** issuer payments
+      RetroPGF), data-provider grants, and partnerships where wallets use their own CMC licence
+      (no paid data API: CoinMarketCap's terms). **Never** issuer payments
       tied to verdicts; all funding disclosed
 - [ ] Read DEX pools directly on-chain as well, so Parity doesn't depend on one data provider
 - [x] Checked CoinMarketCap's terms (7 Oct): no redistribution. The public API, hosted MCP

@@ -34,7 +34,8 @@ a gap.
 2. Run `npm test`. The registry tests check the schema, check that the token belongs to that
    asset in CoinMarketCap's data, and check that a recorded unit puts the token's price within
    5% of the reference (spot for metals). A wrong ratio fails here.
-3. Open a pull request. Say where each new fact comes from.
+3. Open a pull request against the `next` branch (until the hackathon results are out; see
+   CONTRIBUTING). Say where each new fact comes from.
 
 **Issuers:** open a pull request from an address or account we can tie to you (e.g. a link
 from your official site or docs to the PR), and we'll mark your entries `verified_by_issuer`.

@@ -42,7 +42,8 @@ responses saved in `fixtures/`.
 
 ## Before you open a pull request
 - `npm test` and `npm run eval` pass
-- `npx eslint app components lib scripts` and `npx tsc --noEmit` are clean
+- `npx eslint app components lib scripts` and `npx next typegen && npx tsc --noEmit` are clean
+  (`next typegen` first: a fresh checkout has no generated route types)
 - New copy is plain English a first-time buyer would understand
 - No API keys or `.env*` files in the diff
 

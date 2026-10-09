@@ -130,7 +130,8 @@ nothing changed (`npm run eval`: no differences). 35 of 47 tokens have a unit; t
 compared with CoinMarketCap's spot price at the moment of the quotes, instead of with each
 other. This answers "is it worth what it claims?", not just "do the tokens agree?".
 Effect on the golden set (`npm run eval`): no verdict changed. Gold's reference moved from the
-token median $4,281.38 to spot $4,285.41, and its tokens sit within ±0.2% of spot. Silver's
+token median $4,281.38 to spot $4,285.41; five of its six live tokens sit within ±0.2% of spot
+(CGO, quoted per gram, is −0.93%; corrected 9 Oct, this entry first said "its tokens"). Silver's
 moved from $64.42 to spot $64.29 (XAGX +0.19%, GRAMS +0.26%; KAG −48.5%, still off-track).
 Stocks are unchanged: CoinMarketCap has no share prices. Stocks now also say when quotes were
 taken outside US market hours (wording only, not a rule change).
