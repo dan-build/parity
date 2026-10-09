@@ -25,6 +25,7 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 | 11 | RWA tokens can have a `null` symbol and name | UI must never print "null" |
 | 12 | No unit field on RWA tokens | Per-gram gold looks 97% cheaper until we infer the unit |
 | 13 | Tokens of one asset can be priced ~10× apart, with no ratio field | KLAC can't be compared at all |
+| 14 | A time-pinned price conversion sometimes has no `quote`, and no error | Metals intermittently lose their spot price |
 
 ---
 
@@ -167,3 +168,16 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 - **Impact:** neither price can be trusted as "the" KLAC price, so PARITY calls every KLAC
   token a ghost ("the tokens don't agree on a price") rather than guess a ratio.
 - **Suggestion:** same as 12: a `unit` / `shares_per_token` field would make this comparable.
+
+## 14. A time-pinned price conversion sometimes has no `quote`, and no error
+
+- **What happened:** found by the first live drift check (`npm run drift`, 9 Oct 2026). Parity
+  asks `/v2/tools/price-conversion` for gold and silver spot at the quotes' `last_updated`
+  (`time=…`). Some calls return HTTP 200, `error_code` 0 and a `data` object with only `id`,
+  `symbol`, `name` and `amount`: no `quote` and no `last_updated`. The same call a minute
+  later works. On 9 Oct, 2 of 4 live runs (07:55 and 08:00 UTC) had no spot for either metal;
+  runs at 07:43 and 08:10 did.
+- **Impact:** Parity handles it (the gap `spot_unavailable`, premiums against the tokens'
+  typical price instead), but a metal's reference price comes and goes between checks.
+- **Suggestion:** return an error, or the nearest earlier price with its own timestamp, when
+  there's no data point for the requested time.

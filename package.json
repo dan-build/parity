@@ -13,6 +13,7 @@
     "mcp": "tsx scripts/mcp.ts",
     "eval": "tsx scripts/eval.ts",
     "snapshot": "tsx scripts/snapshot.ts",
+    "drift": "tsx scripts/drift.ts",
     "registry:seed": "tsx scripts/registry-seed.ts"
   },
   "dependencies": {

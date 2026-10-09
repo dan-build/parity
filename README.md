@@ -99,6 +99,7 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | Command | What it does | Credits |
 |---|---|---|
 | `npm test` | 192 tests: verdict engine, copy, log, fallbacks, rate limits, the MCP server (in memory and over stdio), the registry, the golden set, and checks that `METHOD.md` matches the code. All run against saved responses. | 0 |
+| `npm run drift` | Runs the golden assets on saved data and live, and compares the *shape* of CoinMarketCap's responses (fields and types, never values) plus tokens, units and gaps. Warnings are possible API changes; a private report goes to `history/drift/`. | ~41 |
 | `npm run snapshot -- --kind auto` | Appends a private history snapshot of the watched assets (`scripts/watchlist.json`) to the git-ignored `history/` folder. Never published (see Licensing below). | 9 (prices) to ~60 (full) |
 | `npm run registry:seed` | Adds registry entries for the watched assets from saved data (never overwrites) | 0 |
 | `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |

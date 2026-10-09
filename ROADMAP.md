@@ -23,7 +23,9 @@ that says whether it helped.
    fair). No "buy", anywhere, is tested too.
 3. **Live drift checks.** Scheduled runs compare live results against the golden set's
    *shape* (not its numbers) and flag new API surprises: new units, new null fields, new
-   error codes. New surprises go into FRICTION.md.
+   error codes. New surprises go into FRICTION.md. *Built:* `npm run drift` (`lib/drift.ts`);
+   its first run (9 Oct) found FRICTION #14. Run by hand for now; scheduled once the server
+   cron is live.
 4. **Measured outcomes.** Each phase names the metric that says it worked. If we can't measure
    it, we don't claim it.
 
