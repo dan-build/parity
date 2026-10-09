@@ -518,8 +518,8 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = 
       sub: "We compare tokens with each other. If they all drifted together, we wouldn't see it.",
     });
   }
-  for (const g of gaps.filter((x) => ["ambiguous_query", "contracts_unavailable", "spot_unavailable"].includes(x.code))) {
-    const title = { ambiguous_query: "Which asset you meant", contracts_unavailable: "Token contracts", spot_unavailable: `The ${noun} spot price` }[g.code as "ambiguous_query"];
+  for (const g of gaps.filter((x) => ["ambiguous_query", "contracts_unavailable", "spot_unavailable", "spot_latest"].includes(x.code))) {
+    const title = { ambiguous_query: "Which asset you meant", contracts_unavailable: "Token contracts", spot_unavailable: `The ${noun} spot price`, spot_latest: `The ${noun} spot price` }[g.code as "ambiguous_query"];
     out.push({ icon: "info", title, sub: g.message });
   }
   // With 1–2 tokens to compare, the "typical price" is one token or a midpoint: say what a premium can mean.

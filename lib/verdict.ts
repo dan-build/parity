@@ -15,7 +15,7 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
  * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
  * this stays the same.
  */
-export const METHOD_VERSION = "1.2.1";
+export const METHOD_VERSION = "1.3.0";
 
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */

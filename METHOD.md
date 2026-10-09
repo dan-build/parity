@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.2.1**
+**Method version 1.3.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -49,7 +49,10 @@ Premiums are measured against one reference price:
   conversion. CoinMarketCap has no share prices, so this compares tokens with each other. If no
   token is left to compare, no typical price is shown.
 
-If the spot price can't be fetched, metals fall back to the typical price, and the page says so.
+CoinMarketCap sometimes answers that call with no price and no error (FRICTION.md #14). Then
+the latest spot price is used instead, but only if it's from within **15 minutes** of the
+quotes, and the page says so. If the spot price still can't be had, metals fall back to the
+typical price, and the page says so.
 The typical price is always computed too (unit detection in §4 uses it).
 
 **Stocks outside market hours:** tokens trade around the clock, but the shares don't. When the
@@ -103,6 +106,15 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 ---
 
 ## Changelog
+
+### 1.3.0 (9 Oct 2026)
+**Metals keep their spot price when CoinMarketCap's time-pinned answer comes back empty.** The
+first live drift check (`npm run drift`) found that `/v2/tools/price-conversion` with `time`
+sometimes returns HTTP 200 with no price (FRICTION.md #14): gold and silver lost spot in 2 of 4
+live runs on 9 Oct and fell back to comparing tokens with each other. Now Parity asks once for
+the latest spot and uses it if it's within 15 minutes of the quotes, with a note on the page
+(`spot_latest`). Otherwise nothing changes. Golden set: no change (the saved responses all have
+a spot price).
 
 ### 1.2.1 (7 Oct 2026)
 **Wording only; no rule changed.** From an evaluation in which an AI assistant answered buyer

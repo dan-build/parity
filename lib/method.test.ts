@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { SPOT_MAX_GAP_MIN } from "./check";
 import { SUPPORTED_DEX_CHAINS } from "./cmc";
 import {
   DEPTH_TIERS,
@@ -27,6 +28,7 @@ describe("METHOD.md matches the code", () => {
   it("documents every threshold with the value the engine uses", () => {
     expect(doc).toContain(`**±${PER_GRAM_TOLERANCE * 100}%**`);
     expect(doc).toContain(`**${GRAMS_PER_TROY_OUNCE}**`);
+    expect(doc).toContain(`within **${SPOT_MAX_GAP_MIN} minutes**`);
     expect(doc).toContain(`more than **${OFF_TRACK_PCT}%** above or below`);
     expect(doc).toContain(`Exit score below **${THIN_BELOW}**`);
     expect(doc).toContain(`premium above **+${RICH_PREMIUM_PCT}%**`);

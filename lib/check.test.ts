@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { check, resolveQuery, suggest, type CheckResult } from "./check";
-import { clearCmcCache, createCmcClient, type RwaMapEntry } from "./cmc";
+import { check, resolveQuery, SPOT_MAX_GAP_MIN, suggest, type CheckResult } from "./check";
+import { clearCmcCache, createCmcClient, type RwaMapEntry, type Transport } from "./cmc";
 import { fixtureTransport } from "./cmc-fixtures";
 
 const fixtureClient = () => createCmcClient({ transport: fixtureTransport("fixtures"), source: "fixture" });
@@ -100,5 +100,58 @@ describe("suggestions for a query that finds nothing", () => {
     expect(suggest("NVDIA", entries).map((s) => s.symbol)).toEqual(["NVDA"]);
     expect(suggest("nvidi", entries).map((s) => s.symbol)).toEqual(["NVDA"]);
     expect(suggest("zzzz", entries)).toEqual([]);
+  });
+});
+
+describe("metal spot when CoinMarketCap's time-pinned answer is empty (FRICTION.md #14)", () => {
+  /** Saved data, except the time-pinned conversion answers like the live quirk, and a latest-spot call answers `minutesAway` from the quotes. */
+  function quirky(minutesAway: number, pinnedStatus = 200) {
+    const saved = fixtureTransport("fixtures");
+    const calls: string[] = [];
+    let spotAt = "";
+    let lastPrice = 0;
+    const transport: Transport = async (req) => {
+      if (req.path !== "/v2/tools/price-conversion") return saved(req);
+      calls.push(req.params.time ? "pinned" : "latest");
+      if (req.params.time) {
+        const real = await saved(req); // the saved answer for that time: its price and moment
+        const d = (real.body as { data: { quote: { USD: { price: number; last_updated: string } } } }).data;
+        spotAt = new Date(Date.parse(String(req.params.time)) + minutesAway * 60_000).toISOString();
+        lastPrice = d.quote.USD.price;
+        if (pinnedStatus !== 200) return { status: pinnedStatus, body: { status: { error_code: 1008, error_message: "rate limited" } } };
+        return { status: 200, body: { status: { error_code: 0 }, data: { id: 3575, symbol: "XAU", name: "Gold Troy Ounce", amount: 1 } } };
+      }
+      return { status: 200, body: { status: { error_code: 0 }, data: { id: 3575, symbol: "XAU", amount: 1, quote: { USD: { price: lastPrice, last_updated: spotAt } }, last_updated: spotAt } } };
+    };
+    return { transport, calls };
+  }
+  const run = async (t: Transport) => {
+    const out = await check("GOLD", createCmcClient({ transport: t, source: "fixture" }));
+    if (out.kind !== "ok") throw new Error(out.kind);
+    return out.result;
+  };
+
+  it(`uses the latest spot when it's within ${SPOT_MAX_GAP_MIN} minutes, and says so`, async () => {
+    const q = quirky(4);
+    const r = await run(q.transport);
+    expect(q.calls).toEqual(["pinned", "latest"]);
+    expect(r.reference.method).toBe("metal_spot");
+    expect(r.gaps.map((g) => g.code)).toContain("spot_latest");
+    expect(r.gaps.map((g) => g.code)).not.toContain("spot_unavailable");
+    expect(r.gaps.find((g) => g.code === "spot_latest")?.message).toMatch(/latest one is used \(4 min apart\)/);
+    expect(r.verdict).toBe((await ok("GOLD")).verdict); // same spot price, same answer
+  });
+
+  it(`refuses a latest spot more than ${SPOT_MAX_GAP_MIN} minutes away: tokens are compared with each other, as before`, async () => {
+    const r = await run(quirky(SPOT_MAX_GAP_MIN + 5).transport);
+    expect(r.reference.method).toBe("median_of_live_wrappers");
+    expect(r.gaps.find((g) => g.code === "spot_unavailable")?.message).toMatch(/latest is 20 min away/);
+  });
+
+  it("doesn't retry after a real error (a rate limit isn't the quirk)", async () => {
+    const q = quirky(1, 429);
+    const r = await run(q.transport);
+    expect(q.calls).toEqual(["pinned"]);
+    expect(r.gaps.map((g) => g.code)).toContain("spot_unavailable");
   });
 });

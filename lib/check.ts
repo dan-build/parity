@@ -131,6 +131,9 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   };
 }
 
+/** A metal's latest spot is used instead of the quotes' moment only within this many minutes (METHOD.md §5). */
+export const SPOT_MAX_GAP_MIN = 15;
+
 /** RWA commodity symbol → the metal CMC prices as spot (/v1/fiat/map?include_metals=true). */
 const METAL_FOR: Record<string, MetalCode> = { GOLD: "XAU", SILVER: "XAG", PLATINUM: "XPT", PALLADIUM: "XPD" };
 
@@ -157,10 +160,20 @@ export async function gatherInputs(
   const tokens = quote.tokens.filter((t) => typeof t.crypto_id === "number");
 
   // Metals: CMC's spot price at the moment of these quotes, so the comparison is like-for-like.
+  // CMC sometimes answers that call with no price and no error (FRICTION.md #14); then the
+  // latest spot is used, but only if it's from within SPOT_MAX_GAP_MIN of the quotes.
   let spot: Spot | null = null;
   const metal = metalFor(quote);
   if (metal) {
-    const s = await client.metalSpot(metal, quote.last_updated);
+    let s = await client.metalSpot(metal, quote.last_updated);
+    if (!s.ok && s.status === 200 && quote.last_updated) {
+      const latest = await client.metalSpot(metal, null);
+      const gapMin = latest.ok && latest.data.as_of ? Math.abs(Date.parse(latest.data.as_of) - Date.parse(quote.last_updated)) / 60_000 : Infinity;
+      if (latest.ok && gapMin <= SPOT_MAX_GAP_MIN) {
+        s = latest;
+        gaps.push({ code: "spot_latest", message: `CoinMarketCap had no ${quote.name.toLowerCase()} spot price for the exact time of these quotes, so the latest one is used (${Math.round(gapMin)} min apart).` });
+      } else if (latest.ok) s = { ok: false, status: 200, errorCode: null, message: `none for the time of these quotes, and the latest is ${Math.round(gapMin)} min away` };
+    }
     if (s.ok) spot = { code: metal, ...s.data };
     else gaps.push({ code: "spot_unavailable", message: `Couldn't get the ${quote.name.toLowerCase()} spot price (${s.message}), so tokens are compared with each other instead.` });
   }
