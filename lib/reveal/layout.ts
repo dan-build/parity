@@ -115,3 +115,17 @@ export function computeGeometry(width: number, coins: InstrumentCoinInput[], opt
     lift,
   };
 }
+
+/** Rough rendered width of a tooltip: 12px Geist Mono is ~7.2px per character, plus padding. */
+export const tooltipWidth = (text: string) => Math.round(text.length * 7.2) + 16;
+
+/**
+ * Where a coin's tooltip should hang so it stays inside the plot: centred on the coin, or
+ * growing inward from the coin's edge when it's close to the left or right side.
+ */
+export function tipAlign(x: number, plotWidth: number, text: string): "center" | "start" | "end" {
+  const half = tooltipWidth(text) / 2;
+  if (x - half < 0) return "start";
+  if (x + half > plotWidth) return "end";
+  return "center";
+}

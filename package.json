@@ -10,9 +10,14 @@
     "probe": "tsx --env-file=.env.local scripts/probe.ts",
     "test": "vitest run",
     "scan": "tsx --env-file=.env.local scripts/scan.ts",
-    "mcp": "tsx scripts/mcp.ts"
+    "mcp": "tsx scripts/mcp.ts",
+    "eval": "tsx scripts/eval.ts",
+    "snapshot": "tsx scripts/snapshot.ts",
+    "drift": "tsx scripts/drift.ts",
+    "registry:seed": "tsx scripts/registry-seed.ts"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.1",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -30,5 +35,6 @@
     "typescript": "^5",
     "vitest": "^5.0.2",
     "zod": "^4.6.5"
-  }
+  },
+  "license": "MIT"
 }

@@ -1,0 +1,211 @@
+{
+  "asset": {
+    "symbol": "TSLA",
+    "rwa_id": 14,
+    "name": "Tesla, Inc.",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 37004,
+      "symbol": "TSLAX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Solana",
+          "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+          "source": "cmc"
+        }
+      ],
+      "redemption": {
+        "route": "issuer_kyc",
+        "summary": "Issued and redeemed only by onboarded clients (KYC/AML) from whitelisted wallets, for stablecoins or the underlying shares, 24/5. Everyone else trades on exchanges and DeFi.",
+        "url": "https://docs.xstocks.fi/docs/issuance-and-redemption",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Not for distribution in the United States, to US persons, or in other prohibited jurisdictions. In the EU/EEA, offered under a prospectus approved by Liechtenstein's FMA.",
+        "url": "https://docs.xstocks.fi/docs/product-legal-overview",
+        "source": "issuer"
+      },
+      "attestations": [
+        {
+          "url": "https://defi.xstocks.fi",
+          "source": "issuer"
+        }
+      ],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 28626,
+      "symbol": "TSLA.D",
+      "issuer": "Dinari Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0x36d37B6cbCA364Cf1D843efF8C2f6824491bcF81",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 38029,
+      "symbol": "TSLAon",
+      "issuer": "Ondo Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0xf6b1117ec07684D3958caD8BEb1b302bfD21103f",
+          "source": "cmc"
+        }
+      ],
+      "redemption": {
+        "route": "issuer_kyc",
+        "summary": "Holders who complete Ondo's onboarding (KYC) redeem directly with the issuer for USDon or USDC, from $1; no redemptions to a bank account. The token is a note that tracks the share, and its shares-per-token changes as dividends are reinvested.",
+        "url": "https://docs.ondo.finance/ondo-stocks/investing-and-redeeming",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Not for US persons, or for orders placed from the US (Regulation S). Some other jurisdictions are prohibited or restricted; subscribing with or redeeming to the issuer needs KYC onboarding.",
+        "url": "https://docs.ondo.finance/ondo-stocks/eligibility",
+        "source": "issuer"
+      },
+      "attestations": [
+        {
+          "url": "https://docs.ondo.finance/ondo-global-markets/trust-and-transparency",
+          "source": "issuer"
+        }
+      ],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 39618,
+      "symbol": "TSLA",
+      "issuer": "Hyperliquid Assets",
+      "unit": null,
+      "unit_note": "Price is −19% from the reference, so its unit or ratio can't be inferred. Needs a source.",
+      "contracts": [
+        {
+          "chain": "Hyperliquid",
+          "address": "0x7374dc1894fbd1bc6c42f6ebbc50b78c211a8606",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40214,
+      "symbol": "TSLAB",
+      "issuer": "bStocks",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "BNB",
+          "address": "0x5b1910eaad6450e50f816082aa078c41f10c292f",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40624,
+      "symbol": "rTSLA",
+      "issuer": "Reality",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Arbitrum",
+          "address": "0xf912911c9c8d5131929c758e66e6dc54e65cf3ba",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 40691,
+      "symbol": "TSLA",
+      "issuer": "Robinhood",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Robinhood",
+          "address": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+          "source": "cmc"
+        }
+      ],
+      "redemption": {
+        "route": "none",
+        "summary": "Not redeemable for shares. These are derivative contracts between the holder and Robinhood, priced at the share price without granting rights to the shares.",
+        "url": "https://robinhood.com/eu/en/support/articles/stock-tokens-faq/",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Offered by Robinhood Europe to its customers, as derivatives under MiFID II.",
+        "url": "https://robinhood.com/eu/en/support/articles/stock-tokens-faq/",
+        "source": "issuer"
+      },
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37227,
+      "symbol": "WTSLAX",
+      "issuer": "Backed Assets",
+      "unit": {
+        "measure": "share",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0xc3FdBe3A68EE5dE461D30415a8165cf9Aefe1171",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-09"
+}

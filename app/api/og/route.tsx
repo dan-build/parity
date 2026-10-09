@@ -7,7 +7,9 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { dataMode } from "@/lib/data-source";
 import { present, type View } from "@/lib/present";
+import { clientKey, siteLimiter, validQuery } from "@/lib/rate-limit";
 import { runCheck } from "@/lib/run-check";
 import type { Verdict } from "@/lib/verdict";
 
@@ -24,11 +26,18 @@ const INK: Record<Verdict, { fg: string; bg: string }> = {
 const asset = (path: string) => readFile(join(DIR, path));
 
 export async function GET(request: Request) {
-  const q = new URL(request.url).searchParams.get("q")?.trim().slice(0, 40) ?? "";
+  // A check costs credits, so share images share the page's per-client budget and its input
+  // rules. Over the limit, or with an invalid q, you get the plain card (no check runs).
+  const q = validQuery(new URL(request.url).searchParams.get("q"));
+  const allowed = q !== null && siteLimiter(clientKey(request.headers)).ok;
   let view: View | null = null;
+  let degraded = false;
   try {
-    const { body } = q ? await runCheck(q) : { body: null };
-    if (body?.ok) view = present(body);
+    const { body } = allowed ? await runCheck(q) : { body: null };
+    if (body?.ok) {
+      view = present(body);
+      degraded = dataMode() === "live" && body.mode !== "live";
+    }
   } catch {
     view = null; // fall through to the plain card
   }
@@ -66,7 +75,8 @@ export async function GET(request: Request) {
         { name: "Geist", data: sans600, weight: 600, style: "normal" },
         { name: "Geist Mono", data: mono, weight: 500, style: "normal" },
       ],
-      headers: { "Cache-Control": "public, max-age=300, s-maxage=900, stale-while-revalidate=86400" },
+      // Only a real, live-as-configured verdict is cached; a plain or degraded card never sticks.
+      headers: { "Cache-Control": view && !degraded ? "public, max-age=300, s-maxage=900, stale-while-revalidate=86400" : "no-store" },
     },
   );
 }

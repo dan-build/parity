@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { clearCmcCache, createCmcClient, type Transport } from "./cmc";
-import { createClient, fixtureClient, type DataSource } from "./data-source";
+import { budgeted, createClient, fixtureClient, type DataSource } from "./data-source";
 import { present } from "./present";
 import { isRateLimited, runCheckWith } from "./run-check";
 
@@ -52,5 +52,27 @@ describe("falling back to saved data", () => {
     expect(isRateLimited({ status: 429, error_code: null })).toBe(true);
     expect(isRateLimited({ status: 403, error_code: "1010" })).toBe(true);
     expect(isRateLimited({ status: 403, error_code: "1006" })).toBe(false);
+  });
+});
+
+describe("the per-instance live budget", () => {
+  it("passes calls through until the minute's budget is used, then answers as a rate limit", async () => {
+    let t = 0;
+    let real = 0;
+    const inner: Transport = async () => (real++, { status: 200, body: { status: { error_code: 0 } } });
+    const tx = budgeted(inner, 3, () => t);
+    const statuses = [];
+    for (let i = 0; i < 5; i++) statuses.push((await tx({ path: "/x", params: {} })).status);
+    expect(statuses).toEqual([200, 200, 200, 429, 429]);
+    expect(real).toBe(3);
+    t = 60_000;
+    expect((await tx({ path: "/x", params: {} })).status).toBe(200);
+  });
+
+  it("over budget, a live check falls back to saved data and says so", async () => {
+    const exhausted = budgeted(async () => ({ status: 200, body: {} }), 0);
+    const source: DataSource = { mode: "live", fallback: null, client: createCmcClient({ transport: exhausted, source: "live" }) };
+    const { body } = await runCheckWith("GOLD", source, fixtureClient);
+    expect(body).toMatchObject({ ok: true, mode: "fixture", fallback: "rate_limited" });
   });
 });

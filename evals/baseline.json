@@ -1,0 +1,469 @@
+{
+  "method_version": "1.3.1",
+  "assets": {
+    "GOLD": {
+      "verdict": "FAIR",
+      "answer": "best way in · XAUt",
+      "sub": "if you pick the right token.",
+      "reference_price": 4285.41,
+      "tokens": {
+        "4705": {
+          "token": "PAXG",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.01,
+          "exit_score": 80
+        },
+        "5176": {
+          "token": "XAUt",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.03,
+          "exit_score": 80
+        },
+        "20245": {
+          "token": "CGO",
+          "verdict": "THIN",
+          "unit": "per_gram_to_oz",
+          "premium_pct": -0.93,
+          "exit_score": 25
+        },
+        "22492": {
+          "token": "VNXAU",
+          "verdict": "THIN",
+          "unit": "per_gram_to_oz",
+          "premium_pct": -0.18,
+          "exit_score": 0
+        },
+        "34212": {
+          "token": "XAUM",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -0.14,
+          "exit_score": 35
+        },
+        "37082": {
+          "token": "XAUT0",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -0.05,
+          "exit_score": 25
+        },
+        "39344": {
+          "token": "XAU",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 0.21,
+          "exit_score": null
+        }
+      }
+    },
+    "NVDA": {
+      "verdict": "FAIR",
+      "answer": "best way in · NVDAX",
+      "sub": "whichever of the 6 real tokens you pick.",
+      "reference_price": 225.3,
+      "tokens": {
+        "28616": {
+          "token": "NVDA.D",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "36992": {
+          "token": "NVDAX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.06,
+          "exit_score": 100
+        },
+        "37270": {
+          "token": "WNVDAX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.04,
+          "exit_score": 60
+        },
+        "38093": {
+          "token": "NVDAon",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.1,
+          "exit_score": 100
+        },
+        "38153": {
+          "token": "NVDA (NA (Derivatives))",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 0.01,
+          "exit_score": null
+        },
+        "40215": {
+          "token": "NVDAB",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.09,
+          "exit_score": 100
+        },
+        "40605": {
+          "token": "rNVDA",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.06,
+          "exit_score": 45
+        },
+        "40685": {
+          "token": "NVDA (Robinhood)",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.04,
+          "exit_score": 60
+        }
+      }
+    },
+    "SPY": {
+      "verdict": "FAIR",
+      "answer": "best way in · SPYX",
+      "sub": "if you pick the right token.",
+      "reference_price": 772.24,
+      "tokens": {
+        "28628": {
+          "token": "SPY.D",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "37006": {
+          "token": "SPYX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.35,
+          "exit_score": 100
+        },
+        "38067": {
+          "token": "SPYon",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.93,
+          "exit_score": 85
+        },
+        "39621": {
+          "token": "SPY (Hyperliquid Assets)",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -1.17,
+          "exit_score": 20
+        },
+        "39732": {
+          "token": "SPY (NA (Derivatives))",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 0.03,
+          "exit_score": null
+        },
+        "40625": {
+          "token": "rSPY",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0,
+          "exit_score": 45
+        },
+        "40694": {
+          "token": "SPY (Robinhood)",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.05,
+          "exit_score": 60
+        },
+        "40790": {
+          "token": "SPYB",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.16,
+          "exit_score": 100
+        },
+        "41525": {
+          "token": "wSPYx",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.44,
+          "exit_score": 45
+        }
+      }
+    },
+    "TSLA": {
+      "verdict": "FAIR",
+      "answer": "best way in · TSLAX",
+      "sub": "if you pick the right token.",
+      "reference_price": 372.43,
+      "tokens": {
+        "28626": {
+          "token": "TSLA.D",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "37004": {
+          "token": "TSLAX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0,
+          "exit_score": 100
+        },
+        "37227": {
+          "token": "WTSLAX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.09,
+          "exit_score": 60
+        },
+        "38029": {
+          "token": "TSLAon",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.01,
+          "exit_score": 100
+        },
+        "38152": {
+          "token": "TSLA (NA (Derivatives))",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 0.08,
+          "exit_score": null
+        },
+        "39618": {
+          "token": "TSLA (Hyperliquid Assets)",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -19.45,
+          "exit_score": null
+        },
+        "40214": {
+          "token": "TSLAB",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.02,
+          "exit_score": 100
+        },
+        "40624": {
+          "token": "rTSLA",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.02,
+          "exit_score": 45
+        },
+        "40691": {
+          "token": "TSLA (Robinhood)",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.07,
+          "exit_score": 60
+        }
+      }
+    },
+    "AAPL": {
+      "verdict": "FAIR",
+      "answer": "best way in · AAPLon",
+      "sub": "if you pick the right token.",
+      "reference_price": 341.19,
+      "tokens": {
+        "28624": {
+          "token": "AAPL.D",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "36994": {
+          "token": "AAPLX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.13,
+          "exit_score": 85
+        },
+        "37269": {
+          "token": "WAAPLX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.17,
+          "exit_score": 60
+        },
+        "38037": {
+          "token": "AAPLon",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.31,
+          "exit_score": 100
+        },
+        "39491": {
+          "token": "AAPL (NA (Derivatives))",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -0.01,
+          "exit_score": null
+        },
+        "39624": {
+          "token": "AAPL (Hyperliquid Assets)",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -15.18,
+          "exit_score": null
+        },
+        "40598": {
+          "token": "rAAPL",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -0.04,
+          "exit_score": 30
+        },
+        "40703": {
+          "token": "AAPL (Robinhood)",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0,
+          "exit_score": 60
+        },
+        "40927": {
+          "token": "AAPLB",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.06,
+          "exit_score": 100
+        }
+      }
+    },
+    "SILVER": {
+      "verdict": "THIN",
+      "answer": "no easy way out",
+      "sub": "not much market to sell into.",
+      "reference_price": 64.29,
+      "tokens": {
+        "24439": {
+          "token": "KAG",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -48.5,
+          "exit_score": null
+        },
+        "32149": {
+          "token": "XAGX",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": 0.19,
+          "exit_score": 0
+        },
+        "37080": {
+          "token": "GRAMS",
+          "verdict": "THIN",
+          "unit": "per_gram_to_oz",
+          "premium_pct": 0.26,
+          "exit_score": 0
+        },
+        "39318": {
+          "token": "Unnamed listing",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "39343": {
+          "token": "XAG",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 0.18,
+          "exit_score": null
+        }
+      }
+    },
+    "UNH": {
+      "verdict": "RICH",
+      "answer": "best way in · UNHon",
+      "sub": "even the best token costs extra.",
+      "reference_price": 384.97,
+      "tokens": {
+        "37045": {
+          "token": "UNHX",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -1.51,
+          "exit_score": 30
+        },
+        "37228": {
+          "token": "WUNHX",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "38039": {
+          "token": "UNHon",
+          "verdict": "RICH",
+          "unit": "as_quoted",
+          "premium_pct": 1.51,
+          "exit_score": 45
+        },
+        "39630": {
+          "token": "UNH",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -2.22,
+          "exit_score": null
+        }
+      }
+    },
+    "KLAC": {
+      "verdict": "GHOST",
+      "answer": "no price to trust",
+      "sub": "the tokens don't agree on a price.",
+      "reference_price": 1036.07,
+      "tokens": {
+        "39240": {
+          "token": "KLACon",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 81.83,
+          "exit_score": null
+        },
+        "40131": {
+          "token": "KLACx",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -81.83,
+          "exit_score": null
+        },
+        "40548": {
+          "token": "KLAC",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -81.84,
+          "exit_score": null
+        },
+        "41437": {
+          "token": "wKLACx",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        }
+      }
+    },
+    "MS": {
+      "verdict": "GHOST",
+      "answer": "nothing to hold",
+      "sub": "nothing here you can really hold.",
+      "reference_price": null,
+      "tokens": {
+        "41513": {
+          "token": "wMSx",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        }
+      }
+    }
+  }
+}

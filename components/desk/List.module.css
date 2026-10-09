@@ -93,6 +93,21 @@
   color: var(--text-3);
 }
 
+/* How a holder gets the real asset (registry, issuer's page). Its own line, always. */
+.redeem {
+  flex-basis: 100%;
+  padding-left: 32px;
+  font-size: 12px;
+  color: var(--text-3);
+  text-decoration: none;
+}
+.redeem:hover,
+.redeem:focus-visible {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .tag {
   flex: none;
   padding: 1px 6px;
@@ -249,7 +264,10 @@
     white-space: nowrap;
   }
   .who {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+  }
+  .who small {
+    flex: 1 1 0;
   }
   .who small {
     flex-basis: auto;
