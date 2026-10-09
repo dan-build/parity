@@ -41,6 +41,14 @@ export const checkOutput = {
       volume_24h_usd: z.number().nullable(),
       exit: z.string().describe("How easy it is to sell later: Deep, Good, Some, Thin or None"),
       unit_source: z.enum(["registry", "inferred"]).nullable().describe("Where the token's unit came from: Parity's open registry, price inference, or nowhere (priced as quoted)"),
+      redemption: z
+        .object({
+          route: z.enum(["issuer_kyc", "issuer", "none"]).describe("issuer_kyc: redeem with the issuer after its KYC; issuer: through the issuer, on its terms; none: can't be redeemed for the asset"),
+          summary: z.string().describe("The issuer's terms, from its own page"),
+          source_url: z.string().describe("The issuer's page"),
+        })
+        .nullable()
+        .describe("How a holder gets the real asset, from Parity's open registry; null = nothing on file (unknown, not 'no')"),
       verdict,
     }),
   ),
@@ -96,6 +104,7 @@ export async function checkRwa(
       volume_24h_usd: round(w.volume_24h, 0),
       exit: view.list.rows.find((r) => r.id === w.crypto_id)?.exit.word ?? "None",
       unit_source: w.unit_source,
+      redemption: ((f) => (f ? { route: f.route, summary: f.summary, source_url: f.url } : null))(body.redemption?.find((f) => f.crypto_id === w.crypto_id)),
       verdict: w.verdict,
     })),
     cant_tell: view.gaps.map((g) => `${g.title}: ${g.sub}`),

@@ -300,3 +300,31 @@ describe("coin tooltips", () => {
     expect(coinTooltip(asRatio, { isSpot: false, noun: "KLAC" })).toBe("KLACx · −0.07% vs typical · 1 token = 0.1 shares");
   });
 });
+
+describe("how a holder gets the real asset (METHOD.md §12)", () => {
+  it("NVDA: Robinhood's token can't be redeemed for shares, xStocks' after KYC, each linked to the issuer's page", async () => {
+    const rows = present(await load("NVDA")).list.rows;
+    const by = (ticker: string, issuer: RegExp) => rows.find((r) => r.ticker === ticker && issuer.test(r.sub));
+    expect(by("NVDA", /Robinhood/)?.redeem).toMatchObject({ text: "Can't be redeemed for shares", url: expect.stringMatching(/^https:\/\/robinhood\.com\//) });
+    expect(by("NVDAX", /Backed/)?.redeem).toMatchObject({ text: "Redeemable with the issuer, after KYC", url: expect.stringMatching(/^https:\/\/docs\.xstocks\.fi\//) });
+    expect(by("NVDAon", /Ondo/)?.redeem?.text).toBe("Redeemable with the issuer, after KYC");
+    // The derivatives feed and Dinari have nothing on file: no line, not "no".
+    expect(rows.filter((r) => !r.redeem).length).toBeGreaterThan(0);
+  });
+
+  it("GOLD: PAXG and XAUt redeem through the issuer; the hover says the issuer's own terms", async () => {
+    const rows = present(await load("GOLD")).list.rows;
+    expect(rows.find((r) => r.ticker === "PAXG")?.redeem?.text).toBe("Redeemable through the issuer");
+    expect(rows.find((r) => r.ticker === "XAUt")?.redeem?.title).toMatch(/Switzerland.*\(from the issuer's page\)$/);
+  });
+
+  it("every line is backed by a registry fact and never says 'buy'", async () => {
+    for (const q of ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER", "UNH", "MS", "KLAC"]) {
+      const body = await load(q);
+      for (const r of present(body).list.rows.filter((x) => x.redeem)) {
+        expect(body.redemption.some((f) => f.crypto_id === r.id && f.url === r.redeem!.url)).toBe(true);
+        expect(r.redeem!.text + r.redeem!.title).not.toMatch(/\bbuy/i);
+      }
+    }
+  });
+});

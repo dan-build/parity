@@ -58,6 +58,13 @@ function Row({ r, ref }: { r: RowView; ref: (el: HTMLLIElement | null) => void }
         <strong>{r.ticker}</strong>
         {r.best && <span className={s.tag}>best way in</span>}
         <small>{r.sub}</small>
+        {r.redeem && (
+          <a className={s.redeem} href={r.redeem.url} target="_blank" rel="noopener noreferrer" title={r.redeem.title}>
+            {r.redeem.text}
+            <span aria-hidden="true"> ↗</span>
+            <span className={s.sr}>{" (issuer's page, opens in a new tab)"}</span>
+          </a>
+        )}
       </div>
       <div className={s.price}>
         {r.price}

@@ -17,6 +17,13 @@ export const REGISTRY_DIR = join(process.cwd(), "registry");
 /** How a fact got into the registry. */
 export type Source = "issuer" | "community" | "inferred-from-price" | "cmc";
 
+/**
+ * How a holder gets the real asset: `issuer_kyc` = redeem with the issuer after its KYC
+ * onboarding; `issuer` = redeem through the issuer (its own terms apply); `none` = can't be
+ * redeemed for the asset at all (e.g. a derivative contract).
+ */
+export type RedemptionRoute = "issuer_kyc" | "issuer" | "none";
+
 export type RegistryToken = {
   crypto_id: number;
   symbol: string | null;
@@ -26,7 +33,7 @@ export type RegistryToken = {
   unit_note?: string;
   contracts: { chain: string; address: string; source: Source }[];
   /** Unknown until an issuer or contributor fills them in, with a link. */
-  redemption: { summary: string; url: string; source: Source } | null;
+  redemption: { route: RedemptionRoute; summary: string; url: string; source: Source } | null;
   eligibility: { summary: string; url: string; source: Source } | null;
   attestations: { url: string; source: Source }[];
   verified_by_issuer: boolean;

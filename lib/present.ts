@@ -2,7 +2,7 @@
  * CheckResult → everything the page renders. Pure: copy, numbers and labels live here
  * so components only lay things out.
  */
-import type { CheckResult } from "./check";
+import type { CheckResult, RedemptionFact } from "./check";
 import type { Fallback } from "./data-source";
 import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
@@ -41,6 +41,8 @@ export type RowView = {
   exit: { bars: number; word: string };
   /** The best way in (the headline token). */
   best: boolean;
+  /** How a holder can get the real asset, from the issuer's own page (registry). null = nothing on file. */
+  redeem: { text: string; url: string; title: string } | null;
 };
 
 /** The hero's four at-a-glance tiles. */
@@ -301,6 +303,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
           : { text: pct(w.premium_pct), tone: w.verdict === "RICH" ? "rich" : isOffTrack(w) ? "ghost" : "fair" },
       exit: w.verdict === "GHOST" ? { bars: 0, word: "None" } : exitMeter(w.exit_score),
       best: w.crypto_id === best?.crypto_id,
+      redeem: redeemLine(r.redemption?.find((f) => f.crypto_id === w.crypto_id), commodity ? noun : "shares"),
     };
   });
 
@@ -397,6 +400,13 @@ function checkedNote(unholdable: number, offTrack: number): string {
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** "25 Sep 2026" in UTC, the same on every server and browser (locales disagree on "Sept"). */
+/** One plain line on how a holder gets the real asset, linked to the issuer's page it comes from. */
+export function redeemLine(f: RedemptionFact | undefined, what: string): RowView["redeem"] {
+  if (!f) return null;
+  const text = { issuer_kyc: "Redeemable with the issuer, after KYC", issuer: "Redeemable through the issuer", none: `Can't be redeemed for ${what}` }[f.route];
+  return { text, url: f.url, title: `${f.summary} (from the issuer's page)` };
+}
+
 export function dayLabel(iso: string): string {
   const d = new Date(iso);
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;

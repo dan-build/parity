@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.3.0**
+**Method version 1.3.1**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -95,7 +95,20 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
   **"nothing to hold"**.
 - Parity never says "buy".
 
-## 12. What this method can't see
+## 12. Can you get the real asset? (redemption)
+Each token in the list says how a holder gets the real asset, when Parity's open registry has
+it from the issuer's own page (`registry/`, linked from the line):
+
+- **"Redeemable with the issuer, after KYC"**: the issuer redeems for holders who pass its
+  onboarding (e.g. xStocks, Ondo).
+- **"Redeemable through the issuer"**: the issuer redeems on its own terms (e.g. PAXG, XAUt).
+- **"Can't be redeemed for shares"** (or for the metal): the token is, for example, a derivative
+  contract that never turns into the asset.
+
+Nothing on file shows nothing: unknown isn't "no". This is information only; no verdict, premium
+or exit score uses it.
+
+## 13. What this method can't see
 - The real share price of stocks: CoinMarketCap doesn't have it, so stock tokens are compared
   with each other. If they all drifted together, it wouldn't show. (Metals use real spot.)
 - Which exchanges each token trades on (market pairs not in our plan).
@@ -106,6 +119,13 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 ---
 
 ## Changelog
+
+### 1.3.1 (9 Oct 2026)
+**Wording only; no rule changed.** Each token in the list now says how a holder gets the real
+asset (§12), from the open registry's redemption terms, which were filled from issuers' own
+pages for 18 of 47 tokens: "Redeemable with the issuer, after KYC", "Redeemable through the
+issuer", or "Can't be redeemed for shares". The MCP tool returns the same per token. Golden
+set: verdicts unchanged.
 
 ### 1.3.0 (9 Oct 2026)
 **Metals keep their spot price when CoinMarketCap's time-pinned answer comes back empty.** The

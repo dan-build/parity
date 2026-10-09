@@ -21,6 +21,7 @@
         }
       ],
       "redemption": {
+        "route": "issuer_kyc",
         "summary": "Holders who complete Ondo's onboarding (KYC) redeem directly with the issuer for USDon or USDC, from $1; no redemptions to a bank account. The token is a note that tracks the share, and its shares-per-token changes as dividends are reinvested.",
         "url": "https://docs.ondo.finance/ondo-stocks/investing-and-redeeming",
         "source": "issuer"
@@ -52,6 +53,7 @@
         }
       ],
       "redemption": {
+        "route": "issuer_kyc",
         "summary": "Issued and redeemed only by onboarded clients (KYC/AML) from whitelisted wallets, for stablecoins or the underlying shares, 24/5. Everyone else trades on exchanges and DeFi.",
         "url": "https://docs.xstocks.fi/docs/issuance-and-redemption",
         "source": "issuer"

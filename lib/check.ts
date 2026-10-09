@@ -11,7 +11,7 @@ import {
   type RwaMapEntry,
   type WrapperContract,
 } from "./cmc";
-import { loadRegistry } from "./registry";
+import { loadRegistry, type RedemptionRoute } from "./registry";
 import { METHOD_VERSION, preScreen, verdict, type Spot, type TokenUnit, type Gap, type PoolLookup, type VerdictInput, type VerdictResult } from "./verdict";
 
 export type CheckResult = VerdictResult & {
@@ -25,7 +25,11 @@ export type CheckResult = VerdictResult & {
   method_version: string;
   /** The registry file used for units, if any (registry/<SYMBOL>.json). */
   registry: { file: string; tokens: number; units: number } | null;
+  /** How a holder can get the real asset, per token, from the registry (issuers' own pages). Informational: no verdict uses it. */
+  redemption: RedemptionFact[];
 };
+
+export type RedemptionFact = { crypto_id: number; route: RedemptionRoute; summary: string; url: string };
 
 export type CheckOutcome =
   | { kind: "ok"; result: CheckResult }
@@ -110,7 +114,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
   if (!gathered.ok) {
     return { kind: "error", query, message: `Couldn't load prices for ${match.name}: ${gathered.message}`, evidence: client.evidence };
   }
-  const { input, slug, gaps, dataAsOf, registry } = gathered;
+  const { input, slug, gaps, dataAsOf, registry, redemption } = gathered;
 
   // 5. Pure verdict.
   const v = verdict(input);
@@ -127,6 +131,7 @@ export async function check(q: string, client: CmcClient): Promise<CheckOutcome>
       generated_at: new Date().toISOString(),
       method_version: METHOD_VERSION,
       registry,
+      redemption: redemption.filter((f) => v.wrappers.some((w) => w.crypto_id === f.crypto_id)),
     },
   };
 }
@@ -149,7 +154,7 @@ export async function gatherInputs(
   rwaId: number,
   client: CmcClient,
 ): Promise<
-  | { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[]; registry: CheckResult["registry"] }
+  | { ok: true; input: VerdictInput; slug: string; dataAsOf: string | null; gaps: Gap[]; registry: CheckResult["registry"]; redemption: RedemptionFact[] }
   | { ok: false; message: string }
 > {
   const gaps: Gap[] = [];
@@ -183,6 +188,7 @@ export async function gatherInputs(
   const units = new Map<number, TokenUnit>();
   for (const t of reg?.tokens ?? []) if (t.unit) units.set(t.crypto_id, t.unit);
   const registry = reg ? { file: `registry/${quote.symbol.toUpperCase()}.json`, tokens: reg.tokens.length, units: units.size } : null;
+  const redemption: RedemptionFact[] = (reg?.tokens ?? []).flatMap((t) => (t.redemption ? [{ crypto_id: t.crypto_id, route: t.redemption.route, summary: t.redemption.summary, url: t.redemption.url }] : []));
 
   // Contracts (chain + address) per wrapper.
   let contracts = new Map<number, WrapperContract>();
@@ -228,5 +234,6 @@ export async function gatherInputs(
       units,
     },
     registry,
+    redemption,
   };
 }

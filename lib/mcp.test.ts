@@ -69,6 +69,14 @@ describe("check_rwa (in memory)", () => {
     }
   });
 
+  it("says per token how a holder gets the real asset, from the issuer's page, and null when nothing is on file", async () => {
+    const o = (await call("NVDA")).structuredContent as { tokens: { token: string; issuer: string | null; redemption: { route: string; summary: string; source_url: string } | null }[] };
+    const rh = o.tokens.find((t) => t.issuer === "Robinhood");
+    expect(rh?.redemption).toMatchObject({ route: "none", summary: expect.stringMatching(/^Not redeemable for shares/), source_url: expect.stringMatching(/^https:\/\/robinhood\.com\//) });
+    expect(o.tokens.find((t) => t.token.startsWith("NVDAX"))?.redemption?.route).toBe("issuer_kyc");
+    expect(o.tokens.some((t) => t.redemption === null)).toBe(true);
+  });
+
   it("keeps colliding symbols apart", async () => {
     const o = (await call("NVDA")).structuredContent as Out;
     const nvda = o.tokens.filter((t) => t.token.startsWith("NVDA ("));

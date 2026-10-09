@@ -10,6 +10,7 @@ import { OFF_TRACK_PCT } from "./verdict";
 
 const source = z.enum(["issuer", "community", "inferred-from-price", "cmc"]);
 const link = z.object({ summary: z.string().min(1), url: z.string().url(), source }).strict();
+const redemption = z.object({ route: z.enum(["issuer_kyc", "issuer", "none"]), summary: z.string().min(1), url: z.string().url(), source }).strict();
 const schema = z
   .object({
     asset: z.object({ symbol: z.string(), rwa_id: z.number().int(), name: z.string(), type: z.string(), reference: z.enum(["troy_ounce", "share"]) }).strict(),
@@ -22,7 +23,7 @@ const schema = z
           unit: z.object({ measure: z.enum(["troy_ounce", "gram", "share"]), per_token: z.number().positive(), source }).strict().nullable(),
           unit_note: z.string().min(1).optional(),
           contracts: z.array(z.object({ chain: z.string().min(1), address: z.string().min(1), source }).strict()),
-          redemption: link.nullable(),
+          redemption: redemption.nullable(),
           eligibility: link.nullable(),
           attestations: z.array(z.object({ url: z.string().url(), source }).strict()),
           verified_by_issuer: z.boolean(),

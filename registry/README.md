@@ -14,7 +14,7 @@ makes every verdict for that token more accurate, for everyone who uses Parity o
 | `unit` | What one token is a claim on: `{ "measure": "troy_ounce" \| "gram" \| "share", "per_token": 1 }`. `per_token: 0.1` = a tenth of a share |
 | `unit_note` | Required when `unit` is `null`: why it isn't known yet |
 | `contracts` | Chain and address |
-| `redemption` | How a holder redeems for the real asset: `{ summary, url, source }` |
+| `redemption` | How a holder redeems for the real asset: `{ route, summary, url, source }`. `route`: `issuer_kyc` (with the issuer, after its KYC), `issuer` (through the issuer, on its terms) or `none` (can't be redeemed for the asset) |
 | `eligibility` | Who can hold it (KYC, jurisdictions): `{ summary, url, source }` |
 | `attestations` | Proof-of-reserve or audit reports: `[{ url, source }]` |
 | `verified_by_issuer` | `true` only when the issuer confirmed the entry (see below) |

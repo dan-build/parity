@@ -24,6 +24,7 @@
         }
       ],
       "redemption": {
+        "route": "issuer",
         "summary": "Redeemable through Paxos for LBMA Good Delivery gold bars, or for USD at the current gold price; institutional customers can also redeem for unallocated Loco London gold.",
         "url": "https://paxos.com/pax-gold/",
         "source": "issuer"
@@ -58,6 +59,7 @@
         }
       ],
       "redemption": {
+        "route": "issuer",
         "summary": "Redeemable for physical gold bars delivered to an address in Switzerland, in whole bars only; Tether advises holding 430 XAUt, since a bar can be up to 430 troy ounces.",
         "url": "https://tether.io/news/tether-gold-digital-gold-for-the-modern-era/",
         "source": "issuer"
