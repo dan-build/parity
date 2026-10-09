@@ -23,9 +23,22 @@
           "source": "cmc"
         }
       ],
-      "redemption": null,
-      "eligibility": null,
-      "attestations": [],
+      "redemption": {
+        "summary": "Issued and redeemed only by onboarded clients (KYC/AML) from whitelisted wallets, for stablecoins or the underlying shares, 24/5. Everyone else trades on exchanges and DeFi.",
+        "url": "https://docs.xstocks.fi/docs/issuance-and-redemption",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Not for distribution in the United States, to US persons, or in other prohibited jurisdictions. In the EU/EEA, offered under a prospectus approved by Liechtenstein's FMA.",
+        "url": "https://docs.xstocks.fi/docs/product-legal-overview",
+        "source": "issuer"
+      },
+      "attestations": [
+        {
+          "url": "https://defi.xstocks.fi",
+          "source": "issuer"
+        }
+      ],
       "verified_by_issuer": false
     },
     {
@@ -62,9 +75,22 @@
           "source": "cmc"
         }
       ],
-      "redemption": null,
-      "eligibility": null,
-      "attestations": [],
+      "redemption": {
+        "summary": "Holders who complete Ondo's onboarding (KYC) redeem directly with the issuer for USDon or USDC, from $1; no redemptions to a bank account. The token is a note that tracks the share, and its shares-per-token changes as dividends are reinvested.",
+        "url": "https://docs.ondo.finance/ondo-stocks/investing-and-redeeming",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Not for US persons, or for orders placed from the US (Regulation S). Some other jurisdictions are prohibited or restricted; subscribing with or redeeming to the issuer needs KYC onboarding.",
+        "url": "https://docs.ondo.finance/ondo-stocks/eligibility",
+        "source": "issuer"
+      },
+      "attestations": [
+        {
+          "url": "https://docs.ondo.finance/ondo-global-markets/trust-and-transparency",
+          "source": "issuer"
+        }
+      ],
       "verified_by_issuer": false
     },
     {
@@ -125,8 +151,16 @@
           "source": "cmc"
         }
       ],
-      "redemption": null,
-      "eligibility": null,
+      "redemption": {
+        "summary": "Not redeemable for shares. These are derivative contracts between the holder and Robinhood, priced at the share price without granting rights to the shares.",
+        "url": "https://robinhood.com/eu/en/support/articles/stock-tokens-faq/",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Offered by Robinhood Europe to its customers, as derivatives under MiFID II.",
+        "url": "https://robinhood.com/eu/en/support/articles/stock-tokens-faq/",
+        "source": "issuer"
+      },
       "attestations": [],
       "verified_by_issuer": false
     },
@@ -152,5 +186,5 @@
       "verified_by_issuer": false
     }
   ],
-  "updated": "2026-10-01"
+  "updated": "2026-10-09"
 }

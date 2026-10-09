@@ -45,7 +45,9 @@ from your official site or docs to the PR), and we'll mark your entries `verifie
   multiple of a share. Which, according to the issuers?
 - **KAG (Kinesis silver):** priced ~48% below silver spot in CoinMarketCap's data. Is the price
   stale, or is the unit different?
-- Redemption terms, eligibility and attestations for every token: all empty today.
+- Redemption terms, eligibility and attestations: 18 of 47 tokens have redemption terms, from
+  the issuers' own pages (Paxos, Tether Gold's XAUt, Ondo, xStocks, Robinhood; 9 Oct 2026).
+  Wanted for the rest, including the wrapped xStocks (`w…`), XAUT0 and XAUt's eligibility.
 
 New assets: `npm run registry:seed` adds entries for the watched assets in
 `scripts/watchlist.json` from saved data (it never overwrites existing entries).

@@ -14,7 +14,7 @@
       "unit": {
         "measure": "troy_ounce",
         "per_token": 1,
-        "source": "inferred-from-price"
+        "source": "issuer"
       },
       "contracts": [
         {
@@ -23,9 +23,22 @@
           "source": "cmc"
         }
       ],
-      "redemption": null,
-      "eligibility": null,
-      "attestations": [],
+      "redemption": {
+        "summary": "Redeemable through Paxos for LBMA Good Delivery gold bars, or for USD at the current gold price; institutional customers can also redeem for unallocated Loco London gold.",
+        "url": "https://paxos.com/pax-gold/",
+        "source": "issuer"
+      },
+      "eligibility": {
+        "summary": "Paxos says PAXG is currently unavailable in the EU. Individuals are pointed to exchange listings; minting and redeeming go through the Paxos platform.",
+        "url": "https://paxos.com/pax-gold/",
+        "source": "issuer"
+      },
+      "attestations": [
+        {
+          "url": "https://paxos.com/paxg-transparency/",
+          "source": "issuer"
+        }
+      ],
       "verified_by_issuer": false
     },
     {
@@ -35,7 +48,7 @@
       "unit": {
         "measure": "troy_ounce",
         "per_token": 1,
-        "source": "inferred-from-price"
+        "source": "issuer"
       },
       "contracts": [
         {
@@ -44,9 +57,18 @@
           "source": "cmc"
         }
       ],
-      "redemption": null,
+      "redemption": {
+        "summary": "Redeemable for physical gold bars delivered to an address in Switzerland, in whole bars only; Tether advises holding 430 XAUt, since a bar can be up to 430 troy ounces.",
+        "url": "https://tether.io/news/tether-gold-digital-gold-for-the-modern-era/",
+        "source": "issuer"
+      },
       "eligibility": null,
-      "attestations": [],
+      "attestations": [
+        {
+          "url": "https://gold.tether.to/docs/reports/attestations/ISAE_3000R_-_Opinion_TGRR_30.06.2025_RC187322025BD0179.pdf",
+          "source": "issuer"
+        }
+      ],
       "verified_by_issuer": false
     },
     {
@@ -134,5 +156,5 @@
       "verified_by_issuer": false
     }
   ],
-  "updated": "2026-10-01"
+  "updated": "2026-10-09"
 }

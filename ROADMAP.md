@@ -106,7 +106,7 @@ hour to hour (verdict stability rate); weekend and after-hours cases in the gold
       which source it used (`unit_source`, a receipt in the Evidence drawer, the MCP output)
 - [ ] Invite issuers to verify their own entries (the `verified_by_issuer` mark exists; the
       outreach doesn't yet)
-- [ ] Fill redemption, eligibility and attestations, with sources
+- [ ] Fill redemption, eligibility and attestations, with sources (started 9 Oct: 18 of 47 tokens have redemption terms, from issuers' own pages)
 
 **Evals:** schema validation on every PR; contract addresses checked on-chain; unit and ratio
 entries cross-checked against observed prices (would have caught per-gram gold and KLAC).

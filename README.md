@@ -225,7 +225,7 @@ of one. Parity keeps that in [`registry/`](registry/), one JSON file per asset. 
 says where it came from, and unknown facts stay empty instead of guessed. The engine uses the
 registry's units first. Tests check every recorded unit against real prices, so a wrong ratio
 fails CI. Today 35 of 47 tokens have a unit. Help wanted: KLAC's share ratio, and redemption
-terms and attestations for every token ([how to contribute](registry/README.md)).
+terms and attestations for the tokens that don't have them yet ([how to contribute](registry/README.md)).
 
 ## How verdicts are decided
 

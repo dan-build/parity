@@ -82,6 +82,19 @@ describe("the registry", () => {
 });
 
 describe("docs quote the registry's real coverage", () => {
+  it("registry/README.md and ROADMAP.md state the same 'N of M tokens have redemption terms' as the files", () => {
+    const tokens = registry.flatMap((r) => r.tokens);
+    const claim = `${tokens.filter((t) => t.redemption).length} of ${tokens.length} tokens have redemption terms`;
+    for (const doc of ["registry/README.md", "ROADMAP.md"]) {
+      expect(readFileSync(join(process.cwd(), doc), "utf8")).toContain(claim);
+    }
+  });
+
+  it("never says 'buy' (Parity's rule holds for registry text too)", () => {
+    const text = registry.flatMap((r) => r.tokens.flatMap((t) => [t.redemption?.summary, t.eligibility?.summary, t.unit_note])).filter(Boolean).join(" ");
+    expect(text).not.toMatch(/\bbuy/i);
+  });
+
   it("README, METHOD.md and ROADMAP.md state the same 'N of M tokens have a unit' as the files", () => {
     const tokens = registry.flatMap((r) => r.tokens);
     const claim = `${tokens.filter((t) => t.unit).length} of ${tokens.length}`;
