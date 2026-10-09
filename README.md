@@ -205,6 +205,7 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 - `lib/present.ts`: turns a result into copy and numbers. `lib/log.ts`: the narrating log, built only from real evidence.
 - `components/desk/`: the page. `components/reveal/`: one animation clock, with every timing in `lib/reveal/timings.ts`.
 - `app/api/og/route.tsx`: the share image (`next/og`). The colour-field backgrounds are pre-rendered per verdict by `scripts/og-backgrounds.mjs`.
+- `lib/snapshot.ts`: one history run, shared by `npm run snapshot` (local `history/`) and the daily cron `app/api/cron/snapshot` (private Vercel Blob, `lib/snapshot-cron.ts`).
 - `fixtures/`: real recorded responses, used by saved-data mode, the fallback and the tests.
 
 ### Deploying
@@ -212,6 +213,7 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 1. Import the repo into Vercel.
 2. Set `CMC_API_KEY` (mark it **Sensitive**) and `PARITY_DATA_MODE=live` for **Production**. Preview deploys without the key fall back to saved data.
 3. Optionally set `SITE_URL` if you use a custom domain; share-image URLs default to Vercel's production URL.
+4. Optional, private history: create a **Private** Blob store connected to the project, then set `CRON_SECRET` (16+ random characters) and `PARITY_SNAPSHOTS=on` for Production. `vercel.json` runs `/api/cron/snapshot` once a day (~41 credits); it writes one private file a day and answers counts, never data.
 
 ---
 

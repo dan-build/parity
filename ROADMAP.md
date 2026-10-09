@@ -53,8 +53,11 @@ that says whether it helped.
       credits/month), or prices plus one full check a day on 15k. A 4,000-credit reserve is
       always kept for the live site
 - [x] **History** per token: premium, volume, exit score and liquidity over time (`lib/history.ts`)
-- [ ] Scheduled snapshots into private server-side storage (e.g. Vercel Blob or KV, not the
-      public repo), so history builds without a laptop running
+- [x] Scheduled snapshots into private server-side storage: a daily Vercel cron
+      (`/api/cron/snapshot`, the same run as `npm run snapshot`) writes one file a day to a
+      private Vercel Blob store. Off unless `PARITY_SNAPSHOTS=on`, runs only with
+      `CRON_SECRET`, answers counts and never data. Switched on after results, when `next` merges
+      (Vercel runs crons on production only)
 - [ ] Pages read snapshots instead of calling the API per visitor (once history is flowing)
 - [x] **Open-source hygiene:** LICENSE (MIT), CONTRIBUTING.md, issue and PR templates
 - [x] **CI** (GitHub Actions): lint, types, tests, eval and build on every push and PR
