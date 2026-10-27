@@ -31,14 +31,15 @@ that says whether it helped.
 
 ---
 
-## Phase 0: submission freeze (now → hackathon results)
+## Phase 0: submission freeze (done: results out, released Oct 2026)
 
 - [x] MCP server `check_rwa(query)` (`lib/mcp.ts`, `npm run mcp`)
 - [x] **Eval:** in-memory client + real stdio script, all four verdicts, schema-validated (`lib/mcp.test.ts`)
 - [x] Tag the submitted state: `buildwithcmc-submission`
 - [x] Keep `main` and production unchanged until results. New work goes on `next`, which
       Vercel deploys to its own preview URL
-- [ ] Watch CoinMarketCap credit use daily; the site falls back to saved data if it runs out
+- [x] Watch CoinMarketCap credit use during judging (333 of 450k used by 27 Oct); the site
+      falls back to saved data if it runs out
 
 ## Phase 1: foundations (first 2–4 weeks after results)
 
