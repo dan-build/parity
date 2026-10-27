@@ -86,7 +86,7 @@ decision for after the hackathon results.
 - [x] "What the data can't tell you" drops "the real price" for metals
 - [ ] **Stocks: a real share price.** CoinMarketCap doesn't have one; needs a second provider
       (after results)
-- [ ] US market holidays (today only weekends and hours are known)
+- [x] US market holidays and early closes, from NYSE's calendar (2026–2028; a test fails when the current year isn't covered)
 
 **Evals:** tracking error of each token against its reference price over the history
 (flags tokens that drift); a backtest over saved history checks verdicts wouldn't flip-flop

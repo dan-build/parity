@@ -3,6 +3,7 @@ import { clearCmcCache } from "./cmc";
 import { logLines, logSummary } from "./log";
 import { coinTooltip, exitMeter, moneyShort, pct, present, recommended, usMarketClosedAt, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
+import { NYSE_CALENDAR_YEARS, NYSE_EARLY_CLOSES, NYSE_HOLIDAYS } from "./us-market-calendar";
 
 async function load(q: string): Promise<CheckResponse> {
   const { body } = await runCheck(q); // fixture mode is the default
@@ -258,6 +259,26 @@ describe("US market hours (stocks)", () => {
     expect(usMarketClosedAt("2026-09-26T15:00:00Z")).toBe(true); // Saturday
     expect(usMarketClosedAt("2026-12-01T14:45:00Z")).toBe(false); // Tue 09:45 EST
     expect(usMarketClosedAt("2026-12-01T14:15:00Z")).toBe(true); // Tue 09:15 EST
+  });
+
+  it("knows NYSE holidays and early closes (lib/us-market-calendar.ts)", () => {
+    expect(usMarketClosedAt("2026-11-26T16:00:00Z")).toBe(true); // Thanksgiving 2026, 11:00 EST
+    expect(usMarketClosedAt("2026-07-03T15:00:00Z")).toBe(true); // Independence Day observed, 11:00 EDT
+    expect(usMarketClosedAt("2027-03-26T15:00:00Z")).toBe(true); // Good Friday 2027, 11:00 EDT
+    expect(usMarketClosedAt("2026-11-27T17:30:00Z")).toBe(false); // day after Thanksgiving, 12:30 EST
+    expect(usMarketClosedAt("2026-11-27T18:30:00Z")).toBe(true); // ...13:30 EST, after the early close
+    expect(usMarketClosedAt("2026-12-24T18:00:00Z")).toBe(true); // Christmas Eve 2026, 13:00 EST
+    expect(usMarketClosedAt("2026-11-27T04:30:00Z")).toBe(true); // 23:30 New York on Thanksgiving, 04:30 UTC the next day: the New York date counts
+    expect(usMarketClosedAt("2028-01-03T15:00:00Z")).toBe(false); // no New Year holiday observed in 2028
+  });
+
+  it("the holiday calendar covers the current year (extend it from NYSE's page when this fails)", () => {
+    expect(NYSE_CALENDAR_YEARS).toContain(new Date().getUTCFullYear());
+    for (const d of [...NYSE_HOLIDAYS, ...NYSE_EARLY_CLOSES]) {
+      const wd = new Date(`${d}T12:00:00Z`).getUTCDay();
+      expect([0, 6], `${d} is a weekend`).not.toContain(wd); // every date is a weekday
+      expect(NYSE_CALENDAR_YEARS).toContain(Number(d.slice(0, 4)) as 2026);
+    }
   });
 
   it("tells stock buyers when quotes were taken with the market closed, and never metal buyers", async () => {
