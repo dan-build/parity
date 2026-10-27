@@ -35,6 +35,7 @@ These examples come from saved data (25–26 Sep), and they all work with no API
 - **The instrument:** every token drops onto one price scale as a coin. Per-gram coins land in a red "looks 97% cheaper" zone, then grow and roll to their true price. Tokens that aren't real ("ghosts") fall through the line.
 - **The log:** as the coins land, the log narrates each real API call and finding, then folds into a toast with the answer and an **Evidence** button.
 - **Every token:** price, premium against the typical price, how easy it is to sell (the "exit"), and a verdict for each.
+- **Your size:** pick $1k, $10k or $100k and each token shows a ceiling on what getting in and out costs, from its dollar-paired pool depth, or says it can't estimate. Never a guess.
 - **Best way in**, with the token's chain and contract so you can check it against the issuer's site.
 - **What the data can't tell you:** the gaps we hit, shown instead of guessed around.
 - **Evidence drawer:** every call, with its parameters, cost, timestamp and a trimmed copy of CoinMarketCap's response.
@@ -91,6 +92,7 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | `/?q=NVDA` | Server-rendered, shareable result |
 | `/?q=GOLD&t=1400` | Freezes the reveal at 1.4s (for screenshots) |
 | `/?q=GOLD&drawer` | Opens the Evidence drawer |
+| `/?q=GOLD&size=100000` | Cost estimates at $100k ($1k, $10k or $100k) |
 | `/api/check?q=NVDA` | The raw JSON behind the page |
 | `/api/og?q=UNH` | The 1200×630 share image |
 

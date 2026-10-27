@@ -93,6 +93,48 @@
   color: var(--text-3);
 }
 
+/* Your size: three amounts; the cost lines below follow the choice. */
+.size {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-basis: 100%;
+}
+.size span {
+  margin-right: 4px;
+}
+.size button {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-3);
+  font: inherit;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.size button[aria-pressed="true"] {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--gold) 60%, transparent);
+}
+.size button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+/* Cost at your size: a ceiling, mono like other figures. Its own line, always. */
+.cost {
+  flex-basis: 100%;
+  padding-left: 32px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+}
+.costUnknown {
+  color: var(--text-3);
+}
+
 /* How a holder gets the real asset (registry, issuer's page). Its own line, always. */
 .redeem {
   flex-basis: 100%;

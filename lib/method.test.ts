@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { SPOT_MAX_GAP_MIN } from "./check";
 import { SUPPORTED_DEX_CHAINS } from "./cmc";
+import { MAX_IMPACT, SIZES } from "./size";
 import {
   DEPTH_TIERS,
   DISCOUNT_WARN_PCT,
@@ -36,10 +37,15 @@ describe("METHOD.md matches the code", () => {
     expect(doc).toContain(`| Listed on a traditional exchange | ${TRADFI_POINTS} |`);
   });
 
+  it("states the sizes and the impact cap the cost estimate uses (§13)", () => {
+    expect(doc).toContain(`**${SIZES.map((n) => `$${n / 1000}k`).join(", ").replace(/, (?=[^,]*$)/, " or ")}**`);
+    expect(doc).toContain(`Above **${MAX_IMPACT * 100}%** impact each way`);
+  });
+
   it("lists the same exit tiers and DEX chains", () => {
     const row = (tiers: [number, number][]) => tiers.map(([min, pts]) => `≥ ${usd(min)} → ${pts}`).join(" · ");
     expect(doc).toContain(`| 24h volume | ${row(VOLUME_TIERS)} |`);
     expect(doc).toContain(`| ${row(DEPTH_TIERS)} |`);
-    expect(SUPPORTED_DEX_CHAINS).toEqual(["ethereum", "solana", "bsc", "base"]); // named in METHOD.md §8 and §13
+    expect(SUPPORTED_DEX_CHAINS).toEqual(["ethereum", "solana", "bsc", "base"]); // named in METHOD.md §8 and §14
   });
 });

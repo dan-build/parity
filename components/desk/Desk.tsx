@@ -40,6 +40,7 @@ export function Desk({
   initialMood,
   seek,
   drawer,
+  initialSize,
 }: {
   initialQuery: string;
   /** Rendered on the server for ?q= links. */
@@ -48,11 +49,21 @@ export function Desk({
   seek: number | null;
   /** ?drawer: open Evidence on load (design review). */
   drawer: boolean;
+  /** ?size=: the amount the cost lines are for (lib/size.ts). */
+  initialSize: number;
 }) {
   const [state, setState] = useState<State>(initial ? toState(initialQuery, initial) : { status: "empty" });
   const [mood, setMood] = useState(initialMood);
   const [replays, setReplays] = useState(0);
   const [evidenceOpen, setEvidenceOpen] = useState(drawer);
+  const [size, setSize] = useState(initialSize);
+  /** Change the size and keep it in the URL (no new history entry, no refetch). */
+  const chooseSize = useCallback((n: number) => {
+    setSize(n);
+    const u = new URL(window.location.href);
+    u.searchParams.set("size", String(n));
+    window.history.replaceState(window.history.state, "", u);
+  }, []);
   const openEvidence = useCallback(() => setEvidenceOpen(true), []);
   const closeEvidence = useCallback(() => setEvidenceOpen(false), []);
   const inflight = useRef<AbortController | null>(null);
@@ -95,7 +106,7 @@ export function Desk({
   }, [run]);
 
   const query = state.status === "empty" ? "" : state.q;
-  const view = useMemo(() => (state.status === "ready" ? present(state.data) : null), [state]);
+  const view = useMemo(() => (state.status === "ready" ? present(state.data, undefined, size) : null), [state, size]);
 
   return (
     <div className={s.page}>
@@ -123,7 +134,7 @@ export function Desk({
                 <Stage view={view} />
                 <Tiles view={view} />
                 <Reasons view={view} />
-                <List view={view} />
+                <List view={view} onSize={chooseSize} />
                 <Lower view={view} />
               </div>
               <footer className={s.fine}>{view.fine}</footer>

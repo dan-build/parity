@@ -77,6 +77,17 @@ describe("check_rwa (in memory)", () => {
     expect(o.tokens.some((t) => t.redemption === null)).toBe(true);
   });
 
+  it("estimates the cost of getting in and out at a chosen size, a ceiling, never guessed", async () => {
+    type Cost = { size_usd: number; kind: string; up_to_usd: number | null; note: string } | null;
+    const at = async (size_usd?: number) =>
+      ((await client.callTool({ name: "check_rwa", arguments: size_usd ? { query: "GOLD", size_usd } : { query: "GOLD" } })).structuredContent as { tokens: { token: string; cost: Cost }[] }).tokens;
+    const paxg = (await at()).find((t) => t.token === "PAXG")?.cost;
+    expect(paxg).toMatchObject({ size_usd: 10000, kind: "estimate", up_to_usd: 17 });
+    expect(paxg?.note).toMatch(/ceiling/);
+    expect((await at(100000)).find((t) => t.token === "PAXG")?.cost?.size_usd).toBe(100000);
+    expect((await at()).find((t) => t.token === "CGO")?.cost).toMatchObject({ kind: "unknown", up_to_usd: null });
+  });
+
   it("keeps colliding symbols apart", async () => {
     const o = (await call("NVDA")).structuredContent as Out;
     const nvda = o.tokens.filter((t) => t.token.startsWith("NVDA ("));
