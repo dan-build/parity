@@ -419,10 +419,10 @@ export function costLine(c: SizeCost): RowView["cost"] {
   if (c.kind === "too_big") {
     return { text: `${at} is more than its pools can take`, title: `Its dollar-paired DEX pools hold about ${moneyShort(c.depth_usd)} in total; a ${at} trade would move the price by more than ${Math.round(MAX_IMPACT * 100)}% each way.`, known: true };
   }
-  const prem = c.premium_usd >= 0 ? `${moneyShort(c.premium_usd)} premium` : `${moneyShort(-c.premium_usd)} discount`;
+  const prem = c.premium_usd >= 0 ? `a ${moneyShort(c.premium_usd)} premium` : `a ${moneyShort(-c.premium_usd)} discount`;
   return {
-    text: `In and out at ${at}: up to ${moneyShort(Math.max(c.total_usd, 0))} (${c.total_pct.toFixed(1)}%)`,
-    title: `From its DEX pools paired with dollars or major coins (${moneyShort(c.depth_usd)}): ${prem}, plus up to ${moneyShort(c.impact * c.size_usd)} price impact getting in and the same getting out. A ceiling: concentrated pools are usually cheaper, and issuer redemption can be too. Leaves out pool fees and gas.`,
+    text: `In and out at ${at}: up to ${moneyShort(c.total_usd)} (${c.total_pct.toFixed(1)}%)`,
+    title: `Price impact from its DEX pools paired with dollars or major coins (${moneyShort(c.depth_usd)}): up to ${moneyShort(c.in_usd)} getting in and the same getting out. A ceiling: concentrated pools are usually cheaper, and issuer redemption can be too. Leaves out pool fees and gas. Separately, at this size the token sells at ${prem} to the reference.`,
     known: true,
   };
 }

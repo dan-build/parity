@@ -354,12 +354,12 @@ describe("cost at your size (METHOD.md §13)", () => {
   it("GOLD at $10k: a ceiling per token from its dollar-paired pools, honest when it can't tell", async () => {
     const rows = present(await load("GOLD"), undefined, 10_000).list.rows;
     const cost = (t: string) => rows.find((r) => r.ticker === t)?.cost;
-    expect(cost("PAXG")?.text).toBe("In and out at $10k: up to $17 (0.2%)");
-    expect(cost("XAUM")?.text).toBe("In and out at $10k: up to $3,493 (34.9%)");
+    expect(cost("PAXG")?.text).toBe("In and out at $10k: up to $18 (0.2%)");
+    expect(cost("XAUM")?.text).toBe("In and out at $10k: up to $3,507 (35.1%)");
     expect(cost("VNXAU")?.text).toBe("$10k is more than its pools can take");
     expect(cost("CGO")).toMatchObject({ text: "Cost at $10k: can't estimate", known: false });
     expect(cost("XAU")).toBeNull(); // a ghost: nothing to hold, no cost line
-    expect(cost("PAXG")?.title).toMatch(/A ceiling: concentrated pools are usually cheaper.*Leaves out pool fees and gas\.$/);
+    expect(cost("PAXG")?.title).toMatch(/A ceiling: concentrated pools are usually cheaper.*Leaves out pool fees and gas\. Separately, at this size the token sells at a \$1\.\d\d discount to the reference\.$/);
   });
 
   it("follows the chosen size", async () => {
