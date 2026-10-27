@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.3.2**
+**Method version 1.4.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -73,7 +73,7 @@ as this asset's price.
 | Part | Tiers |
 |---|---|
 | 24h volume | ≥ $1,000,000 → 40 · ≥ $100,000 → 25 · ≥ $10,000 → 10 |
-| DEX pool depth (Ethereum, Solana, BSC) | ≥ $1,000,000 → 40 · ≥ $250,000 → 25 · ≥ $50,000 → 10 |
+| DEX pool depth (Ethereum, Solana, BSC, Base) | ≥ $1,000,000 → 40 · ≥ $250,000 → 25 · ≥ $50,000 → 10 |
 | Listed on a traditional exchange | 20 |
 
 Pools on other chains aren't checked yet, and that's shown as a gap. The market-pairs
@@ -109,17 +109,48 @@ it from the issuer's own page (`registry/`, linked from the line):
 Nothing on file shows nothing: unknown isn't "no". This is information only; no verdict, premium
 or exit score uses it.
 
-## 13. What this method can't see
+## 13. Cost at your size (an estimate)
+Pick an amount (**$1k, $10k or $100k**). For each token that isn't a Ghost, Parity shows a
+**ceiling** on what getting in and out costs at that size (`lib/size.ts`):
+
+- **Getting in:** the premium over the reference price, plus price impact.
+- **Getting out later:** price impact again, at today's depth.
+- **Price impact** uses the standard pool formula. A pool with depth L (both sides, in dollars)
+  holds about L/2 on its dollar side, and a trade of S dollars moves the average price by
+  S ÷ (L/2). L is the token's **tradable depth**: DEX pools paired with dollars or a major
+  coin (USDC, USDT, ETH, SOL, BNB, BTC and their wrapped forms). Pairs against other small
+  tokens don't count.
+- Above **25%** impact each way, it says the size is more than the pools can take.
+
+It's a ceiling: concentrated-liquidity pools are usually cheaper near the current price, and
+some holders can redeem with the issuer instead. It leaves out pool fees and gas (not in
+CoinMarketCap's data) and centralised exchanges (no order books in CoinMarketCap's data). No
+checked depth means no estimate, never a guess. The best way in doesn't use it yet.
+
+## 14. What this method can't see
 - The real share price of stocks: CoinMarketCap doesn't have it, so stock tokens are compared
   with each other. If they all drifted together, it wouldn't show. (Metals use real spot.)
 - Which exchanges each token trades on (market pairs not in our plan).
-- Pool depth on chains other than Ethereum, Solana and BSC.
+- Pool depth on chains other than Ethereum, Solana, BSC and Base.
 - Whether the issuer really holds the asset: no API can check that. Read the issuer's
   attestations.
 
 ---
 
 ## Changelog
+
+### 1.4.0 (27 Oct 2026)
+**Cost at your size (new, §13), and Base is a checked chain.** Each token now shows a ceiling
+on what getting in and out costs at $1k, $10k or $100k, from its dollar-paired pool depth: on
+the saved GOLD data at $10k, PAXG is up to $17, XAUt up to $25, XAUM up to $3,493, and VNXAU's
+pools can't take it. The MCP tool returns the same (`size_usd`). Information only: no verdict
+uses it yet.
+
+**Base is a checked chain.** Pool depth now counts on Base as well as Ethereum, Solana and BSC
+(verified 27 Oct: CMC's DEX pools endpoint takes `platform=base`). Coinbase's tokens (MSFTc,
+NVDAc, TSLAc, AAPLc) live on Base, so their exit scores left out real on-chain depth. Golden
+set: one change, MSFT's MSFTc exit score 60 → 85 (its $393k USDC pool now counts); every verdict
+and answer unchanged.
 
 ### 1.3.2 (27 Oct 2026)
 **Wording only; no rule changed.** The "markets were closed" note for stocks now knows NYSE

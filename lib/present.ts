@@ -6,6 +6,7 @@ import type { CheckResult, RedemptionFact } from "./check";
 import type { Fallback } from "./data-source";
 import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
+import { DEFAULT_SIZE, MAX_IMPACT, sizeCost, type SizeCost } from "./size";
 import { NYSE_EARLY_CLOSES, NYSE_HOLIDAYS } from "./us-market-calendar";
 import { OFF_TRACK_PCT, type Gap, type Verdict, type WrapperResult } from "./verdict";
 
@@ -44,6 +45,8 @@ export type RowView = {
   best: boolean;
   /** How a holder can get the real asset, from the issuer's own page (registry). null = nothing on file. */
   redeem: { text: string; url: string; title: string } | null;
+  /** Rough ceiling on getting in and out at the chosen size (lib/size.ts). null for ghosts. */
+  cost: { text: string; title: string; known: boolean } | null;
 };
 
 /** The hero's four at-a-glance tiles. */
@@ -79,7 +82,7 @@ export type View = {
     stackNote: (n: number, ids: number[]) => string;
     ghostNote: string | null;
   };
-  list: { title: string; unitLine: string; rows: RowView[] };
+  list: { title: string; unitLine: string; rows: RowView[]; size: number };
   /** Some tokens can be held, but none traded in the last day: no way in is recommended. */
   noEasyExit: boolean;
   route: {
@@ -116,7 +119,7 @@ export function moneyShort(n: number): string {
   if (a >= 1e9) return `$${(a / 1e9).toFixed(1)}B`;
   if (a >= 1e6) return `$${(a / 1e6).toFixed(1)}M`;
   if (a >= 1e4) return `$${Math.round(a / 1e3)}k`;
-  if (a >= 10) return `$${Math.round(a)}`;
+  if (a >= 10) return `$${Math.round(a).toLocaleString("en-US")}`;
   return `$${a.toFixed(2)}`;
 }
 
@@ -155,7 +158,7 @@ export function recommended(r: Pick<CheckResult, "wrappers" | "headline_crypto_i
 
 // --- the view --------------------------------------------------------------------------
 
-export function present(r: CheckResponse, now = Date.now()): View {
+export function present(r: CheckResponse, now = Date.now(), size = DEFAULT_SIZE): View {
   const commodity = r.asset.asset_type === "commodity";
   const noun = commodity ? r.asset.name.toLowerCase() : r.asset.symbol;
   const Noun = commodity ? r.asset.name : r.asset.symbol;
@@ -305,6 +308,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
       exit: w.verdict === "GHOST" ? { bars: 0, word: "None" } : exitMeter(w.exit_score),
       best: w.crypto_id === best?.crypto_id,
       redeem: redeemLine(r.redemption?.find((f) => f.crypto_id === w.crypto_id), commodity ? noun : "shares"),
+      cost: w.verdict === "GHOST" ? null : costLine(sizeCost(w, size)),
     };
   });
 
@@ -373,6 +377,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
       title: `Every token that claims to be ${noun}`,
       unitLine: `Per ${commodity ? "troy ounce" : unitWord}${freshness(r, now)}`,
       rows,
+      size,
     },
     route,
     noEasyExit: top !== null && best === null,
@@ -401,6 +406,27 @@ function checkedNote(unholdable: number, offTrack: number): string {
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** "25 Sep 2026" in UTC, the same on every server and browser (locales disagree on "Sept"). */
+/** "$10k" for the size picker and cost lines. */
+export const sizeLabel = (n: number) => (n >= 1000 ? `$${n / 1000}k` : `$${n}`);
+
+/** One line on what getting in and out at the chosen size could cost: a ceiling, never a guess. */
+export function costLine(c: SizeCost): RowView["cost"] {
+  const at = sizeLabel(c.size_usd);
+  if (c.kind === "unknown") {
+    const why = { pools_not_checked: "its pools can't be checked", no_tradable_depth: "no dollar pools report their depth", no_price: "it has no price" }[c.reason];
+    return { text: `Cost at ${at}: can't estimate`, title: `Can't estimate: ${why}. Parity doesn't guess.`, known: false };
+  }
+  if (c.kind === "too_big") {
+    return { text: `${at} is more than its pools can take`, title: `Its dollar-paired DEX pools hold about ${moneyShort(c.depth_usd)} in total; a ${at} trade would move the price by more than ${Math.round(MAX_IMPACT * 100)}% each way.`, known: true };
+  }
+  const prem = c.premium_usd >= 0 ? `${moneyShort(c.premium_usd)} premium` : `${moneyShort(-c.premium_usd)} discount`;
+  return {
+    text: `In and out at ${at}: up to ${moneyShort(Math.max(c.total_usd, 0))} (${c.total_pct.toFixed(1)}%)`,
+    title: `From its DEX pools paired with dollars or major coins (${moneyShort(c.depth_usd)}): ${prem}, plus up to ${moneyShort(c.impact * c.size_usd)} price impact getting in and the same getting out. A ceiling: concentrated pools are usually cheaper, and issuer redemption can be too. Leaves out pool fees and gas.`,
+    known: true,
+  };
+}
+
 /** One plain line on how a holder gets the real asset, linked to the issuer's page it comes from. */
 export function redeemLine(f: RedemptionFact | undefined, what: string): RowView["redeem"] {
   if (!f) return null;

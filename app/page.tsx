@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Desk } from "@/components/desk/Desk";
+import { sizeFrom } from "@/lib/size";
 import { createClient } from "@/lib/data-source";
 import type { Mood } from "@/lib/present";
 import { headers } from "next/headers";
@@ -47,7 +48,8 @@ export default async function Page({ searchParams }: PageProps<"/">) {
         : (await runCheck(valid)).body;
   const mood = initial?.ok ? initial.mood : await loadMood();
 
-  return <Desk initialQuery={q} initial={initial} initialMood={mood} seek={seek} drawer={sp.drawer !== undefined} />;
+  const size = sizeFrom(typeof sp.size === "string" ? sp.size : null);
+  return <Desk initialQuery={q} initial={initial} initialMood={mood} seek={seek} drawer={sp.drawer !== undefined} initialSize={size} />;
 }
 
 async function loadMood(): Promise<Mood | null> {

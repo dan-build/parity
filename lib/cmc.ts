@@ -14,7 +14,7 @@ export const CACHE_TTL_MS = 60_000;
 /** The DEX API names some chains differently from CMC's platform slug (bnb → 500, bsc → 200). */
 export const DEX_PLATFORM_ALIASES: Record<string, string> = { bnb: "bsc" };
 /** Chains whose DEX pool lookups we've verified. Others are skipped and reported as a gap. */
-export const SUPPORTED_DEX_CHAINS = ["ethereum", "solana", "bsc"] as const;
+export const SUPPORTED_DEX_CHAINS = ["ethereum", "solana", "bsc", "base"] as const;
 
 /** CMC ids of precious metals, from /v1/fiat/map?include_metals=true (fixtures/). */
 export const METAL_IDS = { XAU: 3575, XAG: 3574, XPT: 3577, XPD: 3576 } as const;

@@ -349,3 +349,30 @@ describe("how a holder gets the real asset (METHOD.md §12)", () => {
     }
   });
 });
+
+describe("cost at your size (METHOD.md §13)", () => {
+  it("GOLD at $10k: a ceiling per token from its dollar-paired pools, honest when it can't tell", async () => {
+    const rows = present(await load("GOLD"), undefined, 10_000).list.rows;
+    const cost = (t: string) => rows.find((r) => r.ticker === t)?.cost;
+    expect(cost("PAXG")?.text).toBe("In and out at $10k: up to $17 (0.2%)");
+    expect(cost("XAUM")?.text).toBe("In and out at $10k: up to $3,493 (34.9%)");
+    expect(cost("VNXAU")?.text).toBe("$10k is more than its pools can take");
+    expect(cost("CGO")).toMatchObject({ text: "Cost at $10k: can't estimate", known: false });
+    expect(cost("XAU")).toBeNull(); // a ghost: nothing to hold, no cost line
+    expect(cost("PAXG")?.title).toMatch(/A ceiling: concentrated pools are usually cheaper.*Leaves out pool fees and gas\.$/);
+  });
+
+  it("follows the chosen size", async () => {
+    const body = await load("GOLD");
+    const at = (n: number) => present(body, undefined, n).list.rows.find((r) => r.ticker === "XAUt")?.cost?.text;
+    expect(at(1_000)).toMatch(/^In and out at \$1k: up to /);
+    expect(at(100_000)).toMatch(/^In and out at \$100k: up to /);
+    expect(present(body, undefined, 100_000).list.size).toBe(100_000);
+  });
+
+  it("never says 'buy'", async () => {
+    for (const q of ["GOLD", "NVDA", "MSFT", "UNH", "SILVER"]) {
+      for (const r of present(await load(q), undefined, 100_000).list.rows) expect(`${r.cost?.text} ${r.cost?.title}`).not.toMatch(/\bbuy/i);
+    }
+  });
+});

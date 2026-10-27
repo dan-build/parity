@@ -1,5 +1,5 @@
 {
-  "method_version": "1.3.2",
+  "method_version": "1.4.0",
   "assets": {
     "GOLD": {
       "verdict": "FAIR",
@@ -539,7 +539,7 @@
           "verdict": "FAIR",
           "unit": "as_quoted",
           "premium_pct": -0.1,
-          "exit_score": 60
+          "exit_score": 85
         }
       }
     }

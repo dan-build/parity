@@ -8,7 +8,8 @@
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { answerLine, dayLabel, present } from "./present";
+import { answerLine, costLine, dayLabel, present } from "./present";
+import { DEFAULT_SIZE, sizeCost, type SizeCost } from "./size";
 import { runCheck } from "./run-check";
 
 /** Where share links point. Override with PARITY_URL (e.g. a preview deploy). */
@@ -49,6 +50,16 @@ export const checkOutput = {
         })
         .nullable()
         .describe("How a holder gets the real asset, from Parity's open registry; null = nothing on file (unknown, not 'no')"),
+      cost: z
+        .object({
+          size_usd: z.number(),
+          kind: z.enum(["estimate", "too_big", "unknown"]).describe("estimate: a ceiling from pool depth; too_big: the pools can't take this size; unknown: no depth to check (never guessed)"),
+          up_to_usd: z.number().nullable().describe("Ceiling on premium + price impact getting in and out; excludes pool fees and gas"),
+          up_to_pct: z.number().nullable(),
+          note: z.string(),
+        })
+        .nullable()
+        .describe("Rough ceiling on what getting in and out costs at size_usd, from DEX pools paired with dollars or major coins; null for ghosts"),
       verdict,
     }),
   ),
@@ -69,9 +80,22 @@ const round = (n: number | null, digits: number) => (n === null ? null : Math.ro
 type CheckOutput = { [K in keyof typeof checkOutput]: z.infer<(typeof checkOutput)[K]> };
 
 /** Run one check and shape it for an agent. `null` with a message when there's no answer. */
+/** The cost estimate in the tool's terms: numbers rounded, and the same caveat the page shows. */
+function costOut(c: SizeCost) {
+  const line = costLine(c);
+  return {
+    size_usd: c.size_usd,
+    kind: c.kind,
+    up_to_usd: c.kind === "estimate" ? Math.round(Math.max(c.total_usd, 0)) : null,
+    up_to_pct: c.kind === "estimate" ? Math.round(c.total_pct * 100) / 100 : null,
+    note: line?.title ?? "",
+  };
+}
+
 export async function checkRwa(
   query: string,
   siteUrl: string = PARITY_URL,
+  size: number = DEFAULT_SIZE,
 ): Promise<{ ok: true; out: CheckOutput } | { ok: false; status: number; error: string; message: string; suggestions: { symbol: string; name: string }[] }> {
   const { status, body } = await runCheck(query);
   if (!body.ok) {
@@ -79,7 +103,7 @@ export async function checkRwa(
     const hint = suggestions.length ? ` Did you mean: ${suggestions.map((s) => `${s.symbol} (${s.name})`).join(", ")}?` : "";
     return { ok: false, status, error: body.error, message: `${body.message}${hint}`, suggestions };
   }
-  const view = present(body);
+  const view = present(body, undefined, size);
   const best = view.route ? body.wrappers.find((w) => w.crypto_id === body.headline_crypto_id) ?? null : null;
   const out: CheckOutput = {
     query: body.query,
@@ -105,6 +129,7 @@ export async function checkRwa(
       exit: view.list.rows.find((r) => r.id === w.crypto_id)?.exit.word ?? "None",
       unit_source: w.unit_source,
       redemption: ((f) => (f ? { route: f.route, summary: f.summary, source_url: f.url } : null))(body.redemption?.find((f) => f.crypto_id === w.crypto_id)),
+      cost: w.verdict === "GHOST" ? null : costOut(sizeCost(w, size)),
       verdict: w.verdict,
     })),
     cant_tell: view.gaps.map((g) => `${g.title}: ${g.sub}`),
@@ -147,12 +172,16 @@ export function createParityServer({ siteUrl = PARITY_URL }: { siteUrl?: string 
           .max(40)
           .regex(/^[\p{L}\p{N} .&'-]+$/u, "letters, digits, spaces and . & ' - only (same rule as the JSON API)")
           .describe("Ticker or asset name, e.g. GOLD, NVDA, silver"),
+        size_usd: z
+          .union([z.literal(1000), z.literal(10000), z.literal(100000)])
+          .optional()
+          .describe("Amount in USD for the per-token 'cost to get in and out' estimate: 1000, 10000 (default) or 100000"),
       },
       outputSchema: checkOutput,
       annotations: { readOnlyHint: true, openWorldHint: true, idempotentHint: true },
     },
-    async ({ query }) => {
-      const r = await checkRwa(query, siteUrl);
+    async ({ query, size_usd }) => {
+      const r = await checkRwa(query, siteUrl, size_usd);
       if (!r.ok) return { isError: true, content: [{ type: "text", text: r.message }] };
       return { structuredContent: r.out, content: [{ type: "text", text: describe(r.out) }] };
     },

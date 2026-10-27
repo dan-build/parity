@@ -35,6 +35,7 @@ These examples come from saved data (25–26 Sep), and they all work with no API
 - **The instrument:** every token drops onto one price scale as a coin. Per-gram coins land in a red "looks 97% cheaper" zone, then grow and roll to their true price. Tokens that aren't real ("ghosts") fall through the line.
 - **The log:** as the coins land, the log narrates each real API call and finding, then folds into a toast with the answer and an **Evidence** button.
 - **Every token:** price, premium against the typical price, how easy it is to sell (the "exit"), and a verdict for each.
+- **Your size:** pick $1k, $10k or $100k and each token shows a ceiling on what getting in and out costs, from its dollar-paired pool depth, or says it can't estimate. Never a guess.
 - **Best way in**, with the token's chain and contract so you can check it against the issuer's site.
 - **What the data can't tell you:** the gaps we hit, shown instead of guessed around.
 - **Evidence drawer:** every call, with its parameters, cost, timestamp and a trimmed copy of CoinMarketCap's response.
@@ -91,6 +92,7 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | `/?q=NVDA` | Server-rendered, shareable result |
 | `/?q=GOLD&t=1400` | Freezes the reveal at 1.4s (for screenshots) |
 | `/?q=GOLD&drawer` | Opens the Evidence drawer |
+| `/?q=GOLD&size=100000` | Cost estimates at $100k ($1k, $10k or $100k) |
 | `/api/check?q=NVDA` | The raw JSON behind the page |
 | `/api/og?q=UNH` | The 1200×630 share image |
 
@@ -161,7 +163,7 @@ own CoinMarketCap key.
 | `GET /v5/real-world-assets/quotes/latest` | 1 | Every token for the asset: issuer, price, market cap and 24h volume, plus the average tokenised price and TradFi venues |
 | `GET /v2/cryptocurrency/info` | 1 | Turns each token's `crypto_id` into its chain and contract address (the RWA endpoints don't give them) |
 | `GET /v2/tools/price-conversion` | 1 | **Metals only:** CMC's gold/silver spot price at the moment of the token quotes (`time` = the quotes' `last_updated`), so premiums compare tokens with the real metal, like-for-like. Metal IDs come from `/v1/fiat/map?include_metals=true`. |
-| `GET /v1/dex/token/pools` | 1 per token | On-chain pool depth and volume on Ethereum, Solana and BSC, for the "can I sell it later?" score |
+| `GET /v1/dex/token/pools` | 1 per token | On-chain pool depth and volume on Ethereum, Solana, BSC and Base, for the "can I sell it later?" score |
 | `GET /v3/fear-and-greed/latest` | 1 | The "crypto mood" in the header, shown for context only |
 
 **Probed but not used by the engine:**

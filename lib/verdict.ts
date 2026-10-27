@@ -15,7 +15,7 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
  * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
  * this stays the same.
  */
-export const METHOD_VERSION = "1.3.2";
+export const METHOD_VERSION = "1.4.0";
 
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
@@ -41,6 +41,17 @@ export const DEPTH_TIERS: [number, number][] = [
 export const TRADFI_POINTS = 20;
 
 // --- input / output types ----------------------------------------------------------
+
+/** Coins a pool can be paired with for a buyer to route a trade through: dollars and majors. */
+export const TRADABLE_QUOTES: ReadonlySet<string> = new Set([
+  "USDC", "USDT", "DAI", "USDS", "USDE", "PYUSD", "FDUSD", "USD1", "USDC.E", "USDBC", "USDT0",
+  "ETH", "WETH", "SOL", "WSOL", "BNB", "WBNB", "BTC", "WBTC", "CBBTC", "BTCB",
+]);
+
+/** A pool's "A/B" pair has a dollar or major coin on one side. */
+export function isTradablePair(pair: string): boolean {
+  return pair.split("/").some((s) => TRADABLE_QUOTES.has(s.trim().toUpperCase()));
+}
 
 export type PoolLookup = { checked: true; pools: DexPool[] } | { checked: false; reason: string };
 
@@ -108,6 +119,12 @@ export type WrapperResult = {
     /** Sum of liqUsd over pools that report it. null if none do. */
     liquidity_usd: number | null;
     biggest_pool: { exchange: string | null; pair: string; liquidity_usd: number } | null;
+    /**
+     * Depth a buyer can actually route through: liqUsd summed over pools paired with dollars
+     * or a major coin (TRADABLE_QUOTES). Excludes pairs against other small tokens. null if
+     * none report it. Used for "your size" cost estimates (lib/size.ts), not the exit score.
+     */
+    tradable_liquidity_usd: number | null;
   };
   exit_score: number | null;
   exit_breakdown: { volume: number; dex: number; tradfi: number } | null;
@@ -284,6 +301,10 @@ export function verdict(input: VerdictInput): VerdictResult {
       biggest_pool: biggest
         ? { exchange: biggest.exchange, pair: biggest.pair, liquidity_usd: biggest.liquidity_usd as number }
         : null,
+      tradable_liquidity_usd: (() => {
+        const tradable = withLiq.filter((p) => isTradablePair(p.pair));
+        return tradable.length ? tradable.reduce((s, p) => s + (p.liquidity_usd as number), 0) : null;
+      })(),
     };
 
     const price = normalised(t);

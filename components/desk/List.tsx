@@ -2,14 +2,15 @@
 
 /** Every token that claims to be the asset: price, premium, exit and verdict. Ghosts last. */
 import { useMemo, useRef } from "react";
-import type { RowView, View } from "@/lib/present";
+import { sizeLabel, type RowView, type View } from "@/lib/present";
+import { SIZES } from "@/lib/size";
 import { eased } from "@/lib/reveal/motion";
 import { T } from "@/lib/reveal/timings";
 import { useTrack } from "../reveal/Reveal";
 import { RingCoin } from "./RingCoin";
 import s from "./List.module.css";
 
-export function List({ view }: { view: View }) {
+export function List({ view, onSize }: { view: View; onSize: (n: number) => void }) {
   const rows = useMemo(
     () => [...view.list.rows.filter((r) => r.verdict !== "GHOST"), ...view.list.rows.filter((r) => r.verdict === "GHOST")],
     [view.list.rows],
@@ -32,6 +33,14 @@ export function List({ view }: { view: View }) {
           {view.list.title} <b>{view.asset.total}</b>
         </h2>
         <span>{view.list.unitLine.toLowerCase()}</span>
+        <div className={s.size} role="group" aria-label="Your size: estimate the cost of getting in and out">
+          <span>your size</span>
+          {SIZES.map((n) => (
+            <button key={n} type="button" aria-pressed={view.list.size === n} onClick={() => onSize(n)}>
+              {sizeLabel(n)}
+            </button>
+          ))}
+        </div>
       </div>
       <div className={s.cols} aria-hidden="true">
         <span>token</span>
@@ -64,6 +73,12 @@ function Row({ r, ref }: { r: RowView; ref: (el: HTMLLIElement | null) => void }
             <span aria-hidden="true"> ↗</span>
             <span className={s.sr}>{" (issuer's page, opens in a new tab)"}</span>
           </a>
+        )}
+        {r.cost && (
+          <span className={`${s.cost} ${r.cost.known ? "" : s.costUnknown}`} title={r.cost.title}>
+            {r.cost.text}
+            <span className={s.sr}>{`. ${r.cost.title}`}</span>
+          </span>
         )}
       </div>
       <div className={s.price}>
