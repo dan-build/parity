@@ -1,0 +1,925 @@
+{
+  "data": {
+    "28618": {
+      "id": 28618,
+      "name": "MSFT tokenized stock (Dinari)",
+      "symbol": "MSFT.D",
+      "category": "token",
+      "description": "Dinari dShares are RWA tokens issued by Dinari, an SEC registered Transfer Agent. These assets have 1:1 backing of Google stock shares in a transparent treasury vault with regular audits. Qualifying dShare holders are eligible to recieve dividends paid out by the underlying asset where applicable.\r\n\r\nDinari was founded by Gabirel Otte, Chas Rampenthal, and Jake Timothy to foster financial inclusion, create more efficient markets, and level the playing field for retail and business investors globally.\r\n\r\nDinari assets are unique to both blockchain and traditional finance for a number of reasons. All Dinari dShares maintain a 1-to-1 backing with underlying assets, eliminating borrowing risk in traditional finance. dShares directly represent real shares, ensuring utmost transparency. Dinari assets also mitigate hypothecation risk, enhancing safety. The tokenizatized nature of dShares offers technical advantages over centralized equities, including rapid transferability, instant settlement, 24/7 trading, and fractional ownership, increasing accessibility and liquidity.\r\n\r\nThe number of any Dinari dShare asset depends on how many shares have been minted or burned. The circulation of the underlying asset the dShare is based on is determined by the underlying company and how they issue their shares, which is equivalent to the theoretical maximum possible circulating supply of corresponding dShares.\r\n\r\nDinari assets are secured through a number of mechanisms. All dShares are backed 1:1 by the underlying asset, with regular external audits by a Big 4 Accounting firm to verify their contents. Additionally, Dinari employs a legal wrapper to shield the assets from potential claims in case of bankruptcy, ensuring allocation to token holders. Dinari also conducts regular smart contract audits to mitigate technical risks.\r\n\r\nFor a detailed breakdown of asset holdings, users can visit Dinari's transparency page at [https://www.dinari.com/transparency](https://www.dinari.com/transparency).\r\n\r\nDinari dShare assets can be minted and burned in the Dinari dApp at sbt.dinari.com. As ERC-20 tokens, dShares are theoretically in DeFi protocols such as DEXs, AMMs, etc.",
+      "slug": "dinari-msft",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/28618.png",
+      "subreddit": "dinari",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.dinari.com/",
+          "https://sbt.dinari.com/"
+        ],
+        "twitter": [
+          "https://twitter.com/DinariGlobal"
+        ],
+        "message_board": [
+          "https://www.dinari.com/blog"
+        ],
+        "chat": [
+          "https://discord.gg/dinari",
+          "https://t.me/dinariglobal"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0x77308F8B63A99b24b262D930E0218ED2f49F8475"
+        ],
+        "reddit": [
+          "https://reddit.com/r/dinari"
+        ],
+        "technical_doc": [
+          "https://www.dinari.com/_files/ugd/b5c091_d83125a8c6c645a6bdfd2b76ae2b8f88.pdf"
+        ],
+        "source_code": [
+          "https://github.com/dinaricrypto/sbt-contracts"
+        ],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0x77308F8B63A99b24b262D930E0218ED2f49F8475"
+      },
+      "date_added": "2023-12-07T10:58:34.000Z",
+      "twitter_username": "DinariGlobal",
+      "is_hidden": 0,
+      "date_launched": "2021-10-31T00:00:00.000Z",
+      "contract_address": [
+        {
+          "contract_address": "0x77308F8B63A99b24b262D930E0218ED2f49F8475",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "self_reported_circulating_supply": 1,
+      "infinite_supply": false
+    },
+    "37056": {
+      "id": 37056,
+      "name": "Microsoft tokenized stock (xStock)",
+      "symbol": "MSFTX",
+      "category": "token",
+      "description": "Microsoft tokenized stock (xStock) (MSFTX) is a cryptocurrency and operates on the Solana platform. Microsoft tokenized stock (xStock) has a current supply of 301,602.39322517 with 14,638.4881446 in circulation. The last known price of Microsoft tokenized stock (xStock) is 530.63858149 USD and is up 0.34 over the last 24 hours. It is currently trading on 19 active market(s) with $457,754.52 traded over the last 24 hours. More information can be found at https://assets.backed.fi/products/microsoft-xstock.",
+      "slug": "microsoft-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "arbitrum-ecosystem",
+        "bnb-chain-ecosystem",
+        "toncoin-ecosystem",
+        "x-layer-ecosystem",
+        "internet-capital-markets",
+        "tokenized-assets",
+        "xstocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "Arbitrum Ecosystem",
+        "BNB Chain Ecosystem",
+        "Toncoin Ecosystem",
+        "X Layer Ecosystem",
+        "Internet Capital Markets",
+        "Tokenized Assets",
+        "xStocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/products/microsoft-xstock"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [
+          "https://t.me/xstocksfi"
+        ],
+        "facebook": [],
+        "explorer": [
+          "https://solscan.io/token/XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+          "https://arbiscan.io/token/0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "https://explorer.inkonchain.com/token/0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "https://etherscan.io/token/0x5621737f42dae558b81269fcb9e9e70c19aa6b35"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana",
+        "token_address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX"
+      },
+      "date_added": "2025-07-01T18:40:23.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "platform": {
+            "name": "Ink",
+            "coin": {
+              "id": "36851",
+              "name": "INK",
+              "symbol": "INK",
+              "slug": "ink-token"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "EQDI9JwkYTEHM2TSFPSWFbwznBq07_I4Apy9TBhxsDlZaBvg",
+          "platform": {
+            "name": "TON",
+            "coin": {
+              "id": "11419",
+              "name": "Gram (prev. Toncoin)",
+              "symbol": "GRAM",
+              "slug": "gram"
+            }
+          }
+        },
+        {
+          "contract_address": "0x5621737f42dAE558b81269FcB9E9E70c19Aa6b35",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "37214": {
+      "id": 37214,
+      "name": "Wrapped Microsoft Tokenized stock (xStock)",
+      "symbol": "WMSFTX",
+      "category": "token",
+      "description": "Wrapped Microsoft Tokenized stock (xStock) (WMSFTX) is a cryptocurrency and operates on the X Layer platform. Wrapped Microsoft Tokenized stock (xStock) has a current supply of 269.64941607. The last known price of Wrapped Microsoft Tokenized stock (xStock) is 530.78333899 USD and is up 0.43 over the last 24 hours. It is currently trading on 1 active market(s) with $39,158.54 traded over the last 24 hours. More information can be found at https://assets.backed.fi/.",
+      "slug": "wrapped-microsoft-tokenized-stock-xstock",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/37214.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "x-layer-ecosystem",
+        "tokenized-assets"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "X Layer Ecosystem",
+        "Tokenized Assets"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://assets.backed.fi/"
+        ],
+        "twitter": [
+          "https://twitter.com/xStocksFi"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/token/0x63ad27614231767c8c489745b9145272de50d09b",
+          "https://www.arbiscan.io/token/0x63ad27614231767c8c489745b9145272de50d09b"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb",
+        "token_address": "0x166Fbe68274b6a47e025F4ba17388c539f1fa1d0"
+      },
+      "date_added": "2025-07-06T11:16:36.000Z",
+      "twitter_username": "xStocksFi",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x166Fbe68274b6a47e025F4ba17388c539f1fa1d0",
+          "platform": {
+            "name": "X Layer",
+            "coin": {
+              "id": "3897",
+              "name": "OKB",
+              "symbol": "OKB",
+              "slug": "okb"
+            }
+          }
+        },
+        {
+          "contract_address": "0x63ad27614231767c8c489745b9145272de50d09b",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "38086": {
+      "id": 38086,
+      "name": "Microsoft Tokenized Stock (Ondo)",
+      "symbol": "MSFTon",
+      "category": "token",
+      "description": "Microsoft Tokenized Stock (Ondo) (MSFTon) is a cryptocurrency and operates on the Ethereum platform. Microsoft Tokenized Stock (Ondo) has a current supply of 17,071.80281768. The last known price of Microsoft Tokenized Stock (Ondo) is 531.00603109 USD and is up 0.46 over the last 24 hours. It is currently trading on 36 active market(s) with $2,295,123.11 traded over the last 24 hours. More information can be found at https://app.ondo.finance/assets/msfton.",
+      "slug": "microsoft-tokenized-stock-ondo",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "ethereum-ecosystem",
+        "tokenized-stock",
+        "solana-ecosystem",
+        "bnb-chain-ecosystem",
+        "binance-alpha",
+        "binance-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem",
+        "ondo-stocks-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Ethereum Ecosystem",
+        "Tokenized Stock",
+        "Solana Ecosystem",
+        "BNB Chain Ecosystem",
+        "Binance Alpha",
+        "Binance Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem",
+        "Ondo Stocks Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "PLATFORM",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://app.ondo.finance/assets/msfton"
+        ],
+        "twitter": [
+          "https://twitter.com/ondofinance"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://etherscan.io/token/0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5",
+          "https://bscscan.com/token/0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3",
+          "https://solscan.io/token/FRmH6iRkMr33DLG6zVLR7EM4LojBFAuq6NtFzG6ondo",
+          "https://hyperevmscan.io/token/0xD53471f6D493f7eD766181D88Ba9c2Bfc371399A"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum",
+        "token_address": "0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5"
+      },
+      "date_added": "2025-09-03T10:55:38.000Z",
+      "twitter_username": "ondofinance",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5",
+          "platform": {
+            "name": "Ethereum",
+            "coin": {
+              "id": "1027",
+              "name": "Ethereum",
+              "symbol": "ETH",
+              "slug": "ethereum"
+            }
+          }
+        },
+        {
+          "contract_address": "0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        },
+        {
+          "contract_address": "FRmH6iRkMr33DLG6zVLR7EM4LojBFAuq6NtFzG6ondo",
+          "platform": {
+            "name": "Solana",
+            "coin": {
+              "id": "5426",
+              "name": "Solana",
+              "symbol": "SOL",
+              "slug": "solana"
+            }
+          }
+        },
+        {
+          "contract_address": "0xD53471f6D493f7eD766181D88Ba9c2Bfc371399A",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "39495": {
+      "id": 39495,
+      "name": "Microsoft Corporation (Derivatives)",
+      "symbol": "MSFT",
+      "category": "token",
+      "description": "Microsoft Corporation (Derivatives) (MSFT) is a cryptocurrency . Microsoft Corporation (Derivatives) has a current supply of 0. The last known price of Microsoft Corporation (Derivatives) is 529.0997639 USD and is up 0.54 over the last 24 hours. It is currently trading on 85 active market(s) with $68,698.28 traded over the last 24 hours.",
+      "slug": "microsoft-corporation-derivatives",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39495.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "synthetics",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "tradfi-assets-derivatives"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Synthetics",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "TradFi Assets (Derivatives)"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "INDUSTRY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": null,
+      "date_added": "2026-01-30T05:34:51.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "infinite_supply": false
+    },
+    "39616": {
+      "id": 39616,
+      "name": "Microsoft Tokenized Stock (Hyperliquid)",
+      "symbol": "MSFT",
+      "category": "token",
+      "description": "Microsoft Tokenized Stock (Hyperliquid) (MSFT) is a cryptocurrency and operates on the HyperEVM platform. Microsoft Tokenized Stock (Hyperliquid) has a current supply of 0. The last known price of Microsoft Tokenized Stock (Hyperliquid) is 560.14865618 USD and is up 0.00 over the last 24 hours. It is currently trading on 2 active market(s) with $0.00 traded over the last 24 hours. More information can be found at https://app.hyperliquid.xyz/trade/.",
+      "slug": "microsoft-tokenized-stock-hyperliquid",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/39616.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "hyperliquid-ecosystem",
+        "tokenized-assets",
+        "hyperevm-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Hyperliquid Ecosystem",
+        "Tokenized Assets",
+        "HyperEVM Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM"
+      ],
+      "urls": {
+        "website": [
+          "https://app.hyperliquid.xyz/trade/"
+        ],
+        "twitter": [
+          "https://twitter.com/HyperliquidX"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://app.hyperliquid.xyz/explorer/token/0xf5559ee90ac19c61eb6379eb3b3dade8",
+          "https://hyperevmscan.io/token/0x66520d8fd614487214a25af7babf27584f59f76b"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid",
+        "token_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961"
+      },
+      "date_added": "2026-02-25T10:52:59.000Z",
+      "twitter_username": "HyperliquidX",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961",
+          "platform": {
+            "name": "HyperEVM",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        },
+        {
+          "contract_address": "0xf5559ee90ac19c61eb6379eb3b3dade8",
+          "platform": {
+            "name": "Hyperliquid",
+            "coin": {
+              "id": "32196",
+              "name": "Hyperliquid",
+              "symbol": "HYPE",
+              "slug": "hyperliquid"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40589": {
+      "id": 40589,
+      "name": "Microsoft Tokenized bStocks",
+      "symbol": "MSFTB",
+      "category": "token",
+      "description": "Microsoft Tokenized bStocks (MSFTB) is a cryptocurrency and operates on the BNB Smart Chain (BEP20) platform. Microsoft Tokenized bStocks has a current supply of 8,147.18312349. The last known price of Microsoft Tokenized bStocks is 529.25156833 USD and is up 0.49 over the last 24 hours. It is currently trading on 30 active market(s) with $2,994,983.34 traded over the last 24 hours. More information can be found at https://www.bstocks.finance/.",
+      "slug": "microsoft-tokenized-bstocks",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "bnb-chain-ecosystem",
+        "binance-ecosystem",
+        "binance-listing",
+        "tokenized-assets",
+        "bstocks"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "BNB Chain Ecosystem",
+        "Binance Ecosystem",
+        "Binance Listing",
+        "Tokenized Assets",
+        "bStocks"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://www.bstocks.finance/"
+        ],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://bscscan.com/address/0x80106cb3ead06659a5ad19df39d9b4733863b9b0"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb",
+        "token_address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0"
+      },
+      "date_added": "2026-07-02T07:38:50.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+          "platform": {
+            "name": "BNB Smart Chain (BEP20)",
+            "coin": {
+              "id": "1839",
+              "name": "BNB",
+              "symbol": "BNB",
+              "slug": "bnb"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40609": {
+      "id": 40609,
+      "name": "Microsoft Tokenized Stock (Reality)",
+      "symbol": "rMSFT",
+      "category": "token",
+      "description": "Microsoft Tokenized Stock (Reality) (rMSFT) is a cryptocurrency and operates on the Arbitrum platform. Microsoft Tokenized Stock (Reality) has a current supply of 2,101.85270235. The last known price of Microsoft Tokenized Stock (Reality) is 528.51969633 USD and is up 0.62 over the last 24 hours. It is currently trading on 3 active market(s) with $51,323.10 traded over the last 24 hours. More information can be found at https://realityfinance.xyz/.",
+      "slug": "microsoft-tokenized-stock-reality",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40609.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "arbitrum-ecosystem",
+        "tokenized-assets",
+        "bitget-ecosystem",
+        "rtokens"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Arbitrum Ecosystem",
+        "Tokenized Assets",
+        "Bitget Ecosystem",
+        "rTokens"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://realityfinance.xyz/"
+        ],
+        "twitter": [
+          "https://twitter.com/RealityFi_xyz"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://arbiscan.io/address/0xda7c9549e87d4f96585701970acdcc90e8d35024"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum",
+        "token_address": "0xda7c9549e87d4f96585701970acdcc90e8d35024"
+      },
+      "date_added": "2026-07-02T07:39:05.000Z",
+      "twitter_username": "RealityFi_xyz",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xda7c9549e87d4f96585701970acdcc90e8d35024",
+          "platform": {
+            "name": "Arbitrum",
+            "coin": {
+              "id": "11841",
+              "name": "Arbitrum",
+              "symbol": "ARB",
+              "slug": "arbitrum"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "40695": {
+      "id": 40695,
+      "name": "Microsoft Tokenized Stock (Robinhood)",
+      "symbol": "MSFT",
+      "category": "token",
+      "description": "Microsoft Tokenized Stock (Robinhood) (MSFT) is a cryptocurrency and operates on the Robinhood Chain platform. Microsoft Tokenized Stock (Robinhood) has a current supply of 3,648.74498136. The last known price of Microsoft Tokenized Stock (Robinhood) is 528.99968271 USD and is up 0.42 over the last 24 hours. It is currently trading on 28 active market(s) with $675,990.38 traded over the last 24 hours. More information can be found at https://robinhood.com/us/en/.",
+      "slug": "microsoft-tokenized-stock-robinhood",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/40695.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "tokenized-assets",
+        "robinhood-ecosystem",
+        "robinhood-stock"
+      ],
+      "tag-names": [
+        "Tokenized Assets",
+        "Robinhood Ecosystem",
+        "Robinhood Stock"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [
+          "https://robinhood.com/us/en/"
+        ],
+        "twitter": [
+          "https://twitter.com/RobinhoodCrypto"
+        ],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://robinhoodchain.blockscout.com/token/0xe93237C50D904957Cf27E7B1133b510C669c2e74"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder",
+        "token_address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74"
+      },
+      "date_added": "2026-08-04T07:31:28.000Z",
+      "twitter_username": "RobinhoodCrypto",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+          "platform": {
+            "name": "Robinhood Chain",
+            "coin": {
+              "id": "40670",
+              "name": "Robinhood",
+              "symbol": "-",
+              "slug": "robinhood-placeholder"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    },
+    "42494": {
+      "id": 42494,
+      "name": "Microsoft Corporation Tokenized Stock (Coinbase)",
+      "symbol": "MSFTc",
+      "category": "token",
+      "description": "Microsoft Corporation Tokenized Stock (Coinbase) (MSFTc) is a cryptocurrency and operates on the Base platform. Microsoft Corporation Tokenized Stock (Coinbase) has a current supply of 2,994.48425948. The last known price of Microsoft Corporation Tokenized Stock (Coinbase) is 529.070279 USD and is up 0.74 over the last 24 hours. It is currently trading on 4 active market(s) with $4,446,268.95 traded over the last 24 hours.",
+      "slug": "microsoft-corporation-tokenized-stock-coinbase",
+      "logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+      "subreddit": "",
+      "notice": "",
+      "tags": [
+        "defi",
+        "tokenized-stock",
+        "base-ecosystem",
+        "tokenized-assets",
+        "coinbase-ecosystem"
+      ],
+      "tag-names": [
+        "DeFi",
+        "Tokenized Stock",
+        "Base Ecosystem",
+        "Tokenized Assets",
+        "Coinbase Ecosystem"
+      ],
+      "tag-groups": [
+        "CATEGORY",
+        "CATEGORY",
+        "PLATFORM",
+        "CATEGORY",
+        "CATEGORY"
+      ],
+      "urls": {
+        "website": [],
+        "twitter": [],
+        "message_board": [],
+        "chat": [],
+        "facebook": [],
+        "explorer": [
+          "https://basescan.org/token/0xB200000000000000000000Ab99cFa739E253872B"
+        ],
+        "reddit": [],
+        "technical_doc": [],
+        "source_code": [],
+        "announcement": []
+      },
+      "platform": {
+        "id": "27716",
+        "name": "Base",
+        "symbol": "-",
+        "slug": "base",
+        "token_address": "0xB200000000000000000000Ab99cFa739E253872B"
+      },
+      "date_added": "2026-10-08T03:59:47.000Z",
+      "twitter_username": "",
+      "is_hidden": 0,
+      "contract_address": [
+        {
+          "contract_address": "0xB200000000000000000000Ab99cFa739E253872B",
+          "platform": {
+            "name": "Base",
+            "coin": {
+              "id": "27716",
+              "name": "Base",
+              "symbol": "-",
+              "slug": "base"
+            }
+          }
+        }
+      ],
+      "infinite_supply": false
+    }
+  },
+  "status": {
+    "timestamp": "2026-10-27T14:21:58.184Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 58,
+    "credit_count": 1,
+    "notice": null
+  }
+}

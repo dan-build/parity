@@ -88,5 +88,15 @@
     "sub": "nothing here you can really hold.",
     "tokens": 1,
     "ghosts": 1
+  },
+  {
+    "q": "MSFT",
+    "why": "The biggest set (10 tokens) with every kind of row on a FAIR page: fair, thin and ghost tokens, so the answer is 'if you pick the right token'. A new issuer (Coinbase, MSFTc). And the best way in isn't the most-traded token: MSFTc trades most, but it lives on Base, where pool depth can't be checked yet, so MSFTon (traded and a checked $1.3M pool) wins.",
+    "verdict": "FAIR",
+    "answer": "best way in · MSFTon",
+    "sub": "if you pick the right token.",
+    "tokens": 10,
+    "ghosts": 3,
+    "reasons_include": ["^2 are thin\\.", "^2 listings can't be held\\.", "It doesn't track MSFT\\.$"]
   }
 ]

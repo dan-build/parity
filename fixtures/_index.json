@@ -398,5 +398,29 @@
   "/v2/tools/price-conversion?amount=1&convert=USD&id=3575&time=2026-09-25T21:47:39.478Z": {
     "file": "v2_tools_price-conversion_amount=1_convert=USD_id=3575_time=2026-09-25T21_47_39.478Z.json",
     "status": 200
+  },
+  "/v5/real-world-assets/map?symbol=MSFT": {
+    "file": "v5_real-world-assets_map_symbol=MSFT.json",
+    "status": 200
+  },
+  "/v5/real-world-assets/quotes/latest?rwa_id=7": {
+    "file": "v5_real-world-assets_quotes_latest_rwa_id=7.json",
+    "status": 200
+  },
+  "/v2/cryptocurrency/info?id=28618,37056,37214,38086,39495,39616,40589,40609,40695,42494&skip_invalid=true": {
+    "file": "v2_cryptocurrency_info_id=28618_37056_37214_38086_39495_39616_40589_40609_40695_42494_skip_invalid=true.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX&platform=solana&size=10": {
+    "file": "v1_dex_token_pools_address=XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX_platform=solana_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5&platform=ethereum&size=10": {
+    "file": "v1_dex_token_pools_address=0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5_platform=ethereum_size=10.json",
+    "status": 200
+  },
+  "/v1/dex/token/pools?address=0x80106cb3ead06659a5ad19df39d9b4733863b9b0&platform=bsc&size=10": {
+    "file": "v1_dex_token_pools_address=0x80106cb3ead06659a5ad19df39d9b4733863b9b0_platform=bsc_size=10.json",
+    "status": 200
   }
 }
