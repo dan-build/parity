@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.3.1**
+**Method version 1.3.2**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -56,8 +56,9 @@ typical price, and the page says so.
 The typical price is always computed too (unit detection in §4 uses it).
 
 **Stocks outside market hours:** tokens trade around the clock, but the shares don't. When the
-quotes were taken outside regular US hours (Mon–Fri 9:30–16:00 New York time), the page says
-prices can drift from the last close. Market holidays aren't known yet.
+quotes were taken outside regular US hours (Mon–Fri 9:30–16:00 New York time), on an NYSE
+holiday, or after a 13:00 early close, the page says prices can drift from the last close. The
+holidays come from NYSE's own calendar (`lib/us-market-calendar.ts`, 2026–2028).
 
 ## 6. Premium
 Each token's **premium** = its price ÷ the reference price − 1, shown in % and in $ per unit.
@@ -119,6 +120,12 @@ or exit score uses it.
 ---
 
 ## Changelog
+
+### 1.3.2 (27 Oct 2026)
+**Wording only; no rule changed.** The "markets were closed" note for stocks now knows NYSE
+holidays and early closes (from NYSE's calendar for 2026–2028), not only weekends and hours.
+Before, quotes taken on Thanksgiving would have been treated as taken with the market open
+(issue #2). Golden set: no change (the saved quotes are from a regular Friday evening).
 
 ### 1.3.1 (9 Oct 2026)
 **Wording only; no rule changed.** Each token in the list now says how a holder gets the real

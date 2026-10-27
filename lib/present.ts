@@ -6,6 +6,7 @@ import type { CheckResult, RedemptionFact } from "./check";
 import type { Fallback } from "./data-source";
 import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
+import { NYSE_EARLY_CLOSES, NYSE_HOLIDAYS } from "./us-market-calendar";
 import { OFF_TRACK_PCT, type Gap, type Verdict, type WrapperResult } from "./verdict";
 
 export type Mood = { value: number; classification: string; updated: string | null };
@@ -491,14 +492,17 @@ function routeLine(v: Verdict): string {
 /**
  * Stocks only: were US markets closed when these quotes were taken? Tokens trade 24/7, the
  * shares don't, so prices can drift from the last close. Regular hours: Mon–Fri 9:30–16:00
- * New York time (holidays aren't known here, so this can only under-report).
+ * New York time, closed on NYSE holidays and at 13:00 on early-close days (lib/us-market-calendar.ts).
  */
 export function usMarketClosedAt(iso: string): boolean {
-  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date(iso));
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date(iso));
   const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
   if (get("weekday") === "Sat" || get("weekday") === "Sun") return true;
+  const day = `${get("year")}-${get("month")}-${get("day")}`; // New York date
+  if (NYSE_HOLIDAYS.has(day)) return true;
   const minutes = Number(get("hour")) * 60 + Number(get("minute"));
-  return minutes < 9 * 60 + 30 || minutes >= 16 * 60;
+  const close = NYSE_EARLY_CLOSES.has(day) ? 13 * 60 : 16 * 60;
+  return minutes < 9 * 60 + 30 || minutes >= close;
 }
 
 function stockMarketClosed(r: CheckResponse): boolean {
