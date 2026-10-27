@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.3.2**
+**Method version 1.4.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -73,7 +73,7 @@ as this asset's price.
 | Part | Tiers |
 |---|---|
 | 24h volume | ≥ $1,000,000 → 40 · ≥ $100,000 → 25 · ≥ $10,000 → 10 |
-| DEX pool depth (Ethereum, Solana, BSC) | ≥ $1,000,000 → 40 · ≥ $250,000 → 25 · ≥ $50,000 → 10 |
+| DEX pool depth (Ethereum, Solana, BSC, Base) | ≥ $1,000,000 → 40 · ≥ $250,000 → 25 · ≥ $50,000 → 10 |
 | Listed on a traditional exchange | 20 |
 
 Pools on other chains aren't checked yet, and that's shown as a gap. The market-pairs
@@ -113,13 +113,20 @@ or exit score uses it.
 - The real share price of stocks: CoinMarketCap doesn't have it, so stock tokens are compared
   with each other. If they all drifted together, it wouldn't show. (Metals use real spot.)
 - Which exchanges each token trades on (market pairs not in our plan).
-- Pool depth on chains other than Ethereum, Solana and BSC.
+- Pool depth on chains other than Ethereum, Solana, BSC and Base.
 - Whether the issuer really holds the asset: no API can check that. Read the issuer's
   attestations.
 
 ---
 
 ## Changelog
+
+### 1.4.0 (27 Oct 2026)
+**Base is a checked chain.** Pool depth now counts on Base as well as Ethereum, Solana and BSC
+(verified 27 Oct: CMC's DEX pools endpoint takes `platform=base`). Coinbase's tokens (MSFTc,
+NVDAc, TSLAc, AAPLc) live on Base, so their exit scores left out real on-chain depth. Golden
+set: one change, MSFT's MSFTc exit score 60 → 85 (its $393k USDC pool now counts); every verdict
+and answer unchanged.
 
 ### 1.3.2 (27 Oct 2026)
 **Wording only; no rule changed.** The "markets were closed" note for stocks now knows NYSE

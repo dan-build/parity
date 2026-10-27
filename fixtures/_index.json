@@ -422,5 +422,9 @@
   "/v1/dex/token/pools?address=0x80106cb3ead06659a5ad19df39d9b4733863b9b0&platform=bsc&size=10": {
     "file": "v1_dex_token_pools_address=0x80106cb3ead06659a5ad19df39d9b4733863b9b0_platform=bsc_size=10.json",
     "status": 200
+  },
+  "/v1/dex/token/pools?address=0xB200000000000000000000Ab99cFa739E253872B&platform=base&size=10": {
+    "file": "v1_dex_token_pools_address=0xB200000000000000000000Ab99cFa739E253872B_platform=base_size=10.json",
+    "status": 200
   }
 }

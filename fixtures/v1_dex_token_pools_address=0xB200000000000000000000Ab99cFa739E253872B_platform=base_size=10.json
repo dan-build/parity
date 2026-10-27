@@ -1,0 +1,285 @@
+{
+  "data": [
+    {
+      "addr": "0x2740c0faab738f6e346e545fde02aef9b1a01ee7",
+      "v24": "4314674.164750975221652175",
+      "pubAt": "1792560379000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "238682.809571",
+        "liqUsd": "238644.723500806382354945"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "289.39341491",
+        "liqUsd": "154260.992722027981706982"
+      },
+      "bidx": 1,
+      "exid": 35102,
+      "exn": "Aero Slipstream (Base)",
+      "liqUsd": "392905.716222834364061927",
+      "fa": "0x9cb220581b91b0c83223012fe69688b92ad07a76",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x7103eb3c9590d1281f7dc03b2a9ee27c39df5d54",
+      "v24": "86702.441792295789337687",
+      "pubAt": "1787641951000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "27255.377918",
+        "liqUsd": "27247.545891569558372636"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "36.35795185",
+        "liqUsd": "19348.709071834348425054"
+      },
+      "bidx": 1,
+      "exid": 33537,
+      "exn": "Aerodrome Slipstream 3",
+      "liqUsd": "46596.25496340390679769",
+      "fa": "0xf8f2eb4940cfe7d13603dddd87f123820fc061ef",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x163c9d517bb963e441c63efb285bc6616e05ce43",
+      "v24": "301.263863533815128769",
+      "pubAt": "1788659431000",
+      "t0": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "4.9922141",
+        "liqUsd": "2656.94664281589207745"
+      },
+      "t1": {
+        "addr": "0xffe6510baf2a479ab567d76af8ec79d9f7d0366a",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/F180FCB15B6369F6DAFD43EB28C5A78F.png",
+        "n": "BLUESCREEN",
+        "sym": "BLUESCREEN",
+        "liq": "623707626.288654939501461185",
+        "liqUsd": "7212.982714607380375711"
+      },
+      "bidx": 0,
+      "exid": 7791,
+      "exn": "Uniswap v3 (Base)",
+      "liqUsd": "9869.929357423272453161",
+      "fa": "0x33128a8fc17869897dce68ed026d694621f6fdfd",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xd73cbecc0f62c7c1704332ed119514d6d84dc607",
+      "v24": "78.909016162293255044",
+      "pubAt": "1788631535000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "4687.444712",
+        "liqUsd": "4685.812290300510404658"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "5.24051505",
+        "liqUsd": "2736.49679208921451959"
+      },
+      "bidx": 1,
+      "exid": 7791,
+      "exn": "Uniswap v3 (Base)",
+      "liqUsd": "7422.309082389724924247",
+      "fa": "0x33128a8fc17869897dce68ed026d694621f6fdfd",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x4cbf20a1be5ca97216d0b63e0dda52f27e2423ee5aa867e3502ee3e1923af11d",
+      "v24": "0",
+      "pubAt": "1788979843000",
+      "t0": {
+        "addr": "0xb200000000000000000000212fb77f4b42c77e01",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/A7C6DEE91A8B93C2304D373309F1F8AB.png",
+        "n": "DESKTOP",
+        "sym": "DESKTOP",
+        "liq": "795436540.478168127964232253",
+        "liqUsd": "5071.190227270185621483"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "2.00008996",
+        "liqUsd": "1037.376140900640053462"
+      },
+      "bidx": 0,
+      "exid": 11951,
+      "exn": "Uniswap v4 (Base)",
+      "liqUsd": "6108.566368170825674945",
+      "fa": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xec228c4e5a6e54b9356936abb0d6b5382b49e7f647edfc7a0fa302de76c88459",
+      "v24": "0",
+      "pubAt": "1788544127000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "2896.505506",
+        "liqUsd": "2896.025244098274026621"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "5.24812995",
+        "liqUsd": "2844.833657677229880545"
+      },
+      "bidx": 1,
+      "exid": 11951,
+      "exn": "Uniswap v4 (Base)",
+      "liqUsd": "5740.858901775503907165",
+      "fa": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xbd631890830557350f93390851b02b8b2610555c",
+      "v24": "483.12876676372404369",
+      "pubAt": "1790805481000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "924.976923",
+        "liqUsd": "924.670002727976731436"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "2.13496528",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "liqUsd": "924.670002727976731436",
+      "fa": "0x70fe4a44ea505cfa3a57b95cf2862d4fd5f0f687",
+      "mi": false
+    },
+    {
+      "addr": "0xdc9b8a6853815d823ae32b624aebb7579170ca49ed6045bb7c71a80f3962ed5b",
+      "v24": "0",
+      "pubAt": "1788629991000",
+      "t0": {
+        "addr": "0xb20000000000000000000097bc6638ad84e8d301",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/59261498721BD2556CF8424523243519.jpg",
+        "n": "Blue Screen of Death",
+        "sym": "BSOD",
+        "liq": "821950235.972013321872244239",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "1.68470099",
+        "liqUsd": "880.420040909339551649"
+      },
+      "bidx": 0,
+      "exid": 11951,
+      "exn": "Uniswap v4 (Base)",
+      "liqUsd": "880.420040909339551649",
+      "fa": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "mi": false
+    },
+    {
+      "addr": "0xcda6dc0ec17d9665a3f18d4613a24dee0ab892de2f9aa9af714e6426def704dd",
+      "v24": "0",
+      "pubAt": "1788544221000",
+      "t0": {
+        "addr": "0xb200000000000000000000814cace1b60a981201",
+        "lg": "https://bin.bnbstatic.com/images/web3-data/public/token/logos/C4608DD64189FBC235E35896C8A881D1.png",
+        "n": "Blue Screen of Death",
+        "sym": "BLUE",
+        "liq": "827021875.661776588031640947",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "1.62667586",
+        "liqUsd": "850.776574903935913805"
+      },
+      "bidx": 0,
+      "exid": 11951,
+      "exn": "Uniswap v4 (Base)",
+      "liqUsd": "850.776574903935913805",
+      "fa": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "mi": false
+    },
+    {
+      "addr": "0xe61a2016e4128a5212bf2de9fc72a1b70a329efece51ab87142d0d44074e7064",
+      "v24": "50.043387022542011374",
+      "pubAt": "1791181965000",
+      "t0": {
+        "addr": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "696.442352",
+        "liqUsd": "696.260649409464955435"
+      },
+      "t1": {
+        "addr": "0xb200000000000000000000ab99cfa739e253872b",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/42494.png",
+        "n": "Microsoft Corporation",
+        "sym": "MSFTc",
+        "liq": "0.97768636",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "exid": 11951,
+      "exn": "Uniswap v4 (Base)",
+      "liqUsd": "696.260649409464955435",
+      "fa": "0x498581ff718922c3f8e6a244956af099b2652b2b",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-10-27T14:59:49.127Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 198,
+    "credit_count": 1
+  }
+}

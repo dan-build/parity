@@ -121,7 +121,7 @@ The 5 surprises (the engine and UI must handle them):
    score them.
 4. **Chain names differ between endpoints.** The contract lookup says `bnb` but DEX pools
    needs `bsc`. The wrong name returns a misleading 500 "system is busy". The mapping is in
-   `DEX_PLATFORM_ALIASES` in lib/cmc.ts. Only `SUPPORTED_DEX_CHAINS` (ethereum, solana, bsc)
+   `DEX_PLATFORM_ALIASES` in lib/cmc.ts. Only `SUPPORTED_DEX_CHAINS` (ethereum, solana, bsc, base)
    are verified. Other chains (Arbitrum, XDC, Hyperliquid, Robinhood, OKB, TON…) are skipped
    and reported as a `pools_not_checked` gap.
 5. **The exit check is patchy.** Market pairs are blocked. DEX `liqUsd`/`v24` are long decimal

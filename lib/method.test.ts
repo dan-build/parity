@@ -40,6 +40,6 @@ describe("METHOD.md matches the code", () => {
     const row = (tiers: [number, number][]) => tiers.map(([min, pts]) => `≥ ${usd(min)} → ${pts}`).join(" · ");
     expect(doc).toContain(`| 24h volume | ${row(VOLUME_TIERS)} |`);
     expect(doc).toContain(`| ${row(DEPTH_TIERS)} |`);
-    expect(SUPPORTED_DEX_CHAINS).toEqual(["ethereum", "solana", "bsc"]); // named in METHOD.md §8 and §13
+    expect(SUPPORTED_DEX_CHAINS).toEqual(["ethereum", "solana", "bsc", "base"]); // named in METHOD.md §8 and §13
   });
 });
