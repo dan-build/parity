@@ -19,12 +19,13 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 | 5 | DEX numbers are long decimal strings | Every value must be parsed |
 | 6 | `liqUsd` missing on many pool rows | Pool depth is incomplete for tokenised stocks |
 | 7 | `primary_exchange` is returned but not documented | Can't rely on it being stable |
-| 8 | RWA map is paginated and caps `limit` at ~200 | Resolving a name costs 20+ requests |
+| 8 | RWA map is paginated and caps `limit` at ~200 | Resolving a name costs 40 requests |
 | 9 | One invalid id fails the whole `/v2/cryptocurrency/info` call | SILVER lost every contract until we added `skip_invalid` |
 | 10 | `error_code` is a string on some endpoints, a number on others | Error handling must normalise it |
 | 11 | RWA tokens can have a `null` symbol and name | UI must never print "null" |
 | 12 | No unit field on RWA tokens | Per-gram gold looks 97% cheaper until we infer the unit |
 | 13 | Tokens of one asset can be priced ~10× apart, with no ratio field | KLAC can't be compared at all |
+| 14 | A time-pinned price conversion sometimes has no `quote`, and no error | Metals intermittently lose their spot price |
 
 ---
 
@@ -119,8 +120,8 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 ## 8. The RWA map is paginated and caps `limit` at about 200
 
 - **What happened:** `/v5/real-world-assets/map` returns 100 rows by default. `limit=200` works;
-  `limit=500` and `limit=1000` return `4001 "Invalid parameter"`. The full map is about 4,000
-  assets, so 20+ pages.
+  `limit=500` and `limit=1000` return `4001 "Invalid parameter"`. The full map is 7,811 rows,
+  40 pages at limit=200 (saved map, Sep 2026).
 - **Impact:** Resolving a name like "nvidia" needs the whole map. Fetched naively on every
   query it exhausted the 50 requests/min limit in one probe run (429s). We now try the
   one-request `map?symbol=` lookup first and cache the full map for an hour.
@@ -167,3 +168,16 @@ endpoint we need with GOLD (`rwa_id` 1) and NVDA (`rwa_id` 2) on the hackathon S
 - **Impact:** neither price can be trusted as "the" KLAC price, so PARITY calls every KLAC
   token a ghost ("the tokens don't agree on a price") rather than guess a ratio.
 - **Suggestion:** same as 12: a `unit` / `shares_per_token` field would make this comparable.
+
+## 14. A time-pinned price conversion sometimes has no `quote`, and no error
+
+- **What happened:** found by the first live drift check (`npm run drift`, 9 Oct 2026). Parity
+  asks `/v2/tools/price-conversion` for gold and silver spot at the quotes' `last_updated`
+  (`time=…`). Some calls return HTTP 200, `error_code` 0 and a `data` object with only `id`,
+  `symbol`, `name` and `amount`: no `quote` and no `last_updated`. The same call a minute
+  later works. On 9 Oct, 2 of 4 live runs (07:55 and 08:00 UTC) had no spot for either metal;
+  runs at 07:43 and 08:10 did.
+- **Impact:** Parity handles it (the gap `spot_unavailable`, premiums against the tokens'
+  typical price instead), but a metal's reference price comes and goes between checks.
+- **Suggestion:** return an error, or the nearest earlier price with its own timestamp, when
+  there's no data point for the requested time.

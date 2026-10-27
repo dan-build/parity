@@ -386,5 +386,17 @@
   "/v1/dex/token/pools?address=Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN&platform=solana&size=10": {
     "file": "v1_dex_token_pools_address=Xsw2uU1i8tHjbgstUbtt3m6kg7BS7AgG5aj8z7ddmmN_platform=solana_size=10.json",
     "status": 200
+  },
+  "/v1/fiat/map?include_metals=true": {
+    "file": "v1_fiat_map_include_metals=true.json",
+    "status": 200
+  },
+  "/v2/tools/price-conversion?amount=1&convert=USD&id=3574&time=2026-09-25T21:49:02.273Z": {
+    "file": "v2_tools_price-conversion_amount=1_convert=USD_id=3574_time=2026-09-25T21_49_02.273Z.json",
+    "status": 200
+  },
+  "/v2/tools/price-conversion?amount=1&convert=USD&id=3575&time=2026-09-25T21:47:39.478Z": {
+    "file": "v2_tools_price-conversion_amount=1_convert=USD_id=3575_time=2026-09-25T21_47_39.478Z.json",
+    "status": 200
   }
 }

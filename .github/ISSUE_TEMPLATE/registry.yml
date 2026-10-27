@@ -1,0 +1,30 @@
+name: Add or correct a registry fact
+description: What a token represents (unit or share ratio), its redemption terms, who can hold it, or its attestations. Issuers welcome.
+labels: ["registry"]
+body:
+  - type: input
+    id: token
+    attributes:
+      label: Token
+      description: Symbol and asset, e.g. "KLACx (KLAC)". The CoinMarketCap id if you know it.
+    validations:
+      required: true
+  - type: textarea
+    id: fact
+    attributes:
+      label: The fact
+      description: e.g. "1 KLACx = 0.1 KLAC share", "redeemable for physical gold above 1 kg, KYC required".
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source link
+      description: Issuer site, terms, attestation PDF. Facts without a source can't be added.
+    validations:
+      required: true
+  - type: dropdown
+    id: who
+    attributes:
+      label: You are
+      options: ["A contributor", "The issuer"]

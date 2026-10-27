@@ -21,7 +21,7 @@ Built for **Build with CMC** (DoraHacks), Real World Assets track, on the CoinMa
 | Verdict | Means | Try it | Why |
 |---|---|---|---|
 | **Fair** | Priced like the others, with a market to sell into | `/?q=GOLD` | 7 tokens. Two are quoted **per gram** and look 97% cheaper until converted. XAUt is the most traded. |
-| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | When recorded (26 Sep), UNHon was the only UNH token with real trading, and it cost **+1.51%** (about $5.83 a share) more than UNHX. |
+| **Rich** | Even the best token costs more than the typical price | `/?q=UNH` | When recorded (26 Sep), UNHon was the only UNH token with real trading, and it cost **+1.51%** (about $5.83 a share) over the typical price, the midpoint of the two tokens. That's about $11.65 more than UNHX. |
 | **Thin** | The price is fine, but little trading to sell into later | `/?q=SILVER` | No token that tracks silver traded in the last day, so Parity recommends none: **"no easy way out"**. |
 | **Ghost** | Nothing you can rely on: no price, not a real token, or tokens that disagree | `/?q=KLAC` | Its two holdable tokens are priced **about 10× apart** ($1,883.88 vs $188.26). Parity won't guess which one is right. |
 
@@ -75,7 +75,7 @@ CMC_API_KEY=your-key
 PARITY_DATA_MODE=live
 ```
 
-A live check costs about 5–7 credits.
+A live check costs about 5–8 credits.
 
 If live data isn't available, Parity **falls back to saved data automatically** and shows a one-line notice explaining why. That covers three cases:
 - no key is set
@@ -98,10 +98,14 @@ If the asset isn't saved, the page asks you to try again in a minute.
 
 | Command | What it does | Credits |
 |---|---|---|
-| `npm test` | 112 tests: verdict engine, copy, log, fallbacks, and the MCP server (in memory and over stdio), all against saved responses | 0 |
-| `npm run mcp` | Starts the MCP server over stdio (see above) | 0 saved, 5–7 per live check |
-| `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~17 |
-| `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~5–6 each |
+| `npm test` | 192 tests: verdict engine, copy, log, fallbacks, rate limits, the MCP server (in memory and over stdio), the registry, the golden set, and checks that `METHOD.md` matches the code. All run against saved responses. | 0 |
+| `npm run drift` | Runs the golden assets on saved data and live, and compares the *shape* of CoinMarketCap's responses (fields and types, never values) plus tokens, units and gaps. Warnings are possible API changes; a private report goes to `history/drift/`. | ~41 |
+| `npm run snapshot -- --kind auto` | Appends a private history snapshot of the watched assets (`scripts/watchlist.json`) to the git-ignored `history/` folder. Never published (see Licensing below). | 9 (prices) to ~60 (full) |
+| `npm run registry:seed` | Adds registry entries for the watched assets from saved data (never overwrites) | 0 |
+| `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
+| `npm run mcp` | Starts the MCP server over stdio (see below) | 0 saved, 5–8 per live check |
+| `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~35 |
+| `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~3–4 each |
 | `npm run scan -- --budget 60` | Screens assets for RICH/GHOST candidates: reads the saved asset list, pulls live quotes and runs the real `verdict()`. Saves nothing. | 1 per asset |
 
 `probe` and `scan` read `CMC_API_KEY` from `.env.local`. They space out calls to stay under 50 requests a minute, and print the day's credits before and after.
@@ -137,6 +141,13 @@ For Claude Desktop or Cursor (`mcpServers` in the client's config):
 
 It uses saved data by default, with no key and no credits. With `CMC_API_KEY` and `PARITY_DATA_MODE=live` in `.env.local`, it uses live data, with the same automatic fallback as the site. Then ask things like *"Is tokenised gold fairly priced right now? Which token should I look at?"*
 
+### Licensing
+
+Parity uses CoinMarketCap data inside its own product, with attribution, as CMC's API terms
+allow. It doesn't redistribute that data: there's no public data API or hosted data endpoint,
+and history snapshots stay private. The MCP server is self-hosted: each user runs it with their
+own CoinMarketCap key.
+
 ---
 
 ## CoinMarketCap endpoints
@@ -149,6 +160,7 @@ It uses saved data by default, with no key and no credits. With `CMC_API_KEY` an
 | `GET /v5/real-world-assets/map` (paged) | 0 | The full asset list, for name searches ("nvidia") and not-found suggestions. Cached for an hour. |
 | `GET /v5/real-world-assets/quotes/latest` | 1 | Every token for the asset: issuer, price, market cap and 24h volume, plus the average tokenised price and TradFi venues |
 | `GET /v2/cryptocurrency/info` | 1 | Turns each token's `crypto_id` into its chain and contract address (the RWA endpoints don't give them) |
+| `GET /v2/tools/price-conversion` | 1 | **Metals only:** CMC's gold/silver spot price at the moment of the token quotes (`time` = the quotes' `last_updated`), so premiums compare tokens with the real metal, like-for-like. Metal IDs come from `/v1/fiat/map?include_metals=true`. |
 | `GET /v1/dex/token/pools` | 1 per token | On-chain pool depth and volume on Ethereum, Solana and BSC, for the "can I sell it later?" score |
 | `GET /v3/fear-and-greed/latest` | 1 | The "crypto mood" in the header, shown for context only |
 
@@ -194,6 +206,7 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 - `lib/present.ts`: turns a result into copy and numbers. `lib/log.ts`: the narrating log, built only from real evidence.
 - `components/desk/`: the page. `components/reveal/`: one animation clock, with every timing in `lib/reveal/timings.ts`.
 - `app/api/og/route.tsx`: the share image (`next/og`). The colour-field backgrounds are pre-rendered per verdict by `scripts/og-backgrounds.mjs`.
+- `lib/snapshot.ts`: one history run, shared by `npm run snapshot` (local `history/`) and the daily cron `app/api/cron/snapshot` (private Vercel Blob, `lib/snapshot-cron.ts`).
 - `fixtures/`: real recorded responses, used by saved-data mode, the fallback and the tests.
 
 ### Deploying
@@ -201,16 +214,34 @@ The full log is in [`FRICTION.md`](FRICTION.md). The highlights:
 1. Import the repo into Vercel.
 2. Set `CMC_API_KEY` (mark it **Sensitive**) and `PARITY_DATA_MODE=live` for **Production**. Preview deploys without the key fall back to saved data.
 3. Optionally set `SITE_URL` if you use a custom domain; share-image URLs default to Vercel's production URL.
+4. Optional, private history: create a **Private** Blob store connected to the project, then set `CRON_SECRET` (16+ random characters) and `PARITY_SNAPSHOTS=on` for Production. `vercel.json` runs `/api/cron/snapshot` once a day (~41 credits); it writes one private file a day and answers counts, never data.
 
 ---
+
+## The open registry
+
+CoinMarketCap doesn't say what a token represents: an ounce, a gram, a whole share or a tenth
+of one. Parity keeps that in [`registry/`](registry/), one JSON file per asset. Every fact
+says where it came from, and unknown facts stay empty instead of guessed. The engine uses the
+registry's units first. Tests check every recorded unit against real prices, so a wrong ratio
+fails CI. Today 35 of 47 tokens have a unit. Help wanted: KLAC's share ratio, and redemption
+terms and attestations for the tokens that don't have them yet ([how to contribute](registry/README.md)).
+
+## How verdicts are decided
+
+Every rule and threshold is written down in [`METHOD.md`](METHOD.md), with a version number
+and a changelog. Each result carries the method version that produced it. A test fails if the
+document and the code disagree, and the eval fails if verdicts change without a new version.
 
 ## What's next
 
 Parity's plan is to become the neutral, open trust check for tokenised assets. That means
 real reference prices, an open registry of what each token represents (units, share ratios,
-redemption terms), alerts, and a public API. Every step ships with its evaluations. See
+redemption terms) and alerts. Every step ships with its evaluations. See
 [`ROADMAP.md`](ROADMAP.md).
 
 ---
+
+Contributions are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md). MIT licensed.
 
 Data from [CoinMarketCap](https://coinmarketcap.com/api/). Not financial advice.

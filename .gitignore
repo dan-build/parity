@@ -42,3 +42,6 @@ next-env.d.ts
 
 .mcp.json
 design/
+
+# Private history snapshots (npm run snapshot). CoinMarketCap data: never publish.
+/history/

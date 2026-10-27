@@ -58,7 +58,8 @@ describe("per-gram gold", () => {
 
   it("without normalisation the per-gram tokens would look ~97% cheap and be thrown out", async () => {
     const input = await load(GOLD);
-    const r = verdict({ ...input, asset: { ...input.asset, asset_type: "stock" } });
+    // No unit knowledge at all: not a commodity, and no registry units.
+    const r = verdict({ ...input, units: new Map(), asset: { ...input.asset, asset_type: "stock" } });
     expect(byId(r, CGO).verdict).toBe("GHOST");
     expect(byId(r, CGO).premium_pct).toBeLessThan(-90);
   });
@@ -66,6 +67,35 @@ describe("per-gram gold", () => {
   it("mentions the conversion in the headline reasons", async () => {
     const r = verdict(await load(GOLD));
     expect(r.reasons.some((s) => /per gram/.test(s))).toBe(true);
+  });
+});
+
+describe("the registry's units win over price inference", () => {
+  it("uses the registry's unit even where inference would disagree", async () => {
+    const input = await load(GOLD);
+    // Mutation: the registry says CGO is a troy ounce. Inference would say gram; the registry wins.
+    const units = new Map(input.units);
+    units.set(CGO, { measure: "troy_ounce", per_token: 1, source: "community" });
+    const r = verdict({ ...input, units });
+    expect(byId(r, CGO)).toMatchObject({ unit: "as_quoted", unit_source: "registry", verdict: "GHOST" });
+    expect(byId(r, CGO).premium_pct).toBeLessThan(-90);
+  });
+
+  it("marks registry and inferred units apart", async () => {
+    const input = await load(GOLD);
+    expect(byId(verdict(input), CGO)).toMatchObject({ unit: "per_gram_to_oz", unit_source: "registry" });
+    expect(byId(verdict({ ...input, units: new Map() }), CGO)).toMatchObject({ unit: "per_gram_to_oz", unit_source: "inferred" });
+  });
+
+  it("converts a share ratio: a token for a tenth of a share is priced per share", async () => {
+    const input = await load(58); // KLAC: KLACx ($188) vs KLACon ($1,884)
+    const KLACX = 40131;
+    const units = new Map([[KLACX, { measure: "share" as const, per_token: 0.1, source: "community" as const }]]);
+    const r = verdict({ ...input, units });
+    const x = byId(r, KLACX);
+    expect(x).toMatchObject({ unit: "per_token_ratio", unit_source: "registry", units_per_token: 0.1 });
+    expect(x.price_usd).toBeCloseTo(1882.63, 1);
+    expect(x.reasons[0]).toMatch(/^One token is 0\.1 shares \(registry\)/);
   });
 });
 

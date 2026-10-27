@@ -1,0 +1,11 @@
+[
+  { "symbol": "GOLD", "rwa_id": 1 },
+  { "symbol": "NVDA", "rwa_id": 2 },
+  { "symbol": "AAPL", "rwa_id": 3 },
+  { "symbol": "SILVER", "rwa_id": 5 },
+  { "symbol": "TSLA", "rwa_id": 14 },
+  { "symbol": "UNH", "rwa_id": 33 },
+  { "symbol": "MS", "rwa_id": 35 },
+  { "symbol": "KLAC", "rwa_id": 58 },
+  { "symbol": "SPY", "rwa_id": 86 }
+]

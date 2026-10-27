@@ -1,0 +1,30 @@
+{
+  "asset": {
+    "symbol": "MS",
+    "rwa_id": 35,
+    "name": "Morgan Stanley",
+    "type": "stock",
+    "reference": "share"
+  },
+  "tokens": [
+    {
+      "crypto_id": 41513,
+      "symbol": "wMSx",
+      "issuer": "Backed Assets",
+      "unit": null,
+      "unit_note": "No live price to infer a unit from.",
+      "contracts": [
+        {
+          "chain": "OKB",
+          "address": "0x2874A11805783324C54562eDB1A641C5d1d077a5",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

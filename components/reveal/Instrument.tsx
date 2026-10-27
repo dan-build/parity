@@ -10,7 +10,7 @@
  */
 import { useLayoutEffect, useMemo, useRef, useState, type ComponentType, type CSSProperties, type ReactNode, type Ref } from "react";
 import type { View } from "@/lib/present";
-import { computeGeometry, type GeometryOptions } from "@/lib/reveal/layout";
+import { computeGeometry, tipAlign, type GeometryOptions } from "@/lib/reveal/layout";
 import { drop, eased, spring } from "@/lib/reveal/motion";
 import { SPRING, T } from "@/lib/reveal/timings";
 import { useTrack } from "./Reveal";
@@ -19,8 +19,10 @@ export type CoinProps = {
   size: number;
   ticker?: string | null;
   variant?: "gold" | "ghost" | "rich";
-  /** Full name, shown on hover or tap. */
+  /** Shown on hover or tap: name, premium and any unit story (see coinTooltip in lib/present.ts). */
   title?: string;
+  /** Which way the tooltip hangs so it stays inside the plot. */
+  tipAlign?: "center" | "start" | "end";
   ref?: Ref<HTMLSpanElement>;
   style?: CSSProperties;
 };
@@ -225,7 +227,8 @@ export function Instrument({
                     ref={refFor(c.id, "coin")}
                     size={geo.D}
                     ticker={c.ticker}
-                    title={c.display}
+                    title={c.tooltip}
+                    tipAlign={p ? tipAlign(p.x, geo.width, c.tooltip) : "center"}
                     variant={c.kind === "ghost" ? "ghost" : c.verdict === "RICH" ? "rich" : "gold"}
                     style={c.kind === "gram" ? { transformOrigin: "50% 100%" } : undefined}
                   />

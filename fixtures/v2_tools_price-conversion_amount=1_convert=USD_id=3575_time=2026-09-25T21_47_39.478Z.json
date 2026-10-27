@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": 3575,
+    "symbol": "XAU",
+    "name": "Gold Troy Ounce",
+    "amount": 1,
+    "quote": {
+      "USD": {
+        "price": 4285.408185129633,
+        "last_updated": "2026-09-25T21:45:00.000Z"
+      }
+    },
+    "last_updated": "2026-09-25T21:45:00.000Z"
+  },
+  "status": {
+    "timestamp": "2026-10-01T13:13:31.191Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 21,
+    "credit_count": 1,
+    "notice": null
+  }
+}

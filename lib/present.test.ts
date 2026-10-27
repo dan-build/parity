@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { clearCmcCache } from "./cmc";
 import { logLines, logSummary } from "./log";
-import { exitMeter, moneyShort, pct, present, recommended, type CheckResponse } from "./present";
+import { coinTooltip, exitMeter, moneyShort, pct, present, recommended, usMarketClosedAt, type CheckResponse } from "./present";
 import { runCheck } from "./run-check";
 
 async function load(q: string): Promise<CheckResponse> {
@@ -38,8 +38,8 @@ describe("present(GOLD)", () => {
     expect(v.reasons.length).toBeGreaterThan(0);
     expect(v.reasons.length).toBeLessThanOrEqual(4);
     expect(v.reasons.find((r) => r.tone === "unit")?.strong).toBe("2 are priced per gram.");
-    // Honest label: the needle is the typical token price, not the spot price.
-    expect(v.instrument.reference.label).toBe("Gold tokens");
+    // The needle is CMC's gold spot price at the time of the quotes (method 1.1.0).
+    expect(v.instrument.reference).toMatchObject({ label: "Gold spot", price: "$4,285.41", vs: "vs spot price" });
     expect(v.instrument.zone?.label).toMatch(/^Looks 9\d% cheaper$/);
     expect(v.list.unitLine).toMatch(/^Per troy ounce/);
   });
@@ -88,15 +88,17 @@ describe("present(other assets)", () => {
 describe("summary tiles", () => {
   it("gives the hero four plain facts for GOLD", async () => {
     const v = present(await load("GOLD"));
-    expect(v.summary.map((t) => t.label)).toEqual(["Typical price", "Price spread", "Traded, 24h", "Tokens checked"]);
+    expect(v.summary.map((t) => t.label)).toEqual(["Spot price", "Price spread", "Traded, 24h", "Tokens checked"]);
     expect(v.summary[0]).toMatchObject({ value: v.instrument.reference.price, note: "per troy ounce" });
     expect(v.summary[1].value).toMatch(/^\d+\.\d\d%$/);
     expect(v.summary[2]).toMatchObject({ value: expect.stringMatching(/^\$\d/), note: expect.stringMatching(/^\d+% in XAUt$/) });
     expect(v.summary[3]).toEqual({ label: "Tokens checked", value: "7", note: "1 can't be held" });
   });
 
-  it("says 'per share' for stocks", async () => {
-    expect(present(await load("NVDA")).summary[0].note).toBe("per share");
+  it("says 'per share' for stocks, which keep the tokens' typical price", async () => {
+    const v = present(await load("NVDA"));
+    expect(v.summary[0]).toMatchObject({ label: "Typical price", note: "per share" });
+    expect(v.instrument.reference.vs).toBe("vs typical price");
   });
 
   it("says plainly when nothing traded", async () => {
@@ -245,5 +247,84 @@ describe("KLAC: two tokens 10× apart", () => {
 
   it("MS has nothing to hold at all", async () => {
     expect(present(await load("MS")).headline.chip).toBe("nothing to hold");
+  });
+});
+
+describe("US market hours (stocks)", () => {
+  it("knows regular hours in New York time, across daylight saving", () => {
+    expect(usMarketClosedAt("2026-09-25T14:00:00Z")).toBe(false); // Fri 10:00 EDT
+    expect(usMarketClosedAt("2026-09-25T13:00:00Z")).toBe(true); // Fri 09:00 EDT, before the open
+    expect(usMarketClosedAt("2026-09-25T20:00:00Z")).toBe(true); // Fri 16:00 EDT, at the close
+    expect(usMarketClosedAt("2026-09-26T15:00:00Z")).toBe(true); // Saturday
+    expect(usMarketClosedAt("2026-12-01T14:45:00Z")).toBe(false); // Tue 09:45 EST
+    expect(usMarketClosedAt("2026-12-01T14:15:00Z")).toBe(true); // Tue 09:15 EST
+  });
+
+  it("tells stock buyers when quotes were taken with the market closed, and never metal buyers", async () => {
+    const title = "Where the shares are trading now";
+    expect(present(await load("NVDA")).gaps.some((g) => g.title === title)).toBe(true); // Fri 17:48 New York
+    expect(present(await load("GOLD")).gaps.some((g) => g.title === title)).toBe(false);
+  });
+});
+
+describe("coin tooltips", () => {
+  const tip = (v: ReturnType<typeof present>, ticker: string) => v.instrument.coins.find((c) => c.ticker === ticker)?.tooltip;
+
+  it("say the premium against the right reference: spot for metals, typical for stocks", async () => {
+    expect(tip(present(await load("GOLD")), "XAUt")).toBe("XAUt · +0.03% vs spot");
+    expect(tip(present(await load("NVDA")), "NVDAX")).toBe("NVDAX · +0.06% vs typical");
+  });
+
+  it("explain a converted unit", async () => {
+    expect(tip(present(await load("GOLD")), "CGO")).toBe("CGO · −0.93% vs spot · priced per gram");
+  });
+
+  it("say why a ghost is a ghost", async () => {
+    const gold = present(await load("GOLD"));
+    expect(tip(gold, "XAU")).toBe("XAU · price feed, not a token");
+    expect(tip(present(await load("NVDA")), "NVDA.D")).toBe("NVDA.D · no price");
+    expect(tip(present(await load("SILVER")), "KAG")).toBe("KAG · −48% vs spot · doesn't track silver");
+  });
+
+  it("keep colliding symbols apart", async () => {
+    const v = present(await load("NVDA"));
+    const nvda = v.instrument.coins.filter((c) => c.ticker === "NVDA").map((c) => c.tooltip);
+    expect(nvda).toHaveLength(2);
+    expect(nvda.every((t) => /^NVDA \(/.test(t))).toBe(true);
+  });
+
+  it("explain a registry share ratio", async () => {
+    const r = await load("KLAC");
+    const klacx = r.wrappers.find((w) => w.symbol === "KLACx")!;
+    const asRatio = { ...klacx, verdict: "FAIR" as const, unit: "per_token_ratio" as const, units_per_token: 0.1, premium_pct: -0.07 };
+    expect(coinTooltip(asRatio, { isSpot: false, noun: "KLAC" })).toBe("KLACx · −0.07% vs typical · 1 token = 0.1 shares");
+  });
+});
+
+describe("how a holder gets the real asset (METHOD.md §12)", () => {
+  it("NVDA: Robinhood's token can't be redeemed for shares, xStocks' after KYC, each linked to the issuer's page", async () => {
+    const rows = present(await load("NVDA")).list.rows;
+    const by = (ticker: string, issuer: RegExp) => rows.find((r) => r.ticker === ticker && issuer.test(r.sub));
+    expect(by("NVDA", /Robinhood/)?.redeem).toMatchObject({ text: "Can't be redeemed for shares", url: expect.stringMatching(/^https:\/\/robinhood\.com\//) });
+    expect(by("NVDAX", /Backed/)?.redeem).toMatchObject({ text: "Redeemable with the issuer, after KYC", url: expect.stringMatching(/^https:\/\/docs\.xstocks\.fi\//) });
+    expect(by("NVDAon", /Ondo/)?.redeem?.text).toBe("Redeemable with the issuer, after KYC");
+    // The derivatives feed and Dinari have nothing on file: no line, not "no".
+    expect(rows.filter((r) => !r.redeem).length).toBeGreaterThan(0);
+  });
+
+  it("GOLD: PAXG and XAUt redeem through the issuer; the hover says the issuer's own terms", async () => {
+    const rows = present(await load("GOLD")).list.rows;
+    expect(rows.find((r) => r.ticker === "PAXG")?.redeem?.text).toBe("Redeemable through the issuer");
+    expect(rows.find((r) => r.ticker === "XAUt")?.redeem?.title).toMatch(/Switzerland.*\(from the issuer's page\)$/);
+  });
+
+  it("every line is backed by a registry fact and never says 'buy'", async () => {
+    for (const q of ["GOLD", "NVDA", "SPY", "TSLA", "AAPL", "SILVER", "UNH", "MS", "KLAC"]) {
+      const body = await load(q);
+      for (const r of present(body).list.rows.filter((x) => x.redeem)) {
+        expect(body.redemption.some((f) => f.crypto_id === r.id && f.url === r.redeem!.url)).toBe(true);
+        expect(r.redeem!.text + r.redeem!.title).not.toMatch(/\bbuy/i);
+      }
+    }
   });
 });

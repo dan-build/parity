@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": 3574,
+    "symbol": "XAG",
+    "name": "Silver Troy Ounce",
+    "amount": 1,
+    "quote": {
+      "USD": {
+        "price": 64.29462368356758,
+        "last_updated": "2026-09-25T21:50:00.000Z"
+      }
+    },
+    "last_updated": "2026-09-25T21:50:00.000Z"
+  },
+  "status": {
+    "timestamp": "2026-10-01T13:13:00.252Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 26,
+    "credit_count": 1,
+    "notice": null
+  }
+}

@@ -55,7 +55,9 @@ describe("check_rwa (in memory)", () => {
     const o = (await call("GOLD")).structuredContent as Out;
     expect(o.best_way_in).toMatchObject({ token: "XAUt", chain: "Ethereum", contract: expect.stringMatching(/^0x/) });
     expect(o.share_url).toMatch(/\/\?q=GOLD$/);
+    expect((o as unknown as { reference: unknown }).reference).toEqual({ kind: "spot", price_usd: 4285.41 });
     expect(o.tokens).toHaveLength(7);
+    expect((o.data as { method_version?: string }).method_version).toMatch(/^\d+\.\d+\.\d+$/);
   });
 
   it("reads cleanly: a colon after the verdict word, prices in cents, volumes in dollars", async () => {
@@ -65,6 +67,14 @@ describe("check_rwa (in memory)", () => {
       if (t.price_usd !== null) expect(String(t.price_usd)).toMatch(/^\d+(\.\d{1,2})?$/);
       if (t.volume_24h_usd !== null) expect(Number.isInteger(t.volume_24h_usd)).toBe(true);
     }
+  });
+
+  it("says per token how a holder gets the real asset, from the issuer's page, and null when nothing is on file", async () => {
+    const o = (await call("NVDA")).structuredContent as { tokens: { token: string; issuer: string | null; redemption: { route: string; summary: string; source_url: string } | null }[] };
+    const rh = o.tokens.find((t) => t.issuer === "Robinhood");
+    expect(rh?.redemption).toMatchObject({ route: "none", summary: expect.stringMatching(/^Not redeemable for shares/), source_url: expect.stringMatching(/^https:\/\/robinhood\.com\//) });
+    expect(o.tokens.find((t) => t.token.startsWith("NVDAX"))?.redemption?.route).toBe("issuer_kyc");
+    expect(o.tokens.some((t) => t.redemption === null)).toBe(true);
   });
 
   it("keeps colliding symbols apart", async () => {

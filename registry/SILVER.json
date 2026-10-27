@@ -1,0 +1,72 @@
+{
+  "asset": {
+    "symbol": "SILVER",
+    "rwa_id": 5,
+    "name": "Silver",
+    "type": "commodity",
+    "reference": "troy_ounce"
+  },
+  "tokens": [
+    {
+      "crypto_id": 24439,
+      "symbol": "KAG",
+      "issuer": "Kinesis Assets",
+      "unit": null,
+      "unit_note": "Price is −48% from the reference, so its unit or ratio can't be inferred. Needs a source.",
+      "contracts": [
+        {
+          "chain": "Ethereum",
+          "address": "0xe560C473Dee7B1d1d5Ae316F4c1cBA7157DE498e",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 32149,
+      "symbol": "XAGX",
+      "issuer": "XAGx",
+      "unit": {
+        "measure": "troy_ounce",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Avalanche",
+          "address": "0x2C472e913635c85143369aDc9962bbB56Efc446A",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    },
+    {
+      "crypto_id": 37080,
+      "symbol": "GRAMS",
+      "issuer": "Token",
+      "unit": {
+        "measure": "gram",
+        "per_token": 1,
+        "source": "inferred-from-price"
+      },
+      "contracts": [
+        {
+          "chain": "Polygon (prev. MATIC)",
+          "address": "0x97cf07b5401b76d69bf48a4f6fdf63684e0748e0",
+          "source": "cmc"
+        }
+      ],
+      "redemption": null,
+      "eligibility": null,
+      "attestations": [],
+      "verified_by_issuer": false
+    }
+  ],
+  "updated": "2026-10-01"
+}

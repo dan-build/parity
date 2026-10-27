@@ -14,12 +14,19 @@ export type CheckBody =
   | ({ ok: true } & CheckResponse)
   | {
       ok: false;
-      error: "missing_query" | "not_found" | "upstream_error";
+      error: "missing_query" | "not_found" | "upstream_error" | "rate_limited";
       message: string;
       suggestions?: { symbol: string; name: string }[];
       evidence?: unknown;
       mode?: string;
     };
+
+/** The body a rate-limited visitor gets: the page shows it as an error with Try again. */
+export const rateLimitedBody = (retryAfter: number): CheckBody => ({
+  ok: false,
+  error: "rate_limited",
+  message: `Lots of checks from you in a short time. Try again in ${retryAfter}s.`,
+});
 
 export async function runCheck(rawQuery: string, force?: "fixture" | "live"): Promise<{ status: number; body: CheckBody }> {
   return runCheckWith(rawQuery, createClient(force), fixtureClient);

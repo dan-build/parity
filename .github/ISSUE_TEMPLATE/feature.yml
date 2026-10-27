@@ -1,0 +1,20 @@
+name: Idea or feature
+description: Something Parity should do, show or check.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can't a buyer tell today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+  - type: textarea
+    id: data
+    attributes:
+      label: Where the data would come from
+      description: Parity only shows what data can back up.

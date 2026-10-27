@@ -72,6 +72,15 @@
   color: var(--text-3);
 }
 
+.head a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.head a:hover {
+  text-decoration: underline;
+}
+
 .x {
   flex: none;
   width: 32px;

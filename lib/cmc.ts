@@ -15,6 +15,10 @@ export const CACHE_TTL_MS = 60_000;
 export const DEX_PLATFORM_ALIASES: Record<string, string> = { bnb: "bsc" };
 /** Chains whose DEX pool lookups we've verified. Others are skipped and reported as a gap. */
 export const SUPPORTED_DEX_CHAINS = ["ethereum", "solana", "bsc"] as const;
+
+/** CMC ids of precious metals, from /v1/fiat/map?include_metals=true (fixtures/). */
+export const METAL_IDS = { XAU: 3575, XAG: 3574, XPT: 3577, XPD: 3576 } as const;
+export type MetalCode = keyof typeof METAL_IDS;
 const MAP_PAGE_SIZE = 200;
 const MAP_MAX_PAGES = 40;
 /** The RWA map (~4,000 assets, 20+ pages) barely changes; cache it for an hour. */
@@ -174,11 +178,18 @@ export function num(v: unknown): number | null {
 
 // --- client -----------------------------------------------------------------------
 
+/**
+ * Module-level (shared by every client in this server instance), keyed by source AND request:
+ * a saved response must never be served to a live client as if it were live.
+ */
 const cache = new Map<string, { at: number; res: CmcResponse }>();
+/** Requests on the wire right now: simultaneous identical requests share one call (and its credits). */
+const inflight = new Map<string, Promise<CmcResponse>>();
 
 /** Test helper: clear the module-level cache. */
 export function clearCmcCache() {
   cache.clear();
+  inflight.clear();
 }
 
 export type CmcClient = ReturnType<typeof createCmcClient>;
@@ -189,7 +200,7 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
 
   async function request(path: string, params: Params = {}, ttlMs = CACHE_TTL_MS): Promise<CmcResult<unknown>> {
     const req = { path, params };
-    const key = requestKey(req);
+    const key = `${source}:${requestKey(req)}`;
     const started = now();
     const hit = cache.get(key);
     let res: CmcResponse | null = null;
@@ -201,8 +212,20 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
       cached = true;
     } else {
       try {
-        res = await transport(req);
-        if (res.status >= 200 && res.status < 300) cache.set(key, { at: started, res });
+        const shared = inflight.get(key);
+        if (shared) {
+          res = await shared;
+          cached = true; // answered by a call already on its way: no extra credits
+        } else {
+          const call = transport(req);
+          inflight.set(key, call);
+          try {
+            res = await call;
+          } finally {
+            inflight.delete(key);
+          }
+          if (res.status >= 200 && res.status < 300) cache.set(key, { at: started, res });
+        }
       } catch (err) {
         message = `Network error: ${(err as Error).message}`;
       }
@@ -313,6 +336,21 @@ export function createCmcClient(opts: { transport: Transport; source?: "live" | 
         }
         return out;
       });
+    },
+
+    /**
+     * GET /v2/tools/price-conversion: 1 troy ounce of a metal in USD (1 credit). With `at`, the
+     * spot price at that moment, so it can be compared like-for-like with token quotes taken then.
+     */
+    async metalSpot(code: MetalCode, at: string | null): Promise<CmcResult<{ price_usd: number; as_of: string | null }>> {
+      const params: Params = { amount: 1, id: METAL_IDS[code], convert: "USD" };
+      if (at) params.time = at;
+      const res = await request("/v2/tools/price-conversion", params);
+      if (!res.ok) return res;
+      const price = num(get(res.data, "data", "quote", "USD", "price"));
+      if (price === null || price <= 0) return { ok: false, status: 200, errorCode: null, message: "no spot price in the response" };
+      const asOf = get(res.data, "data", "quote", "USD", "last_updated");
+      return { ok: true, data: { price_usd: price, as_of: typeof asOf === "string" ? asOf : null } };
     },
 
     /** GET /v1/dex/token/pools. `platform` is a CMC platform slug; aliases are applied here. */

@@ -154,3 +154,29 @@ describe("evidence", () => {
     expect(t.s.length).toBeLessThanOrEqual(201);
   });
 });
+
+describe("cache safety under load", () => {
+  it("shares one call between simultaneous identical requests", async () => {
+    clearCmcCache();
+    let calls = 0;
+    const slow: Transport = async () => {
+      calls++;
+      await new Promise((r) => setTimeout(r, 20));
+      return { status: 200, body: { status: { error_code: 0, credit_count: 1 }, data: { rwa_assets: [] } } };
+    };
+    const c = createCmcClient({ transport: slow, source: "live" });
+    await Promise.all(Array.from({ length: 20 }, () => c.get("/v5/real-world-assets/quotes/latest", { rwa_id: 1 })));
+    expect(calls).toBe(1);
+    expect(c.evidence.filter((e) => !e.cached)).toHaveLength(1); // only one call spent credits
+  });
+
+  it("never serves a saved response to a live client", async () => {
+    clearCmcCache();
+    const reply = (tag: string): Transport => async () => ({ status: 200, body: { status: { error_code: 0 }, data: { tag } } });
+    const saved = createCmcClient({ transport: reply("saved"), source: "fixture" });
+    const live = createCmcClient({ transport: reply("live"), source: "live" });
+    await saved.get("/v1/key/info");
+    const r = await live.get("/v1/key/info");
+    expect(r.ok && (r.data as { data: { tag: string } }).data.tag).toBe("live");
+  });
+});

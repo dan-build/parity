@@ -1,7 +1,8 @@
 /**
  * CMC endpoint probe + fixture recorder.
  *
- * Runs the engine's real calls (check()) for GOLD and NVDA through a recording
+ * Runs the engine's real calls (check()) for the six default assets (GOLD, NVDA, SPY,
+ * TSLA, AAPL, SILVER), or just the ones named on the command line, through a recording
  * transport, so fixtures/ holds exactly what the engine asks for, plus:
  * - pools for GHOST wrappers too (fixtures are a superset of engine calls)
  * - key/info, issuers, Fear & Greed, liquidations, market-pairs (403 on Startup)

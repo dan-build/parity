@@ -34,3 +34,20 @@
   transform: translate(-50%, 0);
 }
 
+/* Near the plot's edges the tooltip grows inward from the coin's edge, so it's never clipped. */
+.tip[data-align="start"]::after {
+  left: 0;
+  transform: translate(0, 4px);
+}
+.tip[data-align="end"]::after {
+  left: auto;
+  right: 0;
+  transform: translate(0, 4px);
+}
+.tip[data-align="start"]:hover::after,
+.tip[data-align="start"]:focus::after,
+.tip[data-align="end"]:hover::after,
+.tip[data-align="end"]:focus::after {
+  transform: translate(0, 0);
+}
+

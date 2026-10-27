@@ -2,7 +2,7 @@
  * CheckResult → everything the page renders. Pure: copy, numbers and labels live here
  * so components only lay things out.
  */
-import type { CheckResult } from "./check";
+import type { CheckResult, RedemptionFact } from "./check";
 import type { Fallback } from "./data-source";
 import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
@@ -25,6 +25,8 @@ export type InstrumentCoin = {
   verdict: Verdict;
   /** Normalised premium in %, null for GHOSTs without a usable price. */
   premium: number | null;
+  /** Hover/tap text: name, premium against the reference, and any unit story or reason. */
+  tooltip: string;
 };
 
 export type RowView = {
@@ -39,6 +41,8 @@ export type RowView = {
   exit: { bars: number; word: string };
   /** The best way in (the headline token). */
   best: boolean;
+  /** How a holder can get the real asset, from the issuer's own page (registry). null = nothing on file. */
+  redeem: { text: string; url: string; title: string } | null;
 };
 
 /** The hero's four at-a-glance tiles. */
@@ -66,7 +70,8 @@ export type View = {
   reasons: ReasonView[];
   summary: SummaryTile[];
   instrument: {
-    reference: { label: string; price: string };
+    /** vs: "vs spot price" for metals measured against CMC spot, else "vs typical price". */
+    reference: { label: string; price: string; vs: string };
     coins: InstrumentCoin[];
     zone: { label: string; pct: string } | null;
     callout: { id: number; text: string } | null;
@@ -134,8 +139,9 @@ export function exitMeter(score: number | null): { bars: number; word: string } 
 }
 
 const isDerivative = (w: WrapperResult) => !!w.issuer_name && /derivative/i.test(w.issuer_name);
+/** A holdable token whose price is far from the reference. Derivative feeds aren't tokens, so they never count. */
 export const isOffTrack = (w: WrapperResult) =>
-  w.verdict === "GHOST" && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
+  w.verdict === "GHOST" && !isDerivative(w) && w.premium_pct !== null && Math.abs(w.premium_pct) > OFF_TRACK_PCT;
 
 /**
  * The token we point people to: the engine's headline token, unless nothing trades.
@@ -159,12 +165,21 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const best = recommended(r);
   const ghosts = ws.filter((w) => w.verdict === "GHOST");
   const perGram = ws.filter((w) => w.unit === "per_gram_to_oz" && w.verdict !== "GHOST");
+  // Metals are measured against CMC's spot price; stocks against the tokens' own typical price.
+  const isSpot = r.reference.method === "metal_spot";
+  const refName = isSpot ? "the spot price" : "the typical price";
   // With no live token the "typical price" is a midpoint of prices that disagree (KLAC: 10× apart). Don't show it.
-  const ref = ws.some((w) => w.verdict !== "GHOST") ? r.reference.price_usd : null;
+  // A spot price is real whatever the tokens do, so it always shows.
+  const ref = isSpot || ws.some((w) => w.verdict !== "GHOST") ? r.reference.price_usd : null;
 
   // Headline
   const sub: Record<Verdict, string> = {
-    FAIR: live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack) ? "whichever token you pick." : "if you pick the right token.",
+    FAIR:
+      live.every((w) => w.verdict === "FAIR") && !ws.some(isOffTrack)
+        ? ghosts.length
+          ? `whichever of the ${live.length} real tokens you pick.`
+          : "whichever token you pick."
+        : "if you pick the right token.",
     RICH: "even the best token costs extra.",
     THIN: "not much market to sell into.",
     // Off-track tokens can be held; they just don't agree on a price (KLAC: two tokens 10× apart).
@@ -178,13 +193,13 @@ export function present(r: CheckResponse, now = Date.now()): View {
     const within = [0.1, 0.2, 0.5, 1].find((th) => live.filter((w) => Math.abs(w.premium_pct ?? 99) <= th).length >= Math.ceil(live.length / 2));
     if (within !== undefined) {
       const k = live.filter((w) => Math.abs(w.premium_pct ?? 99) <= within).length;
-      reasons.push({ tone: "fair", strong: `${k} of ${ws.length}`, rest: ` trade within ${within}% of the typical price.` });
+      reasons.push({ tone: "fair", strong: `${k} of ${ws.length}`, rest: ` trade within ${within}% of ${refName}.` });
     }
   }
   if (perGram.length) {
     reasons.push({
       tone: "unit",
-      strong: `${perGram.length === 1 ? "1 is" : `${perGram.length} are`} priced per gram.`,
+      strong: perGram.length === 1 ? `${perGram[0].display} is priced per gram.` : `${perGram.length} are priced per gram.`,
       rest: ` We converted ${perGram.length === 1 ? "it" : "them"} so you can compare.`,
     });
   }
@@ -198,13 +213,20 @@ export function present(r: CheckResponse, now = Date.now()): View {
     });
   }
   const unholdable = ghosts.filter((w) => !isOffTrack(w));
-  if (unholdable.length) {
-    const noPrice = unholdable.every((w) => w.price_raw === null);
+  // Two different reasons a listing can't be held: it's a price feed, or a token with no price.
+  const feeds = unholdable.filter(isDerivative).length;
+  const priceless = unholdable.length - feeds;
+  const listings = (n: number) => `${n} listing${n > 1 ? "s" : ""}`;
+  if (feeds && priceless) {
     reasons.push({
       tone: "ghost",
-      strong: `${unholdable.length} listing${unholdable.length > 1 ? "s" : ""} ${noPrice ? (unholdable.length > 1 ? "have" : "has") + " no price." : (unholdable.length > 1 ? "aren't" : "isn't") + " a token."}`,
-      rest: noPrice ? " It isn't something you can hold." : " Derivative price feeds, not something you can hold.",
+      strong: `${listings(unholdable.length)} can't be held.`,
+      rest: ` ${feeds === 1 ? "One is a price feed" : `${feeds} are price feeds`}, not a token; ${priceless === 1 ? "one has" : `${priceless} have`} no price.`,
     });
+  } else if (feeds) {
+    reasons.push({ tone: "ghost", strong: `${listings(feeds)} ${feeds > 1 ? "aren't" : "isn't"} a token.`, rest: " Derivative price feeds, not something you can hold." });
+  } else if (priceless) {
+    reasons.push({ tone: "ghost", strong: `${listings(priceless)} ${priceless > 1 ? "have" : "has"} no price.`, rest: " It isn't something you can hold." });
   }
   const offTrack = ghosts.filter(isOffTrack);
   if (offTrack.length) {
@@ -244,6 +266,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     kind: coinKind(w),
     verdict: w.verdict,
     premium: w.verdict === "GHOST" ? null : w.premium_pct,
+    tooltip: coinTooltip(w, { isSpot, noun }),
   }));
   const rawGram = perGram.find((w) => w.price_raw !== null && ref);
   const zoneDiscount = rawGram && ref ? ((rawGram.price_raw as number) / ref - 1) * 100 : null;
@@ -280,6 +303,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
           : { text: pct(w.premium_pct), tone: w.verdict === "RICH" ? "rich" : isOffTrack(w) ? "ghost" : "fair" },
       exit: w.verdict === "GHOST" ? { bars: 0, word: "None" } : exitMeter(w.exit_score),
       best: w.crypto_id === best?.crypto_id,
+      redeem: redeemLine(r.redemption?.find((f) => f.crypto_id === w.crypto_id), commodity ? noun : "shares"),
     };
   });
 
@@ -295,7 +319,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
         ].filter((x): x is { label: string; value: string } => x !== null),
         line: routeLine(best.verdict),
         stats: [
-          { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} the typical price` },
+          { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} ${refName}` },
           {
             value: moneyShort(best.premium_usd ?? 0),
             label: `${(best.premium_usd ?? 0) >= 0 ? "extra" : "less"} per ${unitWord}`,
@@ -312,7 +336,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
   const traded = tradable.reduce((n, w) => n + (w.volume_24h ?? 0), 0);
   const busiest = tradable.reduce<WrapperResult | null>((b, w) => ((w.volume_24h ?? 0) > (b?.volume_24h ?? 0) ? w : b), null);
   const summary: SummaryTile[] = [
-    { label: "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
+    { label: isSpot ? "Spot price" : "Typical price", value: ref === null ? "—" : money(ref), note: `per ${commodity ? "troy ounce" : unitWord}` },
     livePrems.length > 1
       ? { label: "Price spread", value: `${(Math.max(...livePrems) - Math.min(...livePrems)).toFixed(2)}%`, note: `across ${livePrems.length} live` }
       : { label: "Price spread", value: "—", note: livePrems.length ? "only 1 live token" : "no live tokens" },
@@ -334,7 +358,7 @@ export function present(r: CheckResponse, now = Date.now()): View {
     reasons: reasons.slice(0, 4),
     summary,
     instrument: {
-      reference: { label: `${Noun} tokens`, price: ref === null ? "—" : money(ref) },
+      reference: { label: isSpot ? `${Noun} spot` : `${Noun} tokens`, price: ref === null ? "—" : money(ref), vs: isSpot ? "vs spot price" : "vs typical price" },
       coins,
       zone: zoneDiscount === null ? null : { label: `Looks ${Math.abs(zoneDiscount).toFixed(0)}% cheaper`, pct: pct(zoneDiscount, 0) },
       callout: rich[0] ? { id: rich[0].crypto_id, text: `${pct(rich[0].premium_pct ?? 0)}, ${moneyShort(rich[0].premium_usd ?? 0)} extra` } : null,
@@ -351,10 +375,13 @@ export function present(r: CheckResponse, now = Date.now()): View {
     },
     route,
     noEasyExit: top !== null && best === null,
-    gaps: gapViews(r.gaps, noun, commodity),
-    evidence: evidenceViews(r.evidence, ws),
+    // The midpoint note only matters when a typical price is actually shown.
+    gaps: gapViews(r.gaps, noun, commodity, stockMarketClosed(r), isSpot || ref === null ? null : r.reference.wrappers_used),
+    evidence: evidenceViews(r.evidence, ws, r.registry ?? null),
     notice: fallbackNotice(r),
-    fine: `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
+    fine: isSpot
+      ? `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the ${noun} spot price at the time of the quotes, after converting units.`
+      : `Not financial advice. Prices from CoinMarketCap. Premiums compare each token with the typical price of all ${noun} tokens, after converting units.`,
     mode: r.mode,
   };
 }
@@ -373,6 +400,13 @@ function checkedNote(unholdable: number, offTrack: number): string {
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /** "25 Sep 2026" in UTC, the same on every server and browser (locales disagree on "Sept"). */
+/** One plain line on how a holder gets the real asset, linked to the issuer's page it comes from. */
+export function redeemLine(f: RedemptionFact | undefined, what: string): RowView["redeem"] {
+  if (!f) return null;
+  const text = { issuer_kyc: "Redeemable with the issuer, after KYC", issuer: "Redeemable through the issuer", none: `Can't be redeemed for ${what}` }[f.route];
+  return { text, url: f.url, title: `${f.summary} (from the issuer's page)` };
+}
+
 export function dayLabel(iso: string): string {
   const d = new Date(iso);
   return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
@@ -413,6 +447,28 @@ function fallbackNotice(r: CheckResponse): string | null {
 /** "1 credit", "0 credits". */
 export const credits1 = (n: number) => `${n} credit${n === 1 ? "" : "s"}`;
 
+/**
+ * One coin's tooltip, e.g. "XAUt · +0.03% vs spot", "CGO · −0.93% vs spot · priced per gram",
+ * "XAU · price feed, not a token". Says what the premium is measured against, and never
+ * leaves a converted price or a ghost unexplained.
+ */
+export function coinTooltip(w: WrapperResult, ctx: { isSpot: boolean; noun: string }): string {
+  const vs = ctx.isSpot ? "spot" : "typical";
+  if (w.verdict === "GHOST") {
+    if (isDerivative(w)) return `${w.display} · price feed, not a token`;
+    if (w.price_raw === null || w.premium_pct === null) return `${w.display} · no price`;
+    if (isOffTrack(w)) return `${w.display} · ${pct(w.premium_pct, 0)} vs ${vs} · doesn't track ${ctx.noun}`;
+    return w.display;
+  }
+  const parts = [w.display, `${pct(w.premium_pct ?? 0)} vs ${vs}`];
+  if (w.unit === "per_gram_to_oz") parts.push("priced per gram");
+  if (w.unit === "per_token_ratio" && w.units_per_token !== null) {
+    const what = ctx.isSpot ? "ounce" : "share";
+    parts.push(`1 token = ${w.units_per_token} ${what}${w.units_per_token === 1 ? "" : "s"}`);
+  }
+  return parts.join(" · ");
+}
+
 function ghostLine(w: WrapperResult, noun: string): string {
   if (w.price_raw === null) return `${w.display} has no price`;
   if (isOffTrack(w)) return `${w.display} doesn't track ${noun}`;
@@ -432,7 +488,25 @@ function routeLine(v: Verdict): string {
   }
 }
 
-function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
+/**
+ * Stocks only: were US markets closed when these quotes were taken? Tokens trade 24/7, the
+ * shares don't, so prices can drift from the last close. Regular hours: Mon–Fri 9:30–16:00
+ * New York time (holidays aren't known here, so this can only under-report).
+ */
+export function usMarketClosedAt(iso: string): boolean {
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  if (get("weekday") === "Sat" || get("weekday") === "Sun") return true;
+  const minutes = Number(get("hour")) * 60 + Number(get("minute"));
+  return minutes < 9 * 60 + 30 || minutes >= 16 * 60;
+}
+
+function stockMarketClosed(r: CheckResponse): boolean {
+  const stock = r.asset.asset_type === "stock" || r.asset.asset_type === "etf";
+  return stock && !!r.data_as_of && usMarketClosedAt(r.data_as_of);
+}
+
+function gapViews(gaps: Gap[], noun: string, commodity: boolean, marketClosed = false, comparedTokens: number | null = null): GapView[] {
   const out: GapView[] = [];
   const has = (c: string) => gaps.some((g) => g.code === c);
   if (has("market_pairs_unavailable")) {
@@ -454,8 +528,27 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
       sub: "We compare tokens with each other. If they all drifted together, we wouldn't see it.",
     });
   }
-  for (const g of gaps.filter((x) => x.code === "ambiguous_query" || x.code === "contracts_unavailable")) {
-    out.push({ icon: "info", title: g.code === "ambiguous_query" ? "Which asset you meant" : "Token contracts", sub: g.message });
+  for (const g of gaps.filter((x) => ["ambiguous_query", "contracts_unavailable", "spot_unavailable", "spot_latest"].includes(x.code))) {
+    const title = { ambiguous_query: "Which asset you meant", contracts_unavailable: "Token contracts", spot_unavailable: `The ${noun} spot price`, spot_latest: `The ${noun} spot price` }[g.code as "ambiguous_query"];
+    out.push({ icon: "info", title, sub: g.message });
+  }
+  // With 1–2 tokens to compare, the "typical price" is one token or a midpoint: say what a premium can mean.
+  if (comparedTokens === 1 || comparedTokens === 2) {
+    out.push({
+      icon: "target",
+      title: "How far a token is from the real price",
+      sub:
+        comparedTokens === 2
+          ? "Only 2 tokens can be compared, so the typical price is their midpoint: a premium here means more than the other token, not more than the share."
+          : "Only 1 token has a live price, so there's nothing to compare it with.",
+    });
+  }
+  if (marketClosed) {
+    out.push({
+      icon: "info",
+      title: "Where the shares are trading now",
+      sub: "US markets were closed when these prices were taken. Tokens trade around the clock, so they can drift from the last close.",
+    });
   }
   out.push({
     icon: "lock",
@@ -465,7 +558,7 @@ function gapViews(gaps: Gap[], noun: string, commodity: boolean): GapView[] {
   return out;
 }
 
-function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): EvidenceView[] {
+function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[], registry: CheckResult["registry"]): EvidenceView[] {
   const byAddress = new Map(ws.filter((w) => w.contract).map((w) => [String(w.contract).toLowerCase(), w]));
   const out: EvidenceView[] = [];
   const mapPages = evidence.filter((e) => e.endpoint === "/v5/real-world-assets/map" && "start" in e.params);
@@ -500,6 +593,18 @@ function evidenceViews(evidence: EvidenceEntry[], ws: WrapperResult[]): Evidence
       excerpt: curate(e),
     });
   });
+  if (registry) {
+    out.push({
+      id: "registry",
+      label: `READ ${registry.file}`,
+      meta: "0 credits",
+      ok: true,
+      note: `Parity's open registry: units for ${registry.units} of ${registry.tokens} tokens. Each fact says where it came from; unknown ones stay empty.`,
+      at: null,
+      excerpt: { file: registry.file, tokens: registry.tokens, units_known: registry.units, url: `https://github.com/dan-build/parity/blob/main/${registry.file}` },
+      static: true,
+    });
+  }
   out.push({
     id: "market-pairs",
     label: "GET /v5/real-world-assets/market-pairs/list",
