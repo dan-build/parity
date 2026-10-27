@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.4.0**
+**Method version 1.4.1**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -113,8 +113,9 @@ or exit score uses it.
 Pick an amount (**$1k, $10k or $100k**). For each token that isn't a Ghost, Parity shows a
 **ceiling** on what getting in and out costs at that size (`lib/size.ts`):
 
-- **Getting in:** the premium over the reference price, plus price impact.
-- **Getting out later:** price impact again, at today's depth.
+- **The cost is price impact both ways:** getting in, and getting out later at today's depth.
+  The premium isn't added: it has its own column, and you usually sell back at a premium too,
+  so only a change in it would cost you. The hover shows it in dollars for context.
 - **Price impact** uses the standard pool formula. A pool with depth L (both sides, in dollars)
   holds about L/2 on its dollar side, and a trade of S dollars moves the average price by
   S ÷ (L/2). L is the token's **tradable depth**: DEX pools paired with dollars or a major
@@ -138,6 +139,13 @@ checked depth means no estimate, never a guess. The best way in doesn't use it y
 ---
 
 ## Changelog
+
+### 1.4.1 (27 Oct 2026)
+**Correction to the cost at your size (§13).** 1.4.0 added the premium to the cost of getting
+in but never gave it back on the way out, so a token whose discount was larger than its price
+impact showed a negative cost on the live site ("up to $0.00 (−0.1%)"). The cost is now price
+impact both ways; the premium stays in its own column and the hover. On the saved GOLD data at
+$10k: PAXG up to $18, XAUt up to $22, XAUM up to $3,507. Verdicts unchanged.
 
 ### 1.4.0 (27 Oct 2026)
 **Cost at your size (new, §13), and Base is a checked chain.** Each token now shows a ceiling

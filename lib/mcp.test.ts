@@ -82,7 +82,7 @@ describe("check_rwa (in memory)", () => {
     const at = async (size_usd?: number) =>
       ((await client.callTool({ name: "check_rwa", arguments: size_usd ? { query: "GOLD", size_usd } : { query: "GOLD" } })).structuredContent as { tokens: { token: string; cost: Cost }[] }).tokens;
     const paxg = (await at()).find((t) => t.token === "PAXG")?.cost;
-    expect(paxg).toMatchObject({ size_usd: 10000, kind: "estimate", up_to_usd: 17 });
+    expect(paxg).toMatchObject({ size_usd: 10000, kind: "estimate", up_to_usd: 18 });
     expect(paxg?.note).toMatch(/ceiling/);
     expect((await at(100000)).find((t) => t.token === "PAXG")?.cost?.size_usd).toBe(100000);
     expect((await at()).find((t) => t.token === "CGO")?.cost).toMatchObject({ kind: "unknown", up_to_usd: null });
