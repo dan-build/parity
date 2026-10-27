@@ -1,0 +1,254 @@
+{
+  "data": [
+    {
+      "addr": "507edbb92f4b5368bcd41b7ae7bd2e7039fb24de9be5",
+      "v24": "1713.174060926873923683",
+      "t0": {
+        "addr": "So11111111111111111111111111111111111111112",
+        "lg": "https://dex-static.sintral.io/token-logo/16/So11111111111111111111111111111111111111112/1766048405124.jpeg",
+        "n": "Wrapped SOL",
+        "sym": "wSOL",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liqUsd": "0"
+      },
+      "bidx": 1,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "8e14119e6b8856367c206cd9e783949dd9b1d9889456",
+      "v24": "0",
+      "t0": {
+        "addr": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37055.png",
+        "n": "Meta xStock",
+        "sym": "METAx",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "9cc9b2a842b1cca155fa3ed82db989d2ba48656e9901",
+      "v24": "0",
+      "t0": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx"
+      },
+      "t1": {
+        "addr": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37005.png",
+        "n": "Circle xStock",
+        "sym": "CRCLx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "c7b4600436abe52e6ae7d1b1705efe70aca948d85c0a",
+      "v24": "0",
+      "t0": {
+        "addr": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40218.png",
+        "n": "SpaceX xStock",
+        "sym": "SPCXx"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "dbe90dd3e8335417c39f02e9df112387b5e2c861545b",
+      "v24": "0",
+      "t0": {
+        "addr": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/36507.png",
+        "n": "Pump",
+        "sym": "PUMP"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx"
+      },
+      "bidx": 0,
+      "fa": "61DFfeTKM7trxYcPQCM78bJ794ddZprZpAwAnLiwTpYH",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "CLu4kFM4nb67xrdN7vJnMxXXir8Z5hA4HJUzPFccXjsL",
+      "v24": "206311.981063269677117797",
+      "pubAt": "1759148792000",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "280471.314569",
+        "liqUsd": "280403.132279888374885431"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liq": "170.39305357",
+        "liqUsd": "90574.642299941165261153"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "370977.774579829540146583",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "D6bRhQUcR9B7bPbbqgxpE17MjyUjBtr8hHQCcJoHrrv1",
+      "v24": "61815.147582702880117353",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "209930.202257",
+        "liqUsd": "209868.558775343499041488"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liq": "302.3896501",
+        "liqUsd": "160732.132987587534520921"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "370600.691762931033562408",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "CMcEKRDMpLPtijKpt57zYAba6f57oB65xDXPa3W7zMBF",
+      "v24": "5093.385038678108839488",
+      "pubAt": "1789598637000",
+      "t0": {
+        "addr": "FvhorDts9M8uJekzs3pBcYUPUjWtCTrGLhdv3ADHyeRY",
+        "lg": "https://ipfs.sintral.me/cdn-cgi/image/width=480,quality=100,format=webp/url/https%3A%2F%2Faxiomtrading-v2.axiom-cdn.io%2FmMHUFPJma7sGuFxYteoHJkfzb5iW6oLxsvVnUYfSTNK.webp",
+        "n": "LinkedInu",
+        "sym": "LinkedInu",
+        "liq": "133386437.378908",
+        "liqUsd": "22757.713095608118927249"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liq": "43.82062284",
+        "liqUsd": "23278.094211027684980594"
+      },
+      "bidx": 0,
+      "exid": 10403,
+      "exn": "Raydium (CPMM)",
+      "liqUsd": "46035.807306635803907842",
+      "fa": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "lr": "1",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "J1D1y41YHyJ3sTkd3CPXxcQcH3sB9JbexDQifN4djLyT",
+      "v24": "2425.012084610855962456",
+      "t0": {
+        "addr": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "6947.904205",
+        "liqUsd": "6945.864036406784812951"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liq": "41.96258114",
+        "liqUsd": "22304.880956769978214093"
+      },
+      "bidx": 1,
+      "exid": 1426,
+      "exn": "Orca",
+      "liqUsd": "29250.744993176763027044",
+      "fa": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "HrkeM8zFLiLp7ShhZKkM3b6Tvt8Aq2AKFcCvxRnfwKaq",
+      "v24": "39304.422393341878048152",
+      "pubAt": "1775195695000",
+      "t0": {
+        "addr": "So11111111111111111111111111111111111111112",
+        "lg": "https://dex-static.sintral.io/token-logo/16/So11111111111111111111111111111111111111112/1766048405124.jpeg",
+        "n": "Wrapped SOL",
+        "sym": "wSOL",
+        "liq": "215.551305811",
+        "liqUsd": "21577.309065639282949296"
+      },
+      "t1": {
+        "addr": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/37056.png",
+        "n": "Microsoft xStock",
+        "sym": "MSFTx",
+        "liq": "8.30222825",
+        "liqUsd": "4409.064448195444268068"
+      },
+      "bidx": 1,
+      "exid": 10557,
+      "exn": "Raydium (CLMM)",
+      "liqUsd": "25986.373513834727217364",
+      "fa": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+      "top": true,
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-10-27T14:21:59.777Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 240,
+    "credit_count": 1
+  }
+}

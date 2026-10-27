@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-27T14:22:03.568Z",
+  "assets": [
+    "MSFT"
+  ],
+  "rwa_ids": {
+    "MSFT": 7
+  },
+  "credits_used_today": {
+    "before": 45,
+    "after": 50,
+    "delta": 5
+  },
+  "calls": [
+    {
+      "endpoint": "/v1/key/info",
+      "params": {},
+      "status": 200,
+      "error_code": null,
+      "credit_count": 0,
+      "fetched_at": "2026-10-27T14:21:53.249Z",
+      "elapsed_ms": 902,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v5/real-world-assets/map",
+      "params": {
+        "symbol": "MSFT"
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 0,
+      "fetched_at": "2026-10-27T14:21:54.151Z",
+      "elapsed_ms": 1028,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v5/real-world-assets/quotes/latest",
+      "params": {
+        "rwa_id": 7
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-10-27T14:21:55.180Z",
+      "elapsed_ms": 1572,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v2/cryptocurrency/info",
+      "params": {
+        "id": "28618,37056,37214,38086,39495,39616,40589,40609,40695,42494",
+        "skip_invalid": "true"
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-10-27T14:21:56.753Z",
+      "elapsed_ms": 1573,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "solana",
+        "address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-10-27T14:21:58.327Z",
+      "elapsed_ms": 1573,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "ethereum",
+        "address": "0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-10-27T14:21:58.327Z",
+      "elapsed_ms": 3144,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/dex/token/pools",
+      "params": {
+        "platform": "bsc",
+        "address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "size": 10
+      },
+      "status": 200,
+      "error_code": null,
+      "credit_count": 1,
+      "fetched_at": "2026-10-27T14:21:58.327Z",
+      "elapsed_ms": 3808,
+      "cached": false,
+      "source": "live"
+    },
+    {
+      "endpoint": "/v1/key/info",
+      "params": {},
+      "status": 200,
+      "error_code": null,
+      "credit_count": 0,
+      "fetched_at": "2026-10-27T14:22:02.164Z",
+      "elapsed_ms": 1403,
+      "cached": false,
+      "source": "live"
+    }
+  ]
+}

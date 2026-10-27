@@ -47,7 +47,7 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 - `lib/verdict.ts`: pure scoring logic, no fetching, covered by tests
 - `fixtures/`: real captured responses used by fixture mode and tests
 - Data mode: `PARITY_DATA_MODE=fixture` (default, zero credits, replays `fixtures/`) or `live`
-  (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER, UNH, KLAC, MS.
+  (uses `CMC_API_KEY`). See `lib/data-source.ts`. Fixtures cover GOLD, NVDA, SPY, TSLA, AAPL, SILVER, UNH, KLAC, MS, MSFT.
 - UI: `lib/present.ts` turns a result into copy and numbers (incl. `recommended()`: no route
   when the best-ranked token has zero 24h volume); `lib/log.ts` builds the narrating log from
   real evidence (one line per call); `components/reveal/Reveal.tsx` is the single clock; all
@@ -64,7 +64,7 @@ Out of scope: x402, user accounts, databases, portfolio tracking, charts for dec
 - Scripts: `npm run probe` (record the six default assets + extras), `npm run probe -- UNH MS`
   (record just those, engine calls only), `npm run scan -- --budget 60` (screen assets for
   RICH/GHOST with live quotes, saves nothing). Demo fixtures cover all four verdicts:
-  FAIR (GOLD, NVDA, SPY, TSLA, AAPL), THIN (SILVER), RICH (UNH), GHOST (KLAC, MS).
+  FAIR (GOLD, NVDA, SPY, TSLA, AAPL, MSFT), THIN (SILVER), RICH (UNH), GHOST (KLAC, MS).
 
 ## CMC API notes (verify each with the probe script before relying on it)
 - Base URL: https://pro-api.coinmarketcap.com, header `X-CMC_PRO_API_KEY`

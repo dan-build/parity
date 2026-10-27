@@ -1,0 +1,252 @@
+{
+  "data": [
+    {
+      "addr": "0x88d2861c66c690997a543be6f94393aef0e1b6fc",
+      "v24": "1145.970925570168075518",
+      "t0": {
+        "addr": "0xace8e719899f6e91831b18ae746c9a965c2119f1",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38273.png",
+        "n": "Ondo U.S. Dollar Token",
+        "sym": "USDon"
+      },
+      "t1": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon"
+      },
+      "bidx": 0,
+      "exid": 33109,
+      "exn": "Ondo Global Markets (Ethereum)",
+      "fa": "0x2c158bc456e027b2affccadf1bdbd9f5fc4c5c8c",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x176afdad655a04af3782450e5d50754911c920b9",
+      "v24": "114.069593286369179629",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC"
+      },
+      "t1": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon"
+      },
+      "bidx": 1,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x71b3128867d0f958fb937ab1512cb41b0d50c349",
+      "v24": "0",
+      "t0": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon"
+      },
+      "t1": {
+        "addr": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png",
+        "n": "Wrapped Ether",
+        "sym": "WETH"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xcd5f9a5958007c332f140f5e801c19ed9dcf4d31",
+      "v24": "0",
+      "t0": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "bidx": 0,
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xfdddb6c605cc31cd62791907fec719f119efd636",
+      "v24": "0",
+      "pubAt": "1765512623000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "639973.903664",
+        "liqUsd": "639885.640959428200225732"
+      },
+      "t1": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "1234.447050275375936289",
+        "liqUsd": "641801.383937693194329076"
+      },
+      "bidx": 1,
+      "exid": 32396,
+      "exn": "Ring Exchange (Ethereum)",
+      "liqUsd": "1281687.024897121394554807",
+      "fa": "0xeb2a625b704d73e82946d8d026e1f588eed06416",
+      "mi": false
+    },
+    {
+      "addr": "0xb97c30485cfdb895a811331e2a3aab1233a5bf8ff27b6be149edbdc7e9a37333",
+      "v24": "0.022940102774292847",
+      "pubAt": "1789227743000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "10656.347922",
+        "liqUsd": "10653.144922181636360947"
+      },
+      "t1": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "8.087106512049497274",
+        "liqUsd": "4462.609119153172214014"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "15115.75404133480857496",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0xc5ed3d6864ee8a89186a7a745c3bb98ec2f3c492eccaa051bd3a8b5e67fa060a",
+      "v24": "17.06326156948285738",
+      "pubAt": "1791920531000",
+      "t0": {
+        "addr": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+        "n": "USD Coin",
+        "sym": "USDC",
+        "liq": "1027.577021",
+        "liqUsd": "1027.247647462215323179"
+      },
+      "t1": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "1.548041492658566463",
+        "liqUsd": "842.437487865313860294"
+      },
+      "bidx": 1,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "1869.685135327529183473",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x85ad58bac0512ec4df316cfa1dce13dca07c503d70e0ae2b678da21ccf7413d3",
+      "pubAt": "1789096919000",
+      "t0": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "1.201233766548292682",
+        "liqUsd": "0"
+      },
+      "t1": {
+        "addr": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "594.571865",
+        "liqUsd": "594.249258226478257136"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "594.249258226478257136",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x3e228153e09c6aa45cc68e482878bcf3791227feb97f90c6cb97124698be8877",
+      "v24": "0",
+      "pubAt": "1790281007000",
+      "t0": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "0.936946838997907067",
+        "liqUsd": "487.595732428927798074"
+      },
+      "t1": {
+        "addr": "0xc24e079ccff54beb0ea00f1031980cee8c3e3c52",
+        "n": "MacroHard",
+        "sym": "MCHR",
+        "liq": "946706474.620949241423135283",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "487.595732428927798074",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    },
+    {
+      "addr": "0x32d130380eff80deb8f64e364426d60d95fffbe90a948281605c0f08630ce7cd",
+      "v24": "0",
+      "pubAt": "1792443863000",
+      "t0": {
+        "addr": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/38086.png",
+        "n": "Microsoft (Ondo Tokenized)",
+        "sym": "MSFTon",
+        "liq": "0.848911790095802667",
+        "liqUsd": "456.107958030659758027"
+      },
+      "t1": {
+        "addr": "0xf02e953592be5f21befd1c1ea9b7fc37bbc124c7",
+        "n": "Pogo",
+        "sym": "POGO",
+        "liq": "899166789.212224364556184461",
+        "liqUsd": "0"
+      },
+      "bidx": 0,
+      "exid": 11955,
+      "exn": "Uniswap v4 (Ethereum)",
+      "liqUsd": "456.107958030659758027",
+      "fa": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-10-27T14:22:01.268Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 189,
+    "credit_count": 1
+  }
+}

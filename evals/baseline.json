@@ -464,6 +464,84 @@
           "exit_score": null
         }
       }
+    },
+    "MSFT": {
+      "verdict": "FAIR",
+      "answer": "best way in · MSFTon",
+      "sub": "if you pick the right token.",
+      "reference_price": 530.15,
+      "tokens": {
+        "28618": {
+          "token": "MSFT.D",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": null,
+          "exit_score": null
+        },
+        "37056": {
+          "token": "MSFTX",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.1,
+          "exit_score": 70
+        },
+        "37214": {
+          "token": "WMSFTX",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": 0.12,
+          "exit_score": 30
+        },
+        "38086": {
+          "token": "MSFTon",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": 0.18,
+          "exit_score": 100
+        },
+        "39495": {
+          "token": "MSFT (NA (Derivatives))",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": -0.15,
+          "exit_score": null
+        },
+        "39616": {
+          "token": "MSFT (Hyperliquid Assets)",
+          "verdict": "GHOST",
+          "unit": "as_quoted",
+          "premium_pct": 5.66,
+          "exit_score": null
+        },
+        "40589": {
+          "token": "MSFTB",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.27,
+          "exit_score": 85
+        },
+        "40609": {
+          "token": "rMSFT",
+          "verdict": "THIN",
+          "unit": "as_quoted",
+          "premium_pct": -0.33,
+          "exit_score": 30
+        },
+        "40695": {
+          "token": "MSFT (Robinhood)",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.24,
+          "exit_score": 45
+        },
+        "42494": {
+          "token": "MSFTc",
+          "verdict": "FAIR",
+          "unit": "as_quoted",
+          "premium_pct": -0.1,
+          "exit_score": 60
+        }
+      }
     }
   }
 }

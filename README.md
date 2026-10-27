@@ -102,7 +102,7 @@ If the asset isn't saved, the page asks you to try again in a minute.
 | `npm run drift` | Runs the golden assets on saved data and live, and compares the *shape* of CoinMarketCap's responses (fields and types, never values) plus tokens, units and gaps. Warnings are possible API changes; a private report goes to `history/drift/`. | ~41 |
 | `npm run snapshot -- --kind auto` | Appends a private history snapshot of the watched assets (`scripts/watchlist.json`) to the git-ignored `history/` folder. Never published (see Licensing below). | 9 (prices) to ~60 (full) |
 | `npm run registry:seed` | Adds registry entries for the watched assets from saved data (never overwrites) | 0 |
-| `npm run eval` | The verdict scorecard: 9 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
+| `npm run eval` | The verdict scorecard: 10 golden cases covering all four verdicts, plus a diff against the saved baseline. Fails if verdicts change without a method version bump. CI runs it on every push. | 0 |
 | `npm run mcp` | Starts the MCP server over stdio (see below) | 0 saved, 5–8 per live check |
 | `npm run probe` | Runs the real engine for the six core assets through a recorder. Saves every response to `fixtures/` and probes the extra endpoints. | ~35 |
 | `npm run probe -- UNH MS` | Records just those assets, engine calls only. Logs to `fixtures/_probe-UNH-MS.json`. | ~3–4 each |

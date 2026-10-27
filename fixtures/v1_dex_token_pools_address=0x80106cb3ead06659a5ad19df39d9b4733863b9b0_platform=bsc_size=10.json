@@ -1,0 +1,262 @@
+{
+  "data": [
+    {
+      "addr": "0x4f4f25a17434a12c3321210750722c7850ebb061",
+      "v24": "2422.149164795410744422",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB"
+      },
+      "bidx": 1,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x49d50aa0a9cdb533fbd40522f1a2d3afd8f903e0",
+      "v24": "9.0203716204760643",
+      "t0": {
+        "addr": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40215.png",
+        "n": "NVIDIA Corp",
+        "sym": "NVDAB"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xf9cf42596fec7f3c690216da8c626f7a895d6412",
+      "v24": "0",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB"
+      },
+      "bidx": 1,
+      "exid": 33933,
+      "exn": "Neptune",
+      "fa": "0xe2588c219697f520757b82f5b0119d72bddc0e13",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x61a13987ca65b3e47f418fd0e92285f2c12e483d",
+      "v24": "0",
+      "t0": {
+        "addr": "0x1a4b499833a79a09ad7cf1d42d7dacf71e92eb00",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40929.png",
+        "n": "Amazon",
+        "sym": "AMZNB"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xbc2de1dfcf61a67405fcb884bc9c62b208cf2031",
+      "v24": "0",
+      "t0": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB"
+      },
+      "t1": {
+        "addr": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "lg": "https://dex-static.sintral.io/token-logo/14/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/1766048587507.png",
+        "n": "Wrapped BNB",
+        "sym": "WBNB"
+      },
+      "bidx": 0,
+      "exid": 34295,
+      "exn": "Bebop (BSC)",
+      "fa": "0xbbbbbbb520d69a9775e85b458c58c648259fad5f",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x5018b018ceb7645c927c5cf246786f89ebcbe7ea",
+      "v24": "29473.556498188398323082",
+      "pubAt": "1784565856000",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "92405.453104107722063807",
+        "liqUsd": "92256.914656727598961357"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB",
+        "liq": "86.34477072843550566",
+        "liqUsd": "45604.491018432737618006"
+      },
+      "bidx": 1,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "137861.405675160336579362",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x6a1d40c050289cc8dad85ae2c1ad705222f596d2",
+      "v24": "11072.899636127109257096",
+      "pubAt": "1791824232000",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "54382.267158355950234243",
+        "liqUsd": "54291.243960171832885485"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB",
+        "liq": "40.974665348703351323",
+        "liqUsd": "21671.209687470902468282"
+      },
+      "bidx": 1,
+      "exid": 6444,
+      "exn": "Uniswap v3 (BSC)",
+      "liqUsd": "75962.453647642735353767",
+      "fa": "0xdb1d10011ad0ff90774d0c6bb92e5c5c8b4461f7",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x58e44c2e5b17ef40915b4b3ae8451b6b87285b44",
+      "v24": "1805.824532809031874445",
+      "pubAt": "1785468543000",
+      "t0": {
+        "addr": "0x55d398326f99059ff775485246999027b3197955",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+        "n": "Tether USD",
+        "sym": "USDT",
+        "liq": "40100.864833198020932593",
+        "liqUsd": "40031.46540207549500587"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB",
+        "liq": "22.285513002991081434",
+        "liqUsd": "11875.741426527687231685"
+      },
+      "bidx": 1,
+      "exid": 6706,
+      "exn": "PancakeSwap v3 (BSC)",
+      "liqUsd": "51907.206828603182237554",
+      "fa": "0x0bfbcf9fa4f9c56b0f40a671ad40e0805a091865",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0x8d3848bd2a14492f5077dc67840644006a10ffa6",
+      "v24": "69.842821989497748766",
+      "pubAt": "1786783674000",
+      "t0": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB",
+        "liq": "9.744773104344316617",
+        "liqUsd": "5174.966064631116737117"
+      },
+      "t1": {
+        "addr": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "lg": "https://dex-static.sintral.io/token-logo/14/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/1766048587507.png",
+        "n": "Wrapped BNB",
+        "sym": "WBNB",
+        "liq": "6.969029796068365946",
+        "liqUsd": "5163.134395651000898229"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "10338.100460282117635346",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "0.00000000000000017551312050448118",
+      "top": true,
+      "mi": false
+    },
+    {
+      "addr": "0xfedcb99127e1aeca97d880f645e5123d849010d9",
+      "v24": "45.05782276547994414",
+      "pubAt": "1785765904000",
+      "t0": {
+        "addr": "0x15019a7242afdaa8f1010f4526513989f2087777",
+        "lg": "https://ipfs.sintral.me/cdn-cgi/image/width=480,quality=100,format=webp/ipfs/bafkreif5smi23rroe4fq6ek3rh6ekyxgp3mvbot3gvfh5mhyst5cnfogtu",
+        "n": "CLIPPY",
+        "sym": "CLIPPY",
+        "liq": "670710029.46984290293228283",
+        "liqUsd": "4604.760538954576207205"
+      },
+      "t1": {
+        "addr": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+        "lg": "https://s2.coinmarketcap.com/static/img/coins/64x64/40589.png",
+        "n": "Microsoft",
+        "sym": "MSFTB",
+        "liq": "8.66709745556477683",
+        "liqUsd": "4594.352386538676006863"
+      },
+      "bidx": 0,
+      "exid": 1344,
+      "exn": "PancakeSwap v2 (BSC)",
+      "liqUsd": "9199.112925493252214067",
+      "fa": "0xca143ce32fe78f1f7019d7d551a6402fc5350c73",
+      "lr": "1",
+      "mi": false
+    }
+  ],
+  "status": {
+    "timestamp": "2026-10-27T14:22:02.126Z",
+    "error_code": "0",
+    "error_message": "",
+    "elapsed": 226,
+    "credit_count": 1
+  }
+}
