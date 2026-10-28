@@ -1,6 +1,6 @@
 # How Parity decides
 
-**Method version 1.4.1**
+**Method version 1.5.0**
 
 This is the whole method: every rule and threshold behind a verdict, in order. It's
 versioned. When a rule changes, the version goes up and the changelog below says why. Every
@@ -91,6 +91,12 @@ wins, then the larger market cap. If every token is a Ghost, the page is **Ghost
 
 ## 11. The answer, and when to recommend nothing
 - The best token is named as the **best way in**, but only if it traded in the last 24 hours.
+- **The best token depends on your size** ($1k, $10k or $100k; $10k unless you pick). The
+  default pick is the best verdict, then the highest exit score, then the biggest market cap.
+  At your size it's replaced by the token with the same verdict and the lowest all-in cost
+  (premium plus price impact in and out, §13) only when that's at least **0.5 percentage
+  points** cheaper, or when the default's cost can't be estimated. The estimate is rough, so a
+  smaller gap isn't treated as a real difference.
 - If it didn't, Parity recommends nothing: **"no easy way out"**.
 - If every token is a Ghost: **"no price to trust"** when tokens disagree on price, otherwise
   **"nothing to hold"**.
@@ -123,10 +129,18 @@ Pick an amount (**$1k, $10k or $100k**). For each token that isn't a Ghost, Pari
   tokens don't count.
 - Above **25%** impact each way, it says the size is more than the pools can take.
 
-It's a ceiling: concentrated-liquidity pools are usually cheaper near the current price, and
-some holders can redeem with the issuer instead. It leaves out pool fees and gas (not in
-CoinMarketCap's data) and centralised exchanges (no order books in CoinMarketCap's data). No
-checked depth means no estimate, never a guess. The best way in doesn't use it yet.
+How sure it is depends on the size:
+
+- **"Up to"** when the impact is at most **1%** each way: the trade is small for its pools, and
+  concentrated-liquidity pools are at least as deep near the current price, so the real cost
+  is likely lower.
+- **"About …, rough"** above that: a big trade can run past where a concentrated pool's
+  liquidity sits, so the real cost could be higher or lower. At that size the issuer (if you're
+  eligible) or a centralised exchange may be cheaper.
+
+It only sees DEX pools: it leaves out pool fees and gas (not in CoinMarketCap's data),
+centralised exchanges (no order books in CoinMarketCap's data), and minting or redeeming with
+the issuer. No checked depth means no estimate, never a guess.
 
 ## 14. What this method can't see
 - The real share price of stocks: CoinMarketCap doesn't have it, so stock tokens are compared
@@ -139,6 +153,16 @@ checked depth means no estimate, never a guess. The best way in doesn't use it y
 ---
 
 ## Changelog
+
+### 1.5.0 (27 Oct 2026)
+**The best way in follows your size, and the cost says how sure it is.** A token replaces the
+default pick at a size only when it's at least 0.5 percentage points cheaper all-in there
+(§11): smaller gaps are within the estimate's error, and the answer shouldn't flip on noise.
+The cost line says "up to" only when the impact is at most 1% each way; above that it says
+"about …, rough", because a big trade can run past a concentrated pool's liquidity (§13).
+The best-way-in card now says why in terms that match the pick: "the cheapest to get in and out at $100k, by our estimate" when cost picked it, and "the most traded" only when it is (before, it said so for every FAIR pick; NVDA's most-traded token is Robinhood's). Golden set (default $10k): no change. At $100k, NVDA's best way in becomes NVDAB (9.5% vs
+10.9% all-in); every other asset keeps its pick at every size. Without the margin, GOLD would
+have flipped to PAXG on gaps of 0.04–0.4 points.
 
 ### 1.4.1 (27 Oct 2026)
 **Correction to the cost at your size (§13).** 1.4.0 added the premium to the cost of getting

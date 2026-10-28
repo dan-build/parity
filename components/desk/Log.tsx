@@ -15,9 +15,9 @@ import s from "./Log.module.css";
 
 const FOLD = T.checkingOut.start;
 
-export function Log({ data, onEvidence }: { data: CheckResponse; onEvidence?: () => void }) {
+export function Log({ data, size, onEvidence }: { data: CheckResponse; size: number; onEvidence?: () => void }) {
   const lines = useMemo(() => logLines(data), [data]);
-  const sum = useMemo(() => logSummary(data), [data]);
+  const sum = useMemo(() => logSummary(data, size), [data, size]);
   const els = useRef<(HTMLLIElement | null)[]>([]);
   const toast = useRef<HTMLDivElement>(null);
 

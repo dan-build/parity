@@ -8,7 +8,7 @@
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { answerLine, costLine, dayLabel, present } from "./present";
+import { answerLine, costLine, dayLabel, headlineAt, present } from "./present";
 import { DEFAULT_SIZE, sizeCost, type SizeCost } from "./size";
 import { runCheck } from "./run-check";
 
@@ -56,6 +56,7 @@ export const checkOutput = {
           kind: z.enum(["estimate", "too_big", "unknown"]).describe("estimate: a ceiling from pool depth; too_big: the pools can't take this size; unknown: no depth to check (never guessed)"),
           up_to_usd: z.number().nullable().describe("Ceiling on premium + price impact getting in and out; excludes pool fees and gas"),
           up_to_pct: z.number().nullable(),
+          confidence: z.enum(["ceiling", "rough"]).nullable().describe("ceiling: small for its pools, real cost likely lower; rough: big for its pools, could be higher or lower"),
           note: z.string(),
         })
         .nullable()
@@ -88,6 +89,7 @@ function costOut(c: SizeCost) {
     kind: c.kind,
     up_to_usd: c.kind === "estimate" ? Math.round(Math.max(c.total_usd, 0)) : null,
     up_to_pct: c.kind === "estimate" ? Math.round(c.total_pct * 100) / 100 : null,
+    confidence: c.kind === "estimate" ? c.confidence : null,
     note: line?.title ?? "",
   };
 }
@@ -104,12 +106,12 @@ export async function checkRwa(
     return { ok: false, status, error: body.error, message: `${body.message}${hint}`, suggestions };
   }
   const view = present(body, undefined, size);
-  const best = view.route ? body.wrappers.find((w) => w.crypto_id === body.headline_crypto_id) ?? null : null;
+  const best = view.route ? body.wrappers.find((w) => w.crypto_id === headlineAt(body, size)) ?? null : null;
   const out: CheckOutput = {
     query: body.query,
     asset: { name: body.asset.name, symbol: body.asset.symbol, rwa_id: body.asset.rwa_id },
     verdict: body.verdict,
-    answer: answerLine(body),
+    answer: answerLine(body, size),
     summary: `${view.headline.word}: ${view.headline.sub}`,
     reasons: view.reasons.map((r) => `${r.strong}${r.rest}`.trim()),
     // null whenever the page wouldn't show one (e.g. KLAC: a midpoint of two prices 10× apart).

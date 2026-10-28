@@ -8,7 +8,7 @@ import type { EvidenceEntry } from "./cmc";
 import type { CoinKind } from "./reveal/layout";
 import { DEFAULT_SIZE, MAX_IMPACT, sizeCost, type SizeCost } from "./size";
 import { NYSE_EARLY_CLOSES, NYSE_HOLIDAYS } from "./us-market-calendar";
-import { OFF_TRACK_PCT, type Gap, type Verdict, type WrapperResult } from "./verdict";
+import { defaultPick, OFF_TRACK_PCT, type Gap, type Verdict, type WrapperResult } from "./verdict";
 
 export type Mood = { value: number; classification: string; updated: string | null };
 /** fallback: why a live request was answered from saved data (null when it wasn't). */
@@ -151,8 +151,14 @@ export const isOffTrack = (w: WrapperResult) =>
  * The token we point people to: the engine's headline token, unless nothing trades.
  * A token with no volume in the last 24 hours isn't a way in, however well it ranks.
  */
-export function recommended(r: Pick<CheckResult, "wrappers" | "headline_crypto_id">): WrapperResult | null {
-  const top = r.wrappers.find((w) => w.crypto_id === r.headline_crypto_id) ?? null;
+/** The headline token at `size` (best_by_size), or the default one. */
+export function headlineAt(r: Pick<CheckResult, "headline_crypto_id"> & { best_by_size?: Record<string, number | null> }, size = DEFAULT_SIZE): number | null {
+  const at = r.best_by_size?.[String(size)];
+  return at === undefined ? r.headline_crypto_id : at;
+}
+
+export function recommended(r: Pick<CheckResult, "wrappers" | "headline_crypto_id"> & { best_by_size?: Record<string, number | null> }, size = DEFAULT_SIZE): WrapperResult | null {
+  const top = r.wrappers.find((w) => w.crypto_id === headlineAt(r, size)) ?? null;
   return top && (top.volume_24h ?? 0) > 0 ? top : null;
 }
 
@@ -165,8 +171,8 @@ export function present(r: CheckResponse, now = Date.now(), size = DEFAULT_SIZE)
   const unitWord = commodity ? "ounce" : r.asset.asset_type === "stock" || r.asset.asset_type === "etf" ? "share" : "unit";
   const ws = r.wrappers;
   const live = ws.filter((w) => w.verdict !== "GHOST");
-  const top = ws.find((w) => w.crypto_id === r.headline_crypto_id) ?? null;
-  const best = recommended(r);
+  const top = ws.find((w) => w.crypto_id === headlineAt(r, size)) ?? null;
+  const best = recommended(r, size);
   const ghosts = ws.filter((w) => w.verdict === "GHOST");
   const perGram = ws.filter((w) => w.unit === "per_gram_to_oz" && w.verdict !== "GHOST");
   // Metals are measured against CMC's spot price; stocks against the tokens' own typical price.
@@ -322,7 +328,7 @@ export function present(r: CheckResponse, now = Date.now(), size = DEFAULT_SIZE)
           best.chain ? { label: "chain", value: best.chain } : null,
           best.contract ? { label: "contract", value: shortAddress(best.contract) } : null,
         ].filter((x): x is { label: string; value: string } => x !== null),
-        line: routeLine(best.verdict),
+        line: routeLine(best, live, size),
         stats: [
           { value: pct(best.premium_pct ?? 0), label: `${(best.premium_pct ?? 0) >= 0 ? "over" : "under"} ${refName}` },
           {
@@ -359,7 +365,7 @@ export function present(r: CheckResponse, now = Date.now(), size = DEFAULT_SIZE)
       total: ws.length,
       claimLine: `${ws.length} token${ws.length === 1 ? "" : "s"} claim to be it`,
     },
-    headline: { verdict: r.verdict, word: VERDICT_WORD[r.verdict], sub: sub[r.verdict], chip: answerLine(r) },
+    headline: { verdict: r.verdict, word: VERDICT_WORD[r.verdict], sub: sub[r.verdict], chip: answerLine(r, size) },
     reasons: reasons.slice(0, 4),
     summary,
     instrument: {
@@ -420,9 +426,18 @@ export function costLine(c: SizeCost): RowView["cost"] {
     return { text: `${at} is more than its pools can take`, title: `Its dollar-paired DEX pools hold about ${moneyShort(c.depth_usd)} in total; a ${at} trade would move the price by more than ${Math.round(MAX_IMPACT * 100)}% each way.`, known: true };
   }
   const prem = c.premium_usd >= 0 ? `a ${moneyShort(c.premium_usd)} premium` : `a ${moneyShort(-c.premium_usd)} discount`;
+  const sees = `Only sees DEX pools paired with dollars or major coins (${moneyShort(c.depth_usd)}); leaves out pool fees, gas, centralised exchanges and minting or redeeming with the issuer.`;
+  const context = `Separately, at this size the token sells at ${prem} to the reference.`;
+  if (c.confidence === "ceiling") {
+    return {
+      text: `In and out at ${at}: up to ${moneyShort(c.total_usd)} (${c.total_pct.toFixed(1)}%)`,
+      title: `Price impact: up to ${moneyShort(c.in_usd)} getting in and the same getting out. A ceiling: the trade is small for its pools, and concentrated pools are usually cheaper. ${sees} ${context}`,
+      known: true,
+    };
+  }
   return {
-    text: `In and out at ${at}: up to ${moneyShort(c.total_usd)} (${c.total_pct.toFixed(1)}%)`,
-    title: `Price impact from its DEX pools paired with dollars or major coins (${moneyShort(c.depth_usd)}): up to ${moneyShort(c.in_usd)} getting in and the same getting out. A ceiling: concentrated pools are usually cheaper, and issuer redemption can be too. Leaves out pool fees and gas. Separately, at this size the token sells at ${prem} to the reference.`,
+    text: `In and out at ${at}: about ${moneyShort(c.total_usd)} (${c.total_pct.toFixed(1)}%), rough`,
+    title: `Rough: a trade this big for its pools can run past where their liquidity sits, so the real cost could be higher or lower than about ${moneyShort(c.in_usd)} each way. At this size the issuer (if you're eligible) or a centralised exchange may be cheaper. ${sees} ${context}`,
     known: true,
   };
 }
@@ -452,8 +467,8 @@ function freshness(r: CheckResponse, now: number): string {
  * The answer in a few words, shared by the chip and the toast: the best way in, or why
  * there isn't one. Never "buy".
  */
-export function answerLine(r: Pick<CheckResult, "wrappers" | "headline_crypto_id">): string {
-  const best = recommended(r);
+export function answerLine(r: Pick<CheckResult, "wrappers" | "headline_crypto_id"> & { best_by_size?: Record<string, number | null> }, size = DEFAULT_SIZE): string {
+  const best = recommended(r, size);
   if (best) return `best way in · ${best.display}`;
   if (r.wrappers.some((w) => w.verdict !== "GHOST")) return "no easy way out";
   if (r.wrappers.some(isOffTrack)) return "no price to trust";
@@ -502,12 +517,20 @@ function ghostLine(w: WrapperResult, noun: string): string {
   return `${w.display} (derivative listing) isn't a token`;
 }
 
-function routeLine(v: Verdict): string {
-  switch (v) {
+/**
+ * Why this token is the best way in, matching how it was picked (verdict.ts bestAt): for its
+ * cost at your size, or by default for its exit score. "Most traded" only when it is.
+ */
+function routeLine(best: WrapperResult, live: WrapperResult[], size: number): string {
+  if (best.crypto_id !== defaultPick(live)?.crypto_id) {
+    return `${best.verdict === "FAIR" ? "Fairly priced, and the" : "The"} cheapest to get in and out at ${sizeLabel(size)}, by our estimate.`;
+  }
+  const mostTraded = live.every((w) => (w.volume_24h ?? 0) <= (best.volume_24h ?? 0));
+  switch (best.verdict) {
     case "FAIR":
-      return "Fairly priced, and the most traded, so the easiest to sell later.";
+      return mostTraded ? "Fairly priced, and the most traded, so the easiest to sell later." : "Fairly priced, and the easiest to sell later.";
     case "RICH":
-      return "The least overpriced option, with a real market to sell into.";
+      return "Costs more than the typical price, but has a real market to sell into.";
     case "THIN":
       return "The easiest to sell of a thin bunch. Keep it small.";
     default:

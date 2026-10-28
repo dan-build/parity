@@ -21,6 +21,12 @@ export const SIZES = [1_000, 10_000, 100_000] as const;
 export const DEFAULT_SIZE = 10_000;
 /** Above this average impact per leg, the pools are too shallow for the estimate to mean much. */
 export const MAX_IMPACT = 0.25;
+/**
+ * Up to this impact per leg, the estimate is a ceiling: concentrated pools are at least as deep
+ * near the current price. Beyond it a trade can run past a pool's concentrated range, so the
+ * real cost can be higher or lower: the estimate is "rough".
+ */
+export const CEILING_IMPACT = 0.01;
 
 export type SizeCost =
   | {
@@ -36,6 +42,8 @@ export type SizeCost =
       /** total_usd as a % of size. */
       total_pct: number;
       depth_usd: number;
+      /** "ceiling": a trade small for its pools, the real cost is likely lower. "rough": could be either way. */
+      confidence: "ceiling" | "rough";
     }
   | { kind: "too_big"; size_usd: number; depth_usd: number }
   | { kind: "unknown"; size_usd: number; reason: "pools_not_checked" | "no_tradable_depth" | "no_price" };
@@ -57,5 +65,5 @@ export function sizeCost(w: Pick<WrapperResult, "premium_pct" | "dex">, size: nu
   const in_usd = impact * size;
   const out_usd = impact * size;
   const total_usd = in_usd + out_usd;
-  return { kind: "estimate", size_usd: size, premium_usd, impact, in_usd, out_usd, total_usd, total_pct: (total_usd / size) * 100, depth_usd: depth };
+  return { kind: "estimate", size_usd: size, premium_usd, impact, in_usd, out_usd, total_usd, total_pct: (total_usd / size) * 100, depth_usd: depth, confidence: impact <= CEILING_IMPACT ? "ceiling" : "rough" };
 }
