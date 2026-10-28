@@ -7,6 +7,7 @@
 import type { EvidenceEntry } from "./cmc";
 import type { CheckResponse } from "./present";
 import { answerLine, credits1, money, moneyShort, pct } from "./present";
+import { DEFAULT_SIZE } from "./size";
 import { T } from "./reveal/timings";
 
 export type LogLine = {
@@ -122,9 +123,9 @@ function callLines(r: CheckResponse): Omit<LogLine, "at">[] {
   return out;
 }
 
-export function logSummary(r: CheckResponse): LogSummary {
+export function logSummary(r: CheckResponse, size = DEFAULT_SIZE): LogSummary {
   const word = { FAIR: "Fair", RICH: "Rich", THIN: "Thin", GHOST: "Ghost" }[r.verdict];
-  const answer = answerLine(r);
+  const answer = answerLine(r, size);
   return {
     calls: r.evidence.length,
     credits: r.evidence.reduce((s, e) => s + spent(e), 0),

@@ -3,7 +3,8 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { SPOT_MAX_GAP_MIN } from "./check";
 import { SUPPORTED_DEX_CHAINS } from "./cmc";
-import { MAX_IMPACT, SIZES } from "./size";
+import { CEILING_IMPACT, MAX_IMPACT, SIZES } from "./size";
+import { SWITCH_MARGIN_PP } from "./verdict";
 import {
   DEPTH_TIERS,
   DISCOUNT_WARN_PCT,
@@ -40,6 +41,8 @@ describe("METHOD.md matches the code", () => {
   it("states the sizes and the impact cap the cost estimate uses (§13)", () => {
     expect(doc).toContain(`**${SIZES.map((n) => `$${n / 1000}k`).join(", ").replace(/, (?=[^,]*$)/, " or ")}**`);
     expect(doc).toContain(`Above **${MAX_IMPACT * 100}%** impact each way`);
+    expect(doc).toContain(`at most **${CEILING_IMPACT * 100}%** each way`);
+    expect(doc.replace(/\s+/g, " ")).toContain(`at least **${SWITCH_MARGIN_PP} percentage points** cheaper`);
   });
 
   it("lists the same exit tiers and DEX chains", () => {

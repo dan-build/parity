@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { gatherInputs } from "./check";
 import { clearCmcCache, createCmcClient } from "./cmc";
 import { fixtureTransport } from "./cmc-fixtures";
-import { GRAMS_PER_TROY_OUNCE, OFF_TRACK_PCT, THIN_BELOW, verdict, type VerdictInput, type VerdictResult } from "./verdict";
+import { GRAMS_PER_TROY_OUNCE, OFF_TRACK_PCT, THIN_BELOW, verdict, type VerdictInput, type VerdictResult, bestAt, SWITCH_MARGIN_PP, type WrapperResult } from "./verdict";
 
 const GOLD = 1;
 const NVDA = 2;
@@ -250,5 +250,23 @@ describe("purity", () => {
     const snapshot = structuredClone(input);
     verdict(input);
     expect(input).toEqual(snapshot);
+  });
+});
+
+describe("best way in at a size (bestAt)", () => {
+  const w = (id: number, verdict: "FAIR" | "THIN", premium_pct: number, tradable: number | null, exit_score: number) =>
+    ({ crypto_id: id, verdict, premium_pct, exit_score, market_cap: 0, dex: { checked: true, not_checked_reason: null, pools: 1, pools_missing_liquidity: 0, liquidity_usd: tradable, biggest_pool: null, tradable_liquidity_usd: tradable } }) as unknown as WrapperResult;
+
+  it("keeps the default pick unless another is at least SWITCH_MARGIN_PP cheaper all-in", () => {
+    const deep = w(1, "FAIR", 0, 4_000_000, 100); // default: best exit score
+    const slightly = w(2, "FAIR", 0, 6_000_000, 80);
+    expect(bestAt([deep, slightly], 10_000)?.crypto_id).toBe(1); // 1.0% vs 0.67%: under the margin
+    expect(bestAt([deep, slightly], 100_000)?.crypto_id).toBe(2); // 10% vs 6.7%: switch
+    expect(SWITCH_MARGIN_PP).toBe(0.5);
+  });
+
+  it("never prefers a worse verdict, and prefers a token it can estimate over one it can't", () => {
+    expect(bestAt([w(1, "FAIR", 0, 100_000, 90), w(2, "THIN", 0, 50_000_000, 20)], 100_000)?.crypto_id).toBe(1);
+    expect(bestAt([w(1, "FAIR", 0, null, 100), w(2, "FAIR", 0, 1_000_000, 60)], 10_000)?.crypto_id).toBe(2);
   });
 });

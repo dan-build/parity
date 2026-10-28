@@ -355,18 +355,19 @@ describe("cost at your size (METHOD.md §13)", () => {
     const rows = present(await load("GOLD"), undefined, 10_000).list.rows;
     const cost = (t: string) => rows.find((r) => r.ticker === t)?.cost;
     expect(cost("PAXG")?.text).toBe("In and out at $10k: up to $18 (0.2%)");
-    expect(cost("XAUM")?.text).toBe("In and out at $10k: up to $3,507 (35.1%)");
+    expect(cost("XAUM")?.text).toBe("In and out at $10k: about $3,507 (35.1%), rough");
+    expect(cost("XAUM")?.title).toMatch(/^Rough: .*could be higher or lower.*the issuer \(if you're eligible\) or a centralised exchange may be cheaper/);
     expect(cost("VNXAU")?.text).toBe("$10k is more than its pools can take");
     expect(cost("CGO")).toMatchObject({ text: "Cost at $10k: can't estimate", known: false });
     expect(cost("XAU")).toBeNull(); // a ghost: nothing to hold, no cost line
-    expect(cost("PAXG")?.title).toMatch(/A ceiling: concentrated pools are usually cheaper.*Leaves out pool fees and gas\. Separately, at this size the token sells at a \$1\.\d\d discount to the reference\.$/);
+    expect(cost("PAXG")?.title).toMatch(/A ceiling: the trade is small for its pools.*Only sees DEX pools.*minting or redeeming with the issuer\. Separately, at this size the token sells at a \$1\.\d\d discount to the reference\.$/);
   });
 
   it("follows the chosen size", async () => {
     const body = await load("GOLD");
     const at = (n: number) => present(body, undefined, n).list.rows.find((r) => r.ticker === "XAUt")?.cost?.text;
     expect(at(1_000)).toMatch(/^In and out at \$1k: up to /);
-    expect(at(100_000)).toMatch(/^In and out at \$100k: up to /);
+    expect(at(100_000)).toMatch(/^In and out at \$100k: about \$[\d,]+ \(\d+\.\d%\), rough$/); // big for its pools: not a ceiling
     expect(present(body, undefined, 100_000).list.size).toBe(100_000);
   });
 
@@ -374,5 +375,38 @@ describe("cost at your size (METHOD.md §13)", () => {
     for (const q of ["GOLD", "NVDA", "MSFT", "UNH", "SILVER"]) {
       for (const r of present(await load(q), undefined, 100_000).list.rows) expect(`${r.cost?.text} ${r.cost?.title}`).not.toMatch(/\bbuy/i);
     }
+  });
+});
+
+describe("the best way in follows your size (METHOD.md §11)", () => {
+  it("NVDA: NVDAX up to $10k; at $100k NVDAB, at least 0.5 points cheaper all-in", async () => {
+    const body = await load("NVDA");
+    const pick = (n: number) => present(body, undefined, n);
+    expect(pick(1_000).headline.chip).toBe("best way in · NVDAX");
+    expect(pick(10_000).headline.chip).toBe("best way in · NVDAX");
+    expect(pick(100_000).headline.chip).toBe("best way in · NVDAB");
+    expect(pick(100_000).list.rows.find((r) => r.best)?.ticker).toBe("NVDAB");
+    expect(pick(100_000).route?.ticker).toBe("NVDAB");
+  });
+
+  it("GOLD keeps XAUt at every size: PAXG is cheaper, but by less than the margin", async () => {
+    const body = await load("GOLD");
+    for (const n of [1_000, 10_000, 100_000]) expect(present(body, undefined, n).headline.chip).toBe("best way in · XAUt");
+  });
+});
+
+describe("the best-way-in card says why, matching how the pick was made", () => {
+  it("names cost at your size when that's why it was picked, and says 'most traded' only when true", async () => {
+    const nvda = await load("NVDA"); // most traded: NVDA (Robinhood), not NVDAX
+    expect(present(nvda, undefined, 10_000).route?.line).toBe("Fairly priced, and the easiest to sell later.");
+    expect(present(nvda, undefined, 100_000).route?.line).toBe("Fairly priced, and the cheapest to get in and out at $100k, by our estimate.");
+    expect(present(await load("GOLD")).route?.line).toBe("Fairly priced, and the most traded, so the easiest to sell later."); // XAUt: 62% of volume
+    expect(present(await load("UNH")).route?.line).toBe("Costs more than the typical price, but has a real market to sell into.");
+  });
+
+  it("the log's summary follows the size too", async () => {
+    const nvda = await load("NVDA");
+    expect(logSummary(nvda, 100_000).verdictLine).toBe("Fair · best way in · NVDAB");
+    expect(logSummary(nvda).verdictLine).toBe("Fair · best way in · NVDAX");
   });
 });

@@ -130,7 +130,7 @@ export function Desk({
               <div className={s.grid}>
                 {/* DOM order is the phone order; desktop places these by grid area. */}
                 <Verdict view={view} />
-                <Log data={state.data} onEvidence={openEvidence} />
+                <Log data={state.data} size={size} onEvidence={openEvidence} />
                 <Stage view={view} />
                 <Tiles view={view} />
                 <Reasons view={view} />

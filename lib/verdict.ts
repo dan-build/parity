@@ -5,6 +5,7 @@
  * wrappers are both called "NVDA").
  */
 import type { AssetType, DexPool, RwaToken, TradfiMarket, WrapperContract } from "./cmc";
+import { DEFAULT_SIZE, SIZES, sizeCost } from "./size";
 
 export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
 
@@ -15,7 +16,7 @@ export type Verdict = "FAIR" | "RICH" | "THIN" | "GHOST";
  * there) whenever a rule or threshold changes; `npm run eval` fails if verdicts change while
  * this stays the same.
  */
-export const METHOD_VERSION = "1.4.1";
+export const METHOD_VERSION = "1.5.0";
 
 export const GRAMS_PER_TROY_OUNCE = 31.1035;
 /** Two prices within ±5% "agree". A price that agrees with the consensus only after ×31.1035 is per gram. */
@@ -138,6 +139,8 @@ export type VerdictResult = {
   verdict: Verdict;
   /** crypto_id of the wrapper the headline is about; null when everything is GHOST. */
   headline_crypto_id: number | null;
+  /** The best way in at each size in SIZES (keys "1000", "10000", "100000"); headline_crypto_id is the one at DEFAULT_SIZE. */
+  best_by_size: Record<string, number | null>;
   reasons: string[];
   wrappers: WrapperResult[];
   reference: {
@@ -201,6 +204,46 @@ export function preScreen(t: RwaToken): string | null {
 }
 
 // --- the engine ---------------------------------------------------------------------------
+
+const VERDICT_RANK: Record<Verdict, number> = { FAIR: 0, RICH: 1, THIN: 2, GHOST: 3 };
+
+/**
+ * A token only replaces the default pick at a size when its all-in cost there is lower by at
+ * least this many percentage points: the estimate is rough, and a best way in shouldn't flip
+ * on noise (METHOD.md §11).
+ */
+export const SWITCH_MARGIN_PP = 0.5;
+
+/**
+ * The best way in at `size` dollars among live (non-ghost) wrappers. Default pick: verdict
+ * first (FAIR, RICH, THIN), then exit score, then market cap. It's replaced by the token of the
+ * same verdict with the lowest all-in cost at this size (premium + price impact in and out,
+ * lib/size.ts) when that's at least SWITCH_MARGIN_PP cheaper, or when the default's cost can't
+ * be estimated or is more than its pools can take.
+ */
+/** The default pick, without a size: best verdict, then highest exit score, then biggest market cap. */
+export function defaultPick(live: WrapperResult[]): WrapperResult | null {
+  return (
+    [...live].sort(
+      (a, b) => VERDICT_RANK[a.verdict] - VERDICT_RANK[b.verdict] || (b.exit_score ?? 0) - (a.exit_score ?? 0) || (b.market_cap ?? 0) - (a.market_cap ?? 0),
+    )[0] ?? null
+  );
+}
+
+export function bestAt(live: WrapperResult[], size: number): WrapperResult | null {
+  const base = defaultPick(live);
+  if (!base) return null;
+  const allIn = (w: WrapperResult) => {
+    const c = sizeCost(w, size);
+    return c.kind === "estimate" ? (w.premium_pct ?? 0) + c.total_pct : null;
+  };
+  const cheapest = live
+    .filter((w) => w.verdict === base.verdict && allIn(w) !== null)
+    .sort((a, b) => (allIn(a) as number) - (allIn(b) as number) || (b.exit_score ?? 0) - (a.exit_score ?? 0))[0];
+  if (!cheapest || cheapest === base) return base;
+  const baseCost = allIn(base);
+  return baseCost === null || baseCost - (allIn(cheapest) as number) >= SWITCH_MARGIN_PP ? cheapest : base;
+}
 
 export function verdict(input: VerdictInput): VerdictResult {
   const { asset, tokens, contracts, pools } = input;
@@ -372,16 +415,10 @@ export function verdict(input: VerdictInput): VerdictResult {
     return { ...base, exit_score, exit_breakdown: breakdown, verdict: v, reasons: reasons.slice(0, 3) };
   });
 
-  // 7. Headline: best live wrapper by verdict preference, then exit score, then market cap.
-  const rank: Record<Verdict, number> = { FAIR: 0, RICH: 1, THIN: 2, GHOST: 3 };
+  // 7. Headline: the best way in at each size (bestAt, METHOD.md §11).
   const liveResults = wrappers.filter((w) => w.verdict !== "GHOST");
-  const best =
-    [...liveResults].sort(
-      (a, b) =>
-        rank[a.verdict] - rank[b.verdict] ||
-        (b.exit_score ?? 0) - (a.exit_score ?? 0) ||
-        (b.market_cap ?? 0) - (a.market_cap ?? 0),
-    )[0] ?? null;
+  const best_by_size = Object.fromEntries(SIZES.map((size) => [size, bestAt(liveResults, size)?.crypto_id ?? null])) as Record<string, number | null>;
+  const best = liveResults.find((w) => w.crypto_id === best_by_size[DEFAULT_SIZE]) ?? null;
 
   const ghosts = wrappers.length - liveResults.length;
   const reasons = headlineReasons({ best, wrappers, liveResults, ghosts, perGram: perGram.size, asset: input.asset });
@@ -420,6 +457,7 @@ export function verdict(input: VerdictInput): VerdictResult {
   return {
     verdict: best?.verdict ?? "GHOST",
     headline_crypto_id: best?.crypto_id ?? null,
+    best_by_size,
     reasons,
     wrappers,
     reference: {
